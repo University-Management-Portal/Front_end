@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import LHeader from '../LogHeader/LHeader'
 import "./ForgetPassword.css"
 import "./LoginPage.css"
+import { useNavigate } from 'react-router-dom';
 
 function ForgetPassword() {
     const [step,setStep] =useState(1);
@@ -9,6 +10,7 @@ function ForgetPassword() {
     const [otp,setOtp] = useState();
     const [pass,setPass] = useState();
     const [confirm,setConfirm] = useState();
+    const navigate = useNavigate();
 
     const handleEmail =()=>{
         if(!Email){
@@ -27,13 +29,14 @@ function ForgetPassword() {
     }
 
     const handlePassword=()=>{
-        if(!pass && !confirm){
+        if(!pass || !confirm){
             alert("Please fill all fields");
         }
         if(pass != confirm){
             alert("Password do not match");
         }
         alert("Password reset successfully!")
+        navigate("/");
     }
 
   return (
@@ -58,7 +61,7 @@ function ForgetPassword() {
                             <div>
                                 <p style={{fontSize :20}}>Enter OTP :</p>
 
-                                <input type="number" placeholder='OTP' 
+                                <input type="text" placeholder='OTP' 
                                 onChange={(e)=>setOtp(e.target.value)} ></input>
 
                                 <button onClick={handleOTP}>Verify OTP</button>
