@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
-import Routes from './Routes'
-import Proutes from './Proutes'
+import Login from "./Components/LoginPage/Login"
+import ForgetPassword from './Components/LoginPage/ForgetPassword'
 
 function App() {
   return(

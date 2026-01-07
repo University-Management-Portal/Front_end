@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;   /*  disables ALL scrolling */
+}
+
+
+.bg {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  background-image: url("/Collegepic.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 40px 80px;
+  overflow:hidden;
+}
+
+.bg {
+  position: relative;
+  min-height: 100%;
+}
