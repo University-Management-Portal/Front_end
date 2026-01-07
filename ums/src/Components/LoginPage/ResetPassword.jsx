@@ -19,7 +19,7 @@ function ResetPassword() {
         if(New != Confirm){
             alert("Password is not match")
         }
-        Alert("Password Successfully Reset!")
+        alert("Password Successfully Reset!")
         Navigate("/")
     }
 
