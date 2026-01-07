@@ -6,8 +6,7 @@ import Proutes from './Proutes'
 function App() {
   return(
     <>
-    <Routes/>
-    <Proutes/>
+    
     </>
   )
 }
