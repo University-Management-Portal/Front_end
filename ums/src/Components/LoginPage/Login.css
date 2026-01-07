@@ -1,34 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-.bg {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-
-  background-image: url("/Collegepic.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  padding: 40px 80px;
-  overflow:hidden;
-}
-
 
 
 
 /* 25 YEARS OF EXCELLENCE */
 .exp p {
   font-size: 38px;
-  font-weight: 700;
+  font-weight: 600;
   color: #ffffff;
   letter-spacing: 1px;
-  margin-top: 15px;
+  margin-top: 80px;
   margin-bottom: 8px;
 }
 
@@ -36,6 +15,7 @@
   font-size: 58px;
   font-weight: 700;
   color: #16005d;
+  margin-top: 10px;
   margin-bottom: 12px;
 }
 
@@ -45,7 +25,7 @@
 .nba img {
   padding: 5px;
   border-radius: 6px;  
-  margin-top: 280px;
+  margin-top: 220px;
   margin-bottom: 5px;
   height: 60px;
 }
@@ -58,31 +38,32 @@
   line-height:1.5;
   color: #ffffff;
   max-width: 700px;
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 20px;
   
 }
 
 
 /* Login Card */
-.Container {
+.Login-card {
   position: absolute;
   top: 50%;
   right: 90px;
   transform: translateY(-50%);
 
   width: 440px;
-  opacity: 75%;
+  opacity: 70%;
   padding: 40px;
   border-radius: 22px;
 
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  margin-top: 50px;
 }
 
 
 
 /* Login Title */
-.Container > p:first-child {
+.Login-card > p:first-child {
   font-size: 36px !important;
   font-weight: 700;
   margin-bottom: 45px;
@@ -119,7 +100,7 @@ form a {
 
 /* Login button */
 form button {
-  background-color : #16005d;
+  background-color : #16005d ;
   color:white;
   height: 40px;
   width: 50%;
@@ -135,14 +116,15 @@ form button {
 }
 
 form button:hover{
-    background-color: #16146e;
+    background-color: #ffffff;
+    color: #16005d;
 }
 
 /* Footer notes */
-.Container p:last-child,
-.Container p:nth-last-child(2) {
+.Login-card p:last-child,
+.Login-card p:nth-last-child(2) {
   font-size: 13px;
   text-align: center;
   margin-top: 12px;
-  color: #333;
+  color: #16005d;
 }
