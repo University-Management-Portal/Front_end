@@ -33,7 +33,7 @@ function ForgetPassword() {
             alert("Please fill all fields");
         }
         if(pass != confirm){
-            alert("Password do not match");
+            alert("Password is not match");
         }
         alert("Password reset successfully!")
         navigate("/");
