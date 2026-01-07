@@ -1,12 +1,14 @@
 import React from 'react'
 import './App.css'
+import Routes from './Routes'
+import Proutes from './Proutes'
 
 function App() {
-  
-  return (
+  return(
     <>
-     
-     </>
+    <Routes/>
+    <Proutes/>
+    </>
   )
 }
 
