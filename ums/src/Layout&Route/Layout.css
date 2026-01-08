@@ -1,0 +1,25 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header + sidebar + content */
+.body-layout {
+  flex: 1;
+  display: flex;
+}
+
+/* sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #16005d;
+  color: white;
+}
+
+/* main content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f6fa;
+}
