@@ -36,19 +36,19 @@ html, body {
 }
 
 /* Left section (logo + name) */
-.header-left {
+.header-Left {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.header-left img {
+.header-Left img {
   width: 70px;
   height: 70px;
   object-fit: contain;
 }
 
-.header-left p {
+.header-Left p {
   margin: 0;
   font-size: 22px;
   font-weight: 700;
@@ -58,7 +58,7 @@ html, body {
 }
 
 /* Right section (contact + icons) */
-.header-right {
+.header-Right {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -68,7 +68,7 @@ html, body {
 
 
 /* Phone & email */
-.header-right span {
+.header-Right span {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -76,14 +76,14 @@ html, body {
 }
 
 /* Icons */
-.header-right svg {
+.header-Right svg {
   font-size: 22px;
   cursor: pointer;
 }
 
 /* Hover effect */
-.header-right svg:hover,
-.header-right span:hover {
+.header-Right svg:hover,
+.header-Right span:hover {
   color: #16005d;
 }
 
@@ -95,7 +95,7 @@ html, body {
     text-align: center;
   }
 
-  .header-right {
+  .header-Right {
     flex-wrap: wrap;
     justify-content: center;
   }

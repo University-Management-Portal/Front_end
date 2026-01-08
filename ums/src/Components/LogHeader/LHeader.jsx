@@ -9,12 +9,12 @@ import Yticon from "@mui/icons-material/YouTube"
 export default function LHeader() {
   return (
     <div className='lheader'>
-        <div className='header-left'>
+        <div className='header-Left'>
         <img src='Logo BG removed.png'></img>
         <p>BEST ENGINEERING <br/>COLLEGE</p>
         </div>
 
-        <div className='header-right'>
+        <div className='header-Right'>
             <span><Phoneicon/> +91 9876543210</span>
             <span><Emailicon/> info.best.ac.in</span>
             <Facebook/> 

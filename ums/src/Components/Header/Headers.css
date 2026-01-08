@@ -13,21 +13,21 @@
   z-index: 1000;            
 }
 
-
-.header-left h2 {
-  margin-left: 50px;
-  font-size: 30px;
+.dashboard-title {
+  display: flex;
+  align-items: center;   /* vertical alignment fix */
+  gap: 10px;             /* space between icon & text */
 }
 
-.header-left svg {
+.dashboard-title svg {
   font-size: 32px;
 }
 
-.header-left p {
+.dashboard-title span {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: 1.2px;
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
 .header-center {
@@ -87,3 +87,5 @@
   cursor: pointer;
   margin-right: 50px;
 }
+
+
