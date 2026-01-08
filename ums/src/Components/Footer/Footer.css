@@ -12,8 +12,10 @@ html, body {
   background-color: #16005d;
   color: white;
   padding: 25px 40px;
-  width: 100%;
+  width: 100vw;              /* FORCE full viewport width */
+  margin: 0;
   box-sizing: border-box;
+ 
 }
 
 /* LEFT */
@@ -56,9 +58,8 @@ html, body {
   flex-direction: column;
   gap: 10px;
   max-width: 420px;
-  margin-right: 10px;
-  margin-left: 580px;
 }
+
 
 .footer-right img {
   width: 250px;

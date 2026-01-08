@@ -2,15 +2,18 @@ import React from 'react'
 import './Headers.css'
 import Search from "@mui/icons-material/Search"
 import Notification from "@mui/icons-material/Notifications"
-import Dashboard from "@mui/icons-material/Dashboard"
-import Sidebar from "@mui/icons-material/ViewSidebar"
-export default function Header() {
+import Menu from "@mui/icons-material/Menu"
+// import PageTitles from "./PageTitles"
+// import { useLocation } from 'react-router-dom'
+
+export default function Header({onMenuClick}) {
+  // const location = useLocation();
+  // const title = PageTitles[location.pathname] || "Dashbord"   for title on header
   return (
     <div className='header'>
-
         <div className="header-left">
           <div className="header-title">
-            <Sidebar />
+            <Menu onClick={onMenuClick} style={{ cursor: "pointer" }} />
             <span>Dashboard</span>
           </div>
         </div>
@@ -28,7 +31,7 @@ export default function Header() {
 
           <Notification color='#ffffffff'/>
           <div className="Profile">
-              <img src="Profile.jpg" alt="Profile-icon" width={50} height={50} style={{borderRadius:"50px", marginRight:"5px", marginTop:"5px"}}/>
+              <img src="Profile.jpg" alt="Profile-icon" width={50} height={50} style={{borderRadius:"50px", marginRight:"36px", marginTop:"5px"}}/>
           </div>
         </div>
 

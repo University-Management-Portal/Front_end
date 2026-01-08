@@ -1,25 +1,22 @@
-.app-layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Single scroll container */
+.layout-scroll {
+  margin-top: 85px;                 /* header height */
+  height: calc(100vh - 85px);       /* viewport - header */
+  overflow-y: auto;  
+  position: relative;               /* ENABLE SCROLL */
 }
 
-/* header + sidebar + content */
-.body-layout {
-  flex: 1;
-  display: flex;
-}
-
-/* sidebar */
-.sidebar {
-  width: 250px;
-  background-color: #16005d;
-  color: white;
-}
-
-/* main content */
-.main-content {
-  flex: 1;
+/* Padding only for page content */
+.page-content {
   padding: 20px;
-  background-color: #f5f6fa;
+}
+
+.overlay {
+  position: fixed;
+  top: 85px;                 /* same as header height */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 85px);
+  background: rgba(0, 0, 0,0.5);  /* dim effect */
+  z-index: 400;              /* below sidebar, above content */
 }

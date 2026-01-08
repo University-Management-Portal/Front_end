@@ -1,3 +1,7 @@
+* {
+  overflow-y: hidden;  
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -9,14 +13,14 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;              
-  height: 80px;             
+  height: 85px;             
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 25px;
   background-color: #16005d;
   color: white;
-  z-index: 1000;            
+  z-index: 1000;          
 }
 
 .header-title {
@@ -48,9 +52,9 @@ html, body {
   align-items: center;
   background: #f1f1f1;
   padding: 6px 12px;
-  border-radius: 20px;
-  width: 370px;
-  height: 38px;
+  border-radius: 45px;
+  width: 380px;
+  height: 30px;
 }
 
 .search-box input {
@@ -74,15 +78,15 @@ html, body {
 .header-right svg{
   color: #f1f1f1 ;
   font-size: 35px !important;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .college-image img{
   height: 55px;
   width: 250px;
   margin-top: 10px;
-  margin-left: 15px;
-  margin-right: 5px;
+  margin-left: 10px;
+  margin-right: 20px;
   /* margin-right: 140px; */
   
 }
@@ -94,7 +98,6 @@ html, body {
   margin-right: 50px;
 }
 
-.header svg:hover,
-.header-title :hover {
+.header svg:hover {
   color: #d9d9d9;
 }
