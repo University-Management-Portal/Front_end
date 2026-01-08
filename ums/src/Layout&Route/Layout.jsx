@@ -8,12 +8,14 @@ import "./Layout.css";
 
 function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const user = "staff";
 
   return (
     <>
       <Header onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)} />
 
-      <StaffSideBar isOpen={isSidebarOpen} />
+        {user === "student" && <StudentSideBar isOpen={isSidebarOpen} />}
+        {user === "staff" && <StaffSideBar isOpen={isSidebarOpen} />}
 
       {isSidebarOpen && (
         <div
