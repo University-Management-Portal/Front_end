@@ -1,14 +1,16 @@
 import React from 'react'
-import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import './App.css'
-import Routing from './Routing'
-
-import Header from "./Components/Header/Header"
+import Header from './Components/Header/Header'
+import StudentSideBar from './Components/Sidebar/StudentSideBar'
+import StaffSideBar from './Components/Sidebar/StaffSideBar'
+import StaffDashboard from './Components/Staff/StaffDashboard'
 
 function App() {
   return(
     <>
-     <Routing/>S
+      <Header />
+      <StaffSideBar />
+      <StaffDashboard />
     </>
   )
 }
