@@ -67,7 +67,7 @@
   font-size: 36px !important;
   font-weight: 700;
   margin-bottom: 45px;
-  color: #16005d;
+  color: #000000;
   text-align: center;
 }
 
@@ -75,6 +75,7 @@
 form p {
   font-size: 19px !important;
   color: #000000;
+  font-weight: 500;
   margin-bottom: 0px;
 }
 
@@ -90,7 +91,8 @@ form input {
 }
 
 /* Forgot password */
-form a {
+.fp {
+  color: #0021F4;
   display:block;
   text-align: right;
   font-size: 14px;

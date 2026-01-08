@@ -2,6 +2,7 @@ import React from 'react'
 import "./Login.css"
 import "./LoginPage.css"
 import LHeader from '../LogHeader/LHeader'
+import {Link} from "react-router-dom"
 
 export default function Login() {
   return (
@@ -23,7 +24,7 @@ export default function Login() {
                   <p style={{fontSize :20}}>Enter your credentials :</p><br></br>
                   <input type='email' name='email' placeholder='Email' ></input><br></br>
                   <input type="password" name='password' placeholder='Password' ></input><br></br>
-                  <a href= "" style={{color:"#0021F4"}}>Forget Password?</a><br></br>
+                  <Link to = "/forget-password" className='fp'>Forget Password?</Link><br></br>
                   <button>Login</button>
               </form>
               <p>*Your should be a member of this organization</p>
