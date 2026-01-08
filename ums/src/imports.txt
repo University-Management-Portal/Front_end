@@ -1,0 +1,4 @@
+npm install
+npm i react-icons
+npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
+npm install react-router-dom
