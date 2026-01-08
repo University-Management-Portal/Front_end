@@ -8,7 +8,10 @@ export default function Header() {
     <div className='header'>
 
         <div className="header-left">
-        <Dashboard/><p>Dashboard</p>
+          <div className="dashboard-title">
+            <Dashboard />
+            <span>Dashboard</span>
+          </div>
         </div>
         
         <div className="header-center">
