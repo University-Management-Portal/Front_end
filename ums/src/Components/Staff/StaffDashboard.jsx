@@ -13,7 +13,7 @@ export default function StaffDashboard() {
 
       <div className="content">
         <div className="calendar">
-            <img src="" alt="fd" />
+            <img className='imagec' src="calendar1.jpg" alt="Calendar" width={400} height={400}/>
 
         </div>
 

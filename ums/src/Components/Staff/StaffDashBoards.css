@@ -39,6 +39,16 @@
 
 .calendar{
     background-color: #D9D9D9;
+    width: 450px;
+    margin-left: 320px;
+    border-radius: 10px;
+}
+
+.imagec{
+    margin-left: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
 }
 
 .schedule{
