@@ -3,13 +3,14 @@ import './Headers.css'
 import Search from "@mui/icons-material/Search"
 import Notification from "@mui/icons-material/Notifications"
 import Dashboard from "@mui/icons-material/Dashboard"
+import Sidebar from "@mui/icons-material/ViewSidebar"
 export default function Header() {
   return (
     <div className='header'>
 
         <div className="header-left">
-          <div className="dashboard-title">
-            <Dashboard />
+          <div className="header-title">
+            <Sidebar />
             <span>Dashboard</span>
           </div>
         </div>

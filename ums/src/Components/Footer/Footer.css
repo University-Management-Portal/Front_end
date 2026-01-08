@@ -1,0 +1,118 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;   /* HARD STOP for horizontal scroll */
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #16005d;
+  color: white;
+  padding: 25px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* LEFT */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+    
+}
+
+.footer-left img {
+  width: 75px;
+  height: 75px;
+  border-radius: 10px;
+}
+
+.clgname {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+
+.copy {
+  position: absolute;
+  bottom: 12px;               /* distance from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 300;
+  color: #f3f3f3;
+  white-space: nowrap;        /*  single line */
+  text-align: center;
+}
+
+
+/* RIGHT */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 420px;
+  margin-right: 10px;
+  margin-left: 580px;
+}
+
+.footer-right img {
+  width: 250px;
+  height: 45px;
+  border-radius: 8px;
+}
+
+/* ICON + TEXT ROW */
+.footer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+}
+    
+.footer-item svg {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* SOCIAL ICONS */
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-social svg {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.footer-social svg:hover {
+  color: #bcd6ff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-center {
+    justify-content: center;
+  }
+
+  .footer-right {
+    align-items: center;
+  }
+
+  .footer-item {
+    justify-content: center;
+  }
+}
