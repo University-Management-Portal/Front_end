@@ -35,8 +35,10 @@ function ForgetPassword() {
         if(pass != confirm){
             alert("Password is not match");
         }
-        alert("Password reset successfully!")
-        navigate("/");
+        else{
+            alert("Password reset successfully!")
+            navigate("/");
+        }
     }
 
   return (
@@ -79,7 +81,7 @@ function ForgetPassword() {
                                 <input type="text" placeholder='Confirm Password' 
                                 onChange={(e)=>setConfirm(e.target.value)} ></input>
 
-                                <button onClick={handlePassword}>Reset</button>
+                                <button type="button" onClick={handlePassword}>Reset</button>
                             </div>
                         }
                     </form>
