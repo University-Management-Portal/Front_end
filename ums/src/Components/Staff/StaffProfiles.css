@@ -49,21 +49,27 @@
   border: #16005D solid 1px;
 }
 
-.heading{
-  color: #16005D;
-  font-size: 25px;
+.row {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  align-items: center;
+  padding: 15px;
+}
+
+.label {
   font-weight: 600;
-  margin-left: 30px;
-  padding: 10px;
-  flex-direction: row;
-  display: flex;
+  font-size: 20px;
+  color: #16005D;
+  border-right: 2px solid #000;
+  margin-left: 40px;
 }
 
-.left{
-  margin-left: 2px;
+.value {
+  padding-left: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #16005D;
+  margin-left: 60px;
 }
 
-.right{
-  margin-left: 150px;
-}
 

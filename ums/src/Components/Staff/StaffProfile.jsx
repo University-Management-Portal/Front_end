@@ -51,55 +51,48 @@ export default function StaffProfile() {
 
       <div className="right-cart">
 
-      <div className="heading">
-      <p className='left'>Name</p>
-      <p className=''>:</p>
-      <p>Praveenkumar R</p> 
-      </div>
+  <div className="row">
+    <p className="label">Name</p>
+    <p className="value">Praveenkumar R</p>
+  </div>
 
-      <div className="heading">
-      <p className='left'>Reg No</p>
-      <p>:</p>
-      <p>23P341</p>
-      </div>
+  <div className="row">
+    <p className="label">Reg No</p>
+    <p className="value">23P341</p>
+  </div>
 
-      <div className="heading">
-      <p className='left'>Department</p>
-      <p>:</p>
-      <p>Computer Science</p>
-      </div>
+  <div className="row">
+    <p className="label">Department</p>
+    <p className="value">Computer Science</p>
+  </div>
 
-      <div className="heading">
-      <p className='left'>Area of Specilization</p>
-      <p>:</p>
-      <p>AI , DBMS , CN</p>
-      </div>
+  <div className="row">
+    <p className="label">Area of Specialization</p>
+    <p className="value">AI, DBMS, CN</p>
+  </div>
 
-      <div className="heading">
-      <p className='left'>Date of Joining</p>
-      <p>:</p>
-      <p>2023-08-15</p>
-      </div>
+  <div className="row">
+    <p className="label">Date of Joining</p>
+    <p className="value">2023-08-15</p>
+  </div>
 
-      <div className="heading">
-      <p className='left'>E-Mail Id</p>
-      <p>:</p>
-      <p>praveen@gmail.com</p>
-      </div>
+  <div className="row">
+    <p className="label">E-Mail Id</p>
+    <p className="value">praveen@gmail.com</p>
+  </div>
 
-      <div className="heading">
-      <p className='left'>Phone Number</p>
-      <p>:</p>
-      <p>9876543210</p>
-      </div>
+  <div className="row">
+    <p className="label">Phone Number</p>
+    <p className="value">9876543210</p>
+  </div>
 
-      <div className="heading">
-      <p className='left'>Address</p>
-      <p>:</p>
-      <p>123, ABC Street, City, Country</p>
-      </div>
+  <div className="row">
+    <p className="label">Address</p>
+    <p className="value">123, ABC Street, City, Country</p>
+  </div>
 
-      </div>
+</div>
+
 
 
 
