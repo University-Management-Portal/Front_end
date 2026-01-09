@@ -4,8 +4,8 @@ import Login from "../Components/LoginPage/Login"
 import ForgetPassword from '../Components/LoginPage/ForgetPassword'
 import ResetPassword from '../Components/LoginPage/ResetPassword'
 import StaffDashboard from '../Components/Staff/StaffDashboard'
+import StaffProfile from '../Components/Staff/StaffProfile'
 import Layout from './Layout.jsx'
-import StaffProfile from '../Components/Staff/StaffProfile.jsx'
 
 function Routing() {
   return(
