@@ -3,18 +3,18 @@ import './Headers.css'
 import Search from "@mui/icons-material/Search"
 import Notification from "@mui/icons-material/Notifications"
 import Menu from "@mui/icons-material/Menu"
-// import PageTitles from "./PageTitles"
-// import { useLocation } from 'react-router-dom'
+import PageTitles from "./PageTitles"
+import { useLocation } from 'react-router-dom'
 
 export default function Header({onMenuClick}) {
-  // const location = useLocation();
-  // const title = PageTitles[location.pathname] || "Dashbord"   for title on header
+  const location = useLocation();
+  const title = PageTitles[location.pathname] || "Dashboard"   
   return (
     <div className='header'>
         <div className="header-left">
           <div className="header-title">
             <Menu onClick={onMenuClick} style={{ cursor: "pointer" }} />
-            <span>Dashboard</span>
+            <span>{title}</span>
           </div>
         </div>
         

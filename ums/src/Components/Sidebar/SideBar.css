@@ -19,6 +19,7 @@
 .sidebar-menu {
   list-style: none;
   padding-top: 40px;
+  font-weight: 500;
 }
 
 .sidebar-menu li {
@@ -29,4 +30,6 @@
 
 .sidebar-menu li:hover {
   background-color: #C4C4C4;
+  font-weight: 700;
+  font-size: 20px;
 }

@@ -5,6 +5,7 @@ import Footer from '../Components/Footer/Footer';
 import StaffSideBar from '../Components/Sidebar/StaffSideBar';
 import StudentSideBar from '../Components/Sidebar/StudentSideBar';
 import "./Layout.css";
+import AdminSideBar from '../Components/Sidebar/AdminSideBar';
 
 function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,6 +18,7 @@ function Layout() {
 
         {user === "student" && <StudentSideBar isOpen={isSidebarOpen} />}
         {user === "staff" && <StaffSideBar isOpen={isSidebarOpen} />}
+        {user === "admin" && <AdminSideBar isOpen={isSidebarOpen} />}
 
       {isSidebarOpen && (
         <div
