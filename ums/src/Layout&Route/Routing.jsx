@@ -6,6 +6,7 @@ import ResetPassword from '../Components/LoginPage/ResetPassword'
 import StaffDashboard from '../Components/Staff/StaffDashboard'
 import StaffProfile from '../Components/Staff/StaffProfile'
 import Layout from './Layout.jsx'
+
 function Routing() {
   return(
     <>
