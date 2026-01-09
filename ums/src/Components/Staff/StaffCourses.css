@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.div{
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    padding: 20px;
+    width: 1440px;
+    margin-left: 20px;
+    margin-right: 80px;
+    flex-direction: column;
+    display: flex;
+    height: 100px;
+    
+}
+
+.sub{
+    font-weight: 600;
+    font-size: 28px;
+    color: #16005D;
+    margin-left: 39px;
+}
+
+.dept{
+    font-weight: 600;
+    font-size: 23px;
+    color: #16005D;
+}
+
+.cart{
+    background-color: #eae6e6;
+    border-radius: 10px;
+    width: 1500px;
+    height: 750px;
+    margin-left: 20px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
