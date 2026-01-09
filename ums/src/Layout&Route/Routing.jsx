@@ -8,6 +8,7 @@ import StaffProfile from '../Components/Staff/StaffProfile'
 import Layout from './Layout.jsx'
 import StudentDashboard from '../Components/Student/StudentDashboard'
 import AdminDashboard from '../Components/Admin/AdminDashboard'
+import StaffCourse from '../Components/Staff/StaffCourse'
 
 function Routing() {
   return(
@@ -21,6 +22,7 @@ function Routing() {
         <Route element={<Layout/>}>
           <Route path='/staff-dashboard' element={<StaffDashboard/>}/>
           <Route path='/staff-profile' element={<StaffProfile/>}/>
+          <Route path='/staff-courses' element={<StaffCourse/>}/>
         </Route>
 
         <Route element={<Layout/>}>

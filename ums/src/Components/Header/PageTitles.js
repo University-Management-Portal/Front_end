@@ -23,7 +23,7 @@ const PageTitles = {
     "/admin-courses" : "Courses",
     "/admin-departments" : "Departments",
     "/admin-reports" : "Reports",
-    "/admin-settings" : "Settings",
+    "/admin-settings" : "Settings"
 }
 
 export default PageTitles;

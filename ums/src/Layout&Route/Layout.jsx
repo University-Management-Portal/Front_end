@@ -16,9 +16,9 @@ function Layout() {
     <>
       <Header onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)} />
 
-        {user === "student" && <StudentSideBar isOpen={isSidebarOpen} />}
-        {user === "staff" && <StaffSideBar isOpen={isSidebarOpen} />}
-        {user === "admin" && <AdminSideBar isOpen={isSidebarOpen} />}
+        {user === "student" && <StudentSideBar isOpen={isSidebarOpen} onClose={()=>setIsSidebarOpen(false)} />}
+        {user === "staff" && <StaffSideBar isOpen={isSidebarOpen} onClose={()=>setIsSidebarOpen(false)} />}
+        {user === "admin" && <AdminSideBar isOpen={isSidebarOpen} onClose={()=>setIsSidebarOpen(false)} />}
 
       {isSidebarOpen && (
         <div
