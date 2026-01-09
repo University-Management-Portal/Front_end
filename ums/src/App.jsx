@@ -1,10 +1,10 @@
 import React from 'react'
-import Routing from './Layout&Route/Routing'
-
+import "./App.css"
+import  Routing from './Layout&Route/Routing'
 function App() {
   return (
     <div>
-     
+      <Routing/>
     </div>
   )
 }
