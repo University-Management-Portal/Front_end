@@ -15,7 +15,7 @@ export default function Login() {
       navigate("/staff-dashboard");
     }
     if(role==="student"){
-      localStorage.setItem("userType", "student");                //add path
+      localStorage.setItem("userType", "student");                
       navigate("/student-dashboard");
     }
     if(role==="admin"){
