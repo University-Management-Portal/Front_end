@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Login.css"
 import "./LoginPage.css"
 import LHeader from '../LogHeader/LHeader'
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 export default function Login() {
+  const [user,Setuser] = useState("");
+  const navigate = useNavigate();
+
+  const role = user.trim().toLowerCase();
+  const handleuser=()=>{
+    if(role==="staff"){
+      localStorage.setItem("userType", "staff");
+      navigate("/staff-dashboard");
+    }
+    if(role==="student"){
+      localStorage.setItem("userType", "student");                //add path
+      navigate("/student-dashboard");
+    }
+    if(role==="admin"){
+      localStorage.setItem("userType", "admin");                  //add path
+      navigate("/admin-dashboard");
+    }
+  }
+  
   return (
     <div>
       <LHeader/>
@@ -22,10 +41,10 @@ export default function Login() {
               <p style={{fontSize :40}}>Login Portal</p>
               <form>
                   <p style={{fontSize :20}}>Enter your credentials :</p><br></br>
-                  <input type='email' name='email' placeholder='Email' ></input><br></br>
+                  <input type='email' name='email' placeholder='Email' onChange={(e) => Setuser(e.target.value)} ></input><br></br>
                   <input type="password" name='password' placeholder='Password' ></input><br></br>
                   <Link to = "/forget-password" className='fp'>Forget Password?</Link><br></br>
-                  <button>Login</button>
+                  <button type='button' onClick={handleuser}>Login</button>
               </form>
               <p>*Your should be a member of this organization</p>
               <p>*use only official Email ID</p>

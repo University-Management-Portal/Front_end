@@ -8,7 +8,8 @@ import "./Layout.css";
 
 function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const user = "staff";
+ 
+  const user = localStorage.getItem("userType");
 
   return (
     <>
