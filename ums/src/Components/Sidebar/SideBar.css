@@ -19,6 +19,7 @@
 .sidebar-menu {
   list-style: none;
   padding-top: 40px;
+  font-weight: 500;
 }
 
 .sidebar-menu li {
@@ -29,4 +30,21 @@
 
 .sidebar-menu li:hover {
   background-color: #C4C4C4;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* Remove default NavLink styles */
+.sidebar-menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ACTIVE ITEM */
+.sidebar-menu li.active {
+  background-color: #0f094e;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+
 }
