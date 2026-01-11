@@ -6,6 +6,7 @@ import ResetPassword from '../Components/LoginPage/ResetPassword'
 import StaffDashboard from '../Components/Staff/StaffDashboard'
 import StaffProfile from '../Components/Staff/StaffProfile'
 import Layout from './Layout.jsx'
+import StaffCourse from '../Components/Staff/StaffCourse.jsx'
 
 function Routing() {
   return(
@@ -19,6 +20,7 @@ function Routing() {
         <Route element={<Layout/>}>
           <Route path='/staff-dashboard' element={<StaffDashboard/>}/>
           <Route path='/staff-profile' element={<StaffProfile/>}/>
+          <Route path='/staff-courses' element={<StaffCourse/>}/>
         </Route>
 
       </Routes>

@@ -1,43 +1,44 @@
 * {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
-.div{
-    background-color: #D9D9D9;
-    border-radius: 10px;
-    padding: 20px;
-    width: 1440px;
-    margin-left: 20px;
-    margin-right: 80px;
-    flex-direction: column;
-    display: flex;
-    height: 100px;
-    
+body {
+  background-color: #eae6e6;
+  overflow: hidden;
+  padding: 10px 5px 10px; 
+  min-height: 100vh;
 }
 
-.sub{
-    font-weight: 600;
-    font-size: 28px;
-    color: #16005D;
-    margin-left: 39px;
+
+.page {
+  padding: 30px 20px;
+  min-height: 100vh;
 }
 
-.dept{
-    font-weight: 600;
-    font-size: 23px;
-    color: #16005D;
+.div {
+  background-color: #D9D9D9;
+  padding: 20px;
+  border-radius: 10px;
+  width: 1400px;       
+  margin: 0 auto 20px;    
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
 }
 
-.cart{
-    background-color: #eae6e6;
-    border-radius: 10px;
-    width: 1500px;
-    height: 750px;
-    margin-left: 20px;
-    padding: 10px;
-    margin-top: 50px;
+.sub {
+  font-weight: 600;
+  font-size: 30px;
+  color: #16005D;
+  word-wrap: break-word;  
 }
 
+.dept {
+  font-weight: 600;
+  font-size: 23px;
+  color: #16005D;
+  margin-left: 1px;
+}
