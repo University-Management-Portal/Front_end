@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+}
+
+.Title {
+  font-weight: 600;
+  font-size: 30px;
+  color: #16005D;
+  margin-left: 80px;
+}
+
+.cart{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+}
+
+.Assignments{
+  margin-left: 100px;
+  margin-top: 20px;
+  background-image: url('assignbanner.webp');
+  width: 630px;
+  height: 250px;
+  border-radius: 10px;
+  border: #16005D 2px solid;
+  
+}
+
+.Material{
+    margin-left: 80px;
+    margin-top: 20px;
+    background-image: url('material.jpg');
+    width: 630px;
+    height: 250px;
+    border-radius: 10px;
+    border: #16005D 2px solid;
+}
+
+.word{
+    font-size: 34px;
+    font-weight: 600;
+    color: #16005D;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+
+.course-title{
+  margin: 0px 80px;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+
+.course-title h2{
+  font-size: 32px;
+  font-weight: 600;
+  color: #16005D;
+}
+
+.course-title p{
+  font-size: 20px;
+  font-weight: 500;
+  color: #16005D;
+  margin-top: 5px;
+}

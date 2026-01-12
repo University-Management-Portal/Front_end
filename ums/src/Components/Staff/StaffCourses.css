@@ -36,9 +36,14 @@ body {
   word-wrap: break-word;  
 }
 
-.dept {
-  font-weight: 600;
-  font-size: 23px;
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-icon {
+  font-size: 22px;
   color: #16005D;
-  margin-left: 1px;
+  cursor: pointer;
 }

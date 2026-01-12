@@ -9,7 +9,7 @@ import Layout from './Layout.jsx'
 import StaffCourse from '../Components/Staff/StaffCourse.jsx'
 import StudentDashboard from '../Components/Student/StudentDashboard'
 import AdminDashboard from '../Components/Admin/AdminDashboard'
-import StaffCourse from '../Components/Staff/StaffCourse'
+import StaffSeparateCourse from '../Components/Staff/StaffSeparateCourse.jsx'
 
 function Routing() {
   return(
@@ -24,6 +24,8 @@ function Routing() {
           <Route path='/staff-dashboard' element={<StaffDashboard/>}/>
           <Route path='/staff-profile' element={<StaffProfile/>}/>
           <Route path='/staff-courses' element={<StaffCourse/>}/>
+          <Route path='/staff-course' element={<StaffSeparateCourse/>}/>
+          
         </Route>
 
         <Route element={<Layout/>}>

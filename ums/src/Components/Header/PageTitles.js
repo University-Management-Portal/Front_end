@@ -6,6 +6,7 @@ const PageTitles = {
     "/staff-internalmark" : "Internal Marks",
     "/staff-studentlist" : "Student List",
     "/staff-courses" : "Courses",
+    "/staff-course" : "Courses",
     "/staff-announcement" : "Announcement",
     
     "/student-dashboard" : "Dashboard",
