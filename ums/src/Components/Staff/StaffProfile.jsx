@@ -4,6 +4,17 @@ import './StaffProfiles.css';
 
 export default function StaffProfile() {
 
+  const values=[
+    { label: "Name", value: "Praveenkumar R" },
+    { label: "Reg No", value: "23P341" },
+    { label: "Department", value: "Computer Science" },
+    { label: "Area of Specialization", value: "AI, DBMS, CN" },
+    { label: "Date of Joining", value: "2023-08-15" },
+    { label: "E-Mail Id", value: "praveen@gmail.com" },
+    { label: "Phone Number", value: "9876543210" },
+    { label: "Address", value: "123, ABC Street, City, Country" }
+  ];
+
   const fileInputRef = useRef(null)
 
   const[profileImage, setProfileImage] = useState("profiles.jpg");
@@ -51,45 +62,12 @@ export default function StaffProfile() {
 
       <div className="right-cart">
 
-  <div className="row">
-    <p className="label">Name</p>
-    <p className="value">Praveenkumar R</p>
-  </div>
-
-  <div className="row">
-    <p className="label">Reg No</p>
-    <p className="value">23P341</p>
-  </div>
-
-  <div className="row">
-    <p className="label">Department</p>
-    <p className="value">Computer Science</p>
-  </div>
-
-  <div className="row">
-    <p className="label">Area of Specialization</p>
-    <p className="value">AI, DBMS, CN</p>
-  </div>
-
-  <div className="row">
-    <p className="label">Date of Joining</p>
-    <p className="value">2023-08-15</p>
-  </div>
-
-  <div className="row">
-    <p className="label">E-Mail Id</p>
-    <p className="value">praveen@gmail.com</p>
-  </div>
-
-  <div className="row">
-    <p className="label">Phone Number</p>
-    <p className="value">9876543210</p>
-  </div>
-
-  <div className="row">
-    <p className="label">Address</p>
-    <p className="value">123, ABC Street, City, Country</p>
-  </div>
+        {values.map((item, index) => (
+          <div className="row" key={index}>
+            <span className="label">{item.label}:</span>
+            <span className="value">{item.value}</span>
+          </div>
+        ))}
 
 </div>
 
@@ -100,3 +78,11 @@ export default function StaffProfile() {
     
   )
 }
+
+
+        
+        
+        
+        
+        
+

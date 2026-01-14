@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
@@ -70,4 +70,137 @@ td{
 
 .dots{
   cursor:pointer;
+} */
+
+
+* * {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.assignment-container {
+  padding: 30px;
+  background: #f4f6fb;
+  min-height: 100vh;
+  margin-left: 180px;
+}
+
+.top-bar {
+  display: flex;
+  font-size: 16px;
+  margin-left: 200px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.add-btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 100px;
+}
+
+.form-card {
+  background: white;
+  margin: 20px 0;
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  border-radius: 10px;
+  height: 90px;
+}
+
+.form-card input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.save-btn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 60px;
+  color: gray;
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 14px;
+  text-align: left;
+}
+
+thead {
+  background: #e5e7eb;
+}
+
+tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.open {
+  color: green;
+  font-weight: 600;
+}
+
+.closed {
+  color: red;
+  font-weight: 600;
+}
+
+.menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.dropdown p {
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.dropdown p:hover {
+  background: #f1f5f9;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+
+body {
+  background: #f4f6fb;
+  width: 100%;
 }

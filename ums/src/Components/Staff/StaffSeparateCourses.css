@@ -26,8 +26,8 @@ body{
   margin-left: 100px;
   margin-top: 20px;
   background-image: url('assignbanner.webp');
-  width: 630px;
-  height: 250px;
+  width: 550px;
+  height: 230px;
   border-radius: 10px;
   border: #16005D 2px solid;
   
@@ -37,8 +37,8 @@ body{
     margin-left: 80px;
     margin-top: 20px;
     background-image: url('material.jpg');
-    width: 630px;
-    height: 250px;
+    width: 550px;
+    height: 230px;
     border-radius: 10px;
     border: #16005D 2px solid;
 }

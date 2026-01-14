@@ -18,6 +18,7 @@ export default function StaffDashboard() {
       greetings = 'GOOD EVENING';
     }
 
+
    const [currentIndex, setCurrentIndex] = useState(0);
 
    const prevMonth = () => {
@@ -38,7 +39,7 @@ export default function StaffDashboard() {
     <div className='main'>
 
       <div className="name-cart">
-        <p className='greeting'>{greetings}!!! PRAVEENKUMAR R (23P341)</p>
+        <p className='greeting'>{greetings} ! PRAVEENKUMAR R (23P341)</p>
         <p className='role'>Assistant Professor</p>
         <p className='dept'>CSE Department</p>
       </div>
