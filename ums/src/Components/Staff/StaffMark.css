@@ -1,0 +1,90 @@
+* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.top-bar{
+    margin-left: 20px;
+    background-color: #16005D;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    width: 1500px;
+    border-radius: 10px;
+    height: 140px;
+}
+
+
+.Academic{
+    margin-top: 30px;
+    margin-left: 60px;
+}
+
+.Academic select {
+  width: 200px;        
+  height: 42px;       
+  font-size: 16px;     
+  padding: 4px 10px;   
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.Semester{
+    margin-top: 30px;
+    margin-left: 1px;
+}
+
+
+.Semester select {
+  width: 100px;        
+  height: 42px;       
+  font-size: 16px;     
+  padding: 4px 10px;   
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+
+.Department{
+    margin-top: 30px;
+    margin-left: 1px;
+}
+
+
+.Department select {
+  width: 100px;        
+  height: 42px;       
+  font-size: 16px;     
+  padding: 4px 10px;   
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+
+.Section{
+    margin-top: 30px;
+    margin-left: 1px;
+}
+
+
+.Section select {
+  width: 80px;        
+  height: 42px;       
+  font-size: 16px;     
+  padding: 4px 10px;   
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+
+.top-bar p {
+  font-size: 20px;
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
+}

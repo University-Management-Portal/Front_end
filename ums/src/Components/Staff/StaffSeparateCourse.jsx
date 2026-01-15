@@ -1,30 +1,42 @@
 import React from 'react'
 import './StaffSeparateCourses.css'
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 export default function StaffSeparateCourse() {
-2
-    const location = useLocation();
-    const { subject, dept } = location.state || {};
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const { subject, dept } = location.state || {};
+
+  const handleAssignmentClick = () => {
+    navigate("/staff-course/assignment", {
+      state: { subject, dept }
+    });
+  };
 
   return (
     <div className="separate-course">
 
-        <div className="course-title">
-            <h2>{subject}</h2>
-            <p>{dept}</p>
+      <div className="course-title">
+        <p className="title"> 
+          {subject} / {dept} / Assignment
+        </p>
       </div>
-
 
       <div className="cart">
 
-        <div className="Assignments">
-        <p className='word'>ASSIGNMENTS</p>
+        {/* ASSIGNMENTS */}
+        <div className="Assignments" onClick={handleAssignmentClick}>
+          <p className='word'>ASSIGNMENTS</p>
         </div>
 
+        {/* MATERIALS */}
         <div className="Material">
-        <p className='word'>MATERIALS</p>
+          <p className='word'>MATERIALS</p>
         </div>
+
       </div>
 
     </div>

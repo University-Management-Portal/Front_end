@@ -1,46 +1,13 @@
-// import React from 'react'
-// import './StaffAssignments.css'
-// import { BsPlusLg } from "react-icons/bs";
-// import { BsThreeDotsVertical } from "react-icons/bs";
-
-// export default function StaffAssignment() {
-//   return (
-//     <div className='div'>
-
-//         <p>CS104 / Advanced Networking / Assignment </p>
-
-//         <button className='buttons'>{<BsPlusLg/>}Add Assignment</button>
-
-//         <table border={1}>
-//             <tr className='table-odd'>
-//                 <th>Title</th>
-//                 <th>Due Date</th>
-//                 <th>Status</th>
-//             </tr>
-//             <tr className='table-even'>
-//                 <td>Assignment 1</td>
-//                 <td>2023-05-15</td>
-//                 <td>OPEN   <BsThreeDotsVertical/></td>
-                
-//             </tr>
-//             <tr className='table-odd'>
-//                 <td>Assignment 2</td>
-//                 <td>2023-05-20</td>
-//                 <td>CLOSE  <BsThreeDotsVertical/></td>
-//             </tr>
-//         </table>
-      
-//     </div>
-//   )
-// }
-
-
-
 import React, { useState } from 'react'
 import './StaffAssignments.css'
 import { BsPlusLg, BsThreeDotsVertical } from "react-icons/bs";
+import { useLocation } from "react-router-dom";
+
 
 export default function StaffAssignment() {
+
+  const location = useLocation();
+  const { subject, dept } = location.state || {};
 
   const [assignments, setAssignments] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -90,78 +57,94 @@ export default function StaffAssignment() {
 
   return (
     <div className="assignment-container">
+      <div className="assignment-wrapper">
 
-      <div className="top-bar">
-        <p className="title">CS104 / Advanced Networking / Assignment</p>
-        <button className="add-btn" onClick={() => setShowForm(!showForm)}>
+        <div className="top-bar">
+          <p className="title">
+          {subject} / {dept} / Assignment
+          </p>
+
+          <button className="add-btn" onClick={() => setShowForm(!showForm)}>
           <BsPlusLg /> Add Assignment
-        </button>
-      </div>
-
-      {showForm && (
-        <div className="form-card">
-          <input
-            type="text"
-            placeholder="Assignment Title"
-            value={title}
-            onChange={e => setTitle(e.target.value)}
-          />
-
-          <input
-            type="date"
-            value={dueDate}
-            onChange={e => setDueDate(e.target.value)}
-          />
-
-          <input
-            type="file"
-            accept=".pdf,.doc,.docx"
-            onChange={e => setFile(e.target.files[0])}
-          />
-
-          <button className="save-btn" onClick={handleAdd}>Add</button>
+          </button>
         </div>
-      )}
 
-      {assignments.length === 0 ? (
-        <div className="empty">No assignments here 📄</div>
-      ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Due Date</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {assignments.map((a, index) => (
-              <tr key={a.id} className={!a.enabled ? "disabled" : ""}>
-                <td>{a.title}</td>
-                <td>{a.dueDate}</td>
-                <td className={getStatus(a.dueDate) === "OPEN" ? "open" : "closed"}>
-                  {getStatus(a.dueDate)}
-                </td>
-                <td className="menu">
-                  <BsThreeDotsVertical
-                    onClick={() => setActiveMenu(activeMenu === index ? null : index)}
-                  />
-                  {activeMenu === index && (
-                    <div className="dropdown">
-                      <p onClick={() => toggleEnable(a.id)}>
-                        {a.enabled ? "Disable" : "Enable"}
-                      </p>
-                      <p onClick={() => handleDelete(a.id)}>Delete</p>
-                    </div>
-                  )}
-                </td>
+
+        {/* FORM */}
+        {showForm && (
+          <div className="form-card">
+            <input
+              type="text"
+              placeholder="Assignment Title"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
+
+            <input
+              type="date"
+              value={dueDate}
+              onChange={e => setDueDate(e.target.value)}
+            />
+
+            <input
+              type="file"
+              accept=".pdf,.doc,.docx"
+              onChange={e => setFile(e.target.files[0])}
+            />
+
+            <button className="save-btn" onClick={handleAdd}>
+              Add
+            </button>
+          </div>
+        )}
+
+        {/* EMPTY STATE */}
+        {assignments.length === 0 ? (
+          <div className="empty">No assignments here 📄</div>
+        ) : (
+          <table className="tables">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
 
+            <tbody>
+              {assignments.map((a, index) => (
+                <tr key={a.id} className={!a.enabled ? "disabled" : ""}>
+                  <td>{a.title}</td>
+                  <td>{a.dueDate}</td>
+
+                  <td className={getStatus(a.dueDate) === "OPEN" ? "open" : "closed"}>
+                    {getStatus(a.dueDate)}
+                  </td>
+
+                  <td className="menu">
+                    <BsThreeDotsVertical
+                      onClick={() =>
+                        setActiveMenu(activeMenu === index ? null : index)
+                      }
+                    />
+
+                    {activeMenu === index && (
+                      <div className="dropdown">
+                        <p onClick={() => toggleEnable(a.id)}>
+                          {a.enabled ? "Disable" : "Enable"}
+                        </p>
+                        <p onClick={() => handleDelete(a.id)}>Delete</p>
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+
+      </div>
     </div>
   )
 }
