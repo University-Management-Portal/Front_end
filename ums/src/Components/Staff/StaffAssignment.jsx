@@ -118,7 +118,7 @@ export default function StaffAssignment() {
                   <td>{a.title}</td>
                   <td>{a.dueDate}</td>
 
-                  <td className={getStatus(a.dueDate) === "OPEN" ? "open" : "closed"}>
+                  <td className={getStatus(a.dueDate) === "OPEN" ? "Open" : "closed"}>
                     {getStatus(a.dueDate)}
                   </td>
 

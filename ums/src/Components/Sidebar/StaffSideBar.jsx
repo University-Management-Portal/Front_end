@@ -42,7 +42,7 @@ export default function StaffSideBar({ isOpen,onClose }) {
           )}
         </NavLink>
 
-        <NavLink to="/staff-Announcement" onClick={onClose} >
+        <NavLink to="/staff-announcement" onClick={onClose} >
           {({isActive})=>(
             <li className={isActive ? "active" : ""} >Announcement</li>
           )}

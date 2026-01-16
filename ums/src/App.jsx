@@ -7,7 +7,7 @@ import StaffMark from './Components/Staff/StaffMark'
 export default function App() {
   return (
     <div>
-      <StaffMark />
+      <Routing />
     </div>
   )
 }
