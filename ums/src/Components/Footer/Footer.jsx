@@ -22,7 +22,7 @@ function Footer() {
             </div>
         </div>
         <div className='footer-right'>
-            <img src="NBA.png" alt="nba" style={{borderRadius:"10px"}} />
+            {/* <img src="NBA.png" alt="nba" style={{borderRadius:"10px"}} /> */}
             <div className='footer-item'>
                 <Location/><span>Myleripalayam Village, Othakkal Mandapam Post, Coimbatore - 641032, Tamilnadu, India</span>
             </div>

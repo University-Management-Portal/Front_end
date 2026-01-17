@@ -1,5 +1,6 @@
 import React from 'react'
 import "./StudentDashboard.css"
+import { NavLink } from 'react-router-dom';
 
 function StudentDashboard() {
     const upcomingEvents = [
@@ -34,7 +35,7 @@ function StudentDashboard() {
             <p>Last Working Day  : 26.02.2026</p>
         </div>
         <div className='card'>
-            <p>Enrolled Courses : 7</p>
+            <NavLink to="/student-courses"><p>Enrolled Courses : 7</p></NavLink>
         </div>
 
         <div className="events-card">
