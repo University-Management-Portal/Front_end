@@ -8,7 +8,20 @@ import { useLocation } from 'react-router-dom'
 
 export default function Header({onMenuClick}) {
   const location = useLocation();
-  const title = PageTitles[location.pathname] || "Dashboard"   
+  let title = PageTitles[location.pathname] 
+
+  if (!title && location.pathname.startsWith("/student-courses")) {
+    title = "Courses"
+  }
+
+  if (!title && location.pathname.startsWith("/staff-course")) {
+    title = "Courses"
+  }
+
+  if(!title){
+    title="not found"
+  }
+
   return (
     <div className='header'>
         <div className="header-left">

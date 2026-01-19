@@ -20,7 +20,7 @@ export default function StudentSideBar({ isOpen,onClose }) {
           <li className={isActive ? "active" : ""} >Examination</li>
         )}</NavLink>
 
-        <NavLink to="/student-courses" onClick={onClose}>
+        <NavLink to="/student-navcourse" onClick={onClose}>
         {({isActive}) => (
           <li className={isActive ? "active" : ""} >Courses</li>
         )}</NavLink>

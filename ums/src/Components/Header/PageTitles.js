@@ -14,6 +14,8 @@ const PageTitles = {
     "/student-attendance" : "Attendance",
     "/student-examination" : "Examination",
     "/student-courses" : "Courses",
+    "/student-navcourse" : "Courses",
+    "/student-internalMarks" : "Internal Marks",
     "/student-schedule" : "Schedule",
     "/student-fees" : "Fees",
     "/student-announcement" : "Announcement",
