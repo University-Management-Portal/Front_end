@@ -1,14 +1,23 @@
 import React from 'react'
-import { Link} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import './StudentNavCourse.css';
 function StudentNavCourse() {
+  const navigate = useNavigate();
+
+  const handleClickCourses =() =>{
+    navigate("/student-courses");
+  }
+  const handleClickMarks =() =>{
+    navigate("/student-internalMarks");
+  }
+
   return (
     <div className="course-nav-page">
-      <div className="courses">
-        <Link to={"/student-courses"} ><p>COURSES</p></Link>
+      <div className="courses" onClick={handleClickCourses}>
+        <p>COURSES</p>
       </div>  
-      <div className="mark">
-        <Link to={"/student-internalMarks"}><p>INTERNAL MARKS</p></Link>
+      <div className="mark" onClick={handleClickMarks}>
+        <p>INTERNAL MARKS</p>
       </div>
     </div>
   )
