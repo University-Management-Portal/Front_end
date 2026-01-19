@@ -11,6 +11,8 @@ import StudentDashboard from '../Components/Student/StudentDashboard'
 import AdminDashboard from '../Components/Admin/AdminDashboard'
 import StaffSeparateCourse from '../Components/Staff/StaffSeparateCourse.jsx'
 import StaffAssignment from '../Components/Staff/StaffAssignment.jsx'
+import StaffMark from '../Components/Staff/StaffMark.jsx'
+import Schedule from '../Components/Staff/Schedule.jsx'
 
 function Routing() {
   return(
@@ -25,8 +27,11 @@ function Routing() {
           <Route path='/staff-dashboard' element={<StaffDashboard/>}/>
           <Route path='/staff-profile' element={<StaffProfile/>}/>
           <Route path='/staff-courses' element={<StaffCourse/>}/>
-          <Route path='/staff-course' element={<StaffSeparateCourse/>}/>
-          <Route path='/staff-course/assignment' element={<StaffAssignment/>}/>
+          <Route path='/staff-courses/:courseName' element={<StaffSeparateCourse/>}/>
+          <Route path='/staff-courses/:courseName/assignment' element={<StaffAssignment/>}/>
+          <Route path='/staff-internalmark' element={<StaffMark/>}/>
+          <Route path='/staff-schedule' element={<Schedule/>}/>
+
           
         </Route>
 

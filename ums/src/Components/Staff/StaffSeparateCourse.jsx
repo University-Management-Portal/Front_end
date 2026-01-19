@@ -1,17 +1,18 @@
 import React from 'react'
 import './StaffSeparateCourses.css'
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate,useParams } from "react-router-dom";
 
 
 export default function StaffSeparateCourse() {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const {courseName} = useParams();
 
   const { subject, dept } = location.state || {};
 
   const handleAssignmentClick = () => {
-    navigate("/staff-course/assignment", {
+    navigate(`/staff-courses/${courseName.courseName}/assignment`, {
       state: { subject, dept }
     });
   };

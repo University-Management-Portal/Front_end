@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.schedule-container {
+  padding: 40px;
+  margin-left: 290px;
+}
+
+.schedule-container h2 {
+  margin-bottom: 30px;
+  color: #2d1a8d;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px;
+  margin-bottom: 25px;
+}
+
+.row p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+.view {
+  background-color: #2d1a8d;
+}
+
+.download {
+  background-color: #2d1a8d;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}

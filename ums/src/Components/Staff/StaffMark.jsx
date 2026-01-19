@@ -1,57 +1,131 @@
-import React from 'react'
+import React, { useState } from 'react'
+import * as XLSX from 'xlsx'
 import './StaffMark.css'
 
 export default function StaffMark() {
+
+  const [students, setStudents] = useState([])
+
+  // Excel Upload
+  const handleUpload = (e) => {
+    const file = e.target.files[0]
+    const reader = new FileReader()
+
+    reader.onload = (evt) => {
+      const data = evt.target.result
+      const workbook = XLSX.read(data, { type: 'binary' })
+      const sheetName = workbook.SheetNames[0]
+      const sheet = workbook.Sheets[sheetName]
+      const parsedData = XLSX.utils.sheet_to_json(sheet)
+      setStudents(parsedData)
+    }
+
+    reader.readAsBinaryString(file)
+  }
+
+  // Excel Download
+  const handleDownload = () => {
+    const worksheet = XLSX.utils.json_to_sheet(students)
+    const workbook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Marks")
+    XLSX.writeFile(workbook, "Internal_Marks.xlsx")
+  }
+
   return (
-    <div>
+    <div className="staff-mark-container">
+
+      {/* TOP BAR */}
       <div className="top-bar">
 
-        <div className="Academic">
-            <p>Academic Year</p>
-            <select name="year" id="year">
-                <option value="2023-2024">2023-2024</option>
-                <option value="2022-2023">2022-2023</option>
-                <option value="2021-2022">2021-2022</option>
-            </select>
+        <div className="field">
+          <label>Academic Year</label>
+          <select>
+            <option>2025 - 2026</option>
+            <option>2024 - 2025</option>
+            <option>2023 - 2024</option>
+          </select>
         </div>
 
-        <div className="Semester">
-            <p>Semester</p>
-            <select name="sem" id="sem">
-                <option value="1st">1st</option>
-                <option value="2nd">2nd</option>
-                <option value="3rd">3rd</option>
-                <option value="4th">4th</option>
-                <option value="5th">5th</option>
-                <option value="6th">6th</option>
-                <option value="7th">7th</option>
-                <option value="8th">8th</option>
-            </select>
-
+        <div className="field">
+          <label>Semester</label>
+          <select>
+            <option>Semester 5</option>
+            <option>Semester 6</option>
+          </select>
         </div>
 
-        <div className="Department">
-            <p>Department</p>
-            <select name="dept" id="dept">
-                <option value="CSE">CSE</option>
-                <option value="ECE">ECE</option>   
-                <option value="MECH">MECH</option>
-                <option value="CIVIL">CIVIL</option> 
-            </select>
-
+        <div className="field">
+          <label>Department</label>
+          <select>
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>MECH</option>
+            <option>CIVIL</option>
+          </select>
         </div>
 
-        <div className="Section">
-            <p>Section</p>
-            <select name="sec" id="sec">
-                <option value="A">A</option>
-                <option value="B">B</option>   
-                <option value="C">C</option>
-            </select>
-
+        <div className="field">
+          <label>Section</label>
+          <select>
+            <option>C Section</option>
+            <option>A Section</option>
+            <option>B Section</option>
+          </select>
         </div>
 
       </div>
+
+      {/* ACTION BAR */}
+      <div className="action-bar">
+        <label className="upload-btn">
+          + Upload Internal Mark
+          <input type="file" accept=".xlsx,.xls" hidden onChange={handleUpload} />
+        </label>
+
+        <button className="download-btn" onClick={handleDownload}>
+          Download
+        </button>
+      </div>
+
+      {/* TABLE */}
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Roll No</th>
+              <th>Internal 1</th>
+              <th>Internal 2</th>
+              <th>Assignment 1</th>
+              <th>Assignment 2</th>
+              <th>Lab Mark</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {students.length === 0 ? (
+              <tr>
+                <td colSpan="7" style={{ textAlign: "center" }}>
+                  Upload Excel to view data
+                </td>
+              </tr>
+            ) : (
+              students.map((s, i) => (
+                <tr key={i}>
+                  <td>{s.Name}</td>
+                  <td>{s["Roll No"]}</td>
+                  <td>{s.Internal1}</td>
+                  <td>{s.Internal2}</td>
+                  <td>{s.Assignment1}</td>
+                  <td>{s.Assignment2}</td>
+                  <td>{s["Lab Mark"]}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './StaffAssignments.css'
 import { BsPlusLg, BsThreeDotsVertical } from "react-icons/bs";
-import { useLocation } from "react-router-dom";
+import { useLocation,useParams } from "react-router-dom";
 
 
 export default function StaffAssignment() {
@@ -16,6 +16,7 @@ export default function StaffAssignment() {
   const [dueDate, setDueDate] = useState('');
   const [file, setFile] = useState(null);
   const [activeMenu, setActiveMenu] = useState(null);
+  const {courseName} = useParams();
 
   const getStatus = (due) => {
     const today = new Date();

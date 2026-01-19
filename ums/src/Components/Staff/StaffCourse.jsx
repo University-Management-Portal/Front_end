@@ -2,22 +2,15 @@ import React from 'react'
 import './StaffCourses.css'
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import courses from './Courses.js';
 
 export default function StaffCourse() {
 
   const navigate = useNavigate();
 
-  const courses = [
-    { sub: "CS104 / Advanced Networking", dept: "III Year CSE C" },
-    { sub: "CS101 / Database Management System", dept: "III Year CSE C" },
-    { sub: "CS102 / Data Structure", dept: "III Year CSE C" },
-    { sub: "CS104 / Advanced Networking", dept: "III Year CSE C" },
-    { sub: "CS101 / Database Management System", dept: "III Year CSE C" },
-    { sub: "CS102 / Data Structure", dept: "III Year CSE C" }
-  ]
 
   const handleClick = (course) => {
-    navigate("/staff-course", {
+    navigate(`/staff-courses/${course.slug}`, {
       state: {
         subject: course.sub,
         dept: course.dept

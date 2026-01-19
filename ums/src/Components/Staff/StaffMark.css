@@ -5,86 +5,127 @@
   font-family: "Poppins", sans-serif;
 }
 
-.top-bar{
-    margin-left: 20px;
-    background-color: #16005D;
-    font-size: 24px;
-    font-weight: 600;
-    color: white;
-    width: 1500px;
-    border-radius: 10px;
-    height: 140px;
+
+html, body {
+  width: 1570px;
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f5f6fa;
 }
 
-
-.Academic{
-    margin-top: 30px;
-    margin-left: 60px;
+.staff-mark-container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 20px 30px;
 }
 
-.Academic select {
-  width: 200px;        
-  height: 42px;       
-  font-size: 16px;     
-  padding: 4px 10px;   
-  border-radius: 6px;
-  border: none;
-  outline: none;
+/* TOP BAR */
+.top-bar {
+  width: 100%;
+  background: linear-gradient(90deg, #1d0b5f, #2c0f91);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 25px;
+  border-radius: 12px;
+  color: white;
 }
 
-.Semester{
-    margin-top: 30px;
-    margin-left: 1px;
+.field {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
 }
 
-
-.Semester select {
-  width: 100px;        
-  height: 42px;       
-  font-size: 16px;     
-  padding: 4px 10px;   
-  border-radius: 6px;
-  border: none;
-  outline: none;
-}
-
-
-.Department{
-    margin-top: 30px;
-    margin-left: 1px;
-}
-
-
-.Department select {
-  width: 100px;        
-  height: 42px;       
-  font-size: 16px;     
-  padding: 4px 10px;   
-  border-radius: 6px;
-  border: none;
-  outline: none;
-}
-
-
-.Section{
-    margin-top: 30px;
-    margin-left: 1px;
-}
-
-
-.Section select {
-  width: 80px;        
-  height: 42px;       
-  font-size: 16px;     
-  padding: 4px 10px;   
-  border-radius: 6px;
-  border: none;
-  outline: none;
-}
-
-
-.top-bar p {
-  font-size: 20px;
+.field label {
+  font-size: 14px;
   margin-bottom: 6px;
-  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+
+.field select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ACTION BAR */
+.action-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.upload-btn {
+  background-color: #1d0b5f;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.upload-btn:hover {
+  background-color: #2c0f91;
+}
+
+.download-btn {
+  background-color: #1d0b5f;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.download-btn:hover {
+  background-color: #2c0f91;
+}
+
+/* TABLE SECTION */
+.table-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #eef0f5;
+}
+
+th {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #c9c9c9;
+}
+
+td {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #c9c9c9;
+}
+
+/* EMPTY MESSAGE */
+tbody tr td[colspan] {
+  padding: 30px;
+  font-size: 15px;
+  color: #666;
 }
