@@ -6,7 +6,6 @@ export default function StaffMark() {
 
   const [students, setStudents] = useState([])
 
-  // Excel Upload
   const handleUpload = (e) => {
     const file = e.target.files[0]
     const reader = new FileReader()
@@ -34,10 +33,9 @@ export default function StaffMark() {
   return (
     <div className="staff-mark-container">
 
-      {/* TOP BAR */}
       <div className="top-bar">
 
-        <div className="field">
+        <div className="academic">
           <label>Academic Year</label>
           <select>
             <option>2025 - 2026</option>
@@ -46,7 +44,7 @@ export default function StaffMark() {
           </select>
         </div>
 
-        <div className="field">
+        <div className="sem">
           <label>Semester</label>
           <select>
             <option>Semester 5</option>
@@ -54,7 +52,7 @@ export default function StaffMark() {
           </select>
         </div>
 
-        <div className="field">
+        <div className="dept">
           <label>Department</label>
           <select>
             <option>CSE</option>
@@ -64,7 +62,7 @@ export default function StaffMark() {
           </select>
         </div>
 
-        <div className="field">
+        <div className="sec">
           <label>Section</label>
           <select>
             <option>C Section</option>
@@ -75,7 +73,6 @@ export default function StaffMark() {
 
       </div>
 
-      {/* ACTION BAR */}
       <div className="action-bar">
         <label className="upload-btn">
           + Upload Internal Mark
@@ -87,7 +84,6 @@ export default function StaffMark() {
         </button>
       </div>
 
-      {/* TABLE */}
       <div className="table-container">
         <table>
           <thead>

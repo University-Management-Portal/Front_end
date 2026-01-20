@@ -1,19 +1,10 @@
 import React,{useState,useRef} from 'react'
 import { useNavigate } from 'react-router-dom'
 import './StaffProfiles.css';
+import ProfileData from './ProfileData.js';
 
 export default function StaffProfile() {
 
-  const values=[
-    { label: "Name", value: "Praveenkumar R" },
-    { label: "Reg No", value: "23P341" },
-    { label: "Department", value: "Computer Science" },
-    { label: "Area of Specialization", value: "AI, DBMS, CN" },
-    { label: "Date of Joining", value: "2023-08-15" },
-    { label: "E-Mail Id", value: "praveen@gmail.com" },
-    { label: "Phone Number", value: "9876543210" },
-    { label: "Address", value: "123, ABC Street, City, Country" }
-  ];
 
   const fileInputRef = useRef(null)
 
@@ -62,7 +53,7 @@ export default function StaffProfile() {
 
       <div className="right-cart">
 
-        {values.map((item, index) => (
+        {ProfileData.map((item, index) => (
           <div className="row" key={index}>
             <span className="label">{item.label}:</span>
             <span className="value">{item.value}</span>

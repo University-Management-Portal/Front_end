@@ -29,6 +29,7 @@
   width: 220px;
   height: 45px;
   margin-left: 237px;
+  border-radius: 15px;
 }
 
 .buttons:hover{
