@@ -1,8 +1,9 @@
 import React from 'react'
 import "./StudentDashboard.css"
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function StudentDashboard() {
+    const navigate = useNavigate();
     const upcomingEvents = [
         "Continuous Internal Exam – I",
         "Model Lab – I",
@@ -34,8 +35,8 @@ function StudentDashboard() {
         <div className='card'>
             <p>Last Working Day  : 26.02.2026</p>
         </div>
-        <div className='card'>
-            <NavLink to="/student-courses"><p>Enrolled Courses : 7</p></NavLink>
+        <div className='card' onClick={()=>{navigate("/student-courses")}}>
+            <p>Enrolled Courses : 7</p>
         </div>
 
         <div className="events-card">

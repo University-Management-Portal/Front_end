@@ -14,7 +14,10 @@
 
 /* HEADER CARD (COURSE BANNER) */
 .material-header {
-  background: linear-gradient(135deg, #16005d, #223b9c);
+  background: url("/commen.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   
   color: hsl(0, 100%, 100%);
   padding: 22px 28px;
@@ -22,7 +25,7 @@
   margin-bottom: 28px;
   
   font-size: 38px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.8px;
 
   height: 180px;
