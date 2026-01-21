@@ -9,7 +9,6 @@ body {
   background: #f4f6fb;
 }
 
-/* OUTER CONTAINER */
 .assignment-container {
   min-height: 100vh;
   padding: 40px;
@@ -17,66 +16,91 @@ body {
   justify-content: center;
 }
 
-/* INNER WRAPPER */
 .assignment-wrapper {
   width: 100%;
   max-width: 1000px;
 }
 
-/* TOP BAR */
-.top-bar {
+.ass-head {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: center;        
+  justify-content: space-between; 
+  padding: 10px 0;
 }
 
-.title {
-  font-size: 20px;
-  font-weight: 600;
+.url {
+  font-size: 16px;
+  font-weight: 500;
+  color: #16005D;
 }
 
-/* BUTTONS */
 .add-btn {
-  background: #4f46e5;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  padding: 8px 14px;
+  background-color: #16005D;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
+
 
 .add-btn:hover {
-  background: #4338ca;
+  background: #ffffff;
+  color: #16005D;
+  border: 2px solid #16005D;
 }
 
 .save-btn {
-  background: #16a34a;
+  background: #16005D;
   color: white;
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
+  width: 100px;
+  margin-left: 80px; 
+}
+
+.form-card :placeholder-shown{
+  align-items: center;
 }
 
 .save-btn:hover {
-  background: #15803d;
+  background: #D9D9D9;
+  color: #16005D;
+  border:2px solid #16005D  ;
 }
 
-/* FORM */
 .form-card {
   background: white;
-  padding: 20px;
   border-radius: 10px;
   display: flex;
-  gap: 12px;
+  gap: 20px;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 30px;
+  width: 1000px;
+  padding: 20px;
+  margin-top: 20px;
 }
+
+.form-card input[type="text"] {
+  width: 200px;
+}
+
+.form-card input[type="date"] {
+  width: 180px;
+  margin-left: 20px;
+}
+
+.form-card input[type="file"] {
+  width: 280px;
+  margin-left: 20px;
+}
+
 
 .form-card input {
   padding: 8px;
@@ -85,7 +109,6 @@ body {
   font-size: 14px;
 }
 
-/* EMPTY */
 .empty {
   text-align: center;
   margin-top: 80px;
@@ -93,7 +116,6 @@ body {
   font-size: 16px;
 }
 
-/* TABLE */
 .tables {
   width: 100%;
   background: white;
@@ -116,7 +138,6 @@ body {
   background: #f9fafb;
 }
 
-/* STATUS */
 .Open {
   color: green;
   font-weight: 600;
@@ -127,7 +148,6 @@ body {
   font-weight: 600;
 }
 
-/* MENU */
 .menu {
   position: relative;
   cursor: pointer;
@@ -152,7 +172,6 @@ body {
   background: #f1f5f9;
 }
 
-/* DISABLED ROW */
 .disabled {
   opacity: 0.5;
 }

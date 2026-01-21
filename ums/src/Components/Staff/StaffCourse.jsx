@@ -22,7 +22,7 @@ export default function StaffCourse() {
   return (
     <div className="page">
       {courses.map((course, index) => (
-        <div className="div" key={index} onClick={() => handleClick(course)} style={{cursor:"pointer"}}>
+        <div className="carts" key={index} onClick={() => handleClick(course)} style={{cursor:"pointer"}}>
           
           <div className="course-header">
             <h2 className="sub">{course.sub}</h2>

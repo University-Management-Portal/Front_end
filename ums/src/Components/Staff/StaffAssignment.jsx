@@ -60,9 +60,9 @@ export default function StaffAssignment() {
     <div className="assignment-container">
       <div className="assignment-wrapper">
 
-        <div className="top-bar">
-          <p className="title">
-          {subject} / {dept} / Assignment
+        <div className="ass-head">
+          <p className="url">
+          {dept} / {subject} / Assignment
           </p>
 
           <button className="add-btn" onClick={() => setShowForm(!showForm)}>
@@ -71,7 +71,6 @@ export default function StaffAssignment() {
         </div>
 
 
-        {/* FORM */}
         {showForm && (
           <div className="form-card">
             <input
@@ -99,9 +98,9 @@ export default function StaffAssignment() {
           </div>
         )}
 
-        {/* EMPTY STATE */}
+
         {assignments.length === 0 ? (
-          <div className="empty">No assignments here 📄</div>
+          <div className="empty">No Assignments Here 📄</div>
         ) : (
           <table className="tables">
             <thead>

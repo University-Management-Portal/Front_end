@@ -18,15 +18,21 @@ body {
   min-height: 100vh;
 }
 
-.div {
+.carts {
   background-color: #D9D9D9;
   padding: 20px;
   border-radius: 10px;
-  width: 1400px;       
   margin: 0 auto 20px;    
   display: flex;
   flex-direction: column;
   margin-top: 0px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100px;
+}
+
+.carts:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
 }
 
 .sub {
