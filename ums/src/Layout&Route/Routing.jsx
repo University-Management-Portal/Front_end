@@ -11,6 +11,9 @@ import StudentDashboard from '../Components/Student/StudentDashboard'
 import AdminDashboard from '../Components/Admin/AdminDashboard'
 import StaffSeparateCourse from '../Components/Staff/StaffSeparateCourse.jsx'
 import StaffAssignment from '../Components/Staff/StaffAssignment.jsx'
+import StaffMark from '../Components/Staff/StaffMark.jsx'
+import Schedule from '../Components/Staff/Schedule.jsx'
+
 import StudentCourses from '../Components/Student/StudentCourses.jsx'
 import StudentSeparateCourse from '../Components/Student/StudentSeparateCourse.jsx'
 import StudentAssignment from '../Components/Student/StudentAssignment.jsx'
@@ -19,6 +22,7 @@ import StudentAssignmentDetial from '../Components/Student/StudentAssignmentDeti
 import StudentMaterialDetial from '../Components/Student/StudentMaterialDetial.jsx'
 import StudentNavCourse from '../Components/Student/StudentNavCourse.jsx'
 import StudentInternalMark from '../Components/Student/StudentInternalMark.jsx'
+
 
 function Routing() {
   return(
@@ -33,8 +37,11 @@ function Routing() {
           <Route path='/staff-dashboard' element={<StaffDashboard/>}/>
           <Route path='/staff-profile' element={<StaffProfile/>}/>
           <Route path='/staff-courses' element={<StaffCourse/>}/>
-          <Route path='/staff-course' element={<StaffSeparateCourse/>}/>
-          <Route path='/staff-course/assignment' element={<StaffAssignment/>}/>
+          <Route path='/staff-courses/:courseName' element={<StaffSeparateCourse/>}/>
+          <Route path='/staff-courses/:courseName/assignment' element={<StaffAssignment/>}/>
+          <Route path='/staff-internalmark' element={<StaffMark/>}/>
+          <Route path='/staff-schedule' element={<Schedule/>}/>
+
           
         </Route>
 

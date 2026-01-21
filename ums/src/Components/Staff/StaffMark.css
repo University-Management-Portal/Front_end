@@ -5,86 +5,183 @@
   font-family: "Poppins", sans-serif;
 }
 
-.top-bar{
-    margin-left: 20px;
-    background-color: #16005D;
-    font-size: 24px;
-    font-weight: 600;
-    color: white;
-    width: 1500px;
-    border-radius: 10px;
-    height: 140px;
+
+html, body {
+  width: 1570px;
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f5f6fa;
+}
+
+.staff-mark-container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 20px 30px;
+}
+
+.top-bar {
+  width: 1100;
+  background-color: #16005D;
+  padding: 20px 25px;
+  border-radius: 12px;
+  color: white;
+  margin-right: 20px;
+
 }
 
 
-.Academic{
-    margin-top: 30px;
-    margin-left: 60px;
-}
-
-.Academic select {
-  width: 200px;        
-  height: 42px;       
-  font-size: 16px;     
-  padding: 4px 10px;   
-  border-radius: 6px;
-  border: none;
-  outline: none;
-}
-
-.Semester{
-    margin-top: 30px;
-    margin-left: 1px;
-}
 
 
-.Semester select {
-  width: 100px;        
-  height: 42px;       
-  font-size: 16px;     
-  padding: 4px 10px;   
-  border-radius: 6px;
-  border: none;
-  outline: none;
-}
-
-
-.Department{
-    margin-top: 30px;
-    margin-left: 1px;
-}
-
-
-.Department select {
-  width: 100px;        
-  height: 42px;       
-  font-size: 16px;     
-  padding: 4px 10px;   
-  border-radius: 6px;
-  border: none;
-  outline: none;
-}
-
-
-.Section{
-    margin-top: 30px;
-    margin-left: 1px;
-}
-
-
-.Section select {
-  width: 80px;        
-  height: 42px;       
-  font-size: 16px;     
-  padding: 4px 10px;   
-  border-radius: 6px;
-  border: none;
-  outline: none;
-}
-
-
-.top-bar p {
-  font-size: 20px;
+.academic label {
+  font-size: 14px;
   margin-bottom: 6px;
-  letter-spacing: 0.2px;
+  font-weight: 500;
+  margin-left: 44px;
+}
+
+.academic select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  margin-left: 24px;
+}
+
+
+.sem label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  margin-left: 44px;
+}
+
+.sem select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  margin-left: 24px;
+}
+
+
+.dept label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  margin-left: 44px;
+}
+
+.dept select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  margin-left: 24px;
+}
+
+
+.sec label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  margin-left: 44px;
+}
+
+.sec select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  margin-left: 24px;
+}
+
+.action-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.upload-btn {
+  background-color: #1d0b5f;
+  color: white;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.upload-btn:hover {
+  background-color: #16005D;
+  color: #ffffff;
+}
+
+.download-btn {
+  background-color: #1d0b5f;
+  color: white;
+  padding: 12px 22px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  margin-right: 20px;
+}
+
+.download-btn:hover {
+  background-color: #16005D;
+  color: #ffffff;
+}
+
+.table-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #16005D;
+  color: white;
+}
+
+th {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #c9c9c9;
+}
+
+td {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #c9c9c9;
+}
+
+tbody tr td[colspan] {
+  padding: 30px;
+  font-size: 15px;
+  color: #1320b4;
 }

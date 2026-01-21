@@ -4,9 +4,10 @@ import Search from "@mui/icons-material/Search"
 import Notification from "@mui/icons-material/Notifications"
 import Menu from "@mui/icons-material/Menu"
 import PageTitles from "./PageTitles"
-import { useLocation } from 'react-router-dom'
+import { useLocation,useNavigate } from 'react-router-dom'
 
 export default function Header({onMenuClick}) {
+  const navigate = useNavigate();
   const location = useLocation();
   let title = PageTitles[location.pathname] 
 
@@ -44,7 +45,7 @@ export default function Header({onMenuClick}) {
 
           <Notification color='#ffffffff'/>
           <div className="Profile">
-              <img src="Profile.jpg" alt="Profile-icon" width={50} height={50} style={{borderRadius:"50px", marginRight:"36px", marginTop:"5px"}}/>
+              <img src="Profile.jpg" alt="Profile-icon" onClick={() => navigate("/staff-profile")} width={50} height={50} style={{borderRadius:"50px", marginRight:"36px", marginTop:"5px"}} />
           </div>
         </div>
 
