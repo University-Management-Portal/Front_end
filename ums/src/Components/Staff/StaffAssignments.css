@@ -120,7 +120,7 @@ body {
   width: 100%;
   background: white;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: visible;
   border-collapse: collapse;
 }
 
@@ -128,7 +128,8 @@ body {
 .tables td {
   padding: 14px;
   text-align: left;
-}
+  overflow: visible;
+  color: #16005D;}
 
 .tables thead {
   background: #e5e7eb;

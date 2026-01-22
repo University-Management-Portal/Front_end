@@ -28,7 +28,7 @@ export default function StaffAssignment() {
       alert("All fields required");
       return;
     }
-
+    const fileUrl = URL.createObjectURL(file);
     setAssignments([
       ...assignments,
       {
@@ -36,6 +36,7 @@ export default function StaffAssignment() {
         title,
         dueDate,
         file,
+        fileUrl,   
         enabled: true
       }
     ]);
@@ -108,7 +109,7 @@ export default function StaffAssignment() {
                 <th>Title</th>
                 <th>Due Date</th>
                 <th>Status</th>
-                <th></th>
+                <th>Actions</th>
               </tr>
             </thead>
 
@@ -131,6 +132,10 @@ export default function StaffAssignment() {
 
                     {activeMenu === index && (
                       <div className="dropdown">
+                        <p onClick={() => window.open(a.fileUrl, "_blank")}>
+                        View
+                        </p>
+
                         <p onClick={() => toggleEnable(a.id)}>
                           {a.enabled ? "Disable" : "Enable"}
                         </p>

@@ -26,11 +26,40 @@ html, body {
   border-radius: 12px;
   color: white;
   margin-right: 20px;
+  display: flex;
+  gap: 30px;                 /* fields ku gap */
+  align-items: center;       /* vertical center */
+  flex-wrap: wrap;
 
 }
 
+.edit-btn{
+background-color: #1d0b5f;
+color: white;
+margin-left: 800px;
+}
 
+.edit-btn:hover{
+background-color: #ffffff;
+color: #16005D;
+border: 2px solid #16005D;
+}
 
+.save-butn{
+background-color: #1d0b5f;
+color: white;
+}
+
+.save-butn:hover{
+background-color: #ffffff;  
+color: #16005D;
+border: 2px solid #16005D;
+}
+
+.download-btn{
+background-color: #1d0b5f;
+color: white;
+}
 
 .academic label {
   font-size: 14px;
@@ -131,6 +160,7 @@ html, body {
 .upload-btn:hover {
   background-color: #16005D;
   color: #ffffff;
+  border: #16005D 2px solid;
 }
 
 .download-btn {
@@ -147,6 +177,7 @@ html, body {
 .download-btn:hover {
   background-color: #16005D;
   color: #ffffff;
+  border: #16005D 2px solid;
 }
 
 .table-container {
