@@ -28,7 +28,7 @@ export default function StaffAssignment() {
       alert("All fields required");
       return;
     }
-
+    const fileUrl = URL.createObjectURL(file);
     setAssignments([
       ...assignments,
       {
@@ -36,6 +36,7 @@ export default function StaffAssignment() {
         title,
         dueDate,
         file,
+        fileUrl,   
         enabled: true
       }
     ]);
@@ -60,9 +61,9 @@ export default function StaffAssignment() {
     <div className="assignment-container">
       <div className="assignment-wrapper">
 
-        <div className="top-bar">
-          <p className="title">
-          {subject} / {dept} / Assignment
+        <div className="ass-head">
+          <p className="url">
+          {dept} / {subject} / Assignment
           </p>
 
           <button className="add-btn" onClick={() => setShowForm(!showForm)}>
@@ -71,7 +72,6 @@ export default function StaffAssignment() {
         </div>
 
 
-        {/* FORM */}
         {showForm && (
           <div className="form-card">
             <input
@@ -99,9 +99,9 @@ export default function StaffAssignment() {
           </div>
         )}
 
-        {/* EMPTY STATE */}
+
         {assignments.length === 0 ? (
-          <div className="empty">No assignments here 📄</div>
+          <div className="empty">No Assignments Here 📄</div>
         ) : (
           <table className="tables">
             <thead>
@@ -109,7 +109,7 @@ export default function StaffAssignment() {
                 <th>Title</th>
                 <th>Due Date</th>
                 <th>Status</th>
-                <th></th>
+                <th>Actions</th>
               </tr>
             </thead>
 
@@ -132,6 +132,10 @@ export default function StaffAssignment() {
 
                     {activeMenu === index && (
                       <div className="dropdown">
+                        <p onClick={() => window.open(a.fileUrl, "_blank")}>
+                        View
+                        </p>
+
                         <p onClick={() => toggleEnable(a.id)}>
                           {a.enabled ? "Disable" : "Enable"}
                         </p>

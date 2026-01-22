@@ -12,15 +12,49 @@ export default function StaffSeparateCourse() {
   const { subject, dept } = location.state || {};
 
   const handleAssignmentClick = () => {
-    navigate(`/staff-courses/${courseName.courseName}/assignment`, {
+    navigate(`/staff-courses/${courseName}/assignment`, {
       state: { subject, dept }
     });
   };
 
+  const handleMaterialClick = () => {
+    navigate(`/staff-courses/${courseName}/material`, {
+      state: { subject, dept }
+    });
+  };
+
+
+
   return (
     <div className="separate-course">
 
-      <div className="course-title">
+        <p className="title"> 
+         {dept} / {subject} 
+        </p>
+
+      <div className="Assignment" onClick={handleAssignmentClick}>
+        <p>ASSIGNMENTS</p>
+      </div>  
+      <div className="Material" onClick={handleMaterialClick}>
+        <p>MATERIALS</p>
+      </div>
+
+      
+
+
+
+
+
+
+      
+
+    </div>
+  )
+}
+
+/*
+
+<div className="course-title">
         <p className="title"> 
           {subject} / {dept} / Assignment
         </p>
@@ -28,18 +62,14 @@ export default function StaffSeparateCourse() {
 
       <div className="cart">
 
-        {/* ASSIGNMENTS */}
+         ASSIGNMENTS 
         <div className="Assignments" onClick={handleAssignmentClick}>
           <p className='word'>ASSIGNMENTS</p>
         </div>
 
-        {/* MATERIALS */}
+         MATERIALS 
         <div className="Material">
           <p className='word'>MATERIALS</p>
         </div>
 
-      </div>
-
-    </div>
-  )
-}
+      </div> */
