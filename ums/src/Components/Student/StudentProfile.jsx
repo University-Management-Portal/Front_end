@@ -1,10 +1,18 @@
-import React,{useState,useRef} from 'react'
+import React from 'react'
+import { useState,useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './StaffProfiles.css';
-import ProfileData from './ProfileData.js';
+import '../Staff/StaffProfiles.css';
 
-export default function StaffProfile() {
+function StudentProfile() {
 
+  const ProfileData = [
+  { label: "Name", value: "XXXXXXXXXX" },
+  { label: "Reg No", value: "717823XXXX" },
+  { label: "Department", value: "CSE" },
+  { label: "E-Mail Id", value: "XXXXXXX@gmail.com" },
+  { label: "Phone Number", value: "9876543210" },
+  { label: "Address", value: "123, ABC Street, City, Country" }
+  ];
 
   const fileInputRef = useRef(null)
 
@@ -25,7 +33,7 @@ export default function StaffProfile() {
   const navigate = useNavigate();
 
   return (
-    <div className="container">
+     <div className="container">
       <div className="left-cart">
         <img src={profileImage} alt="Profile" width={250} height={250} style={{
           borderRadius: "50%",
@@ -61,10 +69,4 @@ export default function StaffProfile() {
   )
 }
 
-
-        
-        
-        
-        
-        
-
+export default StudentProfile

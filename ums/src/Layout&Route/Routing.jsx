@@ -22,6 +22,8 @@ import StudentAssignmentDetial from '../Components/Student/StudentAssignmentDeti
 import StudentMaterialDetial from '../Components/Student/StudentMaterialDetial.jsx'
 import StudentNavCourse from '../Components/Student/StudentNavCourse.jsx'
 import StudentInternalMark from '../Components/Student/StudentInternalMark.jsx'
+import ResultPage from '../Components/Common/ResultPage.jsx'
+import StudentProfile from '../Components/Student/StudentProfile.jsx'
 
 
 function Routing() {
@@ -32,6 +34,7 @@ function Routing() {
         <Route path='/' element={<Login/>} />
         <Route path='/forget-password' element={<ForgetPassword/>} /> 
         <Route path='/reset-password' element={<ResetPassword/>} /> 
+        <Route path='/result' element={<ResultPage/>} /> 
 
         <Route element={<Layout/>}>
           <Route path='/staff-dashboard' element={<StaffDashboard/>}/>
@@ -46,6 +49,7 @@ function Routing() {
         </Route>
 
         <Route element={<Layout/>}>
+          <Route path='/student-profile' element={<StudentProfile/>}/>
           <Route path='/student-dashboard' element={<StudentDashboard/>}/>
           <Route path='/student-navcourse' element={<StudentNavCourse/>}/>
           <Route path='/student-courses' element={<StudentCourses/>}/>

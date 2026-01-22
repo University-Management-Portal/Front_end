@@ -23,6 +23,14 @@ export default function Header({onMenuClick}) {
     title="not found"
   }
 
+  const handleProfileClick = () => {
+    if(location.pathname.startsWith("/staff")){
+      navigate('/staff-profile');
+    }else if(location.pathname.startsWith("/student")){
+      navigate('/student-profile');
+    }
+  }
+
   return (
     <div className='header'>
         <div className="header-left">
@@ -45,7 +53,7 @@ export default function Header({onMenuClick}) {
 
           <Notification color='#ffffffff'/>
           <div className="Profile">
-              <img src="Profile.jpg" alt="Profile-icon" onClick={() => navigate("/staff-profile")} width={50} height={50} style={{borderRadius:"50px", marginRight:"36px", marginTop:"5px"}} />
+              <img src="Profile.jpg" alt="Profile-icon" onClick={handleProfileClick} width={50} height={50} style={{borderRadius:"50px", marginRight:"36px", marginTop:"5px"}} />
           </div>
         </div>
 
