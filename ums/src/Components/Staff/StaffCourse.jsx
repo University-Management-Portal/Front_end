@@ -21,17 +21,26 @@ export default function StaffCourse() {
 
   return (
     <div className="page">
-      {courses.map((course, index) => (
-        <div className="carts" key={index} onClick={() => handleClick(course)} style={{cursor:"pointer"}}>
-          
-          <div className="course-header">
-            <h2 className="sub">{course.sub}</h2>
-            <BsThreeDotsVertical className="menu-icon" />
-          </div>
+  {courses.map((course, index) => (
+    <div
+      className="course-card"
+      key={index}
+      onClick={() => handleClick(course)}
+    >
+      <div className="card-image">
+        <img src={course.image} alt={course.sub} />
+      </div>
 
-          <p className="dept" style={{ color: "#16005D", fontSize: "20px", fontWeight: "600", marginLeft: "2px" }}>{course.dept}</p>
+      <div className="card-content">
+        <div className="course-header">
+          <h3>{course.sub}</h3>
         </div>
-      ))}
+        
+        <p className="dept">{course.dept}</p>
+      </div>
     </div>
+  ))}
+</div>
+
   )
 }
