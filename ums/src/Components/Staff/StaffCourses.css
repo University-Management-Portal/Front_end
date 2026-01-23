@@ -14,42 +14,48 @@ body {
 
 
 .page {
-  padding: 30px 20px;
-  min-height: 100vh;
-}
-
-.carts {
-  background-color: #D9D9D9;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
   padding: 20px;
-  border-radius: 10px;
-  margin: 0 auto 20px;    
-  display: flex;
-  flex-direction: column;
-  margin-top: 0px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  height: 100px;
 }
 
-.carts:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+.course-card {
+  background: #f2f1f7;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.sub {
-  font-weight: 600;
-  font-size: 30px;
-  color: #16005D;
-  word-wrap: break-word;  
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
+.card-image img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
 .course-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.menu-icon {
+.course-header h3 {
   font-size: 22px;
   color: #16005D;
-  cursor: pointer;
+}
+
+.dept {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
 }
