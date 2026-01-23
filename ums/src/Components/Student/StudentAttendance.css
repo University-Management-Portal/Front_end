@@ -1,0 +1,157 @@
+/* PAGE LAYOUT */
+.attendance-page {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+  min-height: calc(100vh - 80px);
+}
+
+/* LEFT PANEL */
+.attendance-left {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.attendance-left button {
+  padding: 12px 18px;
+  border-radius: 18px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.attendance-left button:hover {
+  background: #d9d9d9;
+}
+
+.attendance-left .ActiveTab {
+  background: #16005d !important;
+  color: white !important;
+}
+
+/* RIGHT PANEL */
+.attendance-right {
+  flex: 1;
+  border-left: 2px solid #ddd;
+  padding: 0 40px;
+  font-size: 16px;
+}
+
+
+.overall-attendance-card {
+  width: 460px;
+  background: linear-gradient(135deg, #ffffff, #f4f6ff);
+  border-radius: 26px;
+  padding: 28px 34px;
+  margin-bottom: 40px;
+
+  box-shadow: 0 5px 3px rgba(22, 0, 93, 0.18);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.overall-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+}
+
+.overall-value {
+  font-size: 44px;
+  font-weight: 800;
+  color: #16005d;
+}
+
+
+/* RULES SECTION */
+.attendance-rules h2 {
+  margin-bottom: 12px;
+  font-size: 26px;
+  color: #16005d;
+}
+
+.attendance-rules ul {
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.attendance-rules li {
+  display: flex;
+  align-items: flex-start;   /* icon aligns to first line */
+  gap: 14px;
+  margin-bottom: 18px;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #000;
+}
+
+.attendance-rules svg {
+    font-size: 14px !important;   /* small bullet size */
+    margin-top: 6px;              /* aligns with text line */
+    color: #16005d;               /* dark grey like screenshot */
+    flex-shrink: 0;
+}
+
+/* COURSE ATTENDANCE LIST */
+.attendance-Course {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+
+    width: 100%;          /* 🔥 full width */
+    max-width: 1200px;    /* optional cap */
+
+    align-items: stretch;
+}
+
+.course-attendance-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px 26px;
+
+  width: 320px;
+  height: 120px;
+
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.course-attendance-card:hover {
+
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
+
+.course-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #16005d;
+}
+
+.course-attendance {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.course-attendance-high {
+  font-weight: 700;
+  color: #1e7e34;
+}
+
+.course-attendance-low {
+  font-weight: 700;
+  color: #d32f2f;
+}

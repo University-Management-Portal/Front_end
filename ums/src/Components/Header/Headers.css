@@ -16,12 +16,27 @@ html, body {
   height: 90px;             
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 25px;
+  
+  padding: 0px 24px;
   background-color: #16005d;
   color: white;
   z-index: 1000;          
 }
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-width: 350px;   /* ✅ FIXED width prevents shifting */
+}
+
+.header-title span {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
 
 .header-title {
   display: flex;
@@ -44,17 +59,18 @@ html, body {
   flex: 1;
   display: flex;
   justify-content: center;
-  margin-left: 250px;
 }
 
 .search-box {
   display: flex;
   align-items: center;
+
   background: #f1f1f1;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 45px;
+
   width: 380px;
-  height: 30px;
+  height: 34px;
 }
 
 .search-box input {
@@ -72,12 +88,15 @@ html, body {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
+
+  min-width: 360px;  /* ✅ FIXED width */
+  justify-content: flex-end;
 }
 
 .header-right svg{
   color: #f1f1f1 ;
-  font-size: 35px !important;
+  font-size: 40px !important;
   margin-left: 5px;
 }
 

@@ -20,8 +20,8 @@ function StudentDashboard() {
             <p>WELCOME,VARUN VIGNESH M(717823P359)</p>
             <p>III year CSE-C</p>
         </div>
-        <div className='card'>
-            <p>Overall Attendance :  76%</p>
+        <div className='card' onClick={()=>{navigate("/student-attendance")}}>
+            <p>Overall Attendance :  91.5%</p>
         </div>
         <div className='card'>
             <p>Current Semester  : 6</p>

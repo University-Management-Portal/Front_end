@@ -87,16 +87,4 @@ html, body {
   color: #16005d;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .lheader {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
 
-  .header-Right {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}

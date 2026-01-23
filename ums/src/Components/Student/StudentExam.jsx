@@ -35,7 +35,7 @@ function StudentExam() {
         <div className='exam-right'>
             {activeTab === "rules" && (
                 <div>
-                    <h2>Examination Rules & Regulations</h2>
+                    <h2>Examination Rules & Regulations:</h2>
                     <ul className="rules-list">
                         <li><CircleIcon/>Students must satisfy the minimum attendance requirement and clear all exam fees before appearing for examinations.</li>
                         <li><CircleIcon/>Students must enter the examination hall at least 15 minutes before the commencement of the exam.</li>
@@ -56,9 +56,11 @@ function StudentExam() {
             )}
             {activeTab === "schedule" && (
             schedule ? (
-                    <div>
-                    <p>ESE Schedule</p>
-                    </div>
+                    <a href='/uploads/dummy.pdf' target="_blank" rel="noopener noreferrer" >
+                        <div className='exam-schedule'>
+                                <p>ESE Sem 5 Schedule</p>
+                        </div>
+                    </a>
                 ) : (
                     <div className="center-content">
                     <p>End Semester Schedule Not Uploaded Yet.</p>
@@ -84,8 +86,8 @@ function StudentExam() {
                     </select>
 
                     {!Semester && (
-                        <div className="center-content">
-                         Please select a semester to view exam fee details
+                        <div className="fee-center-wrapper">
+                         <p>Please select a semester to view exam fee details.</p>
                         </div>
                     )}
 

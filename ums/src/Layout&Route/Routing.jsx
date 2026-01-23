@@ -25,6 +25,7 @@ import StudentInternalMark from '../Components/Student/StudentInternalMark.jsx'
 import ResultPage from '../Components/Common/ResultPage.jsx'
 import StudentProfile from '../Components/Student/StudentProfile.jsx'
 import StudentExam from '../Components/Student/StudentExam.jsx'
+import StudentAttendance from '../Components/Student/StudentAttendance.jsx'
 
 
 function Routing() {
@@ -61,6 +62,7 @@ function Routing() {
           <Route path='/student-courses/:courseName/materials' element={<StudentMaterial/>}/>
           <Route path='/student-courses/:courseName/materials/:folderId' element={<StudentMaterialDetial/>}/>
           <Route path='/student-examination' element={<StudentExam/>}/>
+          <Route path='/student-attendance' element={<StudentAttendance/>}/>
         </Route>
 
         <Route element={<Layout/>}>
