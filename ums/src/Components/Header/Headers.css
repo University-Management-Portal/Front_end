@@ -65,7 +65,7 @@ html, body {
 }
 
 .search-box svg {
-  color: #000000;
+  color: #000000 !important;
   font-size: 28px;
 }
 
