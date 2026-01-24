@@ -13,15 +13,19 @@ function StudentCourses() {
 
   return (
     <div className="course-page">
+      <div className='course-container'>
           {courses.map((course, index) => (
             <div className="course-card" key={index} onClick={() => handleClick(course)} style={{cursor:"pointer"}}>
-              
+              <img src={course.img} alt={course.sub}></img>
               <div className="course-header">
                 <p>{course.sub}</p>
-                <p className="credits">credits : {course.credits}.0</p>
+              </div>
+              <div className='staff'>
+                <p>{course.staff}</p>
               </div>
             </div>
           ))}
+      </div>
     </div>
   )
 }

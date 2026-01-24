@@ -1,36 +1,72 @@
 /* PAGE */
 .im-page {
-  min-height: calc(100vh - 120px);
-  padding: 32px 48px;
+  padding: 30px;
+  min-height: calc(100vh - 80px);
   background: #f6f7fb;
+}
+
+/* CONTAINER */
+.im-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 👈 3 cards per row */
+  gap: 28px;
+  
 }
 
 /* CARD */
 .im-card {
-  background: #d9d9d9;
-  border-radius: 16px;
-  padding: 22px 28px;
-  margin-bottom: 22px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px 26px;
+
+    height: 160px; /* 👈 fixed height for alignment */
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    display: flex;
 }
 
-/* HEADER */
+/* OPTIONAL HOVER (subtle, LMS-style) */
+.im-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* CARD HEADER */
 .im-header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between; /* 🔥 key line */
+  width: 100%;
 }
 
-/* COURSE NAME */
+/* SUBJECT NAME */
 .im-header p:first-child {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   color: #16005d;
 }
 
-/* INTERNAL MARK */
+.im-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #16005d;
+}
+
+/* MARK */
 .im-mark {
-  font-size: 16px;
-  font-weight: 400;
-  color: #16005d;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+
 }
 
+.im-mark-min {
+  color: #d32f2f;
+}
+
+.im-mark-max {
+  color: #1e7e34;
+}

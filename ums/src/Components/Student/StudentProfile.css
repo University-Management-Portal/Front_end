@@ -1,0 +1,71 @@
+* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-container{
+  background-color: #E5E5E5;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  height: 700px;
+  flex-direction: row;
+  display: flex;
+}
+
+.buttons{
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #16005D;
+  width: 220px;
+  height: 45px;
+  margin-left: 237px;
+  border-radius: 15px;
+}
+
+.buttons:hover{
+  background-color: #ffffff86;
+  cursor: pointer;
+  color: #16005D;
+  border: #16005D solid 3px;
+}
+
+.profile-right{
+  background-color:white;
+  margin-left: 150px;
+  margin-top: 65px;
+  margin-right: 5px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+  width: 700px;
+  height: 550px;
+  border: #16005D solid 1px;
+}
+
+.student-row {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  align-items: center;
+  padding: 15px;
+}
+
+.student-label {
+  font-weight: 600;
+  font-size: 20px;
+  color: #16005D;
+  border-right: 2px solid #000;
+  margin-left: 40px;
+}
+
+.student-value {
+  padding-left: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #16005D;
+  margin-left: 60px;
+}

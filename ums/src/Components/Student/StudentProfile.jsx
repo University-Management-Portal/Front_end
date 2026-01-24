@@ -1,22 +1,25 @@
 import React from 'react'
 import { useState,useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../Staff/StaffProfiles.css';
+import './StudentProfile.css';
 
 function StudentProfile() {
-
+  
   const ProfileData = [
-  { label: "Name", value: "XXXXXXXXXX" },
-  { label: "Reg No", value: "717823XXXX" },
+  { label: "Name", value: "Vinayak" },
+  { label: "Reg No", value: "717823X123" },
+  { label: "Year", value: "III" },
   { label: "Department", value: "CSE" },
-  { label: "E-Mail Id", value: "XXXXXXX@gmail.com" },
+  { label: "Section", value: "C" },
+  { label: "Email", value: "XXXXXXX@gmail.com" },
   { label: "Phone Number", value: "9876543210" },
-  { label: "Address", value: "123, ABC Street, City, Country" }
+  { label: "Address", value: "123, ABC Street, City, Country" },
+  { label: "Tutor", value: "Alex Pandiyan" }
   ];
 
   const fileInputRef = useRef(null)
 
-  const[profileImage, setProfileImage] = useState("profiles.jpg");
+  const[profileImage, setProfileImage] = useState("Profile.jpg");
 
   const handleupdateclick=()=>{
     fileInputRef.current.click();
@@ -33,17 +36,18 @@ function StudentProfile() {
   const navigate = useNavigate();
 
   return (
-     <div className="container">
-      <div className="left-cart">
+     <div className="profile-container">
+      <div className="profile-left">
         <img src={profileImage} alt="Profile" width={250} height={250} style={{
           borderRadius: "50%",
           marginTop: "70px",
           marginLeft: "222px",
           objectFit: "cover",
-          padding: "5px"
+          padding: "5px",
+          marginBottom:"20px"
         }} />
         
-        <div className='items'>
+        <div className='profile-items'>
         <input type="file" accept="image/*" ref={fileInputRef} onChange={handleImageChange} style={{display: "none"}} />
         <button className='buttons' onClick={handleupdateclick} >Update Photo</button>
         <br />
@@ -56,12 +60,12 @@ function StudentProfile() {
 
       </div>
 
-      <div className="right-cart">
+      <div className="profile-right">
 
         {ProfileData.map((item, index) => (
-          <div className="row" key={index}>
-            <span className="label">{item.label}:</span>
-            <span className="value">{item.value}</span>
+          <div className="student-row" key={index}>
+            <span className="student-label">{item.label}</span>
+            <span className="student-value">{item.value}</span>
           </div>
         ))}
       </div>

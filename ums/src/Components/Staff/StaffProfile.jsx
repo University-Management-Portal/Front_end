@@ -7,7 +7,7 @@ export default function StaffProfile() {
 
 
   const fileInputRef = useRef(null)
-
+  
   const[profileImage, setProfileImage] = useState("profiles.jpg");
 
   const handleupdateclick=()=>{
