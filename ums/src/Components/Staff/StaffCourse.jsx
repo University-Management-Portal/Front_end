@@ -32,10 +32,7 @@ export default function StaffCourse() {
       </div>
 
       <div className="card-content">
-        <div className="course-header">
           <h3>{course.sub}</h3>
-        </div>
-        
         <p className="dept">{course.dept}</p>
       </div>
     </div>
