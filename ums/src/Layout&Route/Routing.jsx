@@ -27,6 +27,7 @@ import StudentProfile from '../Components/Student/StudentProfile.jsx'
 import StudentExam from '../Components/Student/StudentExam.jsx'
 import StudentAttendance from '../Components/Student/StudentAttendance.jsx'
 import StudentSchedule from '../Components/Student/StudentSchedule.jsx'
+import StudentFees from '../Components/Student/StudentFees.jsx'
 
 
 function Routing() {
@@ -65,6 +66,7 @@ function Routing() {
           <Route path='/student-examination' element={<StudentExam/>}/>
           <Route path='/student-attendance' element={<StudentAttendance/>}/>
           <Route path='/student-schedule' element={<StudentSchedule/>}/>
+          <Route path='/student-fees' element={<StudentFees/>}/>
         </Route>
 
         <Route element={<Layout/>}>

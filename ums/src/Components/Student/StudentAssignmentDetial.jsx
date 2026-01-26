@@ -44,7 +44,6 @@ function StudentAssignmentDetial() {
 
         <div className='files'>
 
-        {/* STAFF UPLOADED FILE */}
         {assignment.staffFile && (
         <div className="staff-file">
             <p className="staff-file-label">Assignment File :</p>
