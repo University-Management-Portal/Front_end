@@ -3,6 +3,7 @@ import './Headers.css'
 import Search from "@mui/icons-material/Search"
 import Notification from "@mui/icons-material/Notifications"
 import Menu from "@mui/icons-material/Menu"
+import HomeIcon from '@mui/icons-material/Home';
 import PageTitles from "./PageTitles"
 import { useLocation,useNavigate } from 'react-router-dom'
 
@@ -23,11 +24,27 @@ export default function Header({onMenuClick}) {
     title="not found"
   }
 
+  const user = localStorage.getItem("userType")
   const handleProfileClick = () => {
-    if(location.pathname.startsWith("/staff")){
+    if(user === "staff"){
       navigate('/staff-profile');
-    }else if(location.pathname.startsWith("/student")){
+    }else if(user === "student"){
       navigate('/student-profile');
+    }
+  }
+
+  const handlehome = ()=>{
+
+    onMenuClick();
+
+    if(user === "student"){
+      navigate("/student-dashboard");
+    }
+    else if(user === "staff"){
+      navigate("/staff-dashboard");
+    }
+    else if(user === "admin"){
+      navigate("/admin-dashboard")
     }
   }
 
@@ -50,7 +67,8 @@ export default function Header({onMenuClick}) {
           <div className="college-image">
               <img src="logo.jpeg" alt="College Image" width={220} height={45} style={{borderRadius:"6px"}}/>
           </div>
-
+          
+          <HomeIcon onClick={handlehome}/>
           <Notification color='#ffffffff'/>
           <div className="Profile">
               <img src="Profile.jpg" alt="Profile-icon" onClick={handleProfileClick} width={50} height={50} style={{borderRadius:"50px", marginRight:"36px", marginTop:"5px"}} />
