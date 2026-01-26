@@ -35,6 +35,17 @@
   transform: translateY(0) scale(1);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
+
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.row-nav-page a {
+  text-decoration: none;
+  color: inherit;
+
 }
 
 .row-nav-page:hover {
@@ -52,11 +63,4 @@
 .row-nav-page * {
   position: relative;
   z-index: 51;
-}
-
-.ti {
-  font-size: 27px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin: 0;
 }

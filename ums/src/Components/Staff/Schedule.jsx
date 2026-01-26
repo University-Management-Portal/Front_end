@@ -6,18 +6,11 @@ export default function Schedule() {
   return (
 
     <div className="div-schedule">
+      <a href="./uploads/timetable.pdf" target="_blank" rel="noopener noreferrer" className="btn view">
       <div className="row-nav-page">
-        <p className="ti">Time Table</p>
-        <div className="btn-group">
-          <a href="./uploads/timetable.pdf" target="_blank" rel="noopener noreferrer" className="btn view">
-            <FaEye /> View
-          </a>
-
-          <a href="./uploads/timetable.pdf" download className="btn download">
-            <FaDownload /> Download
-          </a>
-        </div>
-      </div>  
+        <p>Time Table</p>
+      </div>
+      </a> 
 
 
       <div className="row-nav-page">

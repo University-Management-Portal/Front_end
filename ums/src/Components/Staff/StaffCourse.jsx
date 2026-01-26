@@ -20,23 +20,19 @@ export default function StaffCourse() {
 
 
   return (
-    <div className="page">
+  <div className="page">
+    <div className='course-containers'>
   {courses.map((course, index) => (
-    <div
-      className="course-card"
-      key={index}
-      onClick={() => handleClick(course)}
-    >
-      <div className="card-image">
+    <div className="course-cart" key={index} onClick={() => handleClick(course)}>
         <img src={course.image} alt={course.sub} />
-      </div>
 
       <div className="card-content">
           <h3>{course.sub}</h3>
-        <p className="dept">{course.dept}</p>
+          <p>{course.dept}</p>
       </div>
     </div>
   ))}
+  </div>
 </div>
 
   )
