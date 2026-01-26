@@ -60,13 +60,19 @@
 .overall-label {
   font-size: 16px;
   font-weight: 600;
-  color: #666;
+  color: #000000;
 }
 
-.overall-value {
+.overall-value-high {
   font-size: 44px;
   font-weight: 800;
-  color: #16005d;
+  color: #1e7e34;
+}
+
+.overall-value-low {
+  font-size: 44px;
+  font-weight: 800;
+  color: #d32f2f;
 }
 
 
