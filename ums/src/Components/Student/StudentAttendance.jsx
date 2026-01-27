@@ -28,7 +28,7 @@ function StudentAttendance() {
                     
                     <div className="overall-attendance-card">
                         <p className="overall-label">Overall Attendance</p>
-                        <p className="overall-value">{OverallAttendance}%</p>
+                        <p className={`overall-value-${OverallAttendance < 75 ? "low" :"high"}`}>{OverallAttendance}%</p>
                     </div>
 
                     <div className='attendance-rules'>

@@ -43,15 +43,54 @@ export default function StaffMark() {
     <div className="staff-mark-container">
 
       <div className="top-bar"> 
+
         <div className="academic"> 
-          <label>Academic Year</label> <select> <option>2025 - 2026</option> <option>2024 - 2025</option> <option>2023 - 2024</option> </select> </div> <div className="sem"> <label>Semester</label> <select> <option>Semester 5</option> <option>Semester 6</option> </select> </div> <div className="dept"> <label>Department</label> <select> <option>CSE</option> <option>ECE</option> <option>MECH</option> <option>CIVIL</option> </select> </div> <div className="sec"> <label>Section</label> <select> <option>C Section</option> <option>A Section</option> <option>B Section</option> </select> </div> </div>
-      <div className="action-bar">
-        <label className="upload-btn">
+          <label>Academic Year</label>
+           <select> <option>2025 - 2026</option> 
+           <option>2024 - 2025</option> 
+           <option>2023 - 2024</option> </select>
+        </div>
+
+        <div className="sem"> 
+          <label>Semester</label> 
+          <select> <option>Semester 5</option> 
+          <option>Semester 6</option> </select> 
+        </div> 
+          
+        <div className="dept"> 
+          <label>Department</label> 
+          <select> <option>CSE</option> 
+          <option>ECE</option> 
+          <option>MECH</option> 
+          <option>CIVIL</option> </select> 
+        </div> 
+          
+        <div className="sec"> 
+          <label>Section</label> 
+          <select> <option>C Section</option> 
+          <option>A Section</option> 
+          <option>B Section</option> </select>
+        </div> 
+
+        <div className="sub"> 
+          <label>Subject</label> 
+          <select> <option>JAVA</option> 
+          <option>DBMS</option> 
+          <option>DSA</option>
+          <option>AA</option>
+          <option>CN</option> </select>
+        </div> 
+
+      </div>
+
+      <div className="action-bars">
+
+        <label className="upload-butn">
           + Upload Internal Mark
           <input type="file" accept=".xlsx,.xls" hidden onChange={handleUpload} />
         </label>
 
-        <button className="edit-btn" onClick={() => setEditMode(true)}>
+        <button className="edit-butn" onClick={() => setEditMode(true)}>
           Edit
         </button>
 
@@ -59,12 +98,12 @@ export default function StaffMark() {
           Save
         </button>
 
-        <button className="download-btn" onClick={handleDownload}>
+        <button className="download-butn" onClick={handleDownload}>
           Download
         </button>
+
       </div>
 
-      {/* ===== Table ===== */}
       <div className="table-container">
         <table>
           <thead>

@@ -1,15 +1,15 @@
-.staff-schedule {
+.schedule {
     min-height: calc(80vh - 120px); 
     padding: 32px 48px;
     background: #f6f7fb;
 }
 
-.stt a , .sac a {
+.tt a , .ac a {
     text-decoration:solid;
     color: inherit;
 }
 
-.stt,.sac {
+.tt,.ac {
   display: inline-flex;
   align-items: center;
 
@@ -29,7 +29,7 @@
   margin-right: 40px;
 }
 
-.stt {
+.tt {
   justify-content:center;
   padding-right: 32px;
 
@@ -39,7 +39,7 @@
   background-repeat: no-repeat;
 }
 
-.sac {
+.ac {
   justify-content:center;
 
   background:url("/commen.jpg");
@@ -49,8 +49,8 @@
 
 }
 
-.sac:hover,
-.stt:hover {
+.ac:hover,
+.tt:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
 }

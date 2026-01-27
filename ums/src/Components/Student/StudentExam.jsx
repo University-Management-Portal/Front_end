@@ -30,7 +30,7 @@ function StudentExam() {
             <button className={activeTab === "rules" ? "activeTab" : ""} onClick={()=>{setActiveTAb("rules")}} >Rules & Regulation</button>
             <button className={activeTab === "schedule" ? "activeTab" : ""} onClick={()=>{setActiveTAb("schedule")}}>Exam Schedule</button>
             <button className={activeTab === "result" ? "activeTab" : ""} onClick={()=>{setActiveTAb("result")}}>Result</button>
-            <button className={activeTab === "fee" ? "activeTab" : ""} onClick={()=>{setActiveTAb("fee")}}>Exam Fee Detials</button>
+            <button className={activeTab === "fee" ? "activeTab" : ""} onClick={()=>{setActiveTAb("fee")}}>Exam Fee Details</button>
         </div>
         <div className='exam-right'>
             {activeTab === "rules" && (

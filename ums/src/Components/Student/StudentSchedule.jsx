@@ -1,22 +1,20 @@
-import React from "react";
-import "./Schedule.css";
-import { FaEye, FaDownload } from "react-icons/fa";
-
-export default function Schedule() {
+import React from 'react'
+import './StudentSchedule.css'
+function StudentSchedule() {
   return (
-
-    <div className='staff-schedule'>
+    <div className='schedule'>
         <a href='/uploads/timetable.pdf' target='_blank' rel= "noopener noreferrer">
-            <div className='stt'>
+            <div className='tt'>
                 TIME TABLE
             </div>
         </a>
         <a href='/uploads/academic_calendar.pdf' target='_blank' rel= "noopener noreferrer">
-            <div className='sac'>
+            <div className='ac'>
                 ACADEMIC CALENDER
             </div>
         </a>
     </div>
-  );
+  )
 }
 
+export default StudentSchedule
