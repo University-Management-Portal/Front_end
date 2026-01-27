@@ -35,7 +35,7 @@ export default function StudentSideBar({ isOpen,onClose }) {
           <li className={isActive ? "active" : ""} >Fees</li>
         )}</NavLink>
 
-        <NavLink to="/student-announcement" onClick={onClose}>
+        <NavLink to="/announcement" onClick={onClose}>
         {({isActive}) => (
           <li className={isActive ? "active" : ""} >Announcement</li>
         )}</NavLink>
