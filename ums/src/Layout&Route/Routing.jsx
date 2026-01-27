@@ -13,6 +13,7 @@ import StaffSeparateCourse from '../Components/Staff/StaffSeparateCourse.jsx'
 import StaffAssignment from '../Components/Staff/StaffAssignment.jsx'
 import StaffMark from '../Components/Staff/StaffMark.jsx'
 import Schedule from '../Components/Staff/Schedule.jsx'
+import StaffAttendance from '../Components/Staff/StaffAttendance.jsx'
 
 import StudentCourses from '../Components/Student/StudentCourses.jsx'
 import StudentSeparateCourse from '../Components/Student/StudentSeparateCourse.jsx'
@@ -27,12 +28,9 @@ import StudentProfile from '../Components/Student/StudentProfile.jsx'
 import StudentExam from '../Components/Student/StudentExam.jsx'
 import StudentAttendance from '../Components/Student/StudentAttendance.jsx'
 import StudentSchedule from '../Components/Student/StudentSchedule.jsx'
-<<<<<<< HEAD
-import StaffAttendance from '../Components/Staff/StaffAttendance.jsx'
-=======
 import StudentFees from '../Components/Student/StudentFees.jsx'
 import AnnouncementPage from '../Components/Common/AnnouncementPage.jsx'
->>>>>>> branch1
+
 
 
 function Routing() {
