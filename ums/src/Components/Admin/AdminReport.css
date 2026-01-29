@@ -1,0 +1,153 @@
+.admin-report-page {
+  padding: 30px;
+  min-height: 100vh;
+}
+
+
+
+.report-title {
+  color: #16005D;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+/* Grid layout */
+.report-card-grid {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+  padding: 10px;
+
+}
+
+/* Common card style (Assignment / Material base) */
+.report-card {
+  display: inline-flex;
+  align-items: center;
+
+  width: 420px;
+  height: 180px;
+
+  border-radius: 18px;
+  cursor: pointer;
+
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: #16005D 0.2px solid;
+  color: #000;
+}
+
+/* First card → Internal Mark */
+.report-card-grid .report-card:first-child {
+  justify-content: flex-end;
+  padding-right: 42px;
+  background-image: url("/assignment-banner.jpg");
+}
+
+/* Second card → Assignment */
+.report-card-grid .report-card:last-child {
+  justify-content: flex-start;
+  padding-left: 42px;
+  background-image: url("/material.jpg");
+}
+
+/* Hover effect */
+.report-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+}
+
+/* Text inside card */
+.report-card h3 {
+  margin: 0;
+  line-height: 1.3;
+}
+
+
+/* Subject cards */
+.subject-card {
+  background: #36217a;
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  width: 450px;
+  height: 200px;
+}
+
+.subject-card h4{
+  font-size: 28px;
+  margin-left: 20px;
+}
+
+.view-btn {
+  background: #16005D;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 200px;
+  height: 100px;
+  border: #ffffff 2px solid;
+}
+
+.admin-filter-bar {
+  background: linear-gradient(90deg, #1b0066, #12004d);
+  height: 100px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 30px;
+  width: 100%;
+  max-width: 1458px;
+  margin: 20px auto;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.filter-item label {
+  opacity: 0.9;
+}
+
+.filter-item select {
+  width: 180px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+
+.admin-buttons{
+  background-color: #16005D;
+  color: white;
+}
+
+.admin-buttons:hover{
+  background-color: white;
+  color: #16005D;
+  border: #16005D 2px solid;
+}

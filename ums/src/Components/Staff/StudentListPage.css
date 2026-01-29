@@ -1,7 +1,7 @@
-.ad-top-bar {
+.st-top-bar {
   max-width: 1499px;
   background-color: #16005D;
-  padding: 20px 25px;
+  padding: 25px 25px;
   border-radius: 12px;
   color: white;
   margin-right: 20px;
@@ -9,24 +9,23 @@
   gap: 22px;                
   align-items: center;       
   flex-wrap: flex;
-
 }
 
-.page-container {
+.st-page-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 
-.ad-academic label {
+.st-academic label {
   font-size: 14px;
   margin-bottom: 6px;
   font-weight: 500;
   margin-left: 44px;
 }
 
-.ad-academic select {
+.st-academic select {
   height: 36px;
   padding: 6px 10px;
   border-radius: 8px;
@@ -49,14 +48,14 @@
 }
 
 
-.ad-sem label {
+.st-sem label {
   font-size: 14px;
   margin-bottom: 6px;
   font-weight: 500;
   margin-left: 64px;
 }
 
-.ad-sem select {
+.st-sem select {
   height: 36px;
   padding: 6px 10px;
   border-radius: 8px;
@@ -80,14 +79,14 @@
 }
 
 
-.ad-dept label {
+.st-dept label {
   font-size: 14px;
   margin-bottom: 6px;
   font-weight: 500;
   margin-left: 54px;
 }
 
-.ad-dept select {
+.st-dept select {
   height: 36px;
   padding: 6px 10px;
   border-radius: 8px;
@@ -110,14 +109,14 @@
 }
 
 
-.ad-sec label {
+.st-sec label {
   font-size: 14px;
   margin-bottom: 6px;
   font-weight: 500;
   margin-left: 68px;
 }
 
-.ad-sec select {
+.st-sec select {
   height: 36px;
   padding: 6px 10px;
   border-radius: 8px;
@@ -139,174 +138,95 @@
   padding-left: 29px;
 }
 
-
-.ad-hour label {
-  font-size: 14px;
-  margin-bottom: 6px;
-  font-weight: 500;
-  margin-left: 68px;
-}
-
-.ad-hour select {
-  height: 36px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  font-size: 14px;
-  font-weight: 600;
-  width: 150px;
-  margin-left: 24px;
-
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  background-size: 20px;
-  padding-left: 29px;
-}
-
-.ad-date label{
-  font-size: 14px;
-  margin-bottom: 6px;
-  font-weight: 500;
-  margin-left: 55px;
-}
-
-.ad-date input {
-  height: 40px;
-  padding: 0 12px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-  padding-left:20px;
-}
-
-
-.report{
-    padding: 10px;
-}
-
-.report-btn{
-    background-color: #16005D;
-    color: white;
-    margin-left: 1394px;
-}
-
-.report-btn:hover{
-    background-color: white;
-    color: #16005D;
-    border: #16005D 2px solid;
-}
-
-
-.attendance-table {
-  width: 1455px;           
-  table-layout: fixed;    
-  border-collapse: collapse;
-  height: 200px;
-}
-
-.table-wrapper {
-  overflow-y: auto;     
-  overflow-x: hidden;
-}
-
-.attendance-table th,
-.attendance-table td {
-  width: 120px;
-  height: 42px;
-  text-align: center;
+.student-table-container {
+  margin-top: 20px;            
   border: 1px solid #ccc;
-  padding: 6px;
-  padding-top: 20px;
+  border-radius: 6px;
+  width: 1480px;
 }
 
 
-.attendance-table th:first-child,
-.attendance-table td:first-child {
-  width: 80px;
+.student-table-head th {
+  position: sticky;          
+  top: 0;
+  background-color: #f2f2f2;
+  z-index: 1;
 }
 
-.attendance-table th:nth-child(2),
-.attendance-table td:nth-child(2) {
-  width: 180px;
-}
-
-
-.att-save-butn{
+.student-table th{
     background-color: #16005D;
-    color: white;
-    width: 150px;
-    height: 40px;
-    margin: 10px;
 }
 
-.att-save-butn:hover{
-    background-color: white;
-    color: #16005D;
-    border: #16005D 2px solid;
+.student-table th,
+.student-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
 }
 
-.att-rep-butn{
-    background-color: #16005D;
-    color: white;
-    width: 150px;
-    height: 40px;
-    margin: 10px;
-    margin-right: 20px;
+.student-table tbody tr:hover {
+  background-color: #f9f9f9;
 }
 
 
-.att-rep-butn:hover{
-    background-color: white;
-    color: #16005D;
-    border: #16005D 2px solid;
+.student-not-found {
+  margin-top: 40px;
+  padding: 40px;
+  text-align: center;
+  width: 1480px;
+
+  background: #ffffff;
+  border-radius: 16px;
+
+  font-size: 16px;
+  color: #000000;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-.att-buttons{
-    display: flex;
-    flex-direction: row;
-    margin: 10px;
-    margin-left: 1160px;
-    gap: 10px;
+.st-action-row {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1480px;
 }
 
+.st-buttons {
+  display: flex;
+  gap: 10px;
+}
 
-.att-down-butn{
+.st-download-btn,
+.st-print-btn {
   background-color: #16005D;
   color: white;
-
-
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 2px solid #16005D;
+  cursor: pointer;
+  font-weight: 500;
 }
 
-.att-down-butn:hover{
-    background-color: white;
-    color: #16005D;
-    border: #16005D 2px solid;
-}
-
-.att-print-butn{
-  background-color: #16005D;
-  color: white;
-}
-
-.att-print-butn:hover{
-    background-color: white;
-    color: #16005D;
-    border: #16005D 2px solid;
-}
-
-.att-back-butn{
-  background-color: #16005D;
-  color: white;
-}
-
-.att-back-butn:hover{
+.st-download-btn:hover,
+.st-print-btn:hover {
   background-color: white;
-    color: #16005D;
-    border: #16005D 2px solid;
+  color: #16005D;
+}
+
+.student-search-box {
+  display: flex;
+}
+
+.student-search-box input {
+  width: 200px;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 2px solid #16005D;
+  border-radius: 10px;
+  outline: none;
+}
+
+.student-search-box input::placeholder {
+  color: #6b7280;
 }

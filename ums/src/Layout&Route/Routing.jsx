@@ -33,6 +33,19 @@ import AnnouncementPage from '../Components/Common/AnnouncementPage.jsx'
 
 
 
+import StudentListPage from '../Components/Staff/StudentListPage.jsx'
+import StaffMaterial from '../Components/Staff/StaffMaterial.jsx'
+import FolderMaterial from '../Components/Staff/FolderMaterial.jsx'
+
+import AdminProfile from '../Components/Admin/AdminProfile.jsx'
+import AdminReport from '../Components/Admin/AdminReport.jsx'
+import AdminAssignmentReport from '../Components/Admin/AdminAssignmentReport.jsx'
+import AdminInternalReport from '../Components/Admin/AdminInternalReport.jsx'
+import InternalMarkTable from '../Components/Admin/InternalMarkTable.jsx'
+import AssignmentReportTable from '../Components/Admin/AssignmentReportTable.jsx'
+
+
+
 function Routing() {
   return(
     <>
@@ -49,9 +62,12 @@ function Routing() {
           <Route path='/staff-courses' element={<StaffCourse/>}/>
           <Route path='/staff-courses/:courseName' element={<StaffSeparateCourse/>}/>
           <Route path='/staff-courses/:courseName/assignment' element={<StaffAssignment/>}/>
+          <Route path='/staff-courses/:courseName/material' element={<StaffMaterial/>}/>
           <Route path='/staff-internalmark' element={<StaffMark/>}/>
           <Route path='/staff-schedule' element={<Schedule/>}/>
           <Route path='/staff-attendance' element={<StaffAttendance/>}/>
+          <Route path='/staff-studentlist' element={<StudentListPage/>}/>
+          <Route path="/staff-courses/:courseName/materials/:folderId" element={<FolderMaterial />}/>
 
           
         </Route>
@@ -75,6 +91,12 @@ function Routing() {
 
         <Route element={<Layout/>}>
           <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
+          <Route path="/admin-profile" element={<AdminProfile />} />
+          <Route path="/admin-reports" element={<AdminReport />} />
+          <Route path="/admin-report/internal" element={<AdminInternalReport />} />
+          <Route path="/admin-report/assignment" element={<AdminAssignmentReport />} />
+          <Route path="/admin-report/internal/table" element={<InternalMarkTable />}/>
+          <Route path="/admin-report/assignment/table" element={<AssignmentReportTable />}/>
         </Route>
 
         {/* Common */}
