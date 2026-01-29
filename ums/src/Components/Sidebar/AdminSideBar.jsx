@@ -13,7 +13,7 @@ export default function AdminSideBar({ isOpen, onClose }) {
           )}
         </NavLink>
 
-        <NavLink to="/admin-users" onClick={onClose}>
+        <NavLink to="/admin-userpage" onClick={onClose}>
           {({ isActive }) => (
             <li className={isActive ? "active" : ""}>Users</li>
           )}

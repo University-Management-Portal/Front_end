@@ -1,6 +1,7 @@
 import React from 'react'
 import "./StudentDashboard.css"
 import { NavLink, useNavigate } from 'react-router-dom';
+import ProfCalender from '../Common/ProfCalender';
 
 function StudentDashboard() {
     const navigate = useNavigate();
@@ -37,6 +38,10 @@ function StudentDashboard() {
         </div>
         <div className='card' onClick={()=>{navigate("/student-courses")}}>
             <p>Enrolled Courses : 7</p>
+        </div>
+
+        <div className = "calendar" >
+            <ProfCalender />
         </div>
 
         <div className="events-card">

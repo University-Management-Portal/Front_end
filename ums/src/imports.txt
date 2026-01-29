@@ -5,3 +5,7 @@ npm install react-router-dom
 
 
 npm install xlsx
+
+npm install react-big-calendar date-fns
+npm install @fullcalendar/react @fullcalendar/daygrid
+npm install @fullcalendar/react @fullcalendar/daygrid @fullcalendar/interaction
