@@ -1,0 +1,70 @@
+.admin-dashboard {
+  padding: 30px;
+  background: #f7f8fc;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* HEADER CARD (FULL WIDTH) */
+.admin-profile-card {
+    grid-column: 1 / -1; /* full width */
+    background-color: #16005d;
+    color: white;
+    padding: 30px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 160px;
+    margin-bottom: 0;
+}
+
+.admin-profile-card p {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* STAT CARDS */
+.admin-card {
+  background: #e0e0e0;
+  color: white;
+  padding: 20px 12px;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  height: 140px;
+}
+
+/* POP-UP HOVER */
+.admin-card:hover {
+  transform: scale(1.03) ;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+}
+
+/* TITLE */
+.admin-card p:first-child {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #000000;
+}
+
+/* VALUE */
+.admin-card p:last-child {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: 1px;
+}
+
+.admin-calendar {
+  grid-column: 1 / -1;
+}

@@ -21,7 +21,7 @@ const PageTitles = {
     "/student-announcement" : "Announcement",
 
     "/admin-dashboard" : "Dashboard",
-    "/admin-users" : "Users",
+    "/admin-userpage" : "Users",
     "/admin-attendance" : "Attendance",
     "/admin-courses" : "Courses",
     "/admin-departments" : "Departments",
