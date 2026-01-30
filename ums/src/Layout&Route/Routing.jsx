@@ -31,13 +31,12 @@ import StudentSchedule from '../Components/Student/StudentSchedule.jsx'
 import StudentFees from '../Components/Student/StudentFees.jsx'
 
 import AnnouncementPage from '../Components/Common/Announcement/AnnouncementPage.jsx'
-import AdminUserPage from '../Components/Admin/AdminUser/AdminUserPage.jsx'
-import AdminCourses from '../Components/Admin/AdminCourses/AdminCourses.jsx'
-
 import StudentListPage from '../Components/Staff/StudentListPage.jsx'
 import StaffMaterial from '../Components/Staff/StaffMaterial.jsx'
 import FolderMaterial from '../Components/Staff/FolderMaterial.jsx'
 
+import AdminUserPage from '../Components/Admin/AdminUser/AdminUserPage.jsx'
+import AdminCourses from '../Components/Admin/AdminCourses/AdminCourses.jsx'
 import AdminProfile from '../Components/Admin/AdminProfile.jsx'
 import AdminReport from '../Components/Admin/AdminReport.jsx'
 import AdminAssignmentReport from '../Components/Admin/AdminAssignmentReport.jsx'
