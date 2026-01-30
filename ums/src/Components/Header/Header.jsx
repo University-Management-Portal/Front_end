@@ -30,6 +30,8 @@ export default function Header({onMenuClick}) {
       navigate('/staff-profile');
     }else if(user === "student"){
       navigate('/student-profile');
+    }else if(user === "admin"){
+      navigate('/admin-profile');
     }
   }
 

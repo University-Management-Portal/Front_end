@@ -95,3 +95,7 @@
 .events-list li:last-child {
   border-bottom: none;
 }
+
+.calendar { 
+  grid-column: 1/-1;
+}

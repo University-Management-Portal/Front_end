@@ -29,7 +29,11 @@ import StudentExam from '../Components/Student/StudentExam.jsx'
 import StudentAttendance from '../Components/Student/StudentAttendance.jsx'
 import StudentSchedule from '../Components/Student/StudentSchedule.jsx'
 import StudentFees from '../Components/Student/StudentFees.jsx'
-import AnnouncementPage from '../Components/Common/AnnouncementPage.jsx'
+import AnnouncementPage from '../Components/Common/Announcement/AnnouncementPage.jsx'
+import AdminUserPage from '../Components/Admin/AdminUser/AdminUserPage.jsx'
+
+
+
 import StudentListPage from '../Components/Staff/StudentListPage.jsx'
 import StaffMaterial from '../Components/Staff/StaffMaterial.jsx'
 import FolderMaterial from '../Components/Staff/FolderMaterial.jsx'
@@ -40,6 +44,7 @@ import AdminAssignmentReport from '../Components/Admin/AdminAssignmentReport.jsx
 import AdminInternalReport from '../Components/Admin/AdminInternalReport.jsx'
 import InternalMarkTable from '../Components/Admin/InternalMarkTable.jsx'
 import AssignmentReportTable from '../Components/Admin/AssignmentReportTable.jsx'
+
 
 
 function Routing() {
@@ -87,12 +92,15 @@ function Routing() {
 
         <Route element={<Layout/>}>
           <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
+
           <Route path="/admin-profile" element={<AdminProfile />} />
           <Route path="/admin-reports" element={<AdminReport />} />
           <Route path="/admin-report/internal" element={<AdminInternalReport />} />
           <Route path="/admin-report/assignment" element={<AdminAssignmentReport />} />
           <Route path="/admin-report/internal/table" element={<InternalMarkTable />}/>
           <Route path="/admin-report/assignment/table" element={<AssignmentReportTable />}/>
+          <Route path='/admin-userpage' element={<AdminUserPage/>}/>
+
         </Route>
 
         <Route element={<Layout/>}>
