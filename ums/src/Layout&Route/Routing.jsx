@@ -34,8 +34,6 @@ import AnnouncementPage from '../Components/Common/Announcement/AnnouncementPage
 import AdminUserPage from '../Components/Admin/AdminUser/AdminUserPage.jsx'
 import AdminCourses from '../Components/Admin/AdminCourses/AdminCourses.jsx'
 
-
-import AnnouncementPage from '../Components/Common/Announcement/AnnouncementPage.jsx'
 import StudentListPage from '../Components/Staff/StudentListPage.jsx'
 import StaffMaterial from '../Components/Staff/StaffMaterial.jsx'
 import FolderMaterial from '../Components/Staff/FolderMaterial.jsx'
