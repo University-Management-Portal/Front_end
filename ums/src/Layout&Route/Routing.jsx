@@ -31,6 +31,7 @@ import StudentSchedule from '../Components/Student/StudentSchedule.jsx'
 import StudentFees from '../Components/Student/StudentFees.jsx'
 import AnnouncementPage from '../Components/Common/Announcement/AnnouncementPage.jsx'
 import AdminUserPage from '../Components/Admin/AdminUser/AdminUserPage.jsx'
+import AdminCourses from '../Components/Admin/AdminCourses/AdminCourses.jsx'
 
 
 
@@ -77,6 +78,7 @@ function Routing() {
         <Route element={<Layout/>}>
           <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
           <Route path='/admin-userpage' element={<AdminUserPage/>}/>
+          <Route path='/admin-courses' element={<AdminCourses/>}/>
         </Route>
 
         {/* Common */}
