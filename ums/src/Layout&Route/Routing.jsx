@@ -95,7 +95,6 @@ function Routing() {
           <Route path="/admin-report/assignment/table" element={<AssignmentReportTable />}/>
         </Route>
 
-        {/* Common */}
         <Route element={<Layout/>}>
           <Route path='/announcement' element={<AnnouncementPage/>} />
         </Route>
