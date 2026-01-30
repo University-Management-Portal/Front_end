@@ -27,7 +27,7 @@ const PageTitles = {
     "/admin-departments" : "Departments",
     "/admin-reports" : "Reports",
     "/admin-settings" : "Settings",
-
+    "/admin-profile" : "Profile",
     "/announcement" : "Announcement"
 }
 
