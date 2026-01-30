@@ -7,7 +7,6 @@ export default function StaffMark() {
   const [students, setStudents] = useState([])
   const [editMode, setEditMode] = useState(false)
 
-  // Upload Excel
   const handleUpload = (e) => {
     const file = e.target.files[0]
     const reader = new FileReader()
@@ -24,7 +23,6 @@ export default function StaffMark() {
     reader.readAsBinaryString(file)
   }
 
-  // Download Excel
   const handleDownload = () => {
     const worksheet = XLSX.utils.json_to_sheet(students)
     const workbook = XLSX.utils.book_new()
@@ -32,7 +30,6 @@ export default function StaffMark() {
     XLSX.writeFile(workbook, "Internal_Marks.xlsx")
   }
 
-  // Handle cell edit
   const handleChange = (index, field, value) => {
     const updated = [...students]
     updated[index][field] = value
