@@ -9,7 +9,7 @@
   color: inherit;
 }
 
-/* container layout */
+
 .courses,
 .mark {
   display: inline-flex;
@@ -29,39 +29,39 @@
 }
 
 
-/* courses CARD */
+
 .courses {
   justify-content:center;
   padding-right: 32px;
 
   background:url("/commen.jpg");
   background-size: cover;
-  background-position: center;   /* center image */
+  background-position: center;   
   background-repeat: no-repeat;
 
   color: #ffffff;
   margin-right: 40px;
 }
 
-/* mark CARD */
+
 .mark {
   justify-content: center; 
 
   background:url("/commen.jpg");
   background-size: cover;
-  background-position: center;   /* center image */
+  background-position: center;   
   background-repeat: no-repeat;
   color: #ffffff; 
 }
 
-/* hover effect */
+
 .courses:hover,
 .mark:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
 }
 
-/* text alignment */
+
 .courses p,
 .mark p {
   margin: 0;

@@ -1,25 +1,22 @@
-/* PAGE */
 .im-page {
   padding: 30px;
   min-height: calc(100vh - 80px);
   background: #f6f7fb;
 }
 
-/* CONTAINER */
 .im-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 👈 3 cards per row */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 28px;
   
 }
 
-/* CARD */
 .im-card {
     background: #ffffff;
     border-radius: 20px;
     padding: 24px 26px;
 
-    height: 160px; /* 👈 fixed height for alignment */
+    height: 160px; 
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 
@@ -28,21 +25,20 @@
     display: flex;
 }
 
-/* OPTIONAL HOVER (subtle, LMS-style) */
+
 .im-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* CARD HEADER */
 .im-header {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* 🔥 key line */
+  justify-content: space-between; 
   width: 100%;
 }
 
-/* SUBJECT NAME */
+
 .im-header p:first-child {
   font-size: 24px;
   font-weight: 700;
@@ -55,7 +51,7 @@
   color: #16005d;
 }
 
-/* MARK */
+
 .im-mark {
   font-size: 20px;
   font-weight: 600;

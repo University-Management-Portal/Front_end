@@ -13,7 +13,6 @@
   display: flex;
 }
 
-/* LEFT CARD */
 .admin-left-card {
   width: 40%;
   display: flex;
@@ -31,7 +30,6 @@
   background-color: white;
 }
 
-/* BUTTON SECTION */
 .admin-actions {
   margin-top: 30px;
   display: flex;

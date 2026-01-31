@@ -92,7 +92,6 @@
   margin-right:20px;
 }
 
-/* Fee structure*/
 
 .fee-structure {
   padding: 20px;
@@ -143,7 +142,6 @@
   color: #b00020;
 }
 
-/* transaction */
 
 .transaction-container {
   margin-top: 30px;
@@ -184,7 +182,7 @@
   background-color: #ececec;
 }
 
-/* STATUS BADGE */
+
 .status {
   padding: 6px 12px;
   border-radius: 20px;
@@ -197,7 +195,7 @@
   color: #1b7f3c;
 }
 
-/* RECEIPT BUTTON */
+
 .receipt-btn {
   display: inline-flex;
   align-items: center;

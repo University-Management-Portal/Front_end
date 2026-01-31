@@ -1,18 +1,15 @@
-/* PAGE */
 .material-page {
   min-height: calc(100vh - 120px);
   padding: 32px 48px;
   background: #f6f7fb;
 }
 
-/* BREADCRUMB */
 .path {
   font-size: 15px;
   color: #000;
   margin-bottom: 16px;
 }
 
-/* HEADER CARD (COURSE BANNER) */
 .material-header {
   background: url("/commen.jpg");
   background-repeat: no-repeat;
@@ -33,7 +30,6 @@
   align-items: center;
 }
 
-/* EMPTY STATE */
 .material-empty {
   margin-top: 40px;
   padding: 40px;
@@ -48,7 +44,6 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* MATERIAL FOLDER CARD */
 .material-card {
   display: flex;
   align-items: center;
@@ -68,13 +63,11 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* ICON */
 .material-icon {
   font-size: 28px;
   color: #16005d;
 }
 
-/* LINK */
 .material-link {
   text-decoration: none;
   font-size: 16px;
@@ -84,24 +77,4 @@
 
 .material-link:hover {
   text-decoration: underline;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .material-page {
-    padding: 24px;
-  }
-
-  .material-header {
-    font-size: 18px;
-    padding: 18px 20px;
-  }
-
-  .material-card {
-    padding: 14px 18px;
-  }
-
-  .material-link {
-    font-size: 15px;
-  }
 }
