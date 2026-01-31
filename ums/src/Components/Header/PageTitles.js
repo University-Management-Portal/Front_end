@@ -28,7 +28,11 @@ const PageTitles = {
     "/admin-reports" : "Reports",
     "/admin-settings" : "Settings",
     "/admin-profile" : "Profile",
-    "/announcement" : "Announcement"
+    "/announcement" : "Announcement",
+    "/admin-report/internal" : "Internal Reports",
+    "/admin-report/assignment" :"Assignment Reports",   
+    "/admin-report/internal/table" : "Internal Reports",
+    "/admin-report/assignment/table" : "Assignment Reports"
 }
 
 export default PageTitles;

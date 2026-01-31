@@ -45,6 +45,8 @@ import AdminAssignmentReport from '../Components/Admin/AdminAssignmentReport.jsx
 import AdminInternalReport from '../Components/Admin/AdminInternalReport.jsx'
 import InternalMarkTable from '../Components/Admin/InternalMarkTable.jsx'
 import AssignmentReportTable from '../Components/Admin/AssignmentReportTable.jsx'
+import AdminAttendance from '../Components/Admin/AdminAttendance/AdminAttendance.jsx'
+import AdminDepartment from '../Components/Admin/AdminDepartment/AdminDepartment.jsx'
 
 
 
@@ -102,6 +104,8 @@ function Routing() {
           <Route path="/admin-report/assignment/table" element={<AssignmentReportTable />}/>
           <Route path='/admin-userpage' element={<AdminUserPage/>}/>
           <Route path='/admin-courses' element={<AdminCourses/>}/>
+          <Route path='/admin-attendance' element={<AdminAttendance/>}/>
+          <Route path='/admin-departments' element={<AdminDepartment/>}/>
 
         </Route>
 
