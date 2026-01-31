@@ -8,30 +8,58 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import CourseMenu from "./CourseMenu";
 import CourseForm from "./CourseForm";
+import AssignStaffModal from "./AssignStaffModal";
 
 function AdminCourses() {
   const [search, setSearch] = useState("");
   const [courses, setCourses] = useState(
-    courseData.map(c => ({ ...c, id: c.sub }))
+    courseData.map(c => ({
+      ...c,
+      id: c.sub,
+      disabled: false,
+      staffs: []         
+    }))
   );
+
   const [openMenuId, setOpenMenuId] = useState(null);
-  const [openForm, setOpenForm] = useState(false);
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [assignCourse, setAssignCourse] = useState(null);
 
   const filteredCourses = courses.filter(c =>
     c.sub.toLowerCase().includes(search.toLowerCase())
   );
 
-  const handleDelete = (id) => {
+  const addCourse = (course) => {
+    setCourses(prev => [
+      { ...course, staffs: [], disabled: false },
+      ...prev
+    ]);
+    setShowAddForm(false);
+  };
+
+  const deleteCourse = (id) => {
     setCourses(prev => prev.filter(c => c.id !== id));
     setOpenMenuId(null);
   };
 
-  const handleToggle = (id) => {
+  const toggleCourse = (id) => {
     setCourses(prev =>
       prev.map(c =>
         c.id === id ? { ...c, disabled: !c.disabled } : c
       )
     );
+    setOpenMenuId(null);
+  };
+
+  const assignStaff = (staff) => {
+    setCourses(prev =>
+      prev.map(c =>
+        c.id === assignCourse.id
+          ? { ...c, staffs: [...c.staffs, staff] }
+          : c
+      )
+    );
+    setAssignCourse(null);
     setOpenMenuId(null);
   };
 
@@ -49,66 +77,54 @@ function AdminCourses() {
           />
         </div>
 
-        <button
-          className="add-course-btn"
-          onClick={() => {
-            setOpenMenuId(null);
-            setOpenForm(true);
-          }}
-        >
+        <button className="add-course-btn" onClick={() => setShowAddForm(true)}>
           <AddIcon /> Add Course
         </button>
       </div>
 
-      {/* COURSE GRID */}
       <div className="admin-course-container">
-        {filteredCourses.map((course) => (
+        {filteredCourses.map(course => (
           <div
-            className={`admin-course-card ${course.disabled ? "disabled" : ""}`}
             key={course.id}
+            className={`admin-course-card ${course.disabled ? "disabled" : ""}`}
           >
-            <img src={course.img} alt={course.sub} />
+            <img src={course.img || "/course-default.jpg"} alt={course.sub} />
 
-            {/* MORE ICON */}
             <MoreVertIcon
               className="more-icon"
               onClick={(e) => {
                 e.stopPropagation();
-                setOpenMenuId(
-                  openMenuId === course.id ? null : course.id
-                );
+                setOpenMenuId(openMenuId === course.id ? null : course.id);
               }}
             />
 
-            {/* MENU */}
             {openMenuId === course.id && (
               <CourseMenu
                 enabled={!course.disabled}
-                onAssign={() => alert("Assign faculty")}
-                onToggle={() => handleToggle(course.id)}
-                onDelete={() => handleDelete(course.id)}
+                onAssign={() => setAssignCourse(course)}
+                onToggle={() => toggleCourse(course.id)}
+                onDelete={() => deleteCourse(course.id)}
               />
             )}
 
             <div className="admin-course-header">
               <p>{course.sub}</p>
             </div>
-
-            <div className="admin-staff">
-              <p>{course.staff}</p>
-            </div>
           </div>
         ))}
       </div>
 
-      {/* MODAL */}
+      
       <CourseForm
-        open={openForm}
-        onClose={() => setOpenForm(false)}
-        onSave={() => {
-          alert("Course saved ");
-          setOpenForm(false);
-        }}
+        open={showAddForm}
+        onClose={() => setShowAddForm(false)}
+        onSave={addCourse}
+      />
+
+      <AssignStaffModal
+        open={!!assignCourse}
+        onClose={() => setAssignCourse(null)}
+        onAssign={assignStaff}
       />
     </div>
   );

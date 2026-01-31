@@ -1,6 +1,6 @@
 import studentsData from "../Staff/StudentList.js";
 
-// subjects per department
+
 const subjectsByDept = {
   CSE: ["DBMS", "OS", "DSA"],
   IT: ["DBMS", "OS", "CN", "AA"],
@@ -8,14 +8,14 @@ const subjectsByDept = {
   Mech: ["Mechanism", "Thermodynamics", "Strength of Materials"],
 };
 
-// helper: create subject-wise student marks
+
 const createSubjectsWithMarks = (students, subjects) => {
   return subjects.map((subject) => ({
     subject,
     students: students.map((stu) => ({
       regNo: stu.roll,
       name: stu.name,
-      mark: Math.floor(Math.random() * 15) + 35, // 35–50 default
+      mark: Math.floor(Math.random() * 15) + 35, 
     })),
   }));
 };

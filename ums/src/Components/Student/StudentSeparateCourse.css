@@ -16,7 +16,6 @@
   color: inherit;
 }
 
-/* container layout */
 .assignment,
 .material {
   display: inline-flex;
@@ -36,41 +35,38 @@
   border: #16005D 0.2px solid;
 }
 
-
-/* ASSIGNMENT CARD */
 .assignment {
   justify-content: flex-end;
   padding-right:42px;
 
   background:url("/assignment-banner.jpg");
   background-size: cover;
-  background-position: center;   /* center image */
+  background-position: center;   
   background-repeat: no-repeat;
 
   color: #000;
   margin-right: 40px;
 }
 
-/* MATERIAL CARD */
+
 .material {
   justify-content: flex-start; 
   padding-left: 42px;
 
   background:url("/material.jpg");
   background-size: cover;
-  background-position: center;   /* center image */
+  background-position: center;   
   background-repeat: no-repeat;
   color: #000000; 
 }
 
-/* hover effect */
+
 .assignment:hover,
 .material:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
 }
 
-/* text alignment */
 .assignment p,
 .material p {
   margin: 0;

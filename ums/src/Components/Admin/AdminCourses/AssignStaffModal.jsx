@@ -1,39 +1,45 @@
 import React, { useState } from "react";
 import "./AdminCourses.css";
 
-function CourseForm({ open, onClose, onSave }) {
+function AssignStaffModal({ open, onClose, onAssign }) {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   if (!open) return null;
 
   const submit = () => {
-    if (!name) return alert("Enter course name");
+    if (!name || !email) return alert("Fill all fields");
 
-    onSave({
-      id: name,
-      sub: name,
-      img: "/course-default.jpg"
-    });
+    onAssign({ name, email });
 
     setName("");
+    setEmail("");
   };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-box" onClick={e => e.stopPropagation()}>
-        <h3>Add Course</h3>
+        <h3>Assign Staff</h3>
+
         <input
-          placeholder="Course Name"
+          placeholder="Staff Name"
           value={name}
           onChange={e => setName(e.target.value)}
         />
+
+        <input
+          placeholder="Staff Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+
         <div className="modal-actions">
           <button className="cancel" onClick={onClose}>Cancel</button>
-          <button className="save" onClick={submit}>Save</button>
+          <button className="save" onClick={submit}>Assign</button>
         </div>
       </div>
     </div>
   );
 }
 
-export default CourseForm;
+export default AssignStaffModal;

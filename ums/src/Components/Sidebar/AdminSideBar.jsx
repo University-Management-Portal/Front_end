@@ -49,11 +49,11 @@ export default function AdminSideBar({ isOpen, onClose }) {
           )}
         </NavLink>
 
-        <NavLink to="/admin-settings" onClick={onClose}>
+        {/* <NavLink to="/admin-settings" onClick={onClose}>
           {({ isActive }) => (
             <li className={isActive ? "active" : ""}>Settings</li>
           )}
-        </NavLink>
+        </NavLink> */}
 
       </ul>
     </aside>

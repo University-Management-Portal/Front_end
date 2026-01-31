@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import UserFilterBar from "./UserFilterBar";
 import UserActionBar from "./UserActionBar";
 import UserTable from "./UserTable";
-import * as XLSX from "xlsx";
 import UserForm from "./UserForm";
+import * as XLSX from "xlsx";
+import "./AdminUser.css";
 
 function AdminUserPage() {
-  const [users, setUsers] = useState(() => {
-    return JSON.parse(localStorage.getItem("users")) || [];
-  });
-
+  const [users, setUsers] = useState(() => JSON.parse(localStorage.getItem("users")) || []);
   const [filter, setFilter] = useState({
     academic_year: "",
     year: "",
@@ -18,139 +16,106 @@ function AdminUserPage() {
     user: ""
   });
 
-  const [select, setSelect] = useState(true);
-  const [showForm, setShowForm] = useState(false);
-  const [mode, setMode] = useState("add"); // add | edit
-  const [editingUser, setEditingUser] = useState(null);
-
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState([]);
+  const [select, setSelect] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+  const [mode, setMode] = useState("add");
+  const [editingUser, setEditingUser] = useState(null);
 
-  // ✅ BULK UPLOAD (FIXED)
   const handleBulkUpload = (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
+    const file = e.target.files[0];
+    if (!file) return;
 
-  const reader = new FileReader();
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const data = new Uint8Array(ev.target.result);
+      const wb = XLSX.read(data, { type: "array" });
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(sheet, { defval: "" });
 
-  reader.onload = (event) => {
-    const data = new Uint8Array(event.target.result);
-    const workbook = XLSX.read(data, { type: "array" });
-    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const formatted = rows.map(r => ({
+        id: String(r.rollno).trim(),
+        rollno: String(r.rollno).trim(),
+        name: r.name || "",
+        year: r.year || "",
+        dept: r.dept || "",
+        sec: r.sec || "",
+        phone: r.phone ? String(r.phone) : "",
+        email: r.email || "",
+        role: r.role ? r.role.toLowerCase() : ""
+      }));
 
-    const excelData = XLSX.utils.sheet_to_json(sheet, { defval: "" });
-
-    const formatted = excelData.map((row) => ({
-      id: String(row.rollno).trim(),
-      rollno: String(row.rollno).trim(),
-      name: row.name || "",
-      year: row.year || "",
-      dept: row.dept || "",
-      sec: row.sec || "",
-      phone: row.phone ? String(row.phone) : "",
-      email: row.email || "",
-      role: row.role ? row.role.toLowerCase() : ""
-    }));
-
-    setUsers(formatted);
-    setSelected([]);
-    localStorage.setItem("users", JSON.stringify(formatted));
-
-    //  IMPORTANT FIX: reset file input
-    e.target.value = "";
+      setUsers(formatted);
+      localStorage.setItem("users", JSON.stringify(formatted));
+      setSelected([]);
+      e.target.value = "";
+    };
+    reader.readAsArrayBuffer(file);
   };
 
-  reader.readAsArrayBuffer(file);
-};
+  const filteredUsers = users.filter(u =>
+    (!filter.year || String(u.year) === filter.year) &&
+    (!filter.dept || u.dept === filter.dept) &&
+    (!filter.sec || u.sec === filter.sec) &&
+    (!filter.user || u.role === filter.user) &&
+    (
+      u.name.toLowerCase().includes(search.toLowerCase()) ||
+      u.email.toLowerCase().includes(search.toLowerCase())
+    )
+  );
 
-
-  // DELETE
-  const handleDelete = () => {
-    const remaining = users.filter((u) => !selected.includes(u.id));
-    setUsers(remaining);
-    setSelected([]);
-    setSelect(true);
-    localStorage.setItem("users", JSON.stringify(remaining));
-  };
-
-  // FILTER + SEARCH (SAFE)
-  const filteredUsers = users.filter((u) => {
-    const name = u.name || "";
-    const email = u.email || "";
-
-    return (
-      (!filter.dept || u.dept === filter.dept) &&
-      (!filter.user || u.role === filter.user) &&
-      (!filter.year || String(u.year) === filter.year) &&
-      (!filter.sec || u.sec === filter.sec) &&
-      (
-        name.toLowerCase().includes(search.toLowerCase()) ||
-        email.toLowerCase().includes(search.toLowerCase())
-      )
-    );
-  });
-
-  //Select-Deselect
-  const handleOnSelectAll=()=>{
+  const handleSelectAll = () => {
     if (selected.length === filteredUsers.length) {
-    setSelected([]); // deselect all
-    setSelect(true);
-  } else {
-    setSelected(filteredUsers.map((u) => u.id)); // select all
-    setSelect(false);
-  }
-  }
+      setSelected([]);
+      setSelect(true);
+    } else {
+      setSelected(filteredUsers.map(u => u.id));
+      setSelect(false);
+    }
+  };
 
-  //AddOne
+  const handleDelete = () => {
+    const remaining = users.filter(u => !selected.includes(u.id));
+    setUsers(remaining);
+    localStorage.setItem("users", JSON.stringify(remaining));
+    setSelected([]);
+    setSelect(true);
+  };
+
   const handleAddOne = () => {
     setMode("add");
     setEditingUser(null);
     setShowForm(true);
   };
 
-
-  //Edit
   const handleEdit = () => {
-    if (selected.length !== 1) {
-      alert("Please select exactly one row to edit");
-      return;
-    }
-
-    const userToEdit = users.find(u => u.id === selected[0]);
+    if (selected.length !== 1) return alert("Select one user");
     setMode("edit");
-    setEditingUser(userToEdit);
+    setEditingUser(users.find(u => u.id === selected[0]));
     setShowForm(true);
   };
 
+  const handleSave = (data) => {
+    const updated = mode === "add"
+      ? [...users, data]
+      : users.map(u => u.id === data.id ? data : u);
 
-  //SAVE
-  const handleSave = (userData) => {
-    let updatedUsers;
-
-    if (mode === "add") {
-      updatedUsers = [...users, userData];
-    } else {
-      updatedUsers = users.map(u =>
-        u.id === userData.id ? userData : u
-      );
-    }
-
-    setUsers(updatedUsers);
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-    setSelected([]);
+    setUsers(updated);
+    localStorage.setItem("users", JSON.stringify(updated));
     setShowForm(false);
+    setSelected([]);
   };
 
-
   return (
-    <div className="adminpage">
+    <div className="au-page">
       <UserFilterBar filter={filter} setFilter={setFilter} />
 
       <UserActionBar
         search={search}
         setSearch={setSearch}
         onBulkUpload={handleBulkUpload}
-        onSelectAll={handleOnSelectAll}
+        onSelectAll={handleSelectAll}
         onDelete={handleDelete}
         onAddOne={handleAddOne}
         onEdit={handleEdit}
@@ -158,7 +123,7 @@ function AdminUserPage() {
         select={select}
       />
 
-      {showForm && (  
+      {showForm && (
         <UserForm
           mode={mode}
           editingUser={editingUser}

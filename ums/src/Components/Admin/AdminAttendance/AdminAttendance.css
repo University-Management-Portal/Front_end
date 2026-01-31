@@ -1,0 +1,106 @@
+.att-page {
+  padding: 20px 30px;
+  background: #f6f7fb;
+  min-height: 100vh;
+}
+
+.att-action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.att-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #e6e6e6;
+  padding: 12px 20px;
+  border-radius: 30px;
+  width: 420px;
+}
+
+.att-search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 15px;
+}
+
+.att-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.att-btn-primary {
+  background: #16005D;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.att-btn-primary:hover {
+  background: #0f003f;
+  transform: translateY(-1px);
+}
+
+.att-table-wrapper {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+.att-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.att-table th,
+.att-table td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.att-table th {
+  background: #16005D;
+  color: #fff;
+  font-weight: 600;
+}
+
+.att-radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.att-radio {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.att-radio input[type="radio"] {
+  accent-color: #3a1a78;
+}
+
+.att-radio.active-p {
+  color: #1a7f37;
+}
+
+.att-radio.active-a {
+  color: #b42318;
+}

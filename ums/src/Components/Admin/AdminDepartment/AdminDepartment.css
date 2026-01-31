@@ -1,19 +1,19 @@
-.dept-page {
+.adminpage {
   max-width: 1400px;
   margin: auto;
-  padding: 20px 30px 180px;
+  padding: 20px 30px;
   background: #f6f7fb;
   min-height: 100vh;
 }
 
-.dept-topbar {
+.users-action-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
 }
 
-.dept-search {
+.admin-search-box {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -23,7 +23,11 @@
   width: 420px;
 }
 
-.dept-search input {
+.admin-search-box svg {
+  color: #444;
+}
+
+.admin-search-box input {
   border: none;
   outline: none;
   background: transparent;
@@ -31,22 +35,25 @@
   font-size: 15px;
 }
 
-.dept-btn-primary {
-  background: #16005D;
-  color: #fff;
-  padding: 12px 22px;
-  border-radius: 30px;
+.btn {
   border: none;
+  cursor: pointer;
   font-size: 15px;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
+}
+
+.btn.primary {
+  background: #16005D;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
   transition: all 0.25s ease;
 }
 
-.dept-btn-primary:hover {
+.btn.primary:hover {
   background: #0f003f;
   transform: translateY(-1px);
 }
@@ -57,6 +64,7 @@
   gap: 28px;
   padding-bottom: 160px;
 }
+
 
 .dept-card {
   background: #ffffff;
@@ -69,29 +77,43 @@
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
   position: relative;
   transition: transform 0.2s ease;
+  width: 100%;
+  overflow: visible;
 }
+
 
 .dept-card:hover {
   transform: translateY(-2px);
 }
 
-.dept-disabled {
+.dept-card.disabled {
   opacity: 0.45;
 }
 
 .dept-name {
   font-size: 20px;
   font-weight: 700;
+  color: #1d1d1d;
   line-height: 1.3;
   max-width: 240px;
   word-break: break-word;
 }
+
+
+.dept-menu {
+  margin-left: 12px;
+}
+
 
 .dept-menu button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 6px;
+}
+
+.dept-menu svg {
+  font-size: 22px;
 }
 
 .dept-dropdown {
@@ -105,6 +127,7 @@
   z-index: 9999;
   min-width: 140px;
 }
+
 
 .dept-dropdown button {
   padding: 12px 18px;
@@ -121,15 +144,15 @@
   background: #f4f4f4;
 }
 
-.dept-danger {
+.dept-dropdown .danger {
   color: #c62828;
 }
 
-.dept-danger:hover {
+.dept-dropdown .danger:hover {
   background: #fdeaea;
 }
 
-.dept-modal {
+.modal {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
@@ -139,7 +162,8 @@
   z-index: 100;
 }
 
-.dept-modal-box {
+
+.modal-box {
   background: #ffffff;
   border-radius: 18px;
   padding: 26px 30px;
@@ -147,11 +171,13 @@
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
-.dept-modal-box h3 {
+.modal-box h3 {
   margin-bottom: 18px;
+  font-size: 20px;
 }
 
-.dept-modal-box input {
+
+.modal-box input {
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
@@ -161,21 +187,19 @@
   margin-bottom: 20px;
 }
 
-.dept-modal-actions {
+.userform-actions {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
 }
 
-.dept-btn-cancel {
+.btn.cancel {
   background: #e0e0e0;
   color: #333;
   padding: 10px 18px;
   border-radius: 24px;
-  border: none;
-  cursor: pointer;
 }
 
-.dept-btn-cancel:hover {
+.btn.cancel:hover {
   background: #d2d2d2;
 }
