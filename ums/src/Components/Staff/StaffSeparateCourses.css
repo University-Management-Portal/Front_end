@@ -6,7 +6,8 @@
 }
 
 
-.Assignment a,.Material a{
+.Assignment a,
+.Material a {
   text-decoration: none;
   color: inherit;
 }
@@ -16,7 +17,8 @@
   display: inline-flex;
   align-items: center;
 
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   height: 180px;
 
   border-radius: 18px;
@@ -33,9 +35,9 @@
 
 .Assignment {
   justify-content: flex-end;
-  padding-right:42px;
+  padding-right: 42px;
 
-  background:url("/assignment-banner.jpg");
+  background: url("/assignment-banner.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,15 +48,15 @@
 }
 
 .Material {
-  justify-content: flex-start; 
+  justify-content: flex-start;
   padding-left: 42px;
 
-  background:url("/material.jpg");
+  background: url("/material.jpg");
   background-size: cover;
-  background-position: center;  
+  background-position: center;
   background-repeat: no-repeat;
   color: #000000;
-  border: #16005D 0.2px solid; 
+  border: #16005D 0.2px solid;
 }
 
 .Assignment:hover,
@@ -76,7 +78,7 @@
   background: #f6f7fb;
 }
 
-.separate-course > p {
+.separate-course>p {
   font-size: 20px;
   color: #16005D;
   margin-bottom: 24px;

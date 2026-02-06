@@ -10,47 +10,47 @@ function UserTable({ users, selected, setSelected }) {
   };
 
   return (
-    <div className="users-table-wrapper">
-      <table className="users-table">
+    <div className="bg-white rounded-[10px] overflow-x-auto mb-[30px] mt-[10px]">
+      <table className="w-full border-collapse">
         <thead>
           <tr>
-            <th></th>
-            <th>S.No</th>
-            <th>Name</th>
-            <th>Roll No</th>
-            <th>Year</th>
-            <th>Dept</th>
-            <th>Section</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Role</th>
+            <th className="p-[10px] border border-[#ddd]"></th>
+            <th className="p-[10px] border border-[#ddd]">S.No</th>
+            <th className="p-[10px] border border-[#ddd]">Name</th>
+            <th className="p-[10px] border border-[#ddd]">Roll No</th>
+            <th className="p-[10px] border border-[#ddd]">Year</th>
+            <th className="p-[10px] border border-[#ddd]">Dept</th>
+            <th className="p-[10px] border border-[#ddd]">Section</th>
+            <th className="p-[10px] border border-[#ddd]">Phone</th>
+            <th className="p-[10px] border border-[#ddd]">Email</th>
+            <th className="p-[10px] border border-[#ddd]">Role</th>
           </tr>
         </thead>
 
         <tbody>
           {users.length === 0 ? (
             <tr>
-              <td colSpan="10" align="center">No Data</td>
+              <td colSpan="10" align="center" className="p-[10px] border border-[#ddd]">No Data</td>
             </tr>
           ) : (
             users.map((u, i) => (
               <tr key={u.id}>
-                <td>
-                  <input className="checkbox"
+                <td className="p-[10px] border border-[#ddd]">
+                  <input className="w-[18px] h-[18px] cursor-pointer"
                     type="checkbox"
                     checked={selected.includes(u.id)}
                     onChange={() => toggle(u.id)}
                   />
                 </td>
-                <td>{i + 1}</td>
-                <td>{u.name}</td>
-                <td>{u.rollno}</td>
-                <td>{u.year}</td>
-                <td>{u.dept}</td>
-                <td>{u.sec}</td>
-                <td>{u.phone}</td>
-                <td>{u.email}</td>
-                <td>{u.role}</td>
+                <td className="p-[10px] border border-[#ddd]">{i + 1}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.name}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.rollno}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.year}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.dept}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.sec}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.phone}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.email}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.role}</td>
               </tr>
             ))
           )}

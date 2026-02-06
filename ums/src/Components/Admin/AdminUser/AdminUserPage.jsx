@@ -28,40 +28,40 @@ function AdminUserPage() {
 
   // ✅ BULK UPLOAD (FIXED)
   const handleBulkUpload = (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
+    const file = e.target.files[0];
+    if (!file) return;
 
-  const reader = new FileReader();
+    const reader = new FileReader();
 
-  reader.onload = (event) => {
-    const data = new Uint8Array(event.target.result);
-    const workbook = XLSX.read(data, { type: "array" });
-    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    reader.onload = (event) => {
+      const data = new Uint8Array(event.target.result);
+      const workbook = XLSX.read(data, { type: "array" });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
 
-    const excelData = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+      const excelData = XLSX.utils.sheet_to_json(sheet, { defval: "" });
 
-    const formatted = excelData.map((row) => ({
-      id: String(row.rollno).trim(),
-      rollno: String(row.rollno).trim(),
-      name: row.name || "",
-      year: row.year || "",
-      dept: row.dept || "",
-      sec: row.sec || "",
-      phone: row.phone ? String(row.phone) : "",
-      email: row.email || "",
-      role: row.role ? row.role.toLowerCase() : ""
-    }));
+      const formatted = excelData.map((row) => ({
+        id: String(row.rollno).trim(),
+        rollno: String(row.rollno).trim(),
+        name: row.name || "",
+        year: row.year || "",
+        dept: row.dept || "",
+        sec: row.sec || "",
+        phone: row.phone ? String(row.phone) : "",
+        email: row.email || "",
+        role: row.role ? row.role.toLowerCase() : ""
+      }));
 
-    setUsers(formatted);
-    setSelected([]);
-    localStorage.setItem("users", JSON.stringify(formatted));
+      setUsers(formatted);
+      setSelected([]);
+      localStorage.setItem("users", JSON.stringify(formatted));
 
-    //  IMPORTANT FIX: reset file input
-    e.target.value = "";
+      //  IMPORTANT FIX: reset file input
+      e.target.value = "";
+    };
+
+    reader.readAsArrayBuffer(file);
   };
-
-  reader.readAsArrayBuffer(file);
-};
 
 
   // DELETE
@@ -91,14 +91,14 @@ function AdminUserPage() {
   });
 
   //Select-Deselect
-  const handleOnSelectAll=()=>{
+  const handleOnSelectAll = () => {
     if (selected.length === filteredUsers.length) {
-    setSelected([]); // deselect all
-    setSelect(true);
-  } else {
-    setSelected(filteredUsers.map((u) => u.id)); // select all
-    setSelect(false);
-  }
+      setSelected([]); // deselect all
+      setSelect(true);
+    } else {
+      setSelected(filteredUsers.map((u) => u.id)); // select all
+      setSelect(false);
+    }
   }
 
   //AddOne
@@ -143,7 +143,7 @@ function AdminUserPage() {
 
 
   return (
-    <div className="adminpage">
+    <div className="min-h-screen">
       <UserFilterBar filter={filter} setFilter={setFilter} />
 
       <UserActionBar
@@ -158,7 +158,7 @@ function AdminUserPage() {
         select={select}
       />
 
-      {showForm && (  
+      {showForm && (
         <UserForm
           mode={mode}
           editingUser={editingUser}

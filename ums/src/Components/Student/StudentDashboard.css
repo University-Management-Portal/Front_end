@@ -7,7 +7,7 @@
 }
 
 .profile-card {
-    grid-column: 1 / -1; /* full width */
+    grid-column: 1 / -1;
     background-color: #16005d;
     color: white;
     padding: 30px;
@@ -31,7 +31,6 @@
   opacity: 0.9;
 }
 
-/* ===== INFO CARDS ===== */
 .card {
   background-color: #e0e0e0;
   border-radius: 14px;
@@ -69,7 +68,6 @@
   background-color: #ffffff;
   border-radius: 14px;
   padding: 22px;
-  /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); */
 }
 
 .events-title {

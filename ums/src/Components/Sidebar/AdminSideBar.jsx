@@ -1,62 +1,50 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./SideBar.css";
 
 export default function AdminSideBar({ isOpen, onClose }) {
-  return (
-    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
-      <ul className="sidebar-menu">
+  const sidebarClasses = `fixed top-[85px] w-[270px] h-[calc(100vh-85px)] bg-[#D9D9D9] z-[500] overflow-y-auto overflow-x-hidden transition-[left] duration-300 ease-in-out ${isOpen ? "left-0" : "-left-[280px]"
+    }`;
 
+  const linkClasses = ({ isActive }) =>
+    `block py-4 pl-[43px] text-[18px] font-medium cursor-pointer transition-all duration-200 hover:bg-[#C4C4C4] hover:font-semibold hover:text-[20px] ${isActive ? "bg-[#0f094e] text-white font-semibold text-[20px]" : "text-black"
+    }`;
+
+  return (
+    <aside className={sidebarClasses}>
+      
+      <ul className="list-none pt-10">
         <NavLink to="/admin-dashboard" end onClick={onClose}>
-          {({ isActive }) => (
-            <li className={isActive ? "active" : ""}>Dashboard</li>
-          )}
+          {({ isActive }) => <li className={linkClasses({ isActive })}>Dashboard</li>}
         </NavLink>
 
         <NavLink to="/admin-userpage" onClick={onClose}>
-          {({ isActive }) => (
-            <li className={isActive ? "active" : ""}>Users</li>
-          )}
+          {({ isActive }) => <li className={linkClasses({ isActive })}>Users</li>}
         </NavLink>
 
         <NavLink to="/admin-attendance" onClick={onClose}>
-          {({ isActive }) => (
-            <li className={isActive ? "active" : ""}>Attendance</li>
-          )}
+          {({ isActive }) => <li className={linkClasses({ isActive })}>Attendance</li>}
         </NavLink>
 
         <NavLink to="/admin-courses" onClick={onClose}>
-          {({ isActive }) => (
-            <li className={isActive ? "active" : ""}>Courses</li>
-          )}
+          {({ isActive }) => <li className={linkClasses({ isActive })}>Courses</li>}
         </NavLink>
 
         <NavLink to="/admin-departments" onClick={onClose}>
-          {({ isActive }) => (
-            <li className={isActive ? "active" : ""}>Departments</li>
-          )}
+          {({ isActive }) => <li className={linkClasses({ isActive })}>Departments</li>}
         </NavLink>
 
         <NavLink to="/admin-reports" onClick={onClose}>
-          {({ isActive }) => (
-            <li className={isActive ? "active" : ""}>Reports</li>
-          )}
+          {({ isActive }) => <li className={linkClasses({ isActive })}>Reports</li>}
         </NavLink>
 
         <NavLink to="/announcement" onClick={onClose}>
-          {({ isActive }) => (
-            <li className={isActive ? "active" : ""}>Announcements</li>
-          )}
+          {({ isActive }) => <li className={linkClasses({ isActive })}>Announcements</li>}
         </NavLink>
 
         <NavLink to="/admin-settings" onClick={onClose}>
-          {({ isActive }) => (
-            <li className={isActive ? "active" : ""}>Settings</li>
-          )}
+          {({ isActive }) => <li className={linkClasses({ isActive })}>Settings</li>}
         </NavLink>
-
       </ul>
     </aside>
   );
 }
-  

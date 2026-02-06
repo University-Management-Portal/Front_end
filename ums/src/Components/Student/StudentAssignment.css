@@ -1,18 +1,15 @@
-/* PAGE */
 .assignment-page {
   min-height: calc(100vh - 120px);
   padding: 32px 48px;
   background: #f6f7fb;
 }
 
-/* BREADCRUMB */
 .path {
   font-size: 15px;
   color: #000000;
   margin-bottom: 16px;
 }
 
-/* TITLE */
 .assignment-title {
   font-size: 28px;
   font-weight: 700;
@@ -20,7 +17,6 @@
   margin-bottom: 28px;
 }
 
-/* ASSIGNMENT CARD */
 .assign-card {
   background: #e6e6e6;
   border-radius: 14px;
@@ -36,21 +32,18 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* LEFT SECTION */
 .assign-left {
   display: flex;
   align-items: flex-start;
   gap: 14px;
 }
 
-/* ICON */
 .assign-icon {
   font-size: 32px;
   color: #16005d;
   margin-top: 2px;
 }
 
-/* ASSIGNMENT LINK */
 .assign-link {
   font-size: 16px;
   font-weight: 600;
@@ -63,7 +56,6 @@
   text-decoration: underline;
 }
 
-/* DUE DATE */
 .duedate {
   font-size: 13px;
   color: #555;

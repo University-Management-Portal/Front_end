@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./AdminUser.css"
 
 const EMPTY_FORM = {
   id: "",
@@ -10,8 +9,9 @@ const EMPTY_FORM = {
   sec: "",
   phone: "",
   email: "",
-  role: ""
+  role: "student"
 };
+
 
 function UserForm({ mode, editingUser, onSave, onClose }) {
 
@@ -38,46 +38,50 @@ function UserForm({ mode, editingUser, onSave, onClose }) {
 
     onSave({
       ...form,
-      id: mode === "add" ? form.rollno : form.id
+      id: mode === "add" ? String(form.rollno).trim() : form.id,
+      role: form.role || "student"
     });
+
   };
 
   return (
-    <div className="modal">
-      <div className="modal-box">
-        <div className="userform-title">
-          <h3>{mode === "add" ? "Add User" : "Edit User"}</h3>
+    <div className="fixed inset-0 bg-black/45 flex items-center justify-center z-[1000]">
+      <div className="bg-white w-[440px] max-w-[92%] p-[22px_24px] rounded-[16px] shadow-[0_15px_40px_rgba(0,0,0,0.25)] transition-all">
+        <div className="text-center mb-[18px]">
+          <h3 className="text-[20px] font-semibold text-[#2b2b2b]">{mode === "add" ? "Add User" : "Edit User"}</h3>
         </div>
 
-        <div className="userform-fields">
-            {Object.keys(form).map((key) =>
-              key !== "id" && (
-                key === "role" ? (
-                  <select
-                    key={key}
-                    name={key}
-                    value={form[key]}
-                    onChange={handleChange}
-                  >
-                    <option value="student">Student</option>
-                    <option value="staff">Staff</option>
-                    <option value="admin">Admin</option>
-                  </select>
-                ) : (
-                  <input
-                    key={key}
-                    name={key}
-                    placeholder={key}
-                    value={form[key]}
-                    onChange={handleChange}
-                  />
-                )
+        <div className="grid grid-cols-2 gap-[14px]">
+          {Object.keys(form).map((key) =>
+            key !== "id" && (
+              key === "role" ? (
+                <select
+                  key={key}
+                  name={key}
+                  value={form[key]}
+                  onChange={handleChange}
+                  className="w-full p-[10px_12px] text-[14px] rounded-[10px] border border-[#d1d1d1] outline-none bg-white transition-all focus:border-[#3a1a78] focus:shadow-[0_0_0_2px_rgba(58,26,120,0.15)] col-span-2"
+                >
+                  <option value="student">Student</option>
+                  <option value="staff">Staff</option>
+                  <option value="admin">Admin</option>
+                </select>
+              ) : (
+                <input
+                  key={key}
+                  name={key}
+                  placeholder={key}
+                  value={form[key]}
+                  onChange={handleChange}
+                  className="w-full p-[10px_12px] text-[14px] rounded-[10px] border border-[#d1d1d1] outline-none transition-all focus:border-[#3a1a78] focus:shadow-[0_0_0_2px_rgba(58,26,120,0.15)] placeholder:capitalize last:nth-[2n+1]:col-span-2"
+                />
               )
-            )}
-          </div>
-        <div className="userform-actions">
-          <button className="btn primary userform-save" onClick={handleSubmit}>Save</button>
-          <button className="btn cancel userform-cancel" onClick={onClose}>Cancel</button>
+            )
+          )}
+        </div>
+        <div className="flex justify-end gap-[12px] mt-[22px]">
+          <button className="std-btn p-[8px_20px] rounded-[20px] font-medium" onClick={handleSubmit}>Save</button>
+          <button className="bg-[#e5e5e5] text-[#333] p-[8px_18px] rounded-[20px] hover:bg-[#d6d6d6] cursor-pointer border-none" onClick={onClose}>Cancel</button>
         </div>
       </div>
     </div>

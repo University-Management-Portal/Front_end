@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import * as XLSX from 'xlsx'
-import './StaffMark.css'
 
 export default function StaffMark() {
 
   const [students, setStudents] = useState([])
   const [editMode, setEditMode] = useState(false)
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
 
   const handleUpload = (e) => {
     const file = e.target.files[0]
@@ -37,98 +39,125 @@ export default function StaffMark() {
   }
 
   return (
-    <div className="staff-mark-container">
+    <div className="w-screen h-screen p-[15px] bg-[#f5f6fa] overflow-y-hidden">
 
-      <div className="top-bar"> 
+      <div className="max-w-[1499px] bg-[#16005D] p-[20px_25px] rounded-[12px] text-white mr-[20px] flex gap-[105px] items-center flex-wrap">
 
-        <div className="academic"> 
-          <label>Academic Year</label>
-           <select> <option>2025 - 2026</option> 
-           <option>2024 - 2025</option> 
-           <option>2023 - 2024</option> </select>
+        <div className="academic">
+          <label className="block text-[14px] mb-[6px] font-medium ml-[44px]">Academic Year</label>
+          <select className="h-[36px] p-[6px_10px] rounded-[8px] border-none outline-none text-[14px] font-semibold w-[150px] ml-[24px] appearance-none bg-white bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center] bg-[length:20px] pl-[22px] text-black">
+            <option>2025 - 2026</option>
+            <option>2024 - 2025</option>
+            <option>2023 - 2024</option>
+          </select>
         </div>
 
-        <div className="sem"> 
-          <label>Semester</label> 
-          <select> <option>Semester 5</option> 
-          <option>Semester 6</option> </select> 
-        </div> 
-          
-        <div className="dept"> 
-          <label>Department</label> 
-          <select> <option>CSE</option> 
-          <option>ECE</option> 
-          <option>MECH</option> 
-          <option>CIVIL</option> </select> 
-        </div> 
-          
-        <div className="sec"> 
-          <label>Section</label> 
-          <select> <option>C Section</option> 
-          <option>A Section</option> 
-          <option>B Section</option> </select>
-        </div> 
+        <div className="sem">
+          <label className="block text-[14px] mb-[6px] font-medium ml-[44px]">Semester</label>
+          <select className="h-[36px] p-[6px_10px] rounded-[8px] border-none outline-none text-[14px] font-semibold w-[150px] ml-[24px] appearance-none bg-white bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center] bg-[length:20px] pl-[29px] text-black">
+            <option>Semester 5</option>
+            <option>Semester 6</option> </select>
+        </div>
 
-        <div className="sub"> 
-          <label>Subject</label> 
-          <select> <option>JAVA</option> 
-          <option>DBMS</option> 
-          <option>DSA</option>
-          <option>AA</option>
-          <option>CN</option> </select>
-        </div> 
+        <div className="dept">
+          <label className="block text-[14px] mb-[6px] font-medium ml-[44px]">Department</label>
+          <select className="h-[36px] p-[6px_10px] rounded-[8px] border-none outline-none text-[14px] font-semibold w-[150px] ml-[24px] appearance-none bg-white bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center] bg-[length:20px] pl-[52px] text-black">
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>MECH</option>
+            <option>CIVIL</option> </select>
+        </div>
+
+        <div className="sec">
+          <label className="block text-[14px] mb-[6px] font-medium ml-[44px]">Section</label>
+          <select className="h-[36px] p-[6px_10px] rounded-[8px] border-none outline-none text-[14px] font-semibold w-[150px] ml-[24px] appearance-none bg-white bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center] bg-[length:20px] pl-[29px] text-black">
+            <option>C Section</option>
+            <option>A Section</option>
+            <option>B Section</option> </select>
+        </div>
+
+        <div className="sub">
+          <label className="block text-[14px] mb-[6px] font-medium ml-[44px]">Subject</label>
+          <select className="h-[36px] p-[6px_10px] rounded-[8px] border-none outline-none text-[14px] font-semibold w-[150px] ml-[24px] appearance-none bg-white bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center] bg-[length:20px] pl-[49px] text-black">
+            <option>JAVA</option>
+            <option>DBMS</option>
+            <option>DSA</option>
+            <option>AA</option>
+            <option>CN</option> </select>
+        </div>
 
       </div>
 
-      <div className="action-bars">
+      <div className="w-full flex justify-between items-center my-[25px]">
 
-        <label className="upload-butn">
+        <label className="p-0 w-[210px] rounded-[10px] h-[38px] text-center font-medium pt-[5px] block std-btn">
           + Upload Internal Mark
           <input type="file" accept=".xlsx,.xls" hidden onChange={handleUpload} />
         </label>
 
-        <button className="edit-butn" onClick={() => setEditMode(true)}>
+        <button className="p-0 w-[100px] rounded-[10px] h-[44px] ml-[750px] std-btn" onClick={() => setEditMode(true)}
+          style={{
+            backgroundColor: hover1 ? "#ffffff" : "#16005d",
+            color: hover1 ? "#16005d" : "#ffffff"
+          }}
+          onMouseEnter={() => setHover1(true)}
+          onMouseLeave={() => setHover1(false)}
+        >
           Edit
         </button>
 
-        <button className="save-butn" onClick={() => setEditMode(false)}>
+        <button className="p-0 w-[100px] rounded-[10px] h-[44px] std-btn" onClick={() => setEditMode(false)}
+          style={{
+            backgroundColor: hover2 ? "#ffffff" : "#16005d",
+            color: hover2 ? "#16005d" : "#ffffff"
+          }}
+          onMouseEnter={() => setHover2(true)}
+          onMouseLeave={() => setHover2(false)}
+        >
           Save
         </button>
 
-        <button className="download-butn" onClick={handleDownload}>
+        <button className="p-0 w-[150px] rounded-[10px] h-[44px] mr-[20px] std-btn" onClick={handleDownload}
+          style={{
+            backgroundColor: hover3 ? "#ffffff" : "#16005d",
+            color: hover3 ? "#16005d" : "#ffffff"
+          }}
+          onMouseEnter={() => setHover3(true)}
+          onMouseLeave={() => setHover3(false)}
+        >
           Download
         </button>
 
       </div>
 
-      <div className="table-container">
-        <table>
+      <div className="w-full bg-white rounded-[12px] p-[15px] overflow-x-auto">
+        <table className="w-full border-collapse">
           <thead>
-            <tr>
-              <th>Name</th>
-              <th>Roll No</th>
-              <th>Internal 1</th>
-              <th>Internal 2</th>
-              <th>Assignment 1</th>
-              <th>Assignment 2</th>
-              <th>Lab Mark</th>
+            <tr className="bg-[#16005D] color-white">
+              <th className="p-[12px] text-[14px] font-semibold border border-[#c9c9c9] text-white">Name</th>
+              <th className="p-[12px] text-[14px] font-semibold border border-[#c9c9c9] text-white">Roll No</th>
+              <th className="p-[12px] text-[14px] font-semibold border border-[#c9c9c9] text-white">Internal 1</th>
+              <th className="p-[12px] text-[14px] font-semibold border border-[#c9c9c9] text-white">Internal 2</th>
+              <th className="p-[12px] text-[14px] font-semibold border border-[#c9c9c9] text-white">Assignment 1</th>
+              <th className="p-[12px] text-[14px] font-semibold border border-[#c9c9c9] text-white">Assignment 2</th>
+              <th className="p-[12px] text-[14px] font-semibold border border-[#c9c9c9] text-white">Lab Mark</th>
             </tr>
           </thead>
 
           <tbody>
             {students.length === 0 ? (
               <tr>
-                <td colSpan="7" style={{ textAlign: "center" }}>
+                <td colSpan="7" style={{ textAlign: "center", padding: "30px", fontSize: "15px", color: "#1320b4" }}>
                   Upload Excel to view data
                 </td>
               </tr>
             ) : (
               students.map((s, i) => (
                 <tr key={i}>
-                  <td>{s.Name}</td>
-                  <td>{s["Roll No"]}</td>
+                  <td className="p-[10px] text-[14px] border border-[#c9c9c9]">{s.Name}</td>
+                  <td className="p-[10px] text-[14px] border border-[#c9c9c9]">{s["Roll No"]}</td>
 
-                  <td>
+                  <td className="p-[10px] text-[14px] border border-[#c9c9c9]">
                     {editMode ? (
                       <input
                         type="number"
@@ -140,7 +169,7 @@ export default function StaffMark() {
                     ) : s.Internal1}
                   </td>
 
-                  <td>
+                  <td className="p-[10px] text-[14px] border border-[#c9c9c9]">
                     {editMode ? (
                       <input
                         type="number"
@@ -152,7 +181,7 @@ export default function StaffMark() {
                     ) : s.Internal2}
                   </td>
 
-                  <td>
+                  <td className="p-[10px] text-[14px] border border-[#c9c9c9]">
                     {editMode ? (
                       <input
                         type="number"
@@ -164,7 +193,7 @@ export default function StaffMark() {
                     ) : s.Assignment1}
                   </td>
 
-                  <td>
+                  <td className="p-[10px] text-[14px] border border-[#c9c9c9]">
                     {editMode ? (
                       <input
                         type="number"
@@ -176,7 +205,7 @@ export default function StaffMark() {
                     ) : s.Assignment2}
                   </td>
 
-                  <td>
+                  <td className="p-[10px] text-[14px] border border-[#c9c9c9]">
                     {editMode ? (
                       <input
                         type="number"

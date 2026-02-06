@@ -6,15 +6,16 @@
 }
 
 
-html, body {
-  width: 1570px;
+html,
+body {
+  width: 100%;
   height: 100%;
   font-family: "Segoe UI", sans-serif;
   background-color: #f5f6fa;
 }
 
 .staff-mark-container {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   padding: 15px 15px;
 }
@@ -27,38 +28,38 @@ html, body {
   color: white;
   margin-right: 20px;
   display: flex;
-  gap: 22px;                
-  align-items: center;       
+  gap: 22px;
+  align-items: center;
   flex-wrap: flex;
 
 }
 
-.edit-btn{
-background-color: #1d0b5f;
-color: white;
-margin-left: 800px;
+.edit-btn {
+  background-color: #1d0b5f;
+  color: white;
+  margin-left: 800px;
 }
 
-.edit-btn:hover{
-background-color: #ffffff;
-color: #16005D;
-border: 2px solid #16005D;
+.edit-btn:hover {
+  background-color: #ffffff;
+  color: #16005D;
+  border: 2px solid #16005D;
 }
 
-.save-butn{
-background-color: #1d0b5f;
-color: white;
+.save-butn {
+  background-color: #1d0b5f;
+  color: white;
 }
 
-.save-butn:hover{
-background-color: #ffffff;  
-color: #16005D;
-border: 2px solid #16005D;
+.save-butn:hover {
+  background-color: #ffffff;
+  color: #16005D;
+  border: 2px solid #16005D;
 }
 
-.download-btn{
-background-color: #1d0b5f;
-color: white;
+.download-btn {
+  background-color: #1d0b5f;
+  color: white;
 }
 
 .academic label {
@@ -187,7 +188,7 @@ color: white;
   margin-bottom: 6px;
   font-weight: 500;
   margin-left: 44px;
-  
+
 }
 
 .sub select {
@@ -221,67 +222,67 @@ color: white;
   margin: 25px 0;
 }
 
-.upload-butn{
+.upload-butn {
   padding: 0;
-  width: 210px ;
+  width: 210px;
   border-radius: 10px;
   color: #ffffff;
   background-color: #16005D;
-  height:38px;
+  height: 38px;
   text-align: center;
   font-weight: 500;
   padding-top: 5px;
 }
 
-.upload-butn:hover{
+.upload-butn:hover {
   color: #16005D;
   border: #16005D 2px solid;
   background-color: white;
 }
 
-.edit-butn{
+.edit-butn {
   padding: 0;
-  width: 100px ;
+  width: 100px;
   border-radius: 10px;
   color: #ffffff;
   background-color: #16005D;
-  height:38px;
+  height: 38px;
   margin-left: 750px;
 }
 
-.edit-butn:hover{
+.edit-butn:hover {
   color: #16005D;
   border: #16005D 2px solid;
   background-color: white;
 }
 
 
-.save-butn{
+.save-butn {
   padding: 0;
-  width: 100px ;
+  width: 100px;
   border-radius: 10px;
   color: #ffffff;
   background-color: #16005D;
-  height:38px;
+  height: 38px;
 }
 
-.save-butn:hover{
+.save-butn:hover {
   color: #16005D;
   border: #16005D 2px solid;
   background-color: white;
 }
 
-.download-butn{
+.download-butn {
   padding: 0;
-  width: 150px ;
+  width: 150px;
   border-radius: 10px;
   color: #ffffff;
   background-color: #16005D;
-  height:38px;
+  height: 38px;
   margin-right: 20px;
 }
 
-.download-butn:hover{
+.download-butn:hover {
   color: #16005D;
   border: #16005D 2px solid;
   background-color: white;
@@ -325,5 +326,3 @@ tbody tr td[colspan] {
   font-size: 15px;
   color: #1320b4;
 }
-
-
