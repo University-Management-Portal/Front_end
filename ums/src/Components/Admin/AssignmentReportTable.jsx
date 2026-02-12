@@ -18,11 +18,32 @@ function AssignmentReportTable() {
   const [editMode, setEditMode] = useState(false);
   const [students, setStudents] = useState(assignmentData.students);
 
+   const handleDownload = () => {
+  let csvContent = "Reg No,Name,Mark\n";
+
+  students.forEach((stu) => {
+    csvContent += `${stu.regNo},${stu.name},${stu.mark}\n`;
+  });
+
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${assignment}_Assignment.csv`;
+  a.click();
+
+  URL.revokeObjectURL(url);
+};
+
+
   const handleMarkChange = (index, value) => {
     const updated = [...students];
     updated[index].mark = value;
     setStudents(updated);
   };
+
+ 
 
   return (
     <div className="p-[20px]">
@@ -64,6 +85,7 @@ function AssignmentReportTable() {
         )}
 
         <button
+          onClick={handleDownload}
           className="std-btn p-[8px_16px] rounded-[8px]"
           style={{
             backgroundColor: hover3 ? "#ffffff" : "#16005d",
@@ -78,7 +100,6 @@ function AssignmentReportTable() {
 
       </div>
 
-      {/* TABLE SECTION */}
 
       <table className="w-full max-w-[1500px] border mt-[10px] shadow">
 

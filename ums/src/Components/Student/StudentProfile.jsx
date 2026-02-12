@@ -18,6 +18,9 @@ function StudentProfile() {
 
   const fileInputRef = useRef(null);
   const [profileImage, setProfileImage] = useState("Profile.jpg");
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
 
   const navigate = useNavigate();
 
@@ -55,6 +58,12 @@ function StudentProfile() {
         <button
           className="mt-8 w-[220px] h-[45px] rounded-[15px] font-medium box-border std-btn"
           onClick={handleUpdateClick}
+          style={{
+            backgroundColor: hover1 ? "#ffffff" : "#16005d",
+            color: hover1 ? "#16005d" : "#ffffff"
+          }}
+          onMouseEnter={() => setHover1(true)}
+          onMouseLeave={() => setHover1(false)}
         >
           Update Photo
         </button>
@@ -62,6 +71,12 @@ function StudentProfile() {
         <button
           className="mt-5 w-[220px] h-[45px] rounded-[15px] font-medium box-border std-btn"
           onClick={() => navigate("/reset-password")}
+          style={{
+            backgroundColor: hover2 ? "#ffffff" : "#16005d",
+            color: hover2 ? "#16005d" : "#ffffff"
+          }}
+          onMouseEnter={() => setHover2(true)}
+          onMouseLeave={() => setHover2(false)}
         >
           Reset Password
         </button>
@@ -69,6 +84,12 @@ function StudentProfile() {
         <button
           className="mt-5 w-[220px] h-[45px] rounded-[15px] font-medium box-border std-btn"
           onClick={() => navigate("/")}
+          style={{
+            backgroundColor: hover3 ? "#ffffff" : "#16005d",
+            color: hover3 ? "#16005d" : "#ffffff"
+          }}
+          onMouseEnter={() => setHover3(true)}
+          onMouseLeave={() => setHover3(false)}
         >
           Logout
         </button>

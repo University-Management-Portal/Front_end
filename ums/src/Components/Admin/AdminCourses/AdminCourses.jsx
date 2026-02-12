@@ -9,6 +9,8 @@ import CourseMenu from "./CourseMenu";
 import CourseForm from "./CourseForm";
 
 function AdminCourses() {
+   const COMMON_BG =
+  "Advancednet.jpg";
   const [search, setSearch] = useState("");
 
   const [courses, setCourses] = useState(
@@ -18,9 +20,12 @@ function AdminCourses() {
       staffList: [],
       dept: "",
       sec: "",
-      disabled: false
+      disabled: false,
+      img: COMMON_BG  
     }))
   );
+
+ 
 
   const [openMenuId, setOpenMenuId] = useState(null);
   const [openForm, setOpenForm] = useState(false);
@@ -53,10 +58,8 @@ function AdminCourses() {
       id: data.code,
       sub: `${data.code} / ${data.name}`,
       staffList: [],
-      img: "https://via.placeholder.com/400x250",
+      img: COMMON_BG, 
       disabled: false,
-
-      // future assign fields
       faculty: "",
       dept: "",
       sec: ""

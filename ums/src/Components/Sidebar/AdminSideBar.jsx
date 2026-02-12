@@ -21,7 +21,7 @@ export default function AdminSideBar({ isOpen, onClose }) {
           {({ isActive }) => <li className={linkClasses({ isActive })}>Users</li>}
         </NavLink>
 
-        <NavLink to="/admin-attendance" onClick={onClose}>
+        <NavLink to="/admin-report/attendance" onClick={onClose}>
           {({ isActive }) => <li className={linkClasses({ isActive })}>Attendance</li>}
         </NavLink>
 

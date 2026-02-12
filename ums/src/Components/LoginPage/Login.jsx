@@ -44,7 +44,7 @@ export default function Login() {
           </p>
         </div>
 
-        <div className='mt-[100px]'>
+        <div className='mt-[180px]'>
           <img src="NBA.png" alt="NBA" className="h-[60px]" />
         </div>
 
@@ -55,11 +55,10 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Login Card */}
         <div className='absolute top-1/2 opacity-[0.7] right-[90px] -translate-y-1/2
           w-[440px] p-[40px] rounded-[22px]
           shadow-[0_25px_50px_rgba(0,0,0,0.25)]
-          bg-[#ffffff]/10 backdrop-blur-md mt-[40px]'>
+          bg-gradient-to-r from-[#e3f2f5] to-[#b2d8e5] mt-[40px] '>
 
           <p className="text-[36px] font-bold mb-[35px] text-black text-center">
             Login Portal
@@ -100,7 +99,7 @@ export default function Login() {
 
             <Link
               to="/forget-password"
-              className="block text-right text-[14px] text-[#0021F4] mb-[20px] hover:underline"
+              className="block text-right text-[14px] text-[#16005d] mb-[20px] hover:underline"
             >
               Forget Password?
             </Link>

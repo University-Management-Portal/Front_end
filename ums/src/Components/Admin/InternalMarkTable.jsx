@@ -24,6 +24,25 @@ function InternalMarkTable() {
     setStudents(updated);
   };
 
+  const handleDownload = () => {
+  let csvContent = "Reg No,Name,Mark\n";
+
+  students.forEach((stu) => {
+    csvContent += `${stu.regNo},${stu.name},${stu.mark}\n`;
+  });
+
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${subject}_InternalMarks.csv`;
+  a.click();
+
+  URL.revokeObjectURL(url);
+};
+
+
   return (
     <div className="p-[20px]">
 
@@ -64,6 +83,7 @@ function InternalMarkTable() {
         )}
 
         <button
+          onClick={handleDownload}
           className="std-btn p-[8px_16px] rounded-[8px]"
           style={{
             backgroundColor: hover3 ? "#ffffff" : "#16005d",

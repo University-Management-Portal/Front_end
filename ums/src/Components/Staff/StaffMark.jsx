@@ -39,7 +39,7 @@ export default function StaffMark() {
   }
 
   return (
-    <div className="w-screen h-screen p-[15px] bg-[#f5f6fa] overflow-y-hidden">
+    <div className="w-full h-screen p-[15px] bg-[#f5f6fa] overflow-y-hidden">
 
       <div className="max-w-[1499px] bg-[#16005D] p-[20px_25px] rounded-[12px] text-white mr-[20px] flex gap-[105px] items-center flex-wrap">
 

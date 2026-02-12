@@ -13,6 +13,8 @@ const EMPTY_FORM = {
 };
 
 
+
+
 function UserForm({ mode, editingUser, onSave, onClose }) {
 
   const [form, setForm] = useState(() => {
@@ -29,6 +31,9 @@ function UserForm({ mode, editingUser, onSave, onClose }) {
       [name]: value
     }));
   };
+
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
 
   const handleSubmit = () => {
     if (!form.rollno || !form.name) {
@@ -80,8 +85,22 @@ function UserForm({ mode, editingUser, onSave, onClose }) {
           )}
         </div>
         <div className="flex justify-end gap-[12px] mt-[22px]">
-          <button className="std-btn p-[8px_20px] rounded-[20px] font-medium" onClick={handleSubmit}>Save</button>
-          <button className="bg-[#e5e5e5] text-[#333] p-[8px_18px] rounded-[20px] hover:bg-[#d6d6d6] cursor-pointer border-none" onClick={onClose}>Cancel</button>
+          <button className="std-btn p-[8px_20px] rounded-[20px] font-medium" onClick={handleSubmit}
+          style={{
+            backgroundColor: hover1 ? "#ffffff" : "#16005d",
+            color: hover1 ? "#16005d" : "#ffffff"
+          }}
+          onMouseEnter={() => setHover1(true)}
+          onMouseLeave={() => setHover1(false)}
+          >Save</button>
+          <button className="bg-[#e5e5e5] text-[#333] p-[8px_18px] rounded-[20px] hover:bg-[#d6d6d6] cursor-pointer border-none" onClick={onClose}
+          style={{
+            backgroundColor: hover2 ? "#ffffff" : "#16005d",
+            color: hover2 ? "#16005d" : "#ffffff"
+          }}
+          onMouseEnter={() => setHover2(true)}
+          onMouseLeave={() => setHover2(false)}
+          >Cancel</button>
         </div>
       </div>
     </div>

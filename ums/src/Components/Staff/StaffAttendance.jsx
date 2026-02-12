@@ -15,6 +15,8 @@ export default function StaffAttendance() {
   const [showReport, setShowReport] = useState(false);
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
+  const [hover4, setHover4] = useState(false);
 
   const key = `${filters.dept}-${filters.sem}-${filters.sec}`;
   const students = studentsData[key] || [];
@@ -138,6 +140,13 @@ Roll No       Status
         </div>
 
         <div>
+          <style>
+            {`
+              input[type="date"]::-webkit-calendar-picker-indicator {
+                filter: invert(1);
+              }
+            `}
+          </style>
           <label className="block text-[14px] mb-[6px] font-medium ml-[55px]">Date</label>
           <input type="date"
             className="h-[40px] px-[12px] rounded-[10px] border-none font-semibold pl-[20px] text-white"
@@ -215,9 +224,40 @@ Roll No       Status
         </div>
       )}
 
+      
+
       {showReport && (
         <div className="mt-4">
           <h4 className="text-center text-xl font-bold">Attendance Report</h4>
+
+          <div className="text-end mt-4">
+            <button
+              className="std-btn w-[150px] h-[44px] m-[10px] mr-[20px]"
+              onClick={handleDownload}
+              style={{
+                backgroundColor: hover3 ? "#ffffff" : "#16005d",
+                color: hover3 ? "#16005d" : "#ffffff"
+              }}
+              onMouseEnter={() => setHover3(true)}
+              onMouseLeave={() => setHover3(false)}
+            >
+              Download
+            </button>
+
+            <button className="std-btn w-[150px] h-[44px] m-[10px] mr-[20px]" onClick={() => setShowReport(false)}
+              style={{
+                backgroundColor: hover4 ? "#ffffff" : "#16005d",
+                color: hover4 ? "#16005d" : "#ffffff"
+              }}
+              onMouseEnter={() => setHover4(true)}
+              onMouseLeave={() => setHover4(false)}
+            >
+              Back
+            </button>
+          </div>
+
+
+
           <table className="w-full border-collapse mt-3">
             <thead>
               <tr className="bg-[#16005D] text-white">
@@ -235,18 +275,7 @@ Roll No       Status
             </tbody>
           </table>
 
-          <div className="text-end mt-4">
-            <button
-              className="std-btn px-4 py-2 rounded"
-              onClick={handleDownload}
-            >
-              Download
-            </button>
-
-            <button className="std-btn px-4 py-2 rounded" onClick={() => setShowReport(false)}>
-              Back
-            </button>
-          </div>
+          
         </div>
       )}
 

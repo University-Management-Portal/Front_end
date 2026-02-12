@@ -48,6 +48,7 @@ import AssignmentReportTable from '../Components/Admin/AssignmentReportTable.jsx
 import AdminDepartment from '../Components/Admin/AdminDepartment.jsx'
 import AdminLayout from '../Layout&Route/AdminLayout.jsx'
 import AdminSettings from '../Components/Admin/AdminSettings.jsx'
+import AdminAttendanceReport from '../Components/Admin/AdminAttendanceReport.jsx'
 
 
 
@@ -108,6 +109,8 @@ function Routing() {
           <Route path='/admin-departments' element={<AdminDepartment/>}/>
           <Route path="/admin-dashboard" element={ <AdminLayout> <AdminDashboard /> </AdminLayout>}/>
           <Route path='/admin-settings' element={<AdminSettings/>}/>
+          <Route path="/admin-report/attendance" element={<AdminAttendanceReport />} />
+
 
         </Route>
 

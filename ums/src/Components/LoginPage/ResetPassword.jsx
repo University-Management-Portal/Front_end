@@ -7,6 +7,7 @@ function ResetPassword() {
     const [New, setNew] = useState();
     const [Confirm, setConfirm] = useState();
     const Navigate = useNavigate();
+    const [hover1, setHover1] = useState(false);
 
     const handlepassword = () => {
         if (!Old || !New || !Confirm) {
@@ -39,7 +40,14 @@ function ResetPassword() {
 
                         <Link to="/forget-password" className='text-[#0021F4] block text-right text-[14px] no-underline mb-[2px] hover:underline'>Forget Password?</Link><br></br>
 
-                        <button type="button" onClick={handlepassword} className="bg-[#16005d] text-white h-[40px] w-1/2 p-[5px] rounded-[20px] border-none text-[17px] font-semibold cursor-pointer block mx-auto mt-[10px] hover:bg-white hover:text-[#16005d] transition-colors">Reset</button>
+                        <button type="button" onClick={handlepassword} className="bg-[#16005d] text-white h-[40px] w-1/2 p-[5px] rounded-[20px] border-none text-[17px] font-semibold cursor-pointer block mx-auto mt-[10px] hover:bg-white hover:text-[#16005d] transition-colors "
+                        style={{
+                                        backgroundColor: hover1 ? "#ffffff" : "#16005d",
+                                        color: hover1 ? "#16005d" : "#ffffff",
+                                        borderRadius: "20px"
+                                    }}
+                                    onMouseEnter={() => setHover1(true)}
+                                    onMouseLeave={() => setHover1(false)}>Reset</button>
                     </form>
                 </div>
             </div>
