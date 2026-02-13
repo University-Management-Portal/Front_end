@@ -33,18 +33,18 @@ export default function Login() {
 
         {/* Left Content */}
         <div className='mt-[80px]'>
-          <p className="text-[38px] font-semibold text-white tracking-[1px]">
+          <p className="text-[38px] font-bold text-white tracking-[1px]">
             25 YEARS OF EXCELLENCE
           </p>
         </div>
 
-        <div className='mt-[10px]'>
+        <div className='mt-[15px]'>
           <p className="text-[58px] font-bold text-[#16005d]">
             BEC
           </p>
         </div>
 
-        <div className='mt-[180px]'>
+        <div className='mt-[220px]'>
           <img src="NBA.png" alt="NBA" className="h-[60px]" />
         </div>
 
@@ -69,7 +69,7 @@ export default function Login() {
               Enter your credentials :
             </p>
 
-            {/* Email */}
+            
             <input
               type="email"
               placeholder="Email"
