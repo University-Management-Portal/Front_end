@@ -46,13 +46,19 @@ export default function Header({
     else if (user === "admin") navigate("/admin-dashboard")
   }
 
+  const handleNotificationClick = () => {
+  if (user === "student") navigate("/announcement");
+  else if (user === "staff") navigate("/announcement");
+  else if (user === "admin") navigate("/announcement");
+}
+
+
   return (
     <div className='fixed top-0 left-0 w-full h-[90px] flex items-center px-6 bg-[#16005d] text-white z-[1000]'>
 
       <div className="flex items-center gap-3 min-w-[350px]">
         <div className="flex items-center gap-[10px]">
 
-          {/* 🔥 MAIN FIX HERE */}
           <Menu
             className="cursor-pointer !text-[32px]"
             onMouseEnter={onMenuEnter}
@@ -92,6 +98,7 @@ export default function Header({
         />
 
         <Notification
+          onClick={handleNotificationClick} 
           className="!text-[#f1f1f1] !text-[40px] ml-[5px] cursor-pointer hover:!text-[#bcd6ff]"
         />
 

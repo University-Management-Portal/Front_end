@@ -9,7 +9,9 @@ export default function Login() {
 
   const role = user.trim().toLowerCase();
 
-  const handleUser = () => {
+  const handleUser = (e) => {
+    e.preventDefault();
+
     if (role === "staff") {
       localStorage.setItem("userType", "staff");
       navigate("/staff-dashboard");
@@ -28,10 +30,8 @@ export default function Login() {
     <div>
       <LHeader />
 
-      {/* Background */}
       <div className='w-screen h-screen relative bg-[url("/Collegepic.jpg")] bg-cover bg-center bg-no-repeat p-[40px_80px] overflow-hidden'>
 
-        {/* Left Content */}
         <div className='mt-[80px]'>
           <p className="text-[38px] font-bold text-white tracking-[1px]">
             25 YEARS OF EXCELLENCE
@@ -64,7 +64,7 @@ export default function Login() {
             Login Portal
           </p>
 
-          <form>
+          <form onSubmit={handleUser}>
             <p className="text-[19px] text-black/80 font-medium mb-[12px]">
               Enter your credentials :
             </p>
@@ -105,7 +105,7 @@ export default function Login() {
             </Link>
 
             <button
-              type="button"
+              type="submit"
               onClick={handleUser}
               className="
                 bg-[#16005d] text-white

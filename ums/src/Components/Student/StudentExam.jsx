@@ -30,6 +30,8 @@ function StudentExam() {
     return "text-[#777]";
   };
 
+  
+
   return (
     <div className="flex p-[40px] gap-[40px] min-h-[calc(100vh-80px)]">
 
@@ -98,19 +100,22 @@ function StudentExam() {
             <h3 className="mb-[12px] text-[26px] text-[#16005d] font-bold">Examination Rules & Regulations</h3>
             <ul className="pl-0 mt-[20px] list-none">
               {[
-                "Minimum attendance and exam fees must be cleared.",
-                "Enter hall 15 minutes before exam.",
-                "Late entry after 30 minutes is prohibited.",
-                "Hall ticket and ID card mandatory.",
-                "Sit only in allotted seat.",
-                "No mobiles or unauthorized materials.",
-                "Maintain silence and discipline.",
-                "No malpractice allowed.",
-                "Follow invigilator instructions.",
-                "No exit in first 30 and last 10 minutes.",
-                "Submit answer script to invigilator.",
-                "Fill all details correctly.",
-              ].map((rule, i) => (
+                "Students must satisfy the minimum attendance requirement and clear all exam fees before appearing for examinations.",
+                "Students must enter the examination hall at least 15 minutes before the commencement of the exam.",
+                "Late entry beyond 30 minutes after the start of the examination is strictly prohibited.",
+                "Carrying a valid hall ticket and college identity card is mandatory for all examinations.",
+                "Students must occupy only their allotted seats and follow the seating arrangement displayed.",
+                "Mobile phones, smart devices, books, notes, and unauthorized materials are strictly prohibited inside the examination hall.",
+                "Students must maintain complete silence and discipline throughout the duration of the examination.",
+                "Any form of copying, communication, or malpractice will result in strict disciplinary action.",
+                "Students must follow the instructions given by invigilators at all times.",
+                "Leaving the examination hall during the first 30 minutes and last 10 minutes of the exam is not permitted.",
+                "Answer scripts must be handed over personally to the invigilator before leaving the hall.",
+                "Students must ensure that all required details are correctly filled in the answer booklet.",
+                "Violation of examination rules may lead to cancellation of the exam or further disciplinary action.",
+                "Students must leave the examination hall quietly after completion of the examination."
+              ]
+              .map((rule, i) => (
                 <li key={i} className="flex items-start gap-[14px] mb-[18px] leading-[1.6] text-[16px] text-black">
                   <span className="mt-[6px] text-[14px] text-[#16005d] flex-shrink-0">●</span>
                   <span>{rule}</span>
@@ -187,7 +192,6 @@ function StudentExam() {
                   <option value="sem8">Semester 8</option>
                 </select>
 
-                {/* Message when not selected */}
                 {!semester && (
                   <div className="text-center font-medium mt-4">
                     Please select a semester to view exam fee details.

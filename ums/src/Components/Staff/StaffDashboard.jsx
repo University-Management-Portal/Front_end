@@ -10,10 +10,6 @@ export default function StaffDashboard() {
   const regNo = ProfileData.find(i => i.label === "Reg No")?.value;
   const dept = ProfileData.find(i => i.label === "Department")?.value;
 
-  const hour = new Date().getHours();
-  const greetings =
-    hour < 12 ? "Good Morning" : hour < 16 ? "Good Afternoon" : "Good Evening";
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevMonth = () =>
@@ -31,7 +27,7 @@ export default function StaffDashboard() {
 
       <div className="bg-[#16005D] rounded-[10px] w-full min-h-[180px] p-[10px] mb-4 flex flex-col justify-center">
         <p className="text-white text-[33px] font-semibold ml-[40px]">
-          {greetings}! {name}
+          Welcome ! {name}
         </p>
         <h3 className="text-white text-[25px] font-medium ml-[40px]">{regNo}</h3>
         <p className="text-white text-[17px] font-normal ml-[40px]">{dept} Department</p>
