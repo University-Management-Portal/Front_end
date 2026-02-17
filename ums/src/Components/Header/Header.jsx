@@ -9,7 +9,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function Header({ 
   onMenuClick, 
-  onMenuEnter,      // 👈 CORRECT NAME
+  onMenuEnter,    
   onMenuLeave 
 }) {
 
@@ -52,6 +52,114 @@ export default function Header({
   else if (user === "admin") navigate("/announcement");
 }
 
+  const searchData = {
+  student: [
+    { name: "Dashboard", path: "/student-dashboard" },
+    { name: "Calendar", path: "/student-dashboard" },
+    { name: "Upcoming Events", path: "/student-dashboard" },
+    { name: "Current Semester", path: "/student-dashboard" },
+    { name: "Current CGPA", path: "/student-dashboard" },
+    { name: "Tutor", path: "/student-dashboard" },
+    { name: "Last Working Day", path: "/student-dashboard" },
+    { name: "Enrolled Courses", path: "/student-dashboard" },
+
+    { name: "Attendance", path: "/student-attendance" },
+    { name: "Overall Attendance", path: "/student-attendance" },
+    { name: "Attendance's Rules and Regulations", path: "/student-attendance" },
+    { name: "Course Attendance", path: "/student-attendance" },
+
+    { name: "Examination Rules & Regulations", path: "/student-examination" },
+    { name: "Exam Schedule", path: "/student-examination" },
+    { name: "Result", path: "/student-examination" },
+    { name: "Exam Fee Details", path: "/student-examination" },
+
+    { name: "Courses", path: "/student-navcourse" },
+    { name: "Internal Mark", path: "/student-navcourse" },
+
+    { name: "Time Table", path: "/student-schedule" },
+    { name: "Academic Calendar", path: "/student-schedule" },
+
+    { name: "Fees Structure", path: "/student-fees" },
+    { name: "Fee Payment", path: "/student-fees" },
+    { name: "Transaction History", path: "/student-fees" },
+
+    { name: "Anouncement", path: "/announcement" },
+  ],
+
+
+
+  staff: [
+    { name: "Dashboard", path: "/staff-dashboard" },
+    { name: "Calendar", path: "/staff-dashboard" },
+
+    { name: "Time Table", path: "/staff-schedule" },
+    { name: "Academic Calendar", path: "/staff-schedule" },
+
+    { name: "Attendance", path: "/staff-attendance" },
+
+    { name: "Internal Marks", path: "/staff-internalmark" },
+
+    { name: "Student List", path: "/staff-studentlist" },
+
+    { name: "Courses", path: "/staff-courses" },
+
+    { name: "Announcement", path: "/announcement" },
+  ],
+
+
+
+  admin: [
+    { name: "Dashboard", path: "/admin-dashboard" },
+    { name: "Calendar", path: "/admin-dashboard" },
+    { name: "Add Event", path: "/admin-dashboard" },
+    { name: "Total Student", path: "/admin-dashboard" },
+    { name: "Total Faculties", path: "/admin-dashboard" },
+    { name: "Total Departments", path: "/admin-dashboard" },
+    { name: "Total Courses", path: "/admin-dashboard" },
+
+    { name: "Users", path: "/admin-userpage" },
+    { name: "staff-user", path: "/admin-userpage" },
+    { name: "student-user", path: "/admin-userpage" },
+    { name: "admin-user", path: "/admin-userpage" },
+
+    { name: "Attendance Report", path: "/admin-report/attendance" },
+
+    { name: "Course", path: "/admin-courses" },
+    { name: "Add Course", path: "/admin-courses" },
+
+    { name: "Departments", path: "/admin-departments" },
+    { name: "Add Department", path: "/admin-departments" },
+
+    { name: "Report Dashboard", path: "/admin-reports" },
+    { name: "Internal Marks Report", path: "/admin-report/internal"},
+    { name: "Assignment Report", path: "/admin-report/assignment" },
+
+    { name: "Announcement", path: "/announcement" },
+
+    { name: "Settings", path: "/admin-settings" },
+    ]
+}
+
+const [searchTerm, setSearchTerm] = React.useState("")
+const [results, setResults] = React.useState([])
+
+const handleSearch = (e) => {
+  const value = e.target.value
+  setSearchTerm(value)
+
+  if (!value.trim()) {
+    setResults([])
+    return
+  }
+
+  const userPages = searchData[user] || []
+
+  const filtered = userPages.filter(item =>
+    item.name.toLowerCase().includes(value.toLowerCase())
+  )
+
+  setResults(filtered)
+}
 
   return (
     <div className='fixed top-0 left-0 w-full h-[90px] flex items-center px-6 bg-[#16005d] text-white z-[1000]'>
@@ -74,13 +182,35 @@ export default function Header({
       </div>
 
       <div className="flex-1 flex justify-center">
-        <div className="flex items-center bg-[#f1f1f1] px-[14px] py-[6px] rounded-[45px] w-[380px] h-[34px]">
+        <div className="relative flex items-center bg-[#f1f1f1] px-[14px] py-[6px] rounded-[45px] w-[380px] h-[34px]">
           <Search className="!text-black !text-[28px]" />
           <input
             type="text"
-            placeholder=' Search'
+            placeholder=" Search"
+            value={searchTerm}
+            onChange={handleSearch}
             className="border-none outline-none bg-transparent w-full text-black"
           />
+
+          {results.length > 0 && (
+          <div className="absolute top-[45px] left-0 w-full bg-white text-black rounded-md shadow-lg z-[2000]">
+            {results.map((item, index) => (
+              <div
+                key={index}
+                className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                onClick={() => {
+                  navigate(item.path)
+                  setSearchTerm("")
+                  setResults([])
+                }}
+                >
+                  {item.name}
+            </div>
+    ))}
+  </div>
+)}
+
+
         </div>
       </div>
 

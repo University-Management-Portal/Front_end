@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation ,useNavigate } from "react-router-dom";
 import InternalMarksData from "./InternalMarksData";
 
 function InternalMarkTable() {
@@ -9,6 +9,7 @@ function InternalMarkTable() {
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
   const [hover3, setHover3] = useState(false);
+  const navigate = useNavigate();
 
   const subjectData =
     InternalMarksData[academic][sem][dept][sec].find(
@@ -45,10 +46,34 @@ function InternalMarkTable() {
 
   return (
     <div className="p-[20px]">
+<div className="flex items-center text-[18px] font-medium text-[#16005D] mb-[20px]">
 
-      <h2 className="text-[#16005d] text-[22px] font-bold mb-[15px]">
-        Internal Mark Report
-      </h2>
+    <span
+    onClick={() => navigate(-2)}
+    style={{ cursor: "pointer" }}
+    className="hover:underline"
+    >
+      Report
+    </span>
+
+    <span className="mx-2">/</span>
+
+    <span
+      onClick={() => navigate(-1)}
+      style={{ cursor: "pointer" }}
+      className="hover:underline"
+    >
+      Internal Mark
+    </span>
+
+     <span className="mx-2">/</span>
+
+    <span
+    >
+      {subject} – {dept}-{sec}
+    </span>
+
+</div>
 
      
 

@@ -23,6 +23,7 @@ function UserTable({ users, selected, setSelected }) {
             <th className="p-[10px] border border-[#ddd]">Section</th>
             <th className="p-[10px] border border-[#ddd]">Phone</th>
             <th className="p-[10px] border border-[#ddd]">Email</th>
+            <th className="p-[10px] border border-[#ddd]">DOB</th>
             <th className="p-[10px] border border-[#ddd]">Role</th>
           </tr>
         </thead>
@@ -50,6 +51,7 @@ function UserTable({ users, selected, setSelected }) {
                 <td className="p-[10px] border border-[#ddd]">{u.sec}</td>
                 <td className="p-[10px] border border-[#ddd]">{u.phone}</td>
                 <td className="p-[10px] border border-[#ddd]">{u.email}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.DOB}</td>
                 <td className="p-[10px] border border-[#ddd]">{u.role}</td>
               </tr>
             ))

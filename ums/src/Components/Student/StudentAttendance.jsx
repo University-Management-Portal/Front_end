@@ -25,7 +25,6 @@ function StudentAttendance() {
           style={{
             padding: "12px 18px",
             borderRadius: "18px",
-            border: "2px solid #16005d",
             fontSize: "18px",
             fontWeight: "600",
             cursor: "pointer",
@@ -55,7 +54,6 @@ function StudentAttendance() {
           style={{
             padding: "12px 18px",
             borderRadius: "18px",
-            border: "2px solid #16005d",
             fontSize: "18px",
             fontWeight: "600",
             cursor: "pointer",

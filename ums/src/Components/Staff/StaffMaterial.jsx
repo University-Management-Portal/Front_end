@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams ,useNavigate } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import FolderForm from "./FolderForm";
 
 function StaffMaterial() {
   const { courseName } = useParams();
+  const navigate = useNavigate();
   const [hover1, setHover1] = useState(false);
 
   const [folders, setFolders] = useState([]);
@@ -23,9 +24,38 @@ function StaffMaterial() {
   return (
     <div className="p-[20px] min-h-screen">
 
-      <p className="text-[16px] font-medium text-[#16005D]">
-        Courses &gt; {courseName.replaceAll("-", " ")} &gt; Material
-      </p>
+      <div className="flex items-center text-[16px] font-medium text-[#16005D] mb-[20px]">
+
+          <span
+            onClick={() => navigate(-2)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            courses
+          </span>
+
+          <span className="mx-2">&gt;</span>
+
+          <span
+            onClick={() => navigate(-2)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            {courseName.replaceAll("-", " ")}
+          </span>
+
+          <span className="mx-2">&gt;</span>
+
+          <span
+          onClick={() => navigate(-1)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            material
+          </span>
+
+        </div>
+
 
       <div className="bg-[url('/commen.jpg')] bg-no-repeat bg-center bg-cover text-white p-[22px_28px] rounded-[18px] mb-[28px] text-[38px] font-bold h-[180px] flex items-center mt-[20px]">
         {courseName.replaceAll("-", " ").toUpperCase()}

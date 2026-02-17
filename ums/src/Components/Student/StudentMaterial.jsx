@@ -1,18 +1,46 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams ,useNavigate} from 'react-router-dom'
 import Materials from './MaterialByCourse.js'
 import BookIcon from '@mui/icons-material/Description';
 
 function StudentMaterial() {
   const { courseName } = useParams();
+  const navigate = useNavigate();
 
   const folders = Materials[courseName] || [];
 
   return (
     <div className='min-h-[calc(100vh-120px)] p-[32px_48px] bg-[#f6f7fb] max-md:p-[24px]'>
-      <p className="text-[15px] text-black mb-[16px]">
-        Courses &gt; {courseName.replaceAll("-", " ")} &gt; Material
-      </p>
+      <div className="flex items-center text-[16px] font-medium text-[#16005D] mb-[20px]">
+
+  {/* Courses */}
+  <span
+    onClick={() => navigate(-2)}
+    style={{ cursor: "pointer" }}
+    className="hover:underline"
+  >
+    courses
+  </span>
+
+  <span className="mx-2">&gt;</span>
+
+  {/* Subject */}
+  <span
+    onClick={() => navigate(-1)}
+    style={{ cursor: "pointer" }}
+    className="hover:underline"
+  >
+    {courseName.replaceAll("-", " ")}
+  </span>
+
+  <span className="mx-2">&gt;</span>
+
+  {/* Material */}
+  <span>
+    material
+  </span>
+
+</div>
 
       <div className='bg-[url("/commen.jpg")] bg-no-repeat bg-center bg-cover text-white p-[22px_28px] rounded-[18px] mb-[28px] text-[38px] font-bold tracking-[0.8px] h-[180px] flex items-center max-md:text-[18px] max-md:p-[18px_20px]'>
         <p>{courseName.replaceAll("-", " ").toUpperCase()}</p>

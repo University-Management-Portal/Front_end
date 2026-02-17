@@ -27,14 +27,19 @@ export default function StaffSeparateCourse() {
   return (
     <div className="min-h-[calc(80vh-120px)] p-[32px_48px] bg-[#f6f7fb]">
 
-      <p className="text-[20px] text-[#16005D] mb-[24px]">
-        {dept} / {subject}
-      </p>
+      <p
+  onClick={() => navigate(-1)}
+  style={{ cursor: "pointer" }}
+  className="flex items-center text-[16px] font-medium text-[#16005D] hover:underline"
+>
+  {dept} / {subject}
+</p>
 
-      <div className="inline-flex items-center w-[420px] h-[180px] rounded-[18px] cursor-pointer text-[25px] font-bold tracking-[1px] transition-all duration-250 border-[0.2px] border-[#16005D] text-black justify-end pr-[42px] bg-[url('/assignment-banner.jpg')] bg-cover bg-center bg-no-repeat mr-[40px] hover:-translate-y-[6px] hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)]" onClick={handleAssignmentClick}>
+
+      <div className="inline-flex items-center w-[420px] h-[180px] rounded-[18px] cursor-pointer text-[25px] font-bold tracking-[1px] transition-all duration-250 border-[0.2px] border-[#16005D] text-black justify-end pr-[42px] bg-[url('/assignment-banner.jpg')] bg-cover bg-center bg-no-repeat mr-[40px] hover:-translate-y-[6px] hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)] mt-[20px]" onClick={handleAssignmentClick}>
         <p className="m-0">ASSIGNMENTS</p>
       </div>
-      <div className="inline-flex items-center w-[420px] h-[180px] rounded-[18px] cursor-pointer text-[25px] font-bold tracking-[1px] transition-all duration-250 border-[0.2px] border-[#16005D] text-black justify-start pl-[42px] bg-[url('/material.jpg')] bg-cover bg-center bg-no-repeat hover:-translate-y-[6px] hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)]" onClick={handleMaterialClick}>
+      <div className="inline-flex items-center w-[420px] h-[180px] rounded-[18px] cursor-pointer text-[25px] font-bold tracking-[1px] transition-all duration-250 border-[0.2px] border-[#16005D] text-black justify-start pl-[42px] bg-[url('/material.jpg')] bg-cover bg-center bg-no-repeat hover:-translate-y-[6px] hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)] mt-[20px]" onClick={handleMaterialClick}>
         <p className="m-0">MATERIALS</p>
       </div>
     </div>

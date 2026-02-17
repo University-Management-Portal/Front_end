@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BsPlusLg, BsThreeDotsVertical } from "react-icons/bs";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate } from "react-router-dom";
 
 export default function StaffAssignment() {
 
@@ -8,6 +8,8 @@ export default function StaffAssignment() {
   const { subject, dept } = location.state || {};
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
+
+  const navigate = useNavigate();
 
   const [assignments, setAssignments] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -62,32 +64,54 @@ export default function StaffAssignment() {
       <div className="w-full max-w-[1000px]">
 
         <div className="flex items-center justify-between py-[10px]">
-          <p className="text-[16px] font-medium text-[#16005D]">
-            {dept} / {subject} / Assignment
-          </p>
+         <div className="flex items-center text-[16px] font-medium text-[#16005D]">
+
+          <span
+            onClick={() => navigate(-1)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            {dept}
+          </span>
+
+          <span className="mx-2">/</span>
+
+          <span
+            onClick={() => navigate(-1)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            {subject}
+          </span>
+
+          <span className="mx-2">/</span>
+
+          <span>Assignment</span>
+
+        </div>
 
           <button
-  onClick={() => setShowForm(!showForm)}
-  onMouseEnter={() => setHover1(true)}
-  onMouseLeave={() => setHover1(false)}
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    padding: "8px 14px",
-    borderRadius: "6px",
-    border: "2px solid #16005D",
-    cursor: "pointer",
-    fontWeight: "500",
-    transition: "0.3s",
+            onClick={() => setShowForm(!showForm)}
+            onMouseEnter={() => setHover1(true)}
+            onMouseLeave={() => setHover1(false)}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "8px 14px",
+              borderRadius: "6px",
+              border: "2px solid #16005D",
+              cursor: "pointer",
+              fontWeight: "500",
+              transition: "0.3s",
 
-    backgroundColor: hover1 ? "#16005d" : "#ffffff",
-    color: hover1 ? "#ffffff" : "#16005d",
-  }}
->
-  <BsPlusLg />
-  Add Assignment
-</button>
+              backgroundColor: hover1 ? "#16005d" : "#ffffff",
+              color: hover1 ? "#ffffff" : "#16005d",
+            }}
+          >
+            <BsPlusLg />
+            Add Assignment
+          </button>
 
         </div>
 

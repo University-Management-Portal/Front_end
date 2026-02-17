@@ -1,18 +1,47 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams ,useNavigate} from 'react-router-dom';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import Assignments from './AssignmentByCourse';
 
 function StudentAssignment() {
   const { courseName } = useParams();
+  const navigate = useNavigate();
 
   const assignments = Assignments[courseName] || [];
 
   return (
     <div className="min-h-[calc(100vh-120px)] p-[32px_48px] bg-[#f6f7fb]">
-      <p className="text-[15px] text-black mb-[16px]">
-        Courses &gt; {courseName.replaceAll("-", " ")} &gt; Assignments
-      </p>
+      <div className="flex items-center text-[16px] font-medium text-[#16005D] mb-[20px]">
+
+        <span
+          onClick={() => navigate(-2)}
+          style={{ cursor: "pointer" }}
+          className="hover:underline"
+        >
+          Courses
+        </span>
+
+        <span className="mx-2">&gt;</span>
+
+        <span
+          onClick={() => navigate(-2)}
+          style={{ cursor: "pointer" }}
+          className="hover:underline"
+        >
+          {courseName.replaceAll("-", " ")}
+        </span>
+
+        <span className="mx-2">&gt;</span>
+
+        <span
+        onClick={() => navigate(-1)}
+          style={{ cursor: "pointer" }}
+          className="hover:underline">
+          Assignments
+        </span>
+
+      </div>
+
 
       <h2 className="text-[28px] font-bold text-[#16005d] mb-[28px]">Assignments</h2>
 

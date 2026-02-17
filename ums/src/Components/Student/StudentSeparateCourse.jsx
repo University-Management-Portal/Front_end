@@ -14,7 +14,28 @@ export default function StudentSeparateCourse() {
 
   return (
     <div className="min-h-[calc(80vh-120px)] p-[32px_48px] bg-[#f6f7fb]">
-      <p className="text-[15px] text-black mb-[24px]">Courses &gt; {courseName.replaceAll("-", " ")}</p>
+      <div className="flex items-center text-[16px] font-medium text-[#16005D] mb-[20px]">
+
+        <span
+          onClick={() => navigate(-1)}
+          style={{ cursor: "pointer" }}
+          className="hover:underline"
+        >
+          courses
+        </span>
+
+        <span className="mx-2">&gt;</span>
+
+        <span
+          onClick={() => navigate(-1)}
+          style={{ cursor: "pointer" }}
+          className="hover:underline"
+        >
+          {courseName.replaceAll("-", " ")}
+        </span>
+
+      </div>
+
 
       <div className="inline-flex items-center w-[420px] h-[180px] rounded-[18px] cursor-pointer text-[28px] font-bold tracking-[1px] transition-all duration-250 border-[0.2px] border-[#16005D] justify-end pr-[42px] bg-[url('/assignment-banner.jpg')] bg-cover bg-center bg-no-repeat text-black mr-[40px] hover:-translate-y-[6px] hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)]" onClick={handleClickAssignmnets}>
         <p className="m-0">ASSIGNMENTS</p>

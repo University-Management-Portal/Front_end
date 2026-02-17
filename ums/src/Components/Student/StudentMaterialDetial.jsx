@@ -1,18 +1,54 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams ,useNavigate } from 'react-router-dom'
 import Materials from './MaterialByCourse.js'
 import BookIcon from '@mui/icons-material/Description';
 
 function StudentMaterialDetial() {
     const { courseName, folderId } = useParams();
+    const navigate = useNavigate();
 
     const folders = Materials[courseName] || [];
     const folder = folders.find(f => f.id === folderId);
     return (
         <div className='min-h-[calc(100vh-120px)] p-[32px_48px] bg-[#f6f7fb] max-md:p-[24px]'>
-            <p className="text-[15px] text-black mb-[18px]">
-                Courses &gt; {courseName.replaceAll("-", " ")} &gt; Material &gt; {folder ? folder.title : 'Not Found'}
-            </p>
+            <div className="flex items-center text-[16px] font-medium text-[#16005D] mb-[20px]">
+
+                <span
+                    onClick={() => navigate(-3)}
+                    style={{ cursor: "pointer" }}
+                    className="hover:underline"
+                >
+                    Courses
+                </span>
+
+                <span className="mx-2">&gt;</span>
+
+                <span
+                    onClick={() => navigate(-2)}
+                    style={{ cursor: "pointer" }}
+                    className="hover:underline"
+                >
+                    {courseName.replaceAll("-", " ")}
+                </span>
+
+                <span className="mx-2">&gt;</span>
+
+                <span
+                    onClick={() => navigate(-1)}
+                    style={{ cursor: "pointer" }}
+                    className="hover:underline"
+                >
+                    Material
+                </span>
+
+                <span className="mx-2">&gt;</span>
+
+                <span>
+                    {folder ? folder.title : "Not Found"}
+                </span>
+
+                </div>
+
 
             <p className='text-[26px] font-bold text-[#16005d] mb-[22px] max-md:text-[22px]'>{folder.title}</p>
 
