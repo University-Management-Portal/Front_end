@@ -157,28 +157,52 @@ Roll No       Status
 
       {!showReport && (
         <div className="flex flex-row m-[10px] ml-[1160px] gap-[10px]">
-          <button className="std-btn w-[150px] h-[44px] m-[10px] mr-[20px]"
-            onClick={handleSave}
-            style={{
-              backgroundColor: hover1 ? "#ffffff" : "#16005d",
-              color: hover1 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover1(true)}
-            onMouseLeave={() => setHover1(false)}
-          >
-            Save
-          </button>
-          <button className="std-btn w-[150px] h-[44px] m-[10px] mr-[20px]"
-            onClick={() => setShowReport(true)}
-            style={{
-              backgroundColor: hover2 ? "#ffffff" : "#16005d",
-              color: hover2 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover2(true)}
-            onMouseLeave={() => setHover2(false)}
-          >
-            Report
-          </button>
+          <button
+          onClick={handleSave}
+          onMouseEnter={() => setHover1(true)}
+          onMouseLeave={() => setHover1(false)}
+          style={{
+            width: "150px",
+            height: "44px",
+            margin: "10px",
+            marginRight: "20px",
+            borderRadius: "8px",
+            border: "2px solid #16005d",
+            fontSize: "16px",
+            fontWeight: "600",
+            cursor: "pointer",
+            transition: "0.3s",
+
+            backgroundColor: hover1 ? "#16005d" : "#ffffff",
+            color: hover1 ? "#ffffff" : "#16005d",
+          }}
+        >
+          Save
+        </button>
+
+         <button
+          onClick={() => setShowReport(true)}
+          onMouseEnter={() => setHover2(true)}
+          onMouseLeave={() => setHover2(false)}
+          style={{
+            width: "150px",
+            height: "44px",
+            margin: "10px",
+            marginRight: "20px",
+            borderRadius: "8px",
+            border: "2px solid #16005d",
+            fontSize: "16px",
+            fontWeight: "600",
+            cursor: "pointer",
+            transition: "0.3s",
+
+            backgroundColor: hover2 ? "#16005d" : "#ffffff",
+            color: hover2 ? "#ffffff" : "#16005d",
+          }}
+        >
+          Report
+        </button>
+
         </div>
       )}
 
@@ -232,28 +256,51 @@ Roll No       Status
 
           <div className="text-end mt-4">
             <button
-              className="std-btn w-[150px] h-[44px] m-[10px] mr-[20px]"
               onClick={handleDownload}
-              style={{
-                backgroundColor: hover3 ? "#ffffff" : "#16005d",
-                color: hover3 ? "#16005d" : "#ffffff"
-              }}
               onMouseEnter={() => setHover3(true)}
               onMouseLeave={() => setHover3(false)}
+              style={{
+                width: "150px",
+                height: "44px",
+                margin: "10px",
+                marginRight: "20px",
+                borderRadius: "8px",
+                border: "2px solid #16005d",
+                fontSize: "16px",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "0.3s",
+
+                backgroundColor: hover3 ? "#16005d" : "#ffffff",
+                color: hover3 ? "#ffffff" : "#16005d",
+              }}
             >
               Download
             </button>
 
-            <button className="std-btn w-[150px] h-[44px] m-[10px] mr-[20px]" onClick={() => setShowReport(false)}
-              style={{
-                backgroundColor: hover4 ? "#ffffff" : "#16005d",
-                color: hover4 ? "#16005d" : "#ffffff"
-              }}
+            <button
+              onClick={() => setShowReport(false)}
               onMouseEnter={() => setHover4(true)}
               onMouseLeave={() => setHover4(false)}
+              style={{
+                width: "150px",
+                height: "44px",
+                margin: "10px",
+                marginRight: "20px",
+                borderRadius: "8px",
+                border: "2px solid #16005d",
+                fontSize: "16px",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "0.3s",
+
+                backgroundColor: hover4 ? "#16005d" : "#ffffff",
+                color: hover4 ? "#ffffff" : "#16005d",
+              }}
             >
               Back
             </button>
+
           </div>
 
 

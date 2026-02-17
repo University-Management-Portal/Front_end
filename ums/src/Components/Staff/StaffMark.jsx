@@ -8,6 +8,7 @@ export default function StaffMark() {
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
   const [hover3, setHover3] = useState(false);
+  const [hover5, setHover5] = useState(false);
 
   const handleUpload = (e) => {
     const file = e.target.files[0]
@@ -90,43 +91,104 @@ export default function StaffMark() {
 
       <div className="w-full flex justify-between items-center my-[25px]">
 
-        <label className="p-0 w-[210px] rounded-[10px] h-[38px] text-center font-medium pt-[5px] block std-btn">
-          + Upload Internal Mark
-          <input type="file" accept=".xlsx,.xls" hidden onChange={handleUpload} />
-        </label>
+        <label
+  onMouseEnter={() => setHover5(true)}
+  onMouseLeave={() => setHover5(false)}
+  style={{
+    width: "210px",
+    height: "38px",
+    display: "block",
+    textAlign: "center",
+    border: "2px solid #16005d",
+    paddingTop: "5px",
+    borderRadius: "10px",
+    fontSize: "16px",
+    fontWeight: "500",
+    cursor: "pointer",
+    transition: "0.3s",
 
-        <button className="p-0 w-[100px] rounded-[10px] h-[44px] ml-[750px] std-btn" onClick={() => setEditMode(true)}
-          style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover1(true)}
-          onMouseLeave={() => setHover1(false)}
-        >
-          Edit
-        </button>
+    backgroundColor: hover5 ? "#16005d" : "#ffffff",
+    color: hover5 ? "#ffffff" : "#16005d",
+  }}
+>
+  + Upload Internal Mark
 
-        <button className="p-0 w-[100px] rounded-[10px] h-[44px] std-btn" onClick={() => setEditMode(false)}
-          style={{
-            backgroundColor: hover2 ? "#ffffff" : "#16005d",
-            color: hover2 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover2(true)}
-          onMouseLeave={() => setHover2(false)}
-        >
-          Save
-        </button>
+  <input
+    type="file"
+    accept=".xlsx,.xls"
+    hidden
+    onChange={handleUpload}
+  />
+</label>
 
-        <button className="p-0 w-[150px] rounded-[10px] h-[44px] mr-[20px] std-btn" onClick={handleDownload}
-          style={{
-            backgroundColor: hover3 ? "#ffffff" : "#16005d",
-            color: hover3 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover3(true)}
-          onMouseLeave={() => setHover3(false)}
-        >
-          Download
-        </button>
+
+        <button
+  onClick={() => setEditMode(true)}
+  onMouseEnter={() => setHover1(true)}
+  onMouseLeave={() => setHover1(false)}
+  style={{
+    width: "100px",
+    height: "44px",
+    marginLeft: "750px",
+    borderRadius: "10px",
+    border: "2px solid #16005d",
+    fontSize: "16px",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "0.3s",
+
+    backgroundColor: hover1 ? "#16005d" : "#ffffff",
+    color: hover1 ? "#ffffff" : "#16005d",
+  }}
+>
+  Edit
+</button>
+
+
+        <button
+  onClick={() => setEditMode(false)}
+  onMouseEnter={() => setHover2(true)}
+  onMouseLeave={() => setHover2(false)}
+  style={{
+    width: "100px",
+    height: "44px",
+    borderRadius: "10px",
+    border: "2px solid #16005d",
+    fontSize: "16px",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "0.3s",
+
+    backgroundColor: hover2 ? "#16005d" : "#ffffff",
+    color: hover2 ? "#ffffff" : "#16005d",
+  }}
+>
+  Save
+</button>
+
+
+        <button
+  onClick={handleDownload}
+  onMouseEnter={() => setHover3(true)}
+  onMouseLeave={() => setHover3(false)}
+  style={{
+    width: "150px",
+    height: "44px",
+    marginRight: "20px",
+    borderRadius: "10px",
+    border: "2px solid #16005d",
+    fontSize: "16px",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "0.3s",
+
+    backgroundColor: hover3 ? "#16005d" : "#ffffff",
+    color: hover3 ? "#ffffff" : "#16005d",
+  }}
+>
+  Download
+</button>
+
 
       </div>
 

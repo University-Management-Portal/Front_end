@@ -140,22 +140,44 @@ export default function StudentListPage() {
         </div>
 
         <div className="flex gap-[20px] mr-[50px]">
-          <button className="std-btn p-[8px_16px] rounded-[8px] font-medium" onClick={downloadCSV}
-          style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover1(true)}
-          onMouseLeave={() => setHover1(false)}
-          >Download</button>
-          <button className="std-btn p-[8px_16px] rounded-[8px] font-medium" onClick={printList}
-          style={{
-            backgroundColor: hover2 ? "#ffffff" : "#16005d",
-            color: hover2 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover2(true)}
-          onMouseLeave={() => setHover2(false)}
-          >Print</button>
+          <button
+  onClick={downloadCSV}
+  onMouseEnter={() => setHover1(true)}
+  onMouseLeave={() => setHover1(false)}
+  style={{
+    padding: "8px 16px",
+    borderRadius: "8px",
+    fontWeight: "500",
+    border: "2px solid #16005d",
+    cursor: "pointer",
+    transition: "0.3s",
+
+    backgroundColor: hover1 ? "#16005d" : "#ffffff",
+    color: hover1 ? "#ffffff" : "#16005d",
+  }}
+>
+  Download
+</button>
+
+          <button
+  onClick={printList}
+  onMouseEnter={() => setHover2(true)}
+  onMouseLeave={() => setHover2(false)}
+  style={{
+    padding: "8px 16px",
+    borderRadius: "8px",
+    fontWeight: "500",
+    border: " 2px solid #16005d",
+    cursor: "pointer",
+    transition: "0.3s",
+
+    backgroundColor: hover2 ? "#16005d" : "#ffffff",
+    color: hover2 ? "#ffffff" : "#16005d",
+  }}
+>
+  Print
+</button>
+
         </div>
       </div>
 

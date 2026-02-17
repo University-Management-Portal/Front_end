@@ -10,7 +10,6 @@ function StaffMaterial() {
   const [folders, setFolders] = useState([]);
   const [openForm, setOpenForm] = useState(false);
 
-  // ADD FOLDER (same pattern as handleAdd in AdminDepartment)
   const handleAddFolder = (data) => {
     setFolders(prev => [
       ...prev,
@@ -32,19 +31,30 @@ function StaffMaterial() {
         {courseName.replaceAll("-", " ").toUpperCase()}
       </div>
 
-      {/* ADD FOLDER BUTTON */}
       <button
-        className="flex items-center ml-[1270px] gap-[8px] bg-[#16005D] text-white p-[10px_18px] rounded-[8px]"
-        onClick={() => setOpenForm(true)}
-        style={{
-          backgroundColor: hover1 ? "#ffffff" : "#16005d",
-          color: hover1 ? "#16005d" : "#ffffff"
-        }}
-        onMouseEnter={() => setHover1(true)}
-        onMouseLeave={() => setHover1(false)}
-      >
-        <AddIcon /> Create Folder
-      </button>
+      onClick={() => setOpenForm(true)}
+      onMouseEnter={() => setHover1(true)}
+      onMouseLeave={() => setHover1(false)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        marginLeft: "1270px",
+        padding: "10px 18px",
+        borderRadius: "8px",
+        border: "2px solid #16005D",
+        cursor: "pointer",
+        fontWeight: "500",
+        transition: "0.3s",
+
+        backgroundColor: hover1 ? "#16005d" : "#ffffff",
+        color: hover1 ? "#ffffff" : "#16005d",
+      }}
+    >
+      <AddIcon />
+      Create Folder
+    </button>
+
 
      <div className="mt-[30px] flex flex-col gap-[20px]">
   {folders.map(f => (

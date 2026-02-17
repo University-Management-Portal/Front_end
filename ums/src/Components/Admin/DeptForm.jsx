@@ -42,37 +42,53 @@ function DeptForm({ open, onClose, onSave }) {
 
         <div className="flex justify-end gap-[10px]">
 
-          <button onClick={onClose}  
-          style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
-          }}
+          <button
+          onClick={onClose}
           onMouseEnter={() => setHover1(true)}
-          onMouseLeave={() => setHover1(false)}>
-            Cancel
-          </button>
+          onMouseLeave={() => setHover1(false)}
+          style={{
+            padding: "8px 16px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            transition: "0.3s",
+
+            backgroundColor: hover1 ? "#16005d" : "#ffffff",
+            color: hover1 ? "#ffffff" : "#16005d",
+          }}
+        >
+          Cancel
+        </button>
+
 
           <button
-            className="std-btn px-4 py-2 rounded"
-            onClick={() => {
-              if (!form.name || !form.hod) {
-                alert("Enter all fields");
-                return;
-              }
+           onClick={() => {
+            if (!form.name || !form.hod) {
+              alert("Enter all fields");
+              return;
+            }
 
-              onSave(form);
-              setForm({ name: "", hod: "" });
-            }}
-
-            style={{
-            backgroundColor: hover2 ? "#ffffff" : "#16005d",
-            color: hover2 ? "#16005d" : "#ffffff"
+            onSave(form);
+            setForm({ name: "", hod: "" });
           }}
           onMouseEnter={() => setHover2(true)}
           onMouseLeave={() => setHover2(false)}
-          >
-            Save
-          </button>
+          style={{
+            padding: "8px 16px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            transition: "0.3s",
+
+            backgroundColor: hover2 ? "#16005d" : "#ffffff",
+            color: hover2 ? "#ffffff" : "#16005d",
+          }}
+        >
+          Save
+        </button>
+
 
         </div>
 

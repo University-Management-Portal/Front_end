@@ -83,30 +83,93 @@ function StudentFees() {
     return (
         <div className='flex p-[40px] gap-[40px] min-h-[calc(100vh-80px)]'>
             <div className='w-[220px] flex flex-col gap-[16px]'>
-                <button onClick={() => { setActiveTab("structure") }} className={`p-[12px_18px] rounded-[18px] border-none text-[18px] font-semibold cursor-pointer text-left ${activeTab === "structure" ? "bg-[#16005d] text-white" : "bg-transparent hover:bg-[#d9d9d9]"}`}
-                    style={{
-                        backgroundColor: hover1 ? "#ffffff" : "#16005d",
-                        color: hover1 ? "#16005d" : "#ffffff"
-                    }}
-                    onMouseEnter={() => setHover1(true)}
-                    onMouseLeave={() => setHover1(false)}
-                >Fee Structure</button>
-                <button onClick={() => { setActiveTab("fee") }} className={`p-[12px_18px] rounded-[18px] border-none text-[18px] font-semibold cursor-pointer text-left ${activeTab === "fee" ? "bg-[#16005d] text-white" : "bg-transparent hover:bg-[#d9d9d9]"}`}
-                    style={{
-                        backgroundColor: hover2 ? "#ffffff" : "#16005d",
-                        color: hover2 ? "#16005d" : "#ffffff"
-                    }}
-                    onMouseEnter={() => setHover2(true)}
-                    onMouseLeave={() => setHover2(false)}
-                >Fees Payment</button>
-                <button onClick={() => { setActiveTab("transaction") }} className={`p-[12px_18px] rounded-[18px] border-none text-[18px] font-semibold cursor-pointer text-left ${activeTab === "transaction" ? "bg-[#16005d] text-white" : "bg-transparent hover:bg-[#d9d9d9]"}`}
-                    style={{
-                        backgroundColor: hover3 ? "#ffffff" : "#16005d",
-                        color: hover3 ? "#16005d" : "#ffffff"
-                    }}
-                    onMouseEnter={() => setHover3(true)}
-                    onMouseLeave={() => setHover3(false)}
-                >Transaction History</button>
+                <button
+                onClick={() => setActiveTab("structure")}
+                onMouseEnter={() => setHover1(true)}
+                onMouseLeave={() => setHover1(false)}
+                style={{
+                    padding: "12px 18px",
+                    borderRadius: "18px",
+                    border: "2px solid #16005d",
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                    textAlign: "left",
+                    transition: "0.3s",
+                    width: "100%",
+
+                    backgroundColor:
+                    activeTab === "structure" || hover1
+                        ? "#16005d"
+                        : "#ffffff",
+
+                    color:
+                    activeTab === "structure" || hover1
+                        ? "#ffffff"
+                        : "#16005d",
+                }}
+                >
+                Fee Structure
+                </button>
+
+                <button
+                onClick={() => setActiveTab("fee")}
+                onMouseEnter={() => setHover2(true)}
+                onMouseLeave={() => setHover2(false)}
+                style={{
+                    padding: "12px 18px",
+                    borderRadius: "18px",
+                    border: "2px solid #16005d",
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                    textAlign: "left",
+                    transition: "0.3s",
+                    width: "100%",
+
+                    backgroundColor:
+                    activeTab === "fee" || hover2
+                        ? "#16005d"
+                        : "#ffffff",
+
+                    color:
+                    activeTab === "fee" || hover2
+                        ? "#ffffff"
+                        : "#16005d",
+                }}
+                >
+                Fees Payment
+                </button>
+
+                <button
+                onClick={() => setActiveTab("transaction")}
+                onMouseEnter={() => setHover3(true)}
+                onMouseLeave={() => setHover3(false)}
+                style={{
+                    padding: "12px 18px",
+                    borderRadius: "18px",
+                    border: "2px solid #16005d",
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                    textAlign: "left",
+                    transition: "0.3s",
+                    width: "100%",
+
+                    backgroundColor:
+                    activeTab === "transaction" || hover3
+                        ? "#16005d"
+                        : "#ffffff",
+
+                    color:
+                    activeTab === "transaction" || hover3
+                        ? "#ffffff"
+                        : "#16005d",
+                }}
+                >
+                Transaction History
+                </button>
+
             </div>
             <div className='flex-1 border-l-2 border-[#ddd] pl-[60px] text-[16px]'>
                 {activeTab === "structure" && (
@@ -139,14 +202,35 @@ function StudentFees() {
                 {activeTab === "fee" && (
                     <div className='flex flex-col w-full min-h-[70vh]'>
                         <div className='flex items-center p-[10px_0_20px_0] border-b border-[#e6e6e6]'>
-                            <button onClick={() => { setFeeTab("examfee") }} className={`p-[12px_26px] rounded-[10px] border-none cursor-pointer text-[16px] font-semibold shadow-[0_6px_14px_rgba(22,0,93,0.25)] mr-[20px] ${feeTab === "examfee" ? "bg-[#16005d] text-white" : "bg-transparent text-black"}`}
-                                style={{
-                                    backgroundColor: hover4 ? "#ffffff" : "#16005d",
-                                    color: hover4 ? "#16005d" : "#ffffff"
-                                }}
-                                onMouseEnter={() => setHover4(true)}
-                                onMouseLeave={() => setHover4(false)}
-                                >Exam Fees</button>
+                            <button
+                            onClick={() => setFeeTab("examfee")}
+                            onMouseEnter={() => setHover4(true)}
+                            onMouseLeave={() => setHover4(false)}
+                            style={{
+                                padding: "12px 26px",
+                                borderRadius: "10px",
+                                border: "2px solid #16005d",
+                                fontSize: "16px",
+                                fontWeight: "600",
+                                cursor: "pointer",
+                                marginRight: "20px",
+                                transition: "0.3s",
+                                boxShadow: "0 6px 14px rgba(22,0,93,0.25)",
+
+                                backgroundColor:
+                                feeTab === "examfee" || hover4
+                                    ? "#16005d"
+                                    : "#ffffff",
+
+                                color:
+                                feeTab === "examfee" || hover4
+                                    ? "#ffffff"
+                                    : "#16005d",
+                            }}
+                            >
+                            Exam Fees
+                            </button>
+
                         </div>
                         <div className='fee-down'>
                             {feeTab === "examfee" && (
@@ -171,14 +255,27 @@ function StudentFees() {
                                                         {items.status}
                                                     </span>
                                                 </p>
-                                                <button className='mt-[14px] self-start p-[10px_22px] rounded-[20px] text-[14px] font-semibold std-btn'
-                                                style={{
-                                                    backgroundColor: hover5 ? "#ffffff" : "#16005d",
-                                                    color: hover5 ? "#16005d" : "#ffffff"
-                                                }}
-                                                onMouseEnter={() => setHover5(true)}
-                                                onMouseLeave={() => setHover5(false)}
-                                                >Pay Now</button>
+                                                <button
+                                                    onMouseEnter={() => setHover5(true)}
+                                                    onMouseLeave={() => setHover5(false)}
+                                                    style={{
+                                                        marginTop: "14px",
+                                                        alignSelf: "flex-start",
+                                                        padding: "10px 22px",
+                                                        borderRadius: "10px",
+                                                        border: "2px solid #16005d",
+                                                        cursor: "pointer",
+                                                        fontSize: "14px",
+                                                        fontWeight: "600",
+                                                        transition: "0.3s",
+
+                                                        backgroundColor: hover5 ? "#16005d" : "#ffffff",
+                                                        color: hover5 ? "#ffffff" : "#16005d",
+                                                    }}
+                                                    >
+                                                    Pay Now
+                                                    </button>
+
                                             </div>
                                         ))
                                     )}

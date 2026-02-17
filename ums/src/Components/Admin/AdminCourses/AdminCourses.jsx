@@ -109,20 +109,32 @@ function AdminCourses() {
         </div>
 
         <button
-          className="flex items-center gap-[8px] std-btn p-[14px_20px] rounded-[30px] text-[15px] font-semibold"
-          onClick={() => {
-            setOpenMenuId(null);
-            setOpenForm(true);
-          }}
-          style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover1(true)}
-          onMouseLeave={() => setHover1(false)}
-        >
-          <AddIcon /> Add Course
-        </button>
+  onClick={() => {
+    setOpenMenuId(null);
+    setOpenForm(true);
+  }}
+  onMouseEnter={() => setHover1(true)}
+  onMouseLeave={() => setHover1(false)}
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    padding: "14px 20px",
+    borderRadius: "10px",
+    border: "2px solid #16005d",
+    cursor: "pointer",
+    fontSize: "15px",
+    fontWeight: "600",
+    transition: "0.3s",
+
+    backgroundColor: hover1 ? "#16005d" : "#ffffff",
+    color: hover1 ? "#ffffff" : "#16005d",
+  }}
+>
+  <AddIcon style={{ color: "inherit" }} />
+  Add Course
+</button>
+
       </div>
 
       {/* COURSE GRID */}

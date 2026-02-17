@@ -57,46 +57,64 @@ function AssignmentReportTable() {
         {!editMode ? (
           <button
             onClick={() => setEditMode(true)}
-            className="std-btn p-[8px_16px] rounded-[8px]"
-            style={{
-              backgroundColor: hover1 ? "#ffffff" : "#16005d",
-              color: hover1 ? "#16005d" : "#ffffff",
-              border: hover1 ? "solid 2px #16005d" : "0px",
-            }}
             onMouseEnter={() => setHover1(true)}
             onMouseLeave={() => setHover1(false)}
+            style={{
+              padding: "8px 16px",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontWeight: "500",
+              transition: "0.3s",
+
+              backgroundColor: hover1 ? "#16005d" : "#ffffff",
+              color: hover1 ? "#ffffff" : "#16005d",
+              border: "2px solid #16005d",   // always keep border
+            }}
           >
             Edit
           </button>
+
         ) : (
           <button
-            onClick={() => setEditMode(false)}
-            className="std-btn p-[8px_16px] rounded-[8px]"
-            style={{
-              backgroundColor: hover2 ? "#ffffff" : "#16005d",
-              color: hover2 ? "#16005d" : "#ffffff",
-              border: hover2 ? "solid 2px #16005d" : "0px",
-            }}
-            onMouseEnter={() => setHover2(true)}
-            onMouseLeave={() => setHover2(false)}
-          >
-            Save
-          </button>
+          onClick={() => setEditMode(false)}
+          onMouseEnter={() => setHover2(true)}
+          onMouseLeave={() => setHover2(false)}
+          style={{
+            padding: "8px 16px",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: "500",
+            transition: "0.3s",
+
+            backgroundColor: hover2 ? "#16005d" : "#ffffff",
+            color: hover2 ? "#ffffff" : "#16005d",
+            border: "2px solid #16005d", 
+          }}
+        >
+          Save
+        </button>
+
         )}
 
         <button
           onClick={handleDownload}
-          className="std-btn p-[8px_16px] rounded-[8px]"
-          style={{
-            backgroundColor: hover3 ? "#ffffff" : "#16005d",
-            color: hover3 ? "#16005d" : "#ffffff",
-            border: hover3 ? "solid 2px #16005d" : "0px",
-          }}
           onMouseEnter={() => setHover3(true)}
           onMouseLeave={() => setHover3(false)}
+          style={{
+            padding: "8px 16px",
+            borderRadius: "8px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            transition: "0.3s",
+
+            backgroundColor: hover3 ? "#16005d" : "#ffffff",
+            color: hover3 ? "#ffffff" : "#16005d"
+          }}
         >
           Download
         </button>
+
 
       </div>
 
