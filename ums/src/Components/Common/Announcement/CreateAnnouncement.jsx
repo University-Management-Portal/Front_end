@@ -35,14 +35,32 @@ function CreateAnnouncement({ setAnnouncement }) {
 
             <textarea placeholder='Message' value={message} onChange={((e) => { setMessage(e.target.value) })} className="w-full mb-[10px] p-[10px] block border border-[#16005d] rounded" />
 
-            <button onClick={handleSubmit} className="std-btn inline-flex items-center justify-center gap-[8px] p-[8px_18px] rounded-full text-[14px] font-semibold mt-[16px]"
-            style={{
-              backgroundColor: hover1 ? "#ffffff" : "#16005d",
-              color: hover1 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover1(true)}
-            onMouseLeave={() => setHover1(false)}
-            ><CampaignIcon style={{ fontSize: "28px" }} /><span>Announce</span></button>
+            <button
+                    onClick={handleSubmit}
+                    onMouseEnter={() => setHover1(true)}
+                    onMouseLeave={() => setHover1(false)}
+                    style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "8px",
+                        padding: "8px 18px",
+                        borderRadius: "20px",
+                        marginTop: "16px",
+                        border: "2px solid #16005d",
+                        cursor: "pointer",
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        transition: "0.3s",
+
+                        backgroundColor: hover1 ? "#16005d" : "#ffffff",
+                        color: hover1 ? "#ffffff" : "#16005d",
+                    }}
+                    >
+                    <CampaignIcon style={{ fontSize: "28px" }} />
+                    <span>Announce</span>
+                    </button>
+
         </div>
     )
 }

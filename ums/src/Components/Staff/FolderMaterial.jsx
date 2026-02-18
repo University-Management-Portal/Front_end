@@ -30,29 +30,35 @@ const FolderMaterial = () => {
   };
 
   return (
-    <div className="p-[20px]">
+    <div className="p-[20px]" style={{ minHeight: "100vh" }}>
 
       {/* HEADER */}
       <div className="bg-[url('/commen.jpg')] bg-no-repeat bg-center bg-cover text-white p-[22px_28px] rounded-[18px] mb-[28px] h-[180px]">
-        <h2 className="text-[40px] font-bold">{courseName}</h2>
-        <h3 className="text-[30px] font-bold">
+        <h2 className="text-[35px] font-semibold mt-[18px]">{courseName}</h2>
+        <h3 className="text-[25px] font-semibold">
           Folder Name: {folderId}
         </h3>
       </div>
 
-      {/* ADD MATERIAL BUTTON */}
-      <button
-        className="std-btn p-[10px_16px] rounded-[8px]"
-        onClick={() => setOpenForm(true)}
-        style={{
-          backgroundColor: hover1 ? "#ffffff" : "#16005d",
-          color: hover1 ? "#16005d" : "#ffffff"
-        }}
-        onMouseEnter={() => setHover1(true)}
-        onMouseLeave={() => setHover1(false)}
-      >
-        + Add Material
-      </button>
+     <button
+  onClick={() => setOpenForm(true)}
+  onMouseEnter={() => setHover1(true)}
+  onMouseLeave={() => setHover1(false)}
+  style={{
+    padding: "10px 16px",
+    borderRadius: "8px",
+    border: "2px solid #16005d",
+    cursor: "pointer",
+    fontWeight: "500",
+    transition: "0.3s",
+
+    backgroundColor: hover1 ? "#16005d" : "#ffffff",
+    color: hover1 ? "#ffffff" : "#16005d",
+  }}
+>
+  + Add Material
+</button>
+
 
       <div className="mt-[20px] bg-white p-[20px] rounded-[10px] shadow w-[1450px]">
   <ul className="grid grid-cols-1 gap-[15px] list-none p-0 m-0">
@@ -61,7 +67,7 @@ const FolderMaterial = () => {
         key={mat.id}
         className="relative bg-[#f8f9fa] p-[12px] rounded-[8px] border flex justify-between items-start"
       >
-        {/* LEFT CONTENT */}
+         
         <div>
           <p className="font-semibold mb-[4px]">
             📄 {mat.name}
@@ -71,7 +77,6 @@ const FolderMaterial = () => {
           </span>
         </div>
 
-        {/* RIGHT MENU */}
         <div className="relative">
           <button
             onClick={() =>
@@ -102,7 +107,6 @@ const FolderMaterial = () => {
   </ul>
 </div>
 
-      {/* MODAL FORM */}
       <MaterialForm
         open={openForm}
         onClose={() => setOpenForm(false)}

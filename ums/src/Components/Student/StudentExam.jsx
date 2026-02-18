@@ -38,60 +38,120 @@ function StudentExam() {
       <div className="w-[220px] flex flex-col gap-[16px]">
 
         <button
-          className={`p-[12px_18px] rounded-[18px] border-none text-[18px] font-semibold cursor-pointer text-left ${activeTab === "rules" ? "bg-[#16005d] text-white" : "bg-transparent text-black hover:bg-[#d9d9d9]"
-            }`}
           onClick={() => setActiveTab("rules")}
-          style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff",
-          }}
           onMouseEnter={() => setHover1(true)}
           onMouseLeave={() => setHover1(false)}
+          style={{
+            padding: "12px 18px",
+            borderRadius: "18px",
+            fontSize: "18px",
+            fontWeight: "600",
+            cursor: "pointer",
+            textAlign: "left",
+            transition: "0.1s",
+            width: "100%",
+
+            backgroundColor:
+              activeTab === "rules" || hover1
+                ? "#16005d"
+                : "#ffffff",
+
+            color:
+              activeTab === "rules" || hover1
+                ? "#ffffff"
+                : "#16005d",
+          }}
         >
           Rules & Regulation
         </button>
 
-        <button
-          className={`p-[12px_18px] rounded-[18px] border-none text-[18px] font-semibold cursor-pointer text-left ${activeTab === "schedule" ? "bg-[#16005d] text-white" : "bg-transparent text-black hover:bg-[#d9d9d9]"
-            }`}
+
+                <button
           onClick={() => setActiveTab("schedule")}
-          style={{
-            backgroundColor: hover2 ? "#ffffff" : "#16005d",
-            color: hover2 ? "#16005d" : "#ffffff"
-          }}
           onMouseEnter={() => setHover2(true)}
           onMouseLeave={() => setHover2(false)}
+          style={{
+            padding: "12px 18px",
+            borderRadius: "18px",
+            fontSize: "18px",
+            fontWeight: "600",
+            cursor: "pointer",
+            textAlign: "left",
+            transition: "0.1s",
+            width: "100%",
+
+            backgroundColor:
+              activeTab === "schedule" || hover2
+                ? "#16005d"
+                : "#ffffff",
+
+            color:
+              activeTab === "schedule" || hover2
+                ? "#ffffff"
+                : "#16005d",
+          }}
         >
           Exam Schedule
         </button>
 
-        <button
-          className={`p-[12px_18px] rounded-[18px] border-none text-[18px] font-semibold cursor-pointer text-left ${activeTab === "result" ? "bg-[#16005d] text-white" : "bg-transparent text-black hover:bg-[#d9d9d9]"
-            }`}
+
+                <button
           onClick={() => setActiveTab("result")}
-          style={{
-            backgroundColor: hover3 ? "#ffffff" : "#16005d",
-            color: hover3 ? "#16005d" : "#ffffff"
-          }}
           onMouseEnter={() => setHover3(true)}
           onMouseLeave={() => setHover3(false)}
+          style={{
+            padding: "12px 18px",
+            borderRadius: "18px",
+            fontSize: "18px",
+            fontWeight: "600",
+            cursor: "pointer",
+            textAlign: "left",
+            transition: "0.1s",
+            width: "100%",
+
+            backgroundColor:
+              activeTab === "result" || hover3
+                ? "#16005d"
+                : "#ffffff",
+
+            color:
+              activeTab === "result" || hover3
+                ? "#ffffff"
+                : "#16005d",
+          }}
         >
           Result
         </button>
 
-        <button
-          className={`p-[12px_18px] rounded-[18px] border-none text-[18px] font-semibold cursor-pointer text-left ${activeTab === "fee" ? "bg-[#16005d] text-white" : "bg-transparent text-black hover:bg-[#d9d9d9]"
-            }`}
+
+                <button
           onClick={() => setActiveTab("fee")}
-          style={{
-            backgroundColor: hover4 ? "#ffffff" : "#16005d",
-            color: hover4 ? "#16005d" : "#ffffff"
-          }}
           onMouseEnter={() => setHover4(true)}
           onMouseLeave={() => setHover4(false)}
+          style={{
+            padding: "12px 18px",
+            borderRadius: "18px",
+            fontSize: "18px",
+            fontWeight: "600",
+            cursor: "pointer",
+            textAlign: "left",
+            transition: "0.1s",
+            width: "100%",
+
+            backgroundColor:
+              activeTab === "fee" || hover4
+                ? "#16005d"
+                : "#ffffff",
+
+            color:
+              activeTab === "fee" || hover4
+                ? "#ffffff"
+                : "#16005d",
+          }}
         >
           Exam Fee Details
         </button>
+
       </div>
 
       <div className="flex-1 border-l-2 border-[#ddd] pl-[60px] text-[16px]">
@@ -132,13 +192,13 @@ function StudentExam() {
                 onClick={() => setShowImage(!showImage)}
                 className="no-underline font-semibold"
                 style={{
-                  backgroundColor: hover5 ? "#ffffff" : "#16005d",
-                  color: hover5 ? "#16005d" : "#ffffff"
+                  backgroundColor: hover5 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff",
                 }}
                 onMouseEnter={() => setHover5(true)}
                 onMouseLeave={() => setHover5(false)}
               >
-                <h4 className="text-center text-white-800 m-0">
+                <h4 className="text-center  m-0">
                   ESE Sem 5 Schedule
                 </h4>
               </button>

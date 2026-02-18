@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AttendanceData from "./AttendanceData";
-
 function AdminAttendanceReport() {
 
   const [filters, setFilters] = useState({
@@ -10,6 +9,7 @@ function AdminAttendanceReport() {
   sec: "",
   date: "",
   });
+  
 
 
   const handleChange = (e) => {
@@ -18,6 +18,7 @@ function AdminAttendanceReport() {
       [e.target.name]: e.target.value,
     });
   };
+
 
   // ORIGINAL ATTENDANCE FETCH
   let attendance = [];
@@ -63,9 +64,12 @@ function AdminAttendanceReport() {
   return (
     <div className="p-[30px] min-h-screen">
 
-      <h2 className="text-[#16005D] mb-[20px] text-[20px] font-bold">
-        Report / Attendance
-      </h2>
+      <div className="flex items-center text-[18px] font-bold text-[#16005D] mb-[20px]">
+
+       <p>Attendance Report</p>
+
+      </div>
+
 
       {/* FILTER BAR – SAME THEME – NO UI CHANGE */}
       <div className="bg-gradient-to-r from-[#1b0066] to-[#12004d] h-[100px] rounded-[14px] flex items-center justify-around px-[30px] w-full max-w-[1458px] mx-auto my-[20px]">
@@ -126,7 +130,6 @@ function AdminAttendanceReport() {
           </div>
         ))}
 
-        {/* ✅ ONLY NEW ADDITION – CALENDAR DATE PICKER */}
         <div className="flex flex-col gap-[6px] text-white text-[14px] font-medium">
           <label className="opacity-90">Date</label>
 
@@ -141,7 +144,6 @@ function AdminAttendanceReport() {
 
       </div>
 
-      {/* CARDS SECTION – NO CHANGE */}
       <div className="flex gap-[40px] mt-[30px] p-[10px] flex-wrap">
 
         {attendance.length > 0 ? (

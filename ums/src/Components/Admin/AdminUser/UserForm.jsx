@@ -9,10 +9,33 @@ const EMPTY_FORM = {
   sec: "",
   phone: "",
   email: "",
-  role: "student"
+  DOB: "",
+  role: "student",
+  designation: ""   
 };
 
 
+
+const rowStyle = {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gap: "20px",
+  marginBottom: "15px"
+};
+
+const inputStyle = {
+  width: "100%",
+  height: "35px",
+  border: "2px solid #16005d",
+  borderRadius: "6px",
+  paddingLeft: "8px"
+};
+
+const labelStyle = {
+  fontWeight: "600",
+  marginBottom: "5px",
+  display: "block"
+};
 
 
 function UserForm({ mode, editingUser, onSave, onClose }) {
@@ -24,6 +47,9 @@ function UserForm({ mode, editingUser, onSave, onClose }) {
     return EMPTY_FORM;
   });
 
+  const [hoverSave, setHoverSave] = useState(false);
+  const [hoverCancel, setHoverCancel] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({
@@ -32,76 +58,328 @@ function UserForm({ mode, editingUser, onSave, onClose }) {
     }));
   };
 
-  const [hover1, setHover1] = useState(false);
-  const [hover2, setHover2] = useState(false);
-
   const handleSubmit = () => {
-    if (!form.rollno || !form.name) {
-      alert("Roll No and Name are required");
+    if (!form.name) {
+      alert("Name is required");
       return;
     }
 
     onSave({
       ...form,
-      id: mode === "add" ? String(form.rollno).trim() : form.id,
-      role: form.role || "student"
+      id: mode === "add" ? Date.now().toString() : form.id
     });
+  };
 
+  const renderFields = () => {
+    switch (form.role) {
+
+      case "student":
+  return (
+    <>
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Roll No</label>
+          <input name="rollno" value={form.rollno} onChange={handleChange} style={inputStyle}/>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Name</label>
+          <input name="name" value={form.name} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Year</label>
+          <input name="year" value={form.year} onChange={handleChange} style={inputStyle}/>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Department</label>
+          <input name="dept" value={form.dept} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Section</label>
+          <input name="sec" value={form.sec} onChange={handleChange} style={inputStyle}/>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Phone</label>
+          <input name="phone" value={form.phone} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Email</label>
+          <input name="email" value={form.email} onChange={handleChange} style={inputStyle}/>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Date of Birth</label>
+          <input type="date" name="DOB" value={form.DOB} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Tutor</label>
+          <input name="tutor" value={form.tutor} onChange={handleChange} style={inputStyle}/>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Address</label>
+          <input type="text" name="address" value={form.address} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+    </>
+  );
+
+  case "staff":
+  return (
+    <>
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Reg No</label>
+          <input name="rollno" value={form.rollno} onChange={handleChange} style={inputStyle}/>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Name</label>
+          <input name="name" value={form.name} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Department</label>
+          <input name="dept" value={form.dept} onChange={handleChange} style={inputStyle}/>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Phone</label>
+          <input name="phone" value={form.phone} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Email</label>
+          <input name="email" value={form.email} onChange={handleChange} style={inputStyle}/>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Date of Birth</label>
+          <input type="date" name="DOB" value={form.DOB} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Date of Join</label>
+          <input name="doj" value={form.doj} onChange={handleChange} style={inputStyle}/>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Area of Specilization</label>
+          <input type="text" name="areaOfSpecialization" value={form.areaOfSpecialization} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Designation</label>
+          <select
+          name="designation"
+          value={form.designation}
+          onChange={handleChange}
+          style={inputStyle}
+        >
+          <option value="">Select Role</option>
+          <option value="Assistant Professor">Assistant Professor</option>
+          <option value="Professor">Professor</option>
+          <option value="HOD">HOD</option>
+        </select>
+        </div>
+
+        <div>
+          <label style={labelStyle}>Address</label>
+          <input type="text" name="address" value={form.address} onChange={handleChange} style={inputStyle}/>
+        </div>
+      </div>
+
+    </>
+  );
+
+    case "admin":
+  return (
+    <>
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Reg No</label>
+          <input
+            name="rollno"
+            value={form.rollno}
+            onChange={handleChange}
+            style={inputStyle}
+          />
+        </div>
+
+        <div>
+          <label style={labelStyle}>Name</label>
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            style={inputStyle}
+          />
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Phone</label>
+          <input
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
+            style={inputStyle}
+          />
+        </div>
+
+        <div>
+          <label style={labelStyle}>Email</label>
+          <input
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            style={inputStyle}
+          />
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>College Name</label>
+          <input
+            name="collegeName"
+            value={form.collegeName}
+            onChange={handleChange}
+            style={inputStyle}
+          />
+        </div>
+
+        <div>
+          <label style={labelStyle}>Office Location</label>
+          <input
+            name="officeLocation"
+            value={form.officeLocation}
+            onChange={handleChange}
+            style={inputStyle}
+          />
+        </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div>
+          <label style={labelStyle}>Date of Birth</label>
+          <input
+            type="date"
+            name="DOB"
+            value={form.DOB}
+            onChange={handleChange}
+            style={inputStyle}
+          />
+        </div>
+
+        <div>
+          <label style={labelStyle}>Address</label>
+          <input
+            name="address"
+            value={form.address}
+            onChange={handleChange}
+            style={inputStyle}
+          />
+        </div>
+
+      </div>
+    </>
+  );
+      default:
+        return null;
+    }
   };
 
   return (
-    <div className="fixed inset-0 bg-black/45 flex items-center justify-center z-[1000]">
-      <div className="bg-white w-[440px] max-w-[92%] p-[22px_24px] rounded-[16px] shadow-[0_15px_40px_rgba(0,0,0,0.25)] transition-all">
-        <div className="text-center mb-[18px]">
-          <h3 className="text-[20px] font-semibold text-[#2b2b2b]">{mode === "add" ? "Add User" : "Edit User"}</h3>
+    <div className="fixed inset-0 bg-black/45 flex items-center justify-center z-[1000] ">
+      <div className="bg-white w-[540px] p-[20px] rounded-[12px]">
+
+        <h3 className="text-center text-lg font-semibold mb-4">
+          {mode === "add" ? "Add User" : "Edit User"}
+        </h3>
+
+        <select
+          name="role"
+          value={form.role}
+          onChange={handleChange}
+          className="w-full mb-4 p-2 border rounded"
+          style={{
+            border:"2px solid #16005d",
+            fontWeight:"500",
+          }}
+        >
+          <option value="student">Student</option>
+          <option value="staff">Staff</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <div className="grid grid-cols-1 gap-3">
+          {renderFields()}
         </div>
 
-        <div className="grid grid-cols-2 gap-[14px]">
-          {Object.keys(form).map((key) =>
-            key !== "id" && (
-              key === "role" ? (
-                <select
-                  key={key}
-                  name={key}
-                  value={form[key]}
-                  onChange={handleChange}
-                  className="w-full p-[10px_12px] text-[14px] rounded-[10px] border border-[#d1d1d1] outline-none bg-white transition-all focus:border-[#3a1a78] focus:shadow-[0_0_0_2px_rgba(58,26,120,0.15)] col-span-2"
-                >
-                  <option value="student">Student</option>
-                  <option value="staff">Staff</option>
-                  <option value="admin">Admin</option>
-                </select>
-              ) : (
-                <input
-                  key={key}
-                  name={key}
-                  placeholder={key}
-                  value={form[key]}
-                  onChange={handleChange}
-                  className="w-full p-[10px_12px] text-[14px] rounded-[10px] border border-[#d1d1d1] outline-none transition-all focus:border-[#3a1a78] focus:shadow-[0_0_0_2px_rgba(58,26,120,0.15)] placeholder:capitalize last:nth-[2n+1]:col-span-2"
-                />
-              )
-            )
-          )}
+        <div className="flex justify-end gap-3 mt-5">
+          <button
+  onClick={handleSubmit}
+  onMouseEnter={() => setHoverSave(true)}
+  onMouseLeave={() => setHoverSave(false)}
+  style={{
+    padding: "6px 14px",
+    borderRadius: "10px",
+    border: "2px solid #16005d",
+    cursor: "pointer",
+    fontWeight: "500",
+    transition: "0.3s",
+
+    backgroundColor: hoverSave ? "#16005d" : "#ffffff",
+    color: hoverSave ? "#ffffff" : "#16005d",
+  }}
+>
+  Save
+</button>
+
+<button
+  onClick={onClose}
+  onMouseEnter={() => setHoverCancel(true)}
+  onMouseLeave={() => setHoverCancel(false)}
+  style={{
+    padding: "6px 14px",
+    borderRadius: "10px",
+    border: "2px solid #16005d",
+    cursor: "pointer",
+    fontWeight: "500",
+    transition: "0.3s",
+
+    backgroundColor: hoverCancel ? "#16005d" : "#ffffff",
+    color: hoverCancel ? "#ffffff" : "#16005d",
+  }}
+>
+  Cancel
+</button>
         </div>
-        <div className="flex justify-end gap-[12px] mt-[22px]">
-          <button className="std-btn p-[8px_20px] rounded-[20px] font-medium" onClick={handleSubmit}
-          style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover1(true)}
-          onMouseLeave={() => setHover1(false)}
-          >Save</button>
-          <button className="bg-[#e5e5e5] text-[#333] p-[8px_18px] rounded-[20px] hover:bg-[#d6d6d6] cursor-pointer border-none" onClick={onClose}
-          style={{
-            backgroundColor: hover2 ? "#ffffff" : "#16005d",
-            color: hover2 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover2(true)}
-          onMouseLeave={() => setHover2(false)}
-          >Cancel</button>
-        </div>
+
       </div>
     </div>
   );

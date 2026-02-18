@@ -87,7 +87,7 @@ export default function StaffProfile() {
             className="grid grid-cols-[300px_1fr] items-center py-3"
           >
             <div className="font-semibold text-[20px] text-[#16005D] border-r-2 border-black pl-20">
-              {item.label}:
+              {item.label}
             </div>
 
             <div className="text-[18px] font-medium text-[#16005D] pl-[60px]">

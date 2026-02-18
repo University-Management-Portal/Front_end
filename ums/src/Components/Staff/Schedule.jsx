@@ -6,47 +6,66 @@ export default function Schedule() {
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
 
- const activeStyle =
-  "bg-white text-[#16005D] border-2 border-[#16005D]";
-
-const normalStyle =
-  "bg-[#16005D] text-white border-2 border-[#16005D]";
-
-
   return (
     <div className="p-12 min-h-[80vh] bg-[#f6f7fb]">
 
       <div className="flex gap-8 mb-10">
 
         <button
-          onClick={() => setView("timetable")}
-          className={`px-10 py-4 rounded-full text-[18px] font-semibold transition ${
-            view === "timetable" ? activeStyle : normalStyle
-          }`}
-          style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover1(true)}
-          onMouseLeave={() => setHover1(false)}
-        >
-          TIME TABLE
-        </button>
+        onClick={() => setView("timetable")}
+        onMouseEnter={() => setHover1(true)}
+        onMouseLeave={() => setHover1(false)}
+        style={{
+          padding: "12px 20px",
+          borderRadius: "20px",
+          border: "2px solid #16005d",
+          fontSize: "16px",
+          fontWeight: "600",
+          cursor: "pointer",
+          transition: "0.3s",
+
+          backgroundColor:
+            view === "timetable" || hover1
+              ? "#16005d"
+              : "#ffffff",
+
+          color:
+            view === "timetable" || hover1
+              ? "#ffffff"
+              : "#16005d",
+        }}
+      >
+        TIME TABLE
+      </button>
+
 
         <button
-          onClick={() => setView("calendar")}
-          className={`px-10 py-4 rounded-full text-[18px] font-semibold transition ${
-            view === "calendar" ? activeStyle : normalStyle
-          }`}
-          style={{
-            backgroundColor: hover2 ? "#ffffff" : "#16005d",
-            color: hover2 ? "#16005d" : "#ffffff"
-          }}
-          onMouseEnter={() => setHover2(true)}
-          onMouseLeave={() => setHover2(false)}
-        >
-          ACADEMIC CALENDAR
-        </button>
+        onClick={() => setView("calendar")}
+        onMouseEnter={() => setHover2(true)}
+        onMouseLeave={() => setHover2(false)}
+        style={{
+          padding: "12px 20px",
+          borderRadius: "20px",
+          border: "2px solid #16005d",
+          fontSize: "16px",
+          fontWeight: "600",
+          cursor: "pointer",
+          transition: "0.3s",
+
+          backgroundColor:
+            view === "calendar" || hover2
+              ? "#16005d"
+              : "#ffffff",
+
+          color:
+            view === "calendar" || hover2
+              ? "#ffffff"
+              : "#16005d",
+        }}
+      >
+        ACADEMIC CALENDAR
+      </button>
+
 
       </div>
 

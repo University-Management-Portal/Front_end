@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams ,useNavigate } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import FolderForm from "./FolderForm";
 
 function StaffMaterial() {
   const { courseName } = useParams();
+  const navigate = useNavigate();
   const [hover1, setHover1] = useState(false);
 
   const [folders, setFolders] = useState([]);
   const [openForm, setOpenForm] = useState(false);
 
-  // ADD FOLDER (same pattern as handleAdd in AdminDepartment)
   const handleAddFolder = (data) => {
     setFolders(prev => [
       ...prev,
@@ -24,27 +24,67 @@ function StaffMaterial() {
   return (
     <div className="p-[20px] min-h-screen">
 
-      <p className="text-[16px] font-medium text-[#16005D]">
-        Courses &gt; {courseName.replaceAll("-", " ")} &gt; Material
-      </p>
+      <div className="flex items-center text-[16px] font-medium text-[#16005D] mb-[20px]">
+
+          <span
+            onClick={() => navigate(-2)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            courses
+          </span>
+
+          <span className="mx-2">&gt;</span>
+
+          <span
+            onClick={() => navigate(-2)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            {courseName.replaceAll("-", " ")}
+          </span>
+
+          <span className="mx-2">&gt;</span>
+
+          <span
+          onClick={() => navigate(-1)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            material
+          </span>
+
+        </div>
+
 
       <div className="bg-[url('/commen.jpg')] bg-no-repeat bg-center bg-cover text-white p-[22px_28px] rounded-[18px] mb-[28px] text-[38px] font-bold h-[180px] flex items-center mt-[20px]">
         {courseName.replaceAll("-", " ").toUpperCase()}
       </div>
 
-      {/* ADD FOLDER BUTTON */}
       <button
-        className="flex items-center ml-[1270px] gap-[8px] bg-[#16005D] text-white p-[10px_18px] rounded-[8px]"
-        onClick={() => setOpenForm(true)}
-        style={{
-          backgroundColor: hover1 ? "#ffffff" : "#16005d",
-          color: hover1 ? "#16005d" : "#ffffff"
-        }}
-        onMouseEnter={() => setHover1(true)}
-        onMouseLeave={() => setHover1(false)}
-      >
-        <AddIcon /> Create Folder
-      </button>
+      onClick={() => setOpenForm(true)}
+      onMouseEnter={() => setHover1(true)}
+      onMouseLeave={() => setHover1(false)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        marginLeft: "1270px",
+        padding: "10px 18px",
+        borderRadius: "8px",
+        border: "2px solid #16005D",
+        cursor: "pointer",
+        fontWeight: "500",
+        transition: "0.3s",
+
+        backgroundColor: hover1 ? "#16005d" : "#ffffff",
+        color: hover1 ? "#ffffff" : "#16005d",
+      }}
+    >
+      <AddIcon />
+      Create Folder
+    </button>
+
 
      <div className="mt-[30px] flex flex-col gap-[20px]">
   {folders.map(f => (

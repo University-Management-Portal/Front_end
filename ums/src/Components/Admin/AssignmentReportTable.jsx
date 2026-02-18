@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation ,useNavigate} from "react-router-dom";
 import AssignmentData from "./AssignmentData";
 
 function AssignmentReportTable() {
   const { state } = useLocation();
   const { academic, sem, dept, sec, assignment } = state;
+  const navigate = useNavigate();
 
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
@@ -48,55 +49,98 @@ function AssignmentReportTable() {
   return (
     <div className="p-[20px]">
 
-      <h2 className="text-[#16005d] text-[22px] font-bold mb-[15px]">
-        {assignment} – ({dept}-{sec})
-      </h2>
+      <div className="flex items-center text-[18px] font-medium text-[#16005D] mb-[20px]">
+
+  <span
+    onClick={() => navigate(-2)}
+    style={{ cursor: "pointer" }}
+    className="hover:underline"
+  >
+    Report
+  </span>
+
+  <span className="mx-2">/</span>
+
+  <span
+    onClick={() => navigate(-1)}
+    style={{ cursor: "pointer" }}
+    className="hover:underline"
+  >
+    Assignment
+  </span>
+
+  <span className="mx-2">/</span>
+
+  <span>
+    {dept}-{sec}
+  </span>
+
+</div>
+
 
       <div className="mb-[15px] flex gap-[10px]">
 
         {!editMode ? (
           <button
             onClick={() => setEditMode(true)}
-            className="std-btn p-[8px_16px] rounded-[8px]"
-            style={{
-              backgroundColor: hover1 ? "#ffffff" : "#16005d",
-              color: hover1 ? "#16005d" : "#ffffff",
-              border: hover1 ? "solid 2px #16005d" : "0px",
-            }}
             onMouseEnter={() => setHover1(true)}
             onMouseLeave={() => setHover1(false)}
+            style={{
+              padding: "8px 16px",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontWeight: "500",
+              transition: "0.3s",
+
+              backgroundColor: hover1 ? "#16005d" : "#ffffff",
+              color: hover1 ? "#ffffff" : "#16005d",
+              border: "2px solid #16005d",   // always keep border
+            }}
           >
             Edit
           </button>
+
         ) : (
           <button
-            onClick={() => setEditMode(false)}
-            className="std-btn p-[8px_16px] rounded-[8px]"
-            style={{
-              backgroundColor: hover2 ? "#ffffff" : "#16005d",
-              color: hover2 ? "#16005d" : "#ffffff",
-              border: hover2 ? "solid 2px #16005d" : "0px",
-            }}
-            onMouseEnter={() => setHover2(true)}
-            onMouseLeave={() => setHover2(false)}
-          >
-            Save
-          </button>
+          onClick={() => setEditMode(false)}
+          onMouseEnter={() => setHover2(true)}
+          onMouseLeave={() => setHover2(false)}
+          style={{
+            padding: "8px 16px",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: "500",
+            transition: "0.3s",
+
+            backgroundColor: hover2 ? "#16005d" : "#ffffff",
+            color: hover2 ? "#ffffff" : "#16005d",
+            border: "2px solid #16005d", 
+          }}
+        >
+          Save
+        </button>
+
         )}
 
         <button
           onClick={handleDownload}
-          className="std-btn p-[8px_16px] rounded-[8px]"
-          style={{
-            backgroundColor: hover3 ? "#ffffff" : "#16005d",
-            color: hover3 ? "#16005d" : "#ffffff",
-            border: hover3 ? "solid 2px #16005d" : "0px",
-          }}
           onMouseEnter={() => setHover3(true)}
           onMouseLeave={() => setHover3(false)}
+          style={{
+            padding: "8px 16px",
+            borderRadius: "8px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            transition: "0.3s",
+
+            backgroundColor: hover3 ? "#16005d" : "#ffffff",
+            color: hover3 ? "#ffffff" : "#16005d"
+          }}
         >
           Download
         </button>
+
 
       </div>
 

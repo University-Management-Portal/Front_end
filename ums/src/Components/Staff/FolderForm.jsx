@@ -32,37 +32,51 @@ function FolderForm({ open, onClose, onSave }) {
 
         <div className="flex justify-end gap-[10px]">
           <button
-            className="px-4 py-2 border rounded"
-            onClick={onClose}
-            style={{
-              backgroundColor: hover2 ? "#ffffff" : "#16005d",
-              color: hover2 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover2(true)}
-            onMouseLeave={() => setHover2(false)}
-          >
-            Cancel
-          </button>
+  onClick={onClose}
+  onMouseEnter={() => setHover2(true)}
+  onMouseLeave={() => setHover2(false)}
+  style={{
+    padding: "8px 16px",
+    borderRadius: "6px",
+    border: "2px solid #16005d",
+    cursor: "pointer",
+    fontWeight: "500",
+    transition: "0.3s",
+
+    backgroundColor: hover2 ? "#16005d" : "#ffffff",
+    color: hover2 ? "#ffffff" : "#16005d",
+  }}
+>
+  Cancel
+</button>
+
 
           <button
-            className="std-btn px-4 py-2"
-            onClick={() => {
-              if (!title.trim()) {
-                alert("Enter folder name");
-                return;
-              }
-              onSave({ title });
-              setTitle("");
-            }}
-            style={{
-              backgroundColor: hover1 ? "#ffffff" : "#16005d",
-              color: hover1 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover1(true)}
-            onMouseLeave={() => setHover1(false)}
-          >
-            Save
-          </button>
+  onClick={() => {
+    if (!title.trim()) {
+      alert("Enter folder name");
+      return;
+    }
+    onSave({ title });
+    setTitle("");
+  }}
+  onMouseEnter={() => setHover1(true)}
+  onMouseLeave={() => setHover1(false)}
+  style={{
+    padding: "8px 16px",
+    borderRadius: "6px",
+    border: "2px solid #16005d",
+    cursor: "pointer",
+    fontWeight: "500",
+    transition: "0.3s",
+
+    backgroundColor: hover1 ? "#16005d" : "#ffffff",
+    color: hover1 ? "#ffffff" : "#16005d",
+  }}
+>
+  Save
+</button>
+
         </div>
 
       </div>

@@ -21,7 +21,7 @@ function StudentDashboard() {
       <div className="w-full">
         <div className="bg-[#16005d] text-white p-6 rounded-[14px] min-h-[180px] flex flex-col justify-center">
           <h2 className="text-[32px] font-semibold tracking-[0.5px]">
-            WELCOME, VARUN VIGNESH M (717823P359)
+            VARUN VIGNESH M (717823P359)
           </h2>
           <h5 className="text-[20px] font-normal opacity-90 mt-2">
             III year CSE - C

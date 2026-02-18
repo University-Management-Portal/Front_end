@@ -38,65 +38,140 @@ function UserActionBar({
 
       <div className="flex gap-[10px] flex-wrap">
 
-        <button className="std-btn px-[14px] py-[6px] rounded-[20px] font-medium flex items-center justify-center gap-[6px]" onClick={onAddOne} 
-        style={{
-              backgroundColor: hover1 ? "#ffffff" : "#16005d",
-              color: hover1 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover1(true)}
-            onMouseLeave={() => setHover1(false)}
-        ><AddIcon />Add one</button>
+        <button
+          onClick={onAddOne}
+          onMouseEnter={() => setHover1(true)}
+          onMouseLeave={() => setHover1(false)}
+          style={{
+            padding: "6px 14px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
 
-        <label className="std-btn px-[14px] py-[6px] rounded-[10px] font-medium flex items-center justify-center gap-[6px]" style={{
-              backgroundColor: hover2 ? "#ffffff" : "#16005d",
-              color: hover2 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover2(true)}
-            onMouseLeave={() => setHover2(false)}>
-          <AddIcon />
-          Add Bulk
-          <input
-            type="file"
-            accept=".xlsx,.xls"
-            hidden
-            onChange={onBulkUpload}
-          />
-        </label>
+            backgroundColor: hover1 ? "#16005d" : "#ffffff",
+            color: hover1 ? "#ffffff" : "#16005d",
+          }}
+        >
+          <AddIcon style={{ color: "inherit" }} />
+          Add one
+        </button>
 
-        <button 
+
+        <label
+        onMouseEnter={() => setHover2(true)}
+        onMouseLeave={() => setHover2(false)}
         style={{
-              backgroundColor: hover3 ? "#ffffff" : "#16005d",
-              color: hover3 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover3(true)}
-            onMouseLeave={() => setHover3(false)}
-        className="std-btn px-[14px] py-[6px] rounded-[20px] font-medium flex items-center justify-center gap-[6px] min-w-[130px]" onClick={onSelectAll}>
+          padding: "6px 14px",
+          borderRadius: "10px",
+          cursor: "pointer",
+          border: "2px solid #16005d",
+          fontWeight: "500",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "6px",
+          transition: "0.3s",
+
+          backgroundColor: hover2 ? "#16005d" : "#ffffff",
+          color: hover2 ? "#ffffff" : "#16005d",
+        }}
+      >
+        <AddIcon style={{ color: "inherit" }} />
+        Add Bulk
+        <input
+          type="file"
+          accept=".xlsx,.xls"
+          hidden
+          onChange={onBulkUpload}
+        />
+      </label>
+
+
+        <button
+          onClick={onSelectAll}
+          onMouseEnter={() => setHover3(true)}
+          onMouseLeave={() => setHover3(false)}
+          style={{
+            padding: "6px 14px",
+            minWidth: "130px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
+
+            backgroundColor: hover3 ? "#16005d" : "#ffffff",
+            color: hover3 ? "#ffffff" : "#16005d",
+          }}
+        >
           {select ? "Select All" : "Deselect All"}
         </button>
 
-        <button className="std-btn px-[14px] py-[6px] rounded-[20px] font-medium flex items-center justify-center gap-[6px]" onClick={onEdit} 
-        style={{
-              backgroundColor: hover4 ? "#ffffff" : "#16005d",
-              color: hover4 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover4(true)}
-            onMouseLeave={() => setHover4(false)}
-        ><EditIcon />Edit</button>
+        <button
+          onClick={onEdit}
+          onMouseEnter={() => setHover4(true)}
+          onMouseLeave={() => setHover4(false)}
+          style={{
+            padding: "6px 14px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
+
+            backgroundColor: hover4 ? "#16005d" : "#ffffff",
+            color: hover4 ? "#ffffff" : "#16005d",
+          }}
+        >
+          <EditIcon style={{ color: "inherit" }} />
+          Edit
+        </button>
+
 
         <button
-          className="std-btn px-[14px] py-[6px] rounded-[20px] font-medium flex items-center justify-center gap-[6px]"
           onClick={onDelete}
           disabled={!hasSelection}
+          onMouseEnter={() => setHover5(true)}
+          onMouseLeave={() => setHover5(false)}
           style={{
-              backgroundColor: hover5 ? "#ffffff" : "#16005d",
-              color: hover5 ? "#16005d" : "#ffffff"
-            }}
-            onMouseEnter={() => setHover5(true)}
-            onMouseLeave={() => setHover5(false)}
+            padding: "6px 14px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: hasSelection ? "pointer" : "not-allowed",
+            opacity: hasSelection ? 1 : 0.6,
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
+
+            backgroundColor: hover5
+              ? "#16005d"
+              : "#ffffff",
+            color: hover5
+              ? "#ffffff"
+              : "#16005d",
+          }}
         >
-          <DeleteIcon />
+          <DeleteIcon style={{ color: "inherit" }} />
           Delete
         </button>
+
       </div>
     </div>
   )

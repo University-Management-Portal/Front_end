@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation ,useNavigate } from "react-router-dom";
 import InternalMarksData from "./InternalMarksData";
 
 function InternalMarkTable() {
@@ -9,6 +9,7 @@ function InternalMarkTable() {
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
   const [hover3, setHover3] = useState(false);
+  const navigate = useNavigate();
 
   const subjectData =
     InternalMarksData[academic][sem][dept][sec].find(
@@ -45,10 +46,34 @@ function InternalMarkTable() {
 
   return (
     <div className="p-[20px]">
+<div className="flex items-center text-[18px] font-medium text-[#16005D] mb-[20px]">
 
-      <h2 className="text-[#16005d] text-[22px] font-bold mb-[15px]">
-        Internal Mark Report
-      </h2>
+    <span
+    onClick={() => navigate(-2)}
+    style={{ cursor: "pointer" }}
+    className="hover:underline"
+    >
+      Report
+    </span>
+
+    <span className="mx-2">/</span>
+
+    <span
+      onClick={() => navigate(-1)}
+      style={{ cursor: "pointer" }}
+      className="hover:underline"
+    >
+      Internal Mark
+    </span>
+
+     <span className="mx-2">/</span>
+
+    <span
+    >
+      {subject} – {dept}-{sec}
+    </span>
+
+</div>
 
      
 
@@ -57,43 +82,63 @@ function InternalMarkTable() {
         {!editMode ? (
           <button
             onClick={() => setEditMode(true)}
-            className="std-btn p-[8px_16px] rounded-[8px]"
-            style={{
-              backgroundColor: hover1 ? "#ffffff" : "#16005d",
-              color: hover1 ? "#16005d" : "#ffffff",
-            }}
             onMouseEnter={() => setHover1(true)}
             onMouseLeave={() => setHover1(false)}
+            style={{
+              padding: "8px 16px",
+              borderRadius: "8px",
+              border: "2px solid #16005d",
+              cursor: "pointer",
+              fontWeight: "500",
+              transition: "0.3s",
+
+              backgroundColor: hover1 ? "#16005d" : "#ffffff",
+              color: hover1 ? "#ffffff" : "#16005d",
+            }}
           >
             Edit
           </button>
+
         ) : (
           <button
-            onClick={() => setEditMode(false)}
-            className="std-btn p-[8px_16px] rounded-[8px]"
-            style={{
-              backgroundColor: hover2 ? "#ffffff" : "#16005d",
-              color: hover2 ? "#16005d" : "#ffffff",
-            }}
-            onMouseEnter={() => setHover2(true)}
-            onMouseLeave={() => setHover2(false)}
-          >
-            Save
-          </button>
+          onClick={() => setEditMode(false)}
+          onMouseEnter={() => setHover2(true)}
+          onMouseLeave={() => setHover2(false)}
+          style={{
+            padding: "8px 16px",
+            borderRadius: "8px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            transition: "0.3s",
+
+            backgroundColor: hover2 ? "#16005d" : "#ffffff",
+            color: hover2 ? "#ffffff" : "#16005d",
+          }}
+        >
+          Save
+        </button>
         )}
 
         <button
-          onClick={handleDownload}
-          className="std-btn p-[8px_16px] rounded-[8px]"
-          style={{
-            backgroundColor: hover3 ? "#ffffff" : "#16005d",
-            color: hover3 ? "#16005d" : "#ffffff",
-          }}
-          onMouseEnter={() => setHover3(true)}
-          onMouseLeave={() => setHover3(false)}
-        >
-          Download
-        </button>
+        onClick={handleDownload}
+        onMouseEnter={() => setHover3(true)}
+        onMouseLeave={() => setHover3(false)}
+        style={{
+          padding: "8px 16px",
+          borderRadius: "8px",
+          border: "2px solid #16005d",
+          cursor: "pointer",
+          fontWeight: "500",
+          transition: "0.3s",
+
+          backgroundColor: hover3 ? "#16005d" : "#ffffff",
+          color: hover3 ? "#ffffff" : "#16005d",
+        }}
+      >
+        Download
+      </button>
+
 
       </div>
       

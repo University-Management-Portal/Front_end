@@ -21,6 +21,7 @@ function AnnouncementPage() {
             date: "2026-03-22",
         },
     ]);
+    const [hover, setHover] = useState(false);
 
     const handleDelete = (id) => {
         setAnnouncement((prev) =>
@@ -48,12 +49,35 @@ function AnnouncementPage() {
                         </div>
 
                         {user === "admin" && (
-                            <button onClick={() => handleDelete(item.id)} className="inline-flex items-center justify-center gap-[8px] bg-[#b00020] text-white border-none p-[8px_18px] rounded-full cursor-pointer text-[14px] font-semibold transition-all duration-300 transform mt-[16px] hover:bg-[#8e001a] hover:scale-105 active:scale-95"
-                            style={{
-                                backgroundColor: "#16005d",
-                                color:"#ffffffff"
-                            }}
-                            ><DeleteIcon style={{ fontSize: "18px" }} /><span>Delete</span></button>
+                            
+                            <button
+  onClick={() => handleDelete(item.id)}
+  onMouseEnter={() => setHover(true)}
+  onMouseLeave={() => setHover(false)}
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "8px",
+    marginTop: "16px",
+    padding: "8px 18px",
+    borderRadius: "50px",
+    border: "none",
+    cursor: "pointer",
+    fontSize: "14px",
+    fontWeight: "600",
+    transition: "all 0.3s ease",
+    transform: hover ? "scale(1.05)" : "scale(1)",
+
+    backgroundColor: hover ? "#8e001a" : "#b00020",
+    color: "#ffffff",
+  }}
+>
+  <DeleteIcon style={{ fontSize: "18px", color: "inherit" }} />
+  <span>Delete</span>
+</button>
+
+
                         )}
                     </div>
                 ))}

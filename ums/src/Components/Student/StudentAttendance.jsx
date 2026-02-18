@@ -8,6 +8,8 @@ function StudentAttendance() {
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
 
+  
+
   const getAttendanceColor = (value) =>
     value < 75 ? "#d32f2f" : "#1e7e34";
 
@@ -17,36 +19,61 @@ function StudentAttendance() {
       <div className="w-[220px] flex flex-col gap-[16px]">
 
         <button
-          className={`p-[12px_18px] rounded-[18px] border-none text-[18px] font-semibold cursor-pointer text-left ${activeTab === "attendance"
-              ? "bg-[#16005d] text-white"
-              : "bg-transparent hover:bg-[#d9d9d9]"
-            }`}
           onClick={() => setActiveTab("attendance")}
-          style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
-          }}
           onMouseEnter={() => setHover1(true)}
           onMouseLeave={() => setHover1(false)}
+          style={{
+            padding: "12px 18px",
+            borderRadius: "18px",
+            fontSize: "18px",
+            fontWeight: "600",
+            cursor: "pointer",
+            textAlign: "left",
+            transition: "0.3s",
+            width: "100%",
+
+            backgroundColor:
+              activeTab === "attendance" || hover1
+                ? "#16005d"
+                : "#ffffff",
+
+            color:
+              activeTab === "attendance" || hover1
+                ? "#ffffff"
+                : "#16005d",
+          }}
         >
           Attendance
         </button>
 
+
         <button
-          className={`p-[12px_18px] rounded-[18px] border-none text-[18px] font-semibold cursor-pointer text-left ${activeTab === "courseAttendance"
-              ? "bg-[#16005d] text-white"
-              : "bg-transparent hover:bg-[#d9d9d9]"
-            }`}
           onClick={() => setActiveTab("courseAttendance")}
-          style={{
-            backgroundColor: hover2 ? "#ffffff" : "#16005d",
-            color: hover2 ? "#16005d" : "#ffffff"
-          }}
           onMouseEnter={() => setHover2(true)}
           onMouseLeave={() => setHover2(false)}
+          style={{
+            padding: "12px 18px",
+            borderRadius: "18px",
+            fontSize: "18px",
+            fontWeight: "600",
+            cursor: "pointer",
+            textAlign: "left",
+            transition: "0.3s",
+
+            backgroundColor:
+              activeTab === "courseAttendance" || hover2
+                ? "#16005d"
+                : "#ffffff",
+
+            color:
+              activeTab === "courseAttendance" || hover2
+                ? "#ffffff"
+                : "#16005d",
+          }}
         >
           Course Attendance
         </button>
+
       </div>
 
       <div className="flex-1 border-l-2 border-[#ddd] pl-[40px] text-[16px]">

@@ -26,9 +26,26 @@ function AdminAssignmentReport() {
 
   return (
     <div className="p-[30px] min-h-screen">
-      <h2 className="text-[#16005D] mb-[20px] text-[20px] font-bold">Report / Assignment</h2>
+      <div className="flex items-center text-[18px] font-medium text-[#16005D] mb-[20px]">
 
-      {/* FILTER BAR */}
+  <span
+    onClick={() => navigate(-1)}
+    style={{ cursor: "pointer" }}
+    className="hover:underline"
+  >
+    Report
+  </span>
+
+  <span className="mx-2">/</span>
+
+  <span
+  >
+    Assignment
+  </span>
+
+</div>
+
+
       <div className="bg-gradient-to-r from-[#1b0066] to-[#12004d] h-[100px] rounded-[14px] flex items-center justify-around px-[30px] w-full max-w-[1458px] mx-auto my-[20px]">
         <div className="flex flex-col gap-[6px] text-white text-[14px] font-medium">
           <label className="opacity-90">Academic Year</label>
@@ -79,14 +96,15 @@ function AdminAssignmentReport() {
           className="relative w-[440px] h-[200px] rounded-[16px] overflow-hidden cursor-pointer shadow-lg hover:scale-[1.02] transition-all duration-200"
           onClick={() =>
             navigate("/admin-report/assignment/table", {
-              state: {
-                academic: filters.academic,
-                sem: filters.sem,
-                dept: filters.dept,
-                sec: filters.sec,
-                assignment: item.assignment,
-              },
-            })
+            state: {
+              academic: filters.academic,
+              sem: filters.sem,
+              dept: filters.dept,
+              sec: filters.sec,
+              subject: item.subject,       
+              assignment: item.assignment,
+            },
+          })
           }
         >
 
