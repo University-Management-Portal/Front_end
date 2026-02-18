@@ -44,12 +44,11 @@ function StudentExam() {
           style={{
             padding: "12px 18px",
             borderRadius: "18px",
-            border: "2px solid #16005d",
             fontSize: "18px",
             fontWeight: "600",
             cursor: "pointer",
             textAlign: "left",
-            transition: "0.3s",
+            transition: "0.1s",
             width: "100%",
 
             backgroundColor:
@@ -74,12 +73,11 @@ function StudentExam() {
           style={{
             padding: "12px 18px",
             borderRadius: "18px",
-            border: "2px solid #16005d",
             fontSize: "18px",
             fontWeight: "600",
             cursor: "pointer",
             textAlign: "left",
-            transition: "0.3s",
+            transition: "0.1s",
             width: "100%",
 
             backgroundColor:
@@ -104,12 +102,11 @@ function StudentExam() {
           style={{
             padding: "12px 18px",
             borderRadius: "18px",
-            border: "2px solid #16005d",
             fontSize: "18px",
             fontWeight: "600",
             cursor: "pointer",
             textAlign: "left",
-            transition: "0.3s",
+            transition: "0.1s",
             width: "100%",
 
             backgroundColor:
@@ -134,12 +131,11 @@ function StudentExam() {
           style={{
             padding: "12px 18px",
             borderRadius: "18px",
-            border: "2px solid #16005d",
             fontSize: "18px",
             fontWeight: "600",
             cursor: "pointer",
             textAlign: "left",
-            transition: "0.3s",
+            transition: "0.1s",
             width: "100%",
 
             backgroundColor:
@@ -196,13 +192,13 @@ function StudentExam() {
                 onClick={() => setShowImage(!showImage)}
                 className="no-underline font-semibold"
                 style={{
-                  backgroundColor: hover5 ? "#ffffff" : "#16005d",
-                  color: hover5 ? "#16005d" : "#ffffff"
+                  backgroundColor: hover5 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff",
                 }}
                 onMouseEnter={() => setHover5(true)}
                 onMouseLeave={() => setHover5(false)}
               >
-                <h4 className="text-center text-white-800 m-0">
+                <h4 className="text-center  m-0">
                   ESE Sem 5 Schedule
                 </h4>
               </button>

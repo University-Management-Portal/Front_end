@@ -308,9 +308,6 @@ function UserForm({ mode, editingUser, onSave, onClose }) {
       </div>
     </>
   );
-
-
-
       default:
         return null;
     }
@@ -329,6 +326,10 @@ function UserForm({ mode, editingUser, onSave, onClose }) {
           value={form.role}
           onChange={handleChange}
           className="w-full mb-4 p-2 border rounded"
+          style={{
+            border:"2px solid #16005d",
+            fontWeight:"500",
+          }}
         >
           <option value="student">Student</option>
           <option value="staff">Staff</option>

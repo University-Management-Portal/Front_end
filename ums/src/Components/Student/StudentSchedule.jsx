@@ -8,7 +8,7 @@ export default function StudentSchedule() {
 
 
   return (
-    <div className="p-12 min-h-[80vh] bg-[#f6f7fb]">
+    <div className="p-12 min-h-[80vh] bg-[#ffffff]">
 
       <div className="flex gap-8 mb-10">
 
@@ -18,8 +18,7 @@ export default function StudentSchedule() {
           onMouseLeave={() => setHover1(false)}
           style={{
             padding: "12px 20px",
-            borderRadius: "20px",
-            border: "2px solid #16005d",
+            borderRadius: "10px",
             fontSize: "16px",
             fontWeight: "600",
             cursor: "pointer",
@@ -46,8 +45,7 @@ export default function StudentSchedule() {
           onMouseLeave={() => setHover2(false)}
           style={{
             padding: "12px 20px",
-            borderRadius: "20px",
-            border: "2px solid #16005d",
+            borderRadius: "10px",
             fontSize: "16px",
             fontWeight: "600",
             cursor: "pointer",

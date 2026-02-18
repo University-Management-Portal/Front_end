@@ -9,7 +9,7 @@ function StudentNavCourse() {
   const [hover2, setHover2] = useState(false);
 
   return (
-    <div className="min-h-[calc(80vh-120px)] p-[32px_48px] bg-[#f6f7fb]">
+    <div className="min-h-[calc(80vh-120px)] p-[32px_48px] bg-[#ffffff]">
 
       <div className="flex gap-[32px] mb-[30px]">
 
@@ -19,8 +19,7 @@ function StudentNavCourse() {
         onMouseLeave={() => setHover1(false)}
         style={{
           padding: "12px 28px",
-          borderRadius: "18px",
-          border: "2px solid #16005d",
+          borderRadius: "10px",
           fontSize: "16px",
           fontWeight: "600",
           cursor: "pointer",
@@ -47,8 +46,7 @@ function StudentNavCourse() {
         onMouseLeave={() => setHover2(false)}
         style={{
           padding: "12px 28px",
-          borderRadius: "18px",
-          border: "2px solid #16005d",
+          borderRadius: "10px",
           fontSize: "16px",
           fontWeight: "600",
           cursor: "pointer",
