@@ -4,12 +4,13 @@ import AttendanceData from "./AttendanceData";
 function AdminAttendanceReport() {
 
   const [filters, setFilters] = useState({
-    academic: "2025-2026",
-    sem: "5",
-    dept: "CSE",
-    sec: "A",
-    date: "",                // ✅ NEW – calendar date
+  academic: "",
+  sem: "",
+  dept: "",
+  sec: "",
+  date: "",
   });
+
 
   const handleChange = (e) => {
     setFilters({
@@ -19,8 +20,19 @@ function AdminAttendanceReport() {
   };
 
   // ORIGINAL ATTENDANCE FETCH
-  let attendance =
-    AttendanceData?.[filters.academic]?.[filters.sem]?.[filters.dept]?.[filters.sec] || [];
+  let attendance = [];
+
+    if (
+      filters.academic &&
+      filters.sem &&
+      filters.dept &&
+      filters.sec
+    ) {
+      attendance =
+        AttendanceData?.[filters.academic]?.[filters.sem]?.[filters.dept]?.[filters.sec] || [];
+    }
+
+
 
   // ✅ DATE BASED FILTER (without changing data structure)
   if (filters.date) {
@@ -73,32 +85,42 @@ function AdminAttendanceReport() {
 
               {field === "academic" && (
                 <>
+                  <option value="">Select</option>
                   <option value="2025-2026">2025 - 2026</option>
                   <option value="2024-2025">2024 - 2025</option>
                 </>
               )}
 
-              {field === "sem" &&
-                [1,2,3,4,5,6,7,8].map(n => (
-                  <option key={n} value={n}>{n}</option>
-                ))
-              }
+
+              {field === "sem" && (
+                <>
+                  <option value="">Select</option>
+                  {[1,2,3,4,5,6,7,8].map(n => (
+                    <option key={n} value={n}>{n}</option>
+                  ))}
+                </>
+              )}
+
 
               {field === "dept" && (
                 <>
+                  <option value="">Select</option>
                   <option value="CSE">CSE</option>
                   <option value="IT">IT</option>
                   <option value="EEE">EEE</option>
                 </>
               )}
 
+
               {field === "sec" && (
                 <>
+                  <option value="">Select</option>
                   <option value="A">A</option>
                   <option value="B">B</option>
                   <option value="C">C</option>
                 </>
               )}
+
 
             </select>
           </div>
