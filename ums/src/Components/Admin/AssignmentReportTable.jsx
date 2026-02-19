@@ -92,9 +92,8 @@ function AssignmentReportTable() {
               fontWeight: "500",
               transition: "0.3s",
 
-              backgroundColor: hover1 ? "#16005d" : "#ffffff",
-              color: hover1 ? "#ffffff" : "#16005d",
-              border: "2px solid #16005d",   // always keep border
+              backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
             }}
           >
             Edit
@@ -112,9 +111,8 @@ function AssignmentReportTable() {
             fontWeight: "500",
             transition: "0.3s",
 
-            backgroundColor: hover2 ? "#16005d" : "#ffffff",
-            color: hover2 ? "#ffffff" : "#16005d",
-            border: "2px solid #16005d", 
+            backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
           }}
         >
           Save
@@ -134,8 +132,8 @@ function AssignmentReportTable() {
             fontWeight: "500",
             transition: "0.3s",
 
-            backgroundColor: hover3 ? "#16005d" : "#ffffff",
-            color: hover3 ? "#ffffff" : "#16005d"
+            backgroundColor: hover3 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
           }}
         >
           Download

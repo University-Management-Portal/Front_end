@@ -107,8 +107,8 @@ export default function StaffMark() {
     cursor: "pointer",
     transition: "0.3s",
 
-    backgroundColor: hover5 ? "#16005d" : "#ffffff",
-    color: hover5 ? "#ffffff" : "#16005d",
+    backgroundColor: hover5 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
   }}
 >
   + Upload Internal Mark
@@ -137,8 +137,8 @@ export default function StaffMark() {
     cursor: "pointer",
     transition: "0.3s",
 
-    backgroundColor: hover1 ? "#16005d" : "#ffffff",
-    color: hover1 ? "#ffffff" : "#16005d",
+    backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
   }}
 >
   Edit
@@ -159,8 +159,8 @@ export default function StaffMark() {
     cursor: "pointer",
     transition: "0.3s",
 
-    backgroundColor: hover2 ? "#16005d" : "#ffffff",
-    color: hover2 ? "#ffffff" : "#16005d",
+    backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
   }}
 >
   Save
@@ -182,8 +182,8 @@ export default function StaffMark() {
     cursor: "pointer",
     transition: "0.3s",
 
-    backgroundColor: hover3 ? "#16005d" : "#ffffff",
-    color: hover3 ? "#ffffff" : "#16005d",
+   backgroundColor: hover3 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
   }}
 >
   Download

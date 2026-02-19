@@ -23,6 +23,7 @@ function StudentExam() {
   const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
   const [hover5, setHover5] = useState(false);
+  const [hover6, setHover6] = useState(false);
 
   const statusColor = (status) => {
     if (status === "Completed") return "text-[#1e7e34]";
@@ -67,90 +68,90 @@ function StudentExam() {
 
 
                 <button
-          onClick={() => setActiveTab("schedule")}
-          onMouseEnter={() => setHover2(true)}
-          onMouseLeave={() => setHover2(false)}
-          style={{
-            padding: "12px 18px",
-            borderRadius: "18px",
-            fontSize: "18px",
-            fontWeight: "600",
-            cursor: "pointer",
-            textAlign: "left",
-            transition: "0.1s",
-            width: "100%",
+                onClick={() => setActiveTab("schedule")}
+                onMouseEnter={() => setHover2(true)}
+                onMouseLeave={() => setHover2(false)}
+                style={{
+                  padding: "12px 18px",
+                  borderRadius: "18px",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "0.1s",
+                  width: "100%",
 
-            backgroundColor:
-              activeTab === "schedule" || hover2
-                ? "#16005d"
-                : "#ffffff",
+                  backgroundColor:
+                    activeTab === "schedule" || hover2
+                      ? "#16005d"
+                      : "#ffffff",
 
-            color:
-              activeTab === "schedule" || hover2
-                ? "#ffffff"
-                : "#16005d",
-          }}
-        >
-          Exam Schedule
-        </button>
-
-
-                <button
-          onClick={() => setActiveTab("result")}
-          onMouseEnter={() => setHover3(true)}
-          onMouseLeave={() => setHover3(false)}
-          style={{
-            padding: "12px 18px",
-            borderRadius: "18px",
-            fontSize: "18px",
-            fontWeight: "600",
-            cursor: "pointer",
-            textAlign: "left",
-            transition: "0.1s",
-            width: "100%",
-
-            backgroundColor:
-              activeTab === "result" || hover3
-                ? "#16005d"
-                : "#ffffff",
-
-            color:
-              activeTab === "result" || hover3
-                ? "#ffffff"
-                : "#16005d",
-          }}
-        >
-          Result
-        </button>
+                  color:
+                    activeTab === "schedule" || hover2
+                      ? "#ffffff"
+                      : "#16005d",
+                }}
+              >
+                Exam Schedule
+              </button>
 
 
                 <button
-          onClick={() => setActiveTab("fee")}
-          onMouseEnter={() => setHover4(true)}
-          onMouseLeave={() => setHover4(false)}
-          style={{
-            padding: "12px 18px",
-            borderRadius: "18px",
-            fontSize: "18px",
-            fontWeight: "600",
-            cursor: "pointer",
-            textAlign: "left",
-            transition: "0.1s",
-            width: "100%",
+                onClick={() => setActiveTab("result")}
+                onMouseEnter={() => setHover3(true)}
+                onMouseLeave={() => setHover3(false)}
+                style={{
+                  padding: "12px 18px",
+                  borderRadius: "18px",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "0.1s",
+                  width: "100%",
 
-            backgroundColor:
-              activeTab === "fee" || hover4
-                ? "#16005d"
-                : "#ffffff",
+                  backgroundColor:
+                    activeTab === "result" || hover3
+                      ? "#16005d"
+                      : "#ffffff",
 
-            color:
-              activeTab === "fee" || hover4
-                ? "#ffffff"
-                : "#16005d",
-          }}
-        >
-          Exam Fee Details
-        </button>
+                  color:
+                    activeTab === "result" || hover3
+                      ? "#ffffff"
+                      : "#16005d",
+                }}
+              >
+                Result
+              </button>
+
+
+                <button
+                onClick={() => setActiveTab("fee")}
+                onMouseEnter={() => setHover4(true)}
+                onMouseLeave={() => setHover4(false)}
+                style={{
+                  padding: "12px 18px",
+                  borderRadius: "18px",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "0.1s",
+                  width: "100%",
+
+                  backgroundColor:
+                    activeTab === "fee" || hover4
+                      ? "#16005d"
+                      : "#ffffff",
+
+                  color:
+                    activeTab === "fee" || hover4
+                      ? "#ffffff"
+                      : "#16005d",
+                }}
+              >
+                Exam Fee Details
+              </button>
 
       </div>
 
@@ -283,7 +284,15 @@ function StudentExam() {
                       </p>
 
                       {feeDetails.status === "Pending" && (
-                        <button className="mt-[14px] self-start p-[10px_22px] rounded-[20px] text-[14px] font-semibold std-btn">
+                        <button className="mt-[14px] self-start p-[10px_22px] rounded-[20px] text-[14px] font-semibold std-btn"
+                        onMouseEnter={() => setHover6(true)}
+                        onMouseLeave={() => setHover6(false)}  
+                        style={{
+                           backgroundColor: hover6 ? "#2d1a7a" : "#16005d",
+                          color:"#ffffff",
+                        }}
+                        
+                        >
                           Pay Now
                         </button>
                       )}

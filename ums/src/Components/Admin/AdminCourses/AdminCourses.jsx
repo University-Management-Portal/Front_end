@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect , useRef } from "react";
 import courseData from "../../Student/Courses.js";
 
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -24,6 +24,22 @@ function AdminCourses() {
       img: COMMON_BG  
     }))
   );
+
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setOpenMenuId(null);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
 
  
 
@@ -95,7 +111,6 @@ function AdminCourses() {
   return (
     <div className="p-[40px] min-h-[calc(100vh-80px)] bg-[#f6f7fb]">
 
-      {/* TOP BAR */}
       <div className="flex justify-between items-center mb-[30px]">
 
         <div className="flex items-center gap-[10px] bg-white p-[10px_14px] rounded-[30px] w-[320px] shadow-[0_6px_14px_rgba(0,0,0,0.12)]">
@@ -109,35 +124,34 @@ function AdminCourses() {
         </div>
 
         <button
-  onClick={() => {
-    setOpenMenuId(null);
-    setOpenForm(true);
-  }}
-  onMouseEnter={() => setHover1(true)}
-  onMouseLeave={() => setHover1(false)}
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    padding: "14px 20px",
-    borderRadius: "10px",
-    border: "2px solid #16005d",
-    cursor: "pointer",
-    fontSize: "15px",
-    fontWeight: "600",
-    transition: "0.3s",
+        onClick={() => {
+          setOpenMenuId(null);
+          setOpenForm(true);
+        }}
+        onMouseEnter={() => setHover1(true)}
+        onMouseLeave={() => setHover1(false)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          padding: "14px 20px",
+          borderRadius: "10px",
+          border: "2px solid #16005d",
+          cursor: "pointer",
+          fontSize: "15px",
+          fontWeight: "600",
+          transition: "0.3s",
 
-    backgroundColor: hover1 ? "#16005d" : "#ffffff",
-    color: hover1 ? "#ffffff" : "#16005d",
-  }}
->
-  <AddIcon style={{ color: "inherit" }} />
-  Add Course
-</button>
+          backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                        color:"#ffffff"
+        }}
+      >
+        <AddIcon style={{ color: "inherit" }} />
+        Add Course
+      </button>
 
       </div>
 
-      {/* COURSE GRID */}
       <div className="grid grid-cols-3 gap-[36px] pt-[20px] pb-[40px]">
 
         {filteredCourses.map((course) => (
@@ -169,14 +183,15 @@ function AdminCourses() {
               <MoreVertIcon />
             </div>
 
-            {/* MENU */}
-            {openMenuId === course.id && (
-              <CourseMenu
-                enabled={!course.disabled}
-                onAssign={(data) => handleAssign(course.id, data)}
-                onToggle={() => handleToggle(course.id)}
-                onDelete={() => handleDelete(course.id)}
-              />
+           {openMenuId === course.id && (
+              <div ref={menuRef}>
+                <CourseMenu
+                  enabled={!course.disabled}
+                  onAssign={(data) => handleAssign(course.id, data)}
+                  onToggle={() => handleToggle(course.id)}
+                  onDelete={() => handleDelete(course.id)}
+                />
+              </div>
             )}
 
             {/* TEXT */}

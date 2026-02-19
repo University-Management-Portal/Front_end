@@ -8,6 +8,7 @@ export default function StaffAssignment() {
   const { subject, dept } = location.state || {};
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
 
   const navigate = useNavigate();
 
@@ -59,6 +60,10 @@ export default function StaffAssignment() {
     ));
   };
 
+  const handleCancel = () => {
+  setShowForm(false); 
+};
+
   return (
     <div className="min-h-screen p-[40px] flex justify-center bg-[#f4f6fb]">
       <div className="w-full max-w-[1000px]">
@@ -105,8 +110,8 @@ export default function StaffAssignment() {
               fontWeight: "500",
               transition: "0.3s",
 
-              backgroundColor: hover1 ? "#16005d" : "#ffffff",
-              color: hover1 ? "#ffffff" : "#16005d",
+              backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+              color:"#ffffff",
             }}
           >
             <BsPlusLg />
@@ -117,51 +122,73 @@ export default function StaffAssignment() {
 
 
         {showForm && (
-          <div className="bg-white rounded-[10px] flex gap-[20px] items-center flex-wrap mb-[30px] w-full p-[20px] mt-[20px]">
-            <input
-              type="text"
-              placeholder="Assignment Title"
-              value={title}
-              onChange={e => setTitle(e.target.value)}
-              className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[200px]"
-            />
+          <div className="bg-white rounded-[10px] flex gap-[8px] items-center flex-wrap mb-[30px] w-[1030px] p-[20px] mt-[20px] ml-[-20px]">
+                <input
+                  type="text"
+                  placeholder="Assignment Title"
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                  className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[200px] "
+                />
 
-            <input
-              type="date"
-              value={dueDate}
-              onChange={e => setDueDate(e.target.value)}
-              className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[180px] ml-[20px]"
-            />
+                <input
+                  type="date"
+                  value={dueDate}
+                  onChange={e => setDueDate(e.target.value)}
+                  className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[180px] ml-[20px]"
+                />
 
-            <input
-              type="file"
-              accept=".pdf,.doc,.docx"
-              onChange={e => setFile(e.target.files[0])}
-              className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[280px] ml-[20px]"
-            />
+                <input
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={e => setFile(e.target.files[0])}
+                  className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[280px] ml-[20px]"
+                />
+          
 
-           <button
-  onClick={handleAdd}
-  onMouseEnter={() => setHover2(true)}
-  onMouseLeave={() => setHover2(false)}
-  style={{
-    width: "100px",
-    marginLeft: "80px",
-    padding: "8px 16px",
-    borderRadius: "6px",
-    border: "2px solid #16005D",
-    cursor: "pointer",
-    fontWeight: "500",
-    transition: "0.3s",
 
-    backgroundColor: hover2 ? "#16005d" : "#ffffff",
-    color: hover2 ? "#ffffff" : "#16005d",
-  }}
->
-  Add
-</button>
+                  <button
+                    onClick={handleAdd}
+                    onMouseEnter={() => setHover2(true)}
+                    onMouseLeave={() => setHover2(false)}
+                    style={{
+                      width: "100px",
+                      marginLeft: "40px",
+                      padding: "8px 16px",
+                      borderRadius: "6px",
+                      border: "2px solid #16005D",
+                      cursor: "pointer",
+                      fontWeight: "500",
+                      transition: "0.3s",
 
+                      backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+                    color:"#ffffff",
+                    }}
+                  >
+                    Add
+                  </button>
+
+                  <button
+                  onClick={handleCancel}
+                  onMouseEnter={() => setHover3(true)}
+                    onMouseLeave={() => setHover3(false)}
+                    style={{
+                      width: "100px",
+                      padding: "8px 16px",
+                      borderRadius: "6px",
+                      border: "2px solid #c80c0c",
+                      cursor: "pointer",
+                      fontWeight: "500",
+                      transition: "0.3s",
+
+                      backgroundColor: hover3 ? "#e8323b" : "#c80c0c",
+                    color:"#ffffff",
+                    }}
+                  >
+                    Cancel
+                  </button>
           </div>
+          
         )}
 
 

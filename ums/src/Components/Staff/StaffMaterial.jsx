@@ -77,8 +77,8 @@ function StaffMaterial() {
         fontWeight: "500",
         transition: "0.3s",
 
-        backgroundColor: hover1 ? "#16005d" : "#ffffff",
-        color: hover1 ? "#ffffff" : "#16005d",
+        backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+        color:"#ffffff",
       }}
     >
       <AddIcon />

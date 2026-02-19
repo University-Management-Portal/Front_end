@@ -29,8 +29,8 @@ function DeptMenu({ onEdit, enabled, onToggle, onDelete, hod }) {
             setEdit(false);
           }}
           style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
+            backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
           }}
           onMouseEnter={() => setHover1(true)}
           onMouseLeave={() => setHover1(false)}

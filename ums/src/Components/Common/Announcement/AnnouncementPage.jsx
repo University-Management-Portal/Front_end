@@ -21,7 +21,6 @@ function AnnouncementPage() {
             date: "2026-03-22",
         },
     ]);
-    const [hover, setHover] = useState(false);
 
     const handleDelete = (id) => {
         setAnnouncement((prev) =>
@@ -51,31 +50,29 @@ function AnnouncementPage() {
                         {user === "admin" && (
                             
                             <button
-  onClick={() => handleDelete(item.id)}
-  onMouseEnter={() => setHover(true)}
-  onMouseLeave={() => setHover(false)}
-  style={{
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "8px",
-    marginTop: "16px",
-    padding: "8px 18px",
-    borderRadius: "50px",
-    border: "none",
-    cursor: "pointer",
-    fontSize: "14px",
-    fontWeight: "600",
-    transition: "all 0.3s ease",
-    transform: hover ? "scale(1.05)" : "scale(1)",
+                            onClick={() => handleDelete(item.id)}
+                            style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: "8px",
+                                marginTop: "16px",
+                                padding: "8px 18px",
+                                borderRadius: "50px",
+                                border: "none",
+                                cursor: "pointer",
+                                fontSize: "14px",
+                                fontWeight: "600",
+                                transition: "all 0.3s ease",
+                                
 
-    backgroundColor: hover ? "#8e001a" : "#b00020",
-    color: "#ffffff",
-  }}
->
-  <DeleteIcon style={{ fontSize: "18px", color: "inherit" }} />
-  <span>Delete</span>
-</button>
+                                backgroundColor:  "#b00020",
+                                color: "#ffffff",
+                            }}
+                            >
+                            <DeleteIcon style={{ fontSize: "18px", color: "inherit" }} />
+                            <span>Delete</span>
+                            </button>
 
 
                         )}

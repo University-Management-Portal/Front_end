@@ -42,8 +42,8 @@ function CourseMenu({ onAssign, enabled, onToggle, onDelete }) {
             setShowAssign(false);
           }}
           style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
+            backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
           }}
           onMouseEnter={() => setHover1(true)}
           onMouseLeave={() => setHover1(false)}
@@ -56,7 +56,7 @@ function CourseMenu({ onAssign, enabled, onToggle, onDelete }) {
   }
 
   return (
-    <div className="absolute top-[48px] right-[16px] bg-white rounded-[8px] w-[140px] shadow-[0_8px_20px_rgba(0,0,0,0.25)] z-[20]">
+    <div className="absolute top-[48px] right-[19px] bg-white rounded-[8px] w-[140px] shadow-[0_8px_20px_rgba(0,0,0,0.25)] z-[20]">
       <p className="p-[10px_14px] m-0 cursor-pointer font-medium hover:bg-[#f1f1f1]" onClick={() => setShowAssign(true)}>
         Assign
       </p>

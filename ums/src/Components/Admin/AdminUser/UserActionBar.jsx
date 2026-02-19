@@ -54,8 +54,8 @@ function UserActionBar({
             gap: "6px",
             transition: "0.3s",
 
-            backgroundColor: hover1 ? "#16005d" : "#ffffff",
-            color: hover1 ? "#ffffff" : "#16005d",
+            backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
           }}
         >
           <AddIcon style={{ color: "inherit" }} />
@@ -78,8 +78,8 @@ function UserActionBar({
           gap: "6px",
           transition: "0.3s",
 
-          backgroundColor: hover2 ? "#16005d" : "#ffffff",
-          color: hover2 ? "#ffffff" : "#16005d",
+          backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
         }}
       >
         <AddIcon style={{ color: "inherit" }} />
@@ -110,8 +110,8 @@ function UserActionBar({
             gap: "6px",
             transition: "0.3s",
 
-            backgroundColor: hover3 ? "#16005d" : "#ffffff",
-            color: hover3 ? "#ffffff" : "#16005d",
+            backgroundColor: hover3 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
           }}
         >
           {select ? "Select All" : "Deselect All"}
@@ -133,8 +133,8 @@ function UserActionBar({
             gap: "6px",
             transition: "0.3s",
 
-            backgroundColor: hover4 ? "#16005d" : "#ffffff",
-            color: hover4 ? "#ffffff" : "#16005d",
+            backgroundColor: hover4 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
           }}
         >
           <EditIcon style={{ color: "inherit" }} />
@@ -152,7 +152,7 @@ function UserActionBar({
             borderRadius: "10px",
             border: "2px solid #16005d",
             cursor: hasSelection ? "pointer" : "not-allowed",
-            opacity: hasSelection ? 1 : 0.6,
+            opacity: hasSelection ? 1 : 0.9,
             fontWeight: "500",
             display: "flex",
             alignItems: "center",
@@ -160,12 +160,8 @@ function UserActionBar({
             gap: "6px",
             transition: "0.3s",
 
-            backgroundColor: hover5
-              ? "#16005d"
-              : "#ffffff",
-            color: hover5
-              ? "#ffffff"
-              : "#16005d",
+           backgroundColor: hover5 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
           }}
         >
           <DeleteIcon style={{ color: "inherit" }} />

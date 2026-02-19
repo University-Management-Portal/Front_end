@@ -12,6 +12,7 @@ function StudentFees() {
     const [hover3, setHover3] = useState(false);
     const [hover4, setHover4] = useState(false);
     const [hover5, setHover5] = useState(false);
+    
 
     const fees = [
         { name: "Tuition Fee (Per Semester)", amount: "₹1,00,000" },
@@ -90,7 +91,6 @@ function StudentFees() {
                 style={{
                     padding: "12px 18px",
                     borderRadius: "18px",
-                    border: "2px solid #16005d",
                     fontSize: "18px",
                     fontWeight: "600",
                     cursor: "pointer",
@@ -119,7 +119,6 @@ function StudentFees() {
                 style={{
                     padding: "12px 18px",
                     borderRadius: "18px",
-                    border: "2px solid #16005d",
                     fontSize: "18px",
                     fontWeight: "600",
                     cursor: "pointer",
@@ -148,7 +147,6 @@ function StudentFees() {
                 style={{
                     padding: "12px 18px",
                     borderRadius: "18px",
-                    border: "2px solid #16005d",
                     fontSize: "18px",
                     fontWeight: "600",
                     cursor: "pointer",
@@ -217,15 +215,9 @@ function StudentFees() {
                                 transition: "0.3s",
                                 boxShadow: "0 6px 14px rgba(22,0,93,0.25)",
 
-                                backgroundColor:
-                                feeTab === "examfee" || hover4
-                                    ? "#16005d"
-                                    : "#ffffff",
-
-                                color:
-                                feeTab === "examfee" || hover4
-                                    ? "#ffffff"
-                                    : "#16005d",
+                                backgroundColor: hover4 ? "#2d1a7a" : "#16005d",
+                                color:"#ffffff",
+               
                             }}
                             >
                             Exam Fees
@@ -269,8 +261,8 @@ function StudentFees() {
                                                         fontWeight: "600",
                                                         transition: "0.3s",
 
-                                                        backgroundColor: hover5 ? "#16005d" : "#ffffff",
-                                                        color: hover5 ? "#ffffff" : "#16005d",
+                                                        backgroundColor: hover5 ? "#2d1a7a" : "#16005d",
+                                                        color:"#ffffff",
                                                     }}
                                                     >
                                                     Pay Now
@@ -315,9 +307,10 @@ function StudentFees() {
                                         <td className="p-[14px_16px] text-left text-[15px]">
                                             <a href={'/uploads/dummy.pdf'} download>
                                                 <button className="inline-flex items-center gap-[6px] p-[6px_12px] rounded-[20px] text-[13px] std-btn"
+                                                
                                                 style={{
-                                                    backgroundColor: "#16005d",
-                                                    color: "#ffffff"
+                                                    backgroundColor:  "#16005d",
+                                                    color:"#ffffff",
                                                 }}
                                                 >
                                                     <DownloadIcon fontSize="small" />

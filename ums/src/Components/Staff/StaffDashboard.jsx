@@ -10,8 +10,12 @@ export default function StaffDashboard() {
   const regNo = ProfileData.find(i => i.label === "Reg No")?.value;
   const dept = ProfileData.find(i => i.label === "Department")?.value;
 
-
-  
+  // const data = axios.get("http://localhost:5000/api/student/get").then(res => {
+  //   // Process the response data as needed
+  //   console.log(res.data);
+  // }).catch(err => {
+  //   console.error("Error fetching dashboard data:", err);
+  // } );  
 
   return (
     <div className="w-full max-w-none p-4">

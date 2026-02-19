@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function StudentSchedule() {
 
-  const [view, setView] = useState("");
+  const [view, setView] = useState("timetable");
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
 

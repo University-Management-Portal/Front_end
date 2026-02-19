@@ -28,24 +28,24 @@ function ProfCalender() {
       <div className="flex justify-between items-center mb-[15px]">
         {user === "admin" && (
           <button
-  onClick={addEvent}
-  onMouseEnter={() => setHover(true)}
-  onMouseLeave={() => setHover(false)}
-  style={{
-    padding: "10px 18px",
-    borderRadius: "8px",
-    border: "2px solid #16005d",
-    cursor: "pointer",
-    fontSize: "16px",
-    fontWeight: "500",
-    transition: "0.3s",
+          onClick={addEvent}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          style={{
+            padding: "10px 18px",
+            borderRadius: "8px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontWeight: "500",
+            transition: "0.3s",
 
-    backgroundColor: hover ? "#16005d" : "#ffffff",
-    color: hover ? "#ffffff" : "#16005d",
-  }}
->
-  + Add Event
-</button>
+            backgroundColor: hover? "#2d1a7a" : "#16005d",
+                  color:"#ffffff",
+          }}
+        >
+          + Add Event
+        </button>
 
         )}
       </div>

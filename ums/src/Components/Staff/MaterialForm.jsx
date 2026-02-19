@@ -48,8 +48,8 @@ const MaterialForm = ({ open, onClose, onSave }) => {
               fontWeight: "500",
               transition: "0.3s",
 
-              backgroundColor: hover1 ? "#16005d" : "#ffffff",
-              color: hover1 ? "#ffffff" : "#16005d",
+              backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
             }}
           >
             Cancel
@@ -76,8 +76,8 @@ const MaterialForm = ({ open, onClose, onSave }) => {
               fontWeight: "500",
               transition: "0.3s",
 
-              backgroundColor: hover2 ? "#16005d" : "#ffffff",
-              color: hover2 ? "#ffffff" : "#16005d",
+              backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
             }}
           >
             Add
