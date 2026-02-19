@@ -99,7 +99,8 @@ export default function Login() {
 
             <Link
               to="/forget-password"
-              className="block text-right text-[14px] text-[#16005d] mb-[20px] hover:underline"
+              className="block text-right text-[14px] mb-[20px] hover:underline"
+              style={{ color: "#0d1d82" }}
             >
               Forget Password?
             </Link>
@@ -117,9 +118,8 @@ export default function Login() {
                 hover:bg-white hover:text-[#16005d]
               "
               style={{
-              backgroundColor: hover1 ? "#ffffff" : "#16005d",
-              color: hover1 ? "#16005d" : "#ffffff",
-              borderRadius:"20px"
+              backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff",
             }}
             onMouseEnter={() => setHover1(true)}
             onMouseLeave={() => setHover1(false)}
@@ -128,10 +128,11 @@ export default function Login() {
             </button>
           </form>
 
-          <p className="text-[13px] text-center mt-[14px] text-[#12004a]">
+          <p className="text-[14px] text-center mt-[14px] " 
+            style={{ color: "#240b88" , fontWeight: "500" }}>
             *You should be a member of this organization
           </p>
-          <p className="text-[13px] text-center mt-1 text-[#16005d]">
+          <p className="text-[14px] text-center mt-1 " style={{ color: "#290c9c" , fontWeight: "500" }}>
             *Use only official Email ID
           </p>
         </div>

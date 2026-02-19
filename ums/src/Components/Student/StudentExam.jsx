@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import ExamRules from "./ExamRules";
+import examfeeDetails from "./ExamFeesDetails";
 function StudentExam() {
-  const examfeeDetails = {
-    sem1: { amount: "1450", dueDate: "2023-12-15", fine: "100 per day", status: "Completed" },
-    sem2: { amount: "3950", dueDate: "2024-05-15", fine: "100 per day", status: "Completed" },
-    sem3: { amount: "5450", dueDate: "2024-11-15", fine: "100 per day", status: "Completed" },
-    sem4: { amount: "6950", dueDate: "2025-05-15", fine: "100 per day", status: "Completed" },
-    sem5: { amount: "8450", dueDate: "2025-11-15", fine: "100 per day", status: "Completed" },
-    sem6: { amount: "9950", dueDate: "2026-04-15", fine: "100 per day", status: "Pending" },
-    sem7: { amount: "10,450", dueDate: "2026-11-15", fine: "100 per day", status: "Not Released" },
-    sem8: { amount: "11,950", dueDate: "2027-01-15", fine: "100 per day", status: "Not Released" },
-  };
+  
 
   const [activeTab, setActiveTab] = useState("rules");
   const [showImage, setShowImage] = useState(false);
@@ -160,26 +152,9 @@ function StudentExam() {
           <>
             <h3 className="mb-[12px] text-[26px] text-[#16005d] font-bold">Examination Rules & Regulations</h3>
             <ul className="pl-0 mt-[20px] list-none">
-              {[
-                "Students must satisfy the minimum attendance requirement and clear all exam fees before appearing for examinations.",
-                "Students must enter the examination hall at least 15 minutes before the commencement of the exam.",
-                "Late entry beyond 30 minutes after the start of the examination is strictly prohibited.",
-                "Carrying a valid hall ticket and college identity card is mandatory for all examinations.",
-                "Students must occupy only their allotted seats and follow the seating arrangement displayed.",
-                "Mobile phones, smart devices, books, notes, and unauthorized materials are strictly prohibited inside the examination hall.",
-                "Students must maintain complete silence and discipline throughout the duration of the examination.",
-                "Any form of copying, communication, or malpractice will result in strict disciplinary action.",
-                "Students must follow the instructions given by invigilators at all times.",
-                "Leaving the examination hall during the first 30 minutes and last 10 minutes of the exam is not permitted.",
-                "Answer scripts must be handed over personally to the invigilator before leaving the hall.",
-                "Students must ensure that all required details are correctly filled in the answer booklet.",
-                "Violation of examination rules may lead to cancellation of the exam or further disciplinary action.",
-                "Students must leave the examination hall quietly after completion of the examination."
-              ]
-              .map((rule, i) => (
-                <li key={i} className="flex items-start gap-[14px] mb-[18px] leading-[1.6] text-[16px] text-black">
-                  <span className="mt-[6px] text-[14px] text-[#16005d] flex-shrink-0">●</span>
-                  <span>{rule}</span>
+              {ExamRules.map((rule, index) => (
+                <li key={index} className="mb-[10px] text-[#333]">
+                  {index + 1}. {rule}
                 </li>
               ))}
             </ul>
@@ -223,7 +198,7 @@ function StudentExam() {
 
 
         {activeTab === "result" && (
-          <div className="h-full flex items-center justify-center text-[17px] font-medium text-black text-center">
+          <div className="h-full  text-[17px] font-medium text-black text-center mt-[60px]">
             Results will be published on university portal.{" "}
             <Link to="/result" className="font-semibold text-[#16005d] hover:underline ml-1">Click Here</Link>
           </div>

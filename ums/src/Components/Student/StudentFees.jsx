@@ -81,6 +81,42 @@ function StudentFees() {
             ...details
         }));
 
+
+    const handlePayment = (amount) => {
+    if (!amount) {
+        alert("Please enter the amount to be paid.");
+        return;
+    }
+
+    const options = {
+        key: "", 
+        key_secret:"",
+        amount: Number(amount) * 100,  
+        currency: "INR",
+        name: "University Management System",
+        description: "Exam Fee Payment",
+        handler: function (response) {
+            alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        prefill: {
+            name: "Praveenkumar R",
+            email: "praveenraja4493@gmail.com",
+            contact: "7548897689"
+        },
+        notes: {
+            address: "University Management System, Coimbatore"
+        },
+        theme: {
+            color: "#16005d"
+        }
+    };
+
+    const pay = new window.Razorpay(options);
+    pay.open();  // ⚠️ YOU FORGOT THIS
+};
+
+    
+
     return (
         <div className='flex p-[40px] gap-[40px] min-h-[calc(100vh-80px)]'>
             <div className='w-[220px] flex flex-col gap-[16px]'>
@@ -264,6 +300,9 @@ function StudentFees() {
                                                         backgroundColor: hover5 ? "#2d1a7a" : "#16005d",
                                                         color:"#ffffff",
                                                     }}
+                                                    value={items.amount}
+                                                    onClick={() => handlePayment(items.amount)}
+
                                                     >
                                                     Pay Now
                                                     </button>
