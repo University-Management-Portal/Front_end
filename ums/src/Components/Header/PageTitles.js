@@ -35,6 +35,7 @@ const PageTitles = {
     "/admin-report/internal/table" : "Internal Marks",
     "/admin-report/assignment" : "Assignment",
     "/admin-report/assignment/table" : "Assignment",
+    "/admin-schedule" : "Schedule"
 }
 
 export default PageTitles;

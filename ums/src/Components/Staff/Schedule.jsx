@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 export default function Schedule() {
 
-  const [view, setView] = useState("");
+  const [view, setView] = useState("timetable");
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
 
   return (
-    <div className="p-12 min-h-[80vh] bg-[#f6f7fb]">
+    <div className="p-12 min-h-[80vh] bg-[#ffffff]">
 
       <div className="flex gap-8 mb-10">
 
@@ -17,9 +17,8 @@ export default function Schedule() {
         onMouseLeave={() => setHover1(false)}
         style={{
           padding: "12px 20px",
-          borderRadius: "20px",
-          border: "2px solid #16005d",
-          fontSize: "16px",
+          borderRadius: "10px",
+          fontSize: "18px",
           fontWeight: "600",
           cursor: "pointer",
           transition: "0.3s",
@@ -45,9 +44,8 @@ export default function Schedule() {
         onMouseLeave={() => setHover2(false)}
         style={{
           padding: "12px 20px",
-          borderRadius: "20px",
-          border: "2px solid #16005d",
-          fontSize: "16px",
+          borderRadius: "10px",
+          fontSize: "18px",
           fontWeight: "600",
           cursor: "pointer",
           transition: "0.3s",

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import courses from "./Courses";
 import CircleIcon from "@mui/icons-material/Circle";
-
+import AttendanceRules from "./AttendanceRules";
+import StudentDashboarddata from "./StudentDashboarddata";
 function StudentAttendance() {
-  const OverallAttendance = 91.5;
   const [activeTab, setActiveTab] = useState("attendance");
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
@@ -89,10 +89,10 @@ function StudentAttendance() {
               <p
                 className="font-extrabold text-[44px]"
                 style={{
-                  color: getAttendanceColor(OverallAttendance),
+                  color: getAttendanceColor(StudentDashboarddata.find(i => i.label === "Overall Attendance")?.value.replace("%", "") || 0),
                 }}
               >
-                {OverallAttendance}%
+                {StudentDashboarddata.find(i => i.label === "Overall Attendance")?.value || "0%"}
               </p>
             </div>
 
@@ -101,27 +101,13 @@ function StudentAttendance() {
                 Attendance Rules & Regulations:
               </h2>
 
-              <ul className="pl-[20px] mt-[20px] list-none">
-                {[
-                  "Minimum attendance required to appear for exams is 75%.",
-                  "Attendance is calculated based on the total number of classes held and attended.",
-                  "Students with attendance below 75% may be restricted from taking exams.",
-                  "Medical certificates must be submitted for absences due to illness.",
-                  "Attendance records are updated weekly; students should regularly check their status.",
-                  "Excessive absenteeism may lead to disciplinary action as per college policies.",
-                  "Students are encouraged to attend all classes to ensure academic success.",
-                ].map((rule, index) => (
+                <ul className="pl-[20px] mt-[20px] list-none">
+                {AttendanceRules.map((rule, index) => (
                   <li
                     key={index}
-                    className="flex items-start gap-[14px] mb-[18px] leading-[1.6] text-[16px] text-black"
+                    className="mb-[12px] flex items-start gap-[10px]"
                   >
-                    <CircleIcon
-                      style={{
-                        fontSize: "14px",
-                        marginTop: "6px",
-                        color: "#16005d",
-                        flexShrink: 0,
-                      }}
+                    <CircleIcon style={{ color: "#16005d", fontSize: "12px" }}
                     />
                     <span>{rule}</span>
                   </li>

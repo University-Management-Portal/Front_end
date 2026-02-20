@@ -13,7 +13,7 @@ function Footer() {
     return (
         <div className='relative flex justify-between items-start bg-[#16005d] text-white p-[25px_40px] w-full box-border max-md:flex-col max-md:gap-[20px] max-md:text-center max-md:items-center'>
             <div className='flex items-center gap-[12px] max-md:justify-center'>
-                <img src="University Logo.png" alt="College image" className="w-[75px] h-[75px] rounded-[10px]" />
+                <img src="University_Logo.png" alt="College image" className="w-[75px] h-[75px] rounded-[10px]" />
                 <p className='text-[24px] font-semibold tracking-[1.2px]'>BEST ENGINEERING COLLEGE</p>
 
                 <div className='absolute bottom-[12px] left-1/2 -translate-x-1/2 text-[13px] font-light text-[#f3f3f3] whitespace-nowrap text-center'>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { BsPlusLg, BsThreeDotsVertical } from "react-icons/bs";
 import { useLocation , useNavigate } from "react-router-dom";
 
@@ -8,6 +8,12 @@ export default function StaffAssignment() {
   const { subject, dept } = location.state || {};
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
+
+  const menuRef = useRef(null);
+
+ 
+ 
 
   const navigate = useNavigate();
 
@@ -18,6 +24,21 @@ export default function StaffAssignment() {
   const [dueDate, setDueDate] = useState('');
   const [file, setFile] = useState(null);
   const [activeMenu, setActiveMenu] = useState(null);
+
+   useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setActiveMenu(null);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
+
 
 
   const getStatus = (due) => {
@@ -53,11 +74,17 @@ export default function StaffAssignment() {
     setAssignments(assignments.filter(a => a.id !== id));
   };
 
+  const today = new Date().toISOString().split("T")[0];
+
   const toggleEnable = (id) => {
     setAssignments(assignments.map(a =>
       a.id === id ? { ...a, enabled: !a.enabled } : a
     ));
   };
+
+  const handleCancel = () => {
+  setShowForm(false); 
+};
 
   return (
     <div className="min-h-screen p-[40px] flex justify-center bg-[#f4f6fb]">
@@ -105,8 +132,8 @@ export default function StaffAssignment() {
               fontWeight: "500",
               transition: "0.3s",
 
-              backgroundColor: hover1 ? "#16005d" : "#ffffff",
-              color: hover1 ? "#ffffff" : "#16005d",
+              backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+              color:"#ffffff",
             }}
           >
             <BsPlusLg />
@@ -117,51 +144,74 @@ export default function StaffAssignment() {
 
 
         {showForm && (
-          <div className="bg-white rounded-[10px] flex gap-[20px] items-center flex-wrap mb-[30px] w-full p-[20px] mt-[20px]">
-            <input
-              type="text"
-              placeholder="Assignment Title"
-              value={title}
-              onChange={e => setTitle(e.target.value)}
-              className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[200px]"
-            />
+          <div className="bg-white rounded-[10px] flex gap-[8px] items-center flex-wrap mb-[30px] w-[1030px] p-[20px] mt-[20px] ml-[-20px]">
+                <input
+                  type="text"
+                  placeholder="Assignment Title"
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                  className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[200px] "
+                />
 
-            <input
-              type="date"
-              value={dueDate}
-              onChange={e => setDueDate(e.target.value)}
-              className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[180px] ml-[20px]"
-            />
+                <input
+                  type="date"
+                  value={dueDate}
+                  min={today}
+                  onChange={e => setDueDate(e.target.value)}
+                  className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[180px] ml-[20px]"
+                />
 
-            <input
-              type="file"
-              accept=".pdf,.doc,.docx"
-              onChange={e => setFile(e.target.files[0])}
-              className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[280px] ml-[20px]"
-            />
+                <input
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={e => setFile(e.target.files[0])}
+                  className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[280px] ml-[20px]"
+                />
+          
 
-           <button
-  onClick={handleAdd}
-  onMouseEnter={() => setHover2(true)}
-  onMouseLeave={() => setHover2(false)}
-  style={{
-    width: "100px",
-    marginLeft: "80px",
-    padding: "8px 16px",
-    borderRadius: "6px",
-    border: "2px solid #16005D",
-    cursor: "pointer",
-    fontWeight: "500",
-    transition: "0.3s",
 
-    backgroundColor: hover2 ? "#16005d" : "#ffffff",
-    color: hover2 ? "#ffffff" : "#16005d",
-  }}
->
-  Add
-</button>
+                  <button
+                    onClick={handleAdd}
+                    onMouseEnter={() => setHover2(true)}
+                    onMouseLeave={() => setHover2(false)}
+                    style={{
+                      width: "100px",
+                      marginLeft: "40px",
+                      padding: "8px 16px",
+                      borderRadius: "6px",
+                      border: "2px solid #16005D",
+                      cursor: "pointer",
+                      fontWeight: "500",
+                      transition: "0.3s",
 
+                      backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+                    color:"#ffffff",
+                    }}
+                  >
+                    Add
+                  </button>
+
+                  <button
+                  onClick={handleCancel}
+                  onMouseEnter={() => setHover3(true)}
+                    onMouseLeave={() => setHover3(false)}
+                    style={{
+                      width: "100px",
+                      padding: "8px 16px",
+                      borderRadius: "6px",
+                      border: "2px solid #c80c0c",
+                      cursor: "pointer",
+                      fontWeight: "500",
+                      transition: "0.3s",
+
+                      backgroundColor: hover3 ? "#e8323b" : "#c80c0c",
+                    color:"#ffffff",
+                    }}
+                  >
+                    Cancel
+                  </button>
           </div>
+          
         )}
 
 
@@ -196,7 +246,7 @@ export default function StaffAssignment() {
                     />
 
                     {activeMenu === index && (
-                      <div className="absolute right-0 top-[20px] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)] rounded-[6px] z-10 w-[100px]">
+                      <div  ref={menuRef} className="absolute right-0 top-[20px] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)] rounded-[6px] z-10 w-[100px]">
                         <p className="p-[8px_14px] cursor-pointer hover:bg-[#f1f5f9]" onClick={() => window.open(a.fileUrl, "_blank")}>
                           View
                         </p>

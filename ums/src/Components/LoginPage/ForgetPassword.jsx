@@ -59,9 +59,8 @@ function ForgetPassword() {
 
                                     <button onClick={handleEmail} className="bg-[#16005d] text-white h-[40px] w-1/2 p-[5px] rounded-[20px] border-none text-[17px] font-semibold cursor-pointer block mx-auto mt-[10px] hover:bg-white hover:text-[#16005d] transition-colors"
                                     style={{
-                                        backgroundColor: hover1 ? "#ffffff" : "#16005d",
-                                        color: hover1 ? "#16005d" : "#ffffff",
-                                        borderRadius: "20px"
+                                        backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                                        color:"#ffffff",
                                     }}
                                     onMouseEnter={() => setHover1(true)}
                                     onMouseLeave={() => setHover1(false)}
@@ -77,9 +76,8 @@ function ForgetPassword() {
 
                                     <button onClick={handleOTP} className="bg-[#16005d] text-white h-[40px] w-1/2 p-[5px] rounded-[20px] border-none text-[17px] font-semibold cursor-pointer block mx-auto mt-[10px] hover:bg-white hover:text-[#16005d] transition-colors"
                                     style={{
-                                        backgroundColor: hover2 ? "#ffffff" : "#16005d",
-                                        color: hover2 ? "#16005d" : "#ffffff",
-                                        borderRadius: "20px"
+                                        backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+                                        color:"#ffffff",
                                     }}
                                     onMouseEnter={() => setHover2(true)}
                                     onMouseLeave={() => setHover2(false)}

@@ -8,6 +8,7 @@ const FolderMaterial = () => {
   const { courseName, folderId } = useParams();
   const [hover1, setHover1] = useState(false);
   const [openMenuId, setOpenMenuId] = useState(null);
+  const [hover2, setHover2] = useState(false);
 
 
   const [materials, setMaterials] = useState([]);
@@ -52,8 +53,8 @@ const FolderMaterial = () => {
     fontWeight: "500",
     transition: "0.3s",
 
-    backgroundColor: hover1 ? "#16005d" : "#ffffff",
-    color: hover1 ? "#ffffff" : "#16005d",
+    backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
   }}
 >
   + Add Material
@@ -89,12 +90,18 @@ const FolderMaterial = () => {
           </button>
 
           {openMenuId === mat.id && (
-            <div className="absolute right-0 mt-[6px] bg-white border rounded shadow z-10">
+            <div className="absolute right-0 mt-[6px]  border-none rounded ">
               <button
-                className="block px-[14px] py-[8px] text-red-600 hover:bg-[#f1f1f1] w-full text-left"
+                className=" px-[14px] py-[8px] text-red-600  w-full text-left"
                 onClick={() => {
                   handleDeleteMaterial(mat.id);
                   setOpenMenuId(null);
+                }}
+                onMouseEnter={() => setHover2(true)}
+                onMouseLeave={() => setHover2(false)}
+                style={{
+                  backgroundColor: hover2 ? "#f03f3f" : "#bb1212",
+                  color:"#ffffff",
                 }}
               >
                 Delete

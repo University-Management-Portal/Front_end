@@ -10,8 +10,8 @@ export default function StudentListPage() {
   });
 
   const [search, setSearch] = useState("");
+const key = `${filters.academic}-${filters.dept}-${filters.sem}-${filters.sec}`;
 
-  const key = `${filters.dept}-${filters.sem}-${filters.sec}`;
   const students = studentsData[key] || [];
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
@@ -152,8 +152,8 @@ export default function StudentListPage() {
     cursor: "pointer",
     transition: "0.3s",
 
-    backgroundColor: hover1 ? "#16005d" : "#ffffff",
-    color: hover1 ? "#ffffff" : "#16005d",
+    backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
   }}
 >
   Download
@@ -171,8 +171,8 @@ export default function StudentListPage() {
     cursor: "pointer",
     transition: "0.3s",
 
-    backgroundColor: hover2 ? "#16005d" : "#ffffff",
-    color: hover2 ? "#ffffff" : "#16005d",
+    backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
   }}
 >
   Print

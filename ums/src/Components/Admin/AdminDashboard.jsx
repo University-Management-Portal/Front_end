@@ -1,11 +1,15 @@
 import React from 'react'
 import ProfCalender from '../Common/ProfCalender'
+import ProfileData from './AdminProfileData'
 
 function AdminDashboard() {
+  const name = ProfileData.find(i => i.label === "Name")?.value;
+  const empid= ProfileData.find(i => i.label === "Employee ID")?.value;
   return (
     <div className='p-[30px] bg-[#f7f8fc] grid grid-cols-4 gap-[22px] min-h-screen'>
       <div className='col-span-4 bg-[#16005d] text-white p-[30px] rounded-[14px] flex flex-col justify-center h-[160px] mb-0'>
-        <p className="text-[32px] font-bold">Admin Dashboard</p>
+        <p className="text-[32px] font-bold">{name}</p>
+        <p className="text-[25px] font-bold">{empid}</p>
       </div>
 
       <div className='bg-[#e0e0e0] text-white p-[20px_12px] rounded-[16px] flex flex-col items-center justify-center shadow-[0_6px_14px_rgba(0,0,0,0.18)] transition-all duration-300 h-[140px] hover:scale-[1.00] hover:shadow-[0_18px_38px_rgba(0,0,0,0.35)]'>

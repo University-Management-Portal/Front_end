@@ -1,19 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import ProfCalender from "../Common/ProfCalender";
+import ProfileData from "./Studentdata";
+import information from "./StudentDashboarddata";
+import upcomingEvents from "./UpcomingEvents";  
 
 function StudentDashboard() {
   const navigate = useNavigate();
 
-  const upcomingEvents = [
-    "Continuous Internal Exam – I",
-    "Model Lab – I",
-    "Assignment – I",
-    "Seminar Presentation",
-    "Project Review – Phase 1",
-    "Workshop on Cloud Computing",
-    "Internal Assessment – II",
-  ];
+    const name = ProfileData.find(i => i.label === "Name")?.value;
+    const regNo = ProfileData.find(i => i.label === "Reg No")?.value;
+    const dept = ProfileData.find(i => i.label === "Department")?.value;
+
 
   return (
     <div className="w-full p-4 grid grid-cols-1 gap-4">
@@ -21,10 +19,10 @@ function StudentDashboard() {
       <div className="w-full">
         <div className="bg-[#16005d] text-white p-6 rounded-[14px] min-h-[180px] flex flex-col justify-center">
           <h2 className="text-[32px] font-semibold tracking-[0.5px]">
-            VARUN VIGNESH M (717823P359)
+            {name} ({regNo})
           </h2>
           <h5 className="text-[20px] font-normal opacity-90 mt-2">
-            III year CSE - C
+            {dept} Department
           </h5>
         </div>
       </div>
@@ -36,31 +34,31 @@ function StudentDashboard() {
             className="bg-[#e0e0e0] rounded-[14px] p-6 text-center text-[18px] font-medium text-black min-h-[100px] flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.08)] cursor-pointer transition-all duration-600 hover:scale-105 hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)] hover:font-bold"
             onClick={() => navigate("/student-attendance")}
           >
-            Overall Attendance : <strong className="ml-1">91.5%</strong>
+            Overall Attendance : <strong className="ml-1">{information.find(i => i.label === "Overall Attendance")?.value}</strong>
           </div>
         </div>
 
         <div className="w-full">
           <div className="bg-[#e0e0e0] rounded-[14px] p-6 text-center text-[18px] font-medium text-black min-h-[100px] flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.08)] transition-all duration-600 hover:scale-105 hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)] hover:font-bold">
-            Current Semester : <strong className="ml-1">6</strong>
+            Current Semester : <strong className="ml-1">{information.find(i => i.label === "Current Semester")?.value}</strong>
           </div>
         </div>
 
         <div className="w-full">
           <div className="bg-[#e0e0e0] rounded-[14px] p-6 text-center text-[18px] font-medium text-black min-h-[100px] flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.08)] transition-all duration-600 hover:scale-105 hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)] hover:font-bold">
-            Current CGPA : <strong className="ml-1">8.34</strong>
+            Current CGPA : <strong className="ml-1">{information.find(i => i.label === "Current CGPA")?.value}</strong>
           </div>
         </div>
 
         <div className="w-full">
           <div className="bg-[#e0e0e0] rounded-[14px] p-6 text-center text-[18px] font-medium text-black min-h-[100px] flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.08)] transition-all duration-600 hover:scale-105 hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)] hover:font-bold">
-            Tutor : <strong className="ml-1">DR. Xxxxxx AP/CSE</strong>
+            Tutor : <strong className="ml-1">{information.find(i => i.label === "Tutor")?.value}</strong>
           </div>
         </div>
 
         <div className="w-full">
           <div className="bg-[#e0e0e0] rounded-[14px] p-6 text-center text-[18px] font-medium text-black min-h-[100px] flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.08)] transition-all duration-600 hover:scale-105 hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)] hover:font-bold">
-            Last Working Day : <strong className="ml-1">26.02.2026</strong>
+            Last Working Day : <strong className="ml-1">{information.find(i => i.label === "Last Woring Day")?.value}</strong>
           </div>
         </div>
 
@@ -69,7 +67,7 @@ function StudentDashboard() {
             className="bg-[#e0e0e0] rounded-[14px] p-6 text-center text-[18px] font-medium text-black min-h-[100px] flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.08)] cursor-pointer transition-all duration-600 hover:scale-105 hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)] hover:font-bold"
             onClick={() => navigate("/student-courses")}
           >
-            Enrolled Courses : <strong className="ml-1">7</strong>
+            Enrolled Courses : <strong className="ml-1">{information.find(i => i.label === "Entrolled Courses")?.value}</strong>
           </div>
         </div>
 

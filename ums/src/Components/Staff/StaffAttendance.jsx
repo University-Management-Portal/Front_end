@@ -18,7 +18,8 @@ export default function StaffAttendance() {
   const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
 
-  const key = `${filters.dept}-${filters.sem}-${filters.sec}`;
+  const key = `${filters.academic}-${filters.dept}-${filters.sem}-${filters.sec}`;
+
   const students = studentsData[key] || [];
 
   const updateFilter = (field, value) => {
@@ -124,6 +125,7 @@ Roll No       Status
           >
             <option>A</option>
             <option>B</option>
+            <option>C</option>
           </select>
         </div>
 
@@ -173,8 +175,8 @@ Roll No       Status
             cursor: "pointer",
             transition: "0.3s",
 
-            backgroundColor: hover1 ? "#16005d" : "#ffffff",
-            color: hover1 ? "#ffffff" : "#16005d",
+            backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
           }}
         >
           Save
@@ -196,8 +198,8 @@ Roll No       Status
             cursor: "pointer",
             transition: "0.3s",
 
-            backgroundColor: hover2 ? "#16005d" : "#ffffff",
-            color: hover2 ? "#ffffff" : "#16005d",
+            backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+            color:"#ffffff",
           }}
         >
           Report

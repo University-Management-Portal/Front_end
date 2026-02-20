@@ -1,20 +1,9 @@
 import React from "react";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import ProfileData from "./Studentdata";
 
 function StudentProfile() {
-
-  const ProfileData = [
-    { label: "Name", value: "Vinayak" },
-    { label: "Reg No", value: "717823X123" },
-    { label: "Year", value: "III" },
-    { label: "Department", value: "CSE" },
-    { label: "Section", value: "C" },
-    { label: "Email", value: "XXXXXXX@gmail.com" },
-    { label: "Phone Number", value: "9876543210" },
-    { label: "Address", value: "123, ABC Street, City, Country" },
-    { label: "Tutor", value: "Alex Pandiyan" }
-  ];
 
   const fileInputRef = useRef(null);
   const [profileImage, setProfileImage] = useState("Profile.jpg");
@@ -95,7 +84,6 @@ function StudentProfile() {
         </button>
       </div>
 
-      {/* RIGHT SECTION */}
       <div className="bg-white rounded-[10px] p-4 ml-12 mt-6 my-[60px] w-[700px] h-[510px] border border-[#16005D]">
 
         {ProfileData.map((item, index) => (

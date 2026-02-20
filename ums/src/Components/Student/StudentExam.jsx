@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import ExamRules from "./ExamRules";
+import examfeeDetails from "./ExamFeesDetails";
+import CircleIcon from "@mui/icons-material/Circle";
 function StudentExam() {
-  const examfeeDetails = {
-    sem1: { amount: "1450", dueDate: "2023-12-15", fine: "100 per day", status: "Completed" },
-    sem2: { amount: "3950", dueDate: "2024-05-15", fine: "100 per day", status: "Completed" },
-    sem3: { amount: "5450", dueDate: "2024-11-15", fine: "100 per day", status: "Completed" },
-    sem4: { amount: "6950", dueDate: "2025-05-15", fine: "100 per day", status: "Completed" },
-    sem5: { amount: "8450", dueDate: "2025-11-15", fine: "100 per day", status: "Completed" },
-    sem6: { amount: "9950", dueDate: "2026-04-15", fine: "100 per day", status: "Pending" },
-    sem7: { amount: "10,450", dueDate: "2026-11-15", fine: "100 per day", status: "Not Released" },
-    sem8: { amount: "11,950", dueDate: "2027-01-15", fine: "100 per day", status: "Not Released" },
-  };
+  
 
   const [activeTab, setActiveTab] = useState("rules");
   const [showImage, setShowImage] = useState(false);
@@ -23,12 +16,67 @@ function StudentExam() {
   const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
   const [hover5, setHover5] = useState(false);
+  const [hover6, setHover6] = useState(false);
 
   const statusColor = (status) => {
     if (status === "Completed") return "text-[#1e7e34]";
     if (status === "Pending") return "text-[#b36b00]";
     return "text-[#777]";
   };
+
+  const handlePayment = async (amount) => {
+
+    const cleanAmount = Number(amount.toString().replace(/,/g, ""));
+
+    if (!cleanAmount || cleanAmount <= 0) {
+        alert("Invalid amount");
+        return;
+    }
+
+    if (!window.Razorpay) {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.onload = () => openRazorpay(cleanAmount);
+        document.body.appendChild(script);
+    } else {
+        openRazorpay(cleanAmount);
+    }
+};
+
+const openRazorpay = (amount) => {
+
+    const options = {
+        key: "rzp_test_SHf9twQFbaQrbs",  
+        amount: amount * 100,     
+        currency: "INR",
+        name: "Best Engineering College",
+        description: "Exam Fee Payment",
+        image: "/University Logo.png",
+
+        handler: function (response) {
+            console.log("Payment Success:", response);
+            alert("Payment Successful\nPayment ID: " + response.razorpay_payment_id);
+        },
+
+        modal: {
+            ondismiss: function () {
+                alert("Payment Cancelled");
+            }
+        },
+        theme: {
+            color: "#16005d"
+        }
+    };
+
+    const rzp = new window.Razorpay(options);
+
+    rzp.on("payment.failed", function (response) {
+        console.log(response.error);
+        alert("Payment Failed: " + response.error.description);
+    });
+
+    rzp.open();
+};
 
   
 
@@ -67,90 +115,90 @@ function StudentExam() {
 
 
                 <button
-          onClick={() => setActiveTab("schedule")}
-          onMouseEnter={() => setHover2(true)}
-          onMouseLeave={() => setHover2(false)}
-          style={{
-            padding: "12px 18px",
-            borderRadius: "18px",
-            fontSize: "18px",
-            fontWeight: "600",
-            cursor: "pointer",
-            textAlign: "left",
-            transition: "0.1s",
-            width: "100%",
+                onClick={() => setActiveTab("schedule")}
+                onMouseEnter={() => setHover2(true)}
+                onMouseLeave={() => setHover2(false)}
+                style={{
+                  padding: "12px 18px",
+                  borderRadius: "18px",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "0.1s",
+                  width: "100%",
 
-            backgroundColor:
-              activeTab === "schedule" || hover2
-                ? "#16005d"
-                : "#ffffff",
+                  backgroundColor:
+                    activeTab === "schedule" || hover2
+                      ? "#16005d"
+                      : "#ffffff",
 
-            color:
-              activeTab === "schedule" || hover2
-                ? "#ffffff"
-                : "#16005d",
-          }}
-        >
-          Exam Schedule
-        </button>
-
-
-                <button
-          onClick={() => setActiveTab("result")}
-          onMouseEnter={() => setHover3(true)}
-          onMouseLeave={() => setHover3(false)}
-          style={{
-            padding: "12px 18px",
-            borderRadius: "18px",
-            fontSize: "18px",
-            fontWeight: "600",
-            cursor: "pointer",
-            textAlign: "left",
-            transition: "0.1s",
-            width: "100%",
-
-            backgroundColor:
-              activeTab === "result" || hover3
-                ? "#16005d"
-                : "#ffffff",
-
-            color:
-              activeTab === "result" || hover3
-                ? "#ffffff"
-                : "#16005d",
-          }}
-        >
-          Result
-        </button>
+                  color:
+                    activeTab === "schedule" || hover2
+                      ? "#ffffff"
+                      : "#16005d",
+                }}
+              >
+                Exam Schedule
+              </button>
 
 
                 <button
-          onClick={() => setActiveTab("fee")}
-          onMouseEnter={() => setHover4(true)}
-          onMouseLeave={() => setHover4(false)}
-          style={{
-            padding: "12px 18px",
-            borderRadius: "18px",
-            fontSize: "18px",
-            fontWeight: "600",
-            cursor: "pointer",
-            textAlign: "left",
-            transition: "0.1s",
-            width: "100%",
+                onClick={() => setActiveTab("result")}
+                onMouseEnter={() => setHover3(true)}
+                onMouseLeave={() => setHover3(false)}
+                style={{
+                  padding: "12px 18px",
+                  borderRadius: "18px",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "0.1s",
+                  width: "100%",
 
-            backgroundColor:
-              activeTab === "fee" || hover4
-                ? "#16005d"
-                : "#ffffff",
+                  backgroundColor:
+                    activeTab === "result" || hover3
+                      ? "#16005d"
+                      : "#ffffff",
 
-            color:
-              activeTab === "fee" || hover4
-                ? "#ffffff"
-                : "#16005d",
-          }}
-        >
-          Exam Fee Details
-        </button>
+                  color:
+                    activeTab === "result" || hover3
+                      ? "#ffffff"
+                      : "#16005d",
+                }}
+              >
+                Result
+              </button>
+
+
+                <button
+                onClick={() => setActiveTab("fee")}
+                onMouseEnter={() => setHover4(true)}
+                onMouseLeave={() => setHover4(false)}
+                style={{
+                  padding: "12px 18px",
+                  borderRadius: "18px",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "0.1s",
+                  width: "100%",
+
+                  backgroundColor:
+                    activeTab === "fee" || hover4
+                      ? "#16005d"
+                      : "#ffffff",
+
+                  color:
+                    activeTab === "fee" || hover4
+                      ? "#ffffff"
+                      : "#16005d",
+                }}
+              >
+                Exam Fee Details
+              </button>
 
       </div>
 
@@ -158,27 +206,11 @@ function StudentExam() {
         {activeTab === "rules" && (
           <>
             <h3 className="mb-[12px] text-[26px] text-[#16005d] font-bold">Examination Rules & Regulations</h3>
-            <ul className="pl-0 mt-[20px] list-none">
-              {[
-                "Students must satisfy the minimum attendance requirement and clear all exam fees before appearing for examinations.",
-                "Students must enter the examination hall at least 15 minutes before the commencement of the exam.",
-                "Late entry beyond 30 minutes after the start of the examination is strictly prohibited.",
-                "Carrying a valid hall ticket and college identity card is mandatory for all examinations.",
-                "Students must occupy only their allotted seats and follow the seating arrangement displayed.",
-                "Mobile phones, smart devices, books, notes, and unauthorized materials are strictly prohibited inside the examination hall.",
-                "Students must maintain complete silence and discipline throughout the duration of the examination.",
-                "Any form of copying, communication, or malpractice will result in strict disciplinary action.",
-                "Students must follow the instructions given by invigilators at all times.",
-                "Leaving the examination hall during the first 30 minutes and last 10 minutes of the exam is not permitted.",
-                "Answer scripts must be handed over personally to the invigilator before leaving the hall.",
-                "Students must ensure that all required details are correctly filled in the answer booklet.",
-                "Violation of examination rules may lead to cancellation of the exam or further disciplinary action.",
-                "Students must leave the examination hall quietly after completion of the examination."
-              ]
-              .map((rule, i) => (
-                <li key={i} className="flex items-start gap-[14px] mb-[18px] leading-[1.6] text-[16px] text-black">
-                  <span className="mt-[6px] text-[14px] text-[#16005d] flex-shrink-0">●</span>
-                  <span>{rule}</span>
+            <ul className="pl-[20px] mt-[20px] list-none">
+              {ExamRules.map((rule, index) => (
+                <li key={index} className="mb-[12px] text-[#333] flex items-start gap-[10px]">
+                  <CircleIcon style={{ color: "#16005d", fontSize: "12px" }} />
+                  <span className="mb-[10px]">{rule}</span> 
                 </li>
               ))}
             </ul>
@@ -222,7 +254,7 @@ function StudentExam() {
 
 
         {activeTab === "result" && (
-          <div className="h-full flex items-center justify-center text-[17px] font-medium text-black text-center">
+          <div className="h-full  text-[17px] font-medium text-black text-center mt-[60px]">
             Results will be published on university portal.{" "}
             <Link to="/result" className="font-semibold text-[#16005d] hover:underline ml-1">Click Here</Link>
           </div>
@@ -283,7 +315,15 @@ function StudentExam() {
                       </p>
 
                       {feeDetails.status === "Pending" && (
-                        <button className="mt-[14px] self-start p-[10px_22px] rounded-[20px] text-[14px] font-semibold std-btn">
+                        <button className="mt-[14px] self-start p-[10px_22px] rounded-[20px] text-[14px] font-semibold std-btn"
+                        onMouseEnter={() => setHover6(true)}
+                        onMouseLeave={() => setHover6(false)}  
+                        style={{
+                           backgroundColor: hover6 ? "#2d1a7a" : "#16005d",
+                          color:"#ffffff",
+                        }}
+                        onClick={() => handlePayment(feeDetails.amount)}
+                        >
                           Pay Now
                         </button>
                       )}

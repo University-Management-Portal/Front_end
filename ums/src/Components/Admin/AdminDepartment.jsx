@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AddIcon from "@mui/icons-material/Add";
@@ -16,6 +16,23 @@ function AdminDepartment() {
 
   const [openMenuId, setOpenMenuId] = useState(null);
   const [openForm, setOpenForm] = useState(false);
+
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setOpenMenuId(null);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
+
 
   // SEARCH
   const filtered = depts.filter(d =>
@@ -65,7 +82,6 @@ function AdminDepartment() {
   return (
     <div className="p-[40px] min-h-[calc(100vh-80px)] bg-[#f6f7fb]">
 
-      {/* TOP BAR */}
       <div className="flex justify-between items-center mb-[30px]">
 
         <div className="flex items-center gap-[10px] bg-white p-[10px_14px] rounded-[30px] w-[320px] shadow-[0_6px_14px_rgba(0,0,0,0.12)]">
@@ -79,31 +95,31 @@ function AdminDepartment() {
         </div>
 
         <button
-  onClick={() => {
-    setOpenMenuId(null);
-    setOpenForm(true);
-  }}
-  onMouseEnter={() => setHover1(true)}
-  onMouseLeave={() => setHover1(false)}
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    padding: "14px 20px",
-    borderRadius: "10px",
-    border: "2px solid #16005d",
-    cursor: "pointer",
-    fontSize: "15px",
-    fontWeight: "600",
-    transition: "0.3s",
+        onClick={() => {
+          setOpenMenuId(null);
+          setOpenForm(true);
+        }}
+        onMouseEnter={() => setHover1(true)}
+        onMouseLeave={() => setHover1(false)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          padding: "14px 20px",
+          borderRadius: "10px",
+          border: "2px solid #16005d",
+          cursor: "pointer",
+          fontSize: "15px",
+          fontWeight: "600",
+          transition: "0.3s",
 
-    backgroundColor: hover1 ? "#16005d" : "#ffffff",
-    color: hover1 ? "#ffffff" : "#16005d",
-  }}
->
-  <AddIcon style={{ color: "inherit" }} />
-  Add Department
-</button>
+          backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                        color:"#ffffff"
+        }}
+      >
+        <AddIcon style={{ color: "inherit" }} />
+        Add Department
+      </button>
 
 
       </div>
@@ -139,14 +155,17 @@ function AdminDepartment() {
             </div>
 
             {openMenuId === dept.id && (
-              <DeptMenu
-                enabled={!dept.disabled}
-                hod={dept.hod}
-                onEdit={(hod) => handleEdit(dept.id, hod)}
-                onToggle={() => handleToggle(dept.id)}
-                onDelete={() => handleDelete(dept.id)}
-              />
+              <div ref={menuRef}>
+                <DeptMenu
+                  enabled={!dept.disabled}
+                  hod={dept.hod}
+                  onEdit={(hod) => handleEdit(dept.id, hod)}
+                  onToggle={() => handleToggle(dept.id)}
+                  onDelete={() => handleDelete(dept.id)}
+                />
+              </div>
             )}
+
 
             <div className="absolute bottom-[64px] px-[22px] z-[5] text-white">
               <p className="text-[27px] font-bold m-0">

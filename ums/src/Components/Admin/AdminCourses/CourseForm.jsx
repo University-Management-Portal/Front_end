@@ -32,8 +32,8 @@ function CourseForm({ open, onClose, onSave }) {
         <div className="flex justify-end gap-[10px]">
           <button className="bg-[#ccc] text-black px-4 py-2 rounded cursor-pointer border-none" onClick={onClose}
           style={{
-            backgroundColor: hover1 ? "#ffffff" : "#16005d",
-            color: hover1 ? "#16005d" : "#ffffff"
+            backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
           }}
           onMouseEnter={() => setHover1(true)}
           onMouseLeave={() => setHover1(false)}
@@ -53,8 +53,8 @@ function CourseForm({ open, onClose, onSave }) {
               setForm({ code: "", name: "" });
             }}
             style={{
-              backgroundColor: hover2 ? "#ffffff" : "#16005d",
-              color: hover2 ? "#16005d" : "#ffffff"
+              backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
             }}
             onMouseEnter={() => setHover2(true)}
             onMouseLeave={() => setHover2(false)}

@@ -4,6 +4,7 @@ const EMPTY_FORM = {
   id: "",
   rollno: "",
   name: "",
+  academic_year: "",
   year: "",
   dept: "",
   sec: "",
@@ -58,17 +59,25 @@ function UserForm({ mode, editingUser, onSave, onClose }) {
     }));
   };
 
-  const handleSubmit = () => {
-    if (!form.name) {
-      alert("Name is required");
+const handleSubmit = () => {
+
+  if (!form.name) {
+    alert("Name is required");
+    return;
+  }
+
+  if (form.role === "student") {
+    if (!form.year || !form.dept || !form.sec) {
+      alert("Year, Department and Section are required for Student");
       return;
     }
+  }
 
-    onSave({
-      ...form,
-      id: mode === "add" ? Date.now().toString() : form.id
-    });
-  };
+  onSave({
+    ...form,
+    id: mode === "add" ? Date.now().toString() : form.id
+  });
+};
 
   const renderFields = () => {
     switch (form.role) {

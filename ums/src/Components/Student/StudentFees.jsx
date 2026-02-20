@@ -12,6 +12,7 @@ function StudentFees() {
     const [hover3, setHover3] = useState(false);
     const [hover4, setHover4] = useState(false);
     const [hover5, setHover5] = useState(false);
+    
 
     const fees = [
         { name: "Tuition Fee (Per Semester)", amount: "₹1,00,000" },
@@ -69,7 +70,7 @@ function StudentFees() {
         sem3: { amount: "5450", dueDate: "2024-11-15", fine: " 100 per day", status: "Completed" },
         sem4: { amount: "6950", dueDate: "2025-05-15", fine: " 100 per day", status: "Completed" },
         sem5: { amount: "8450", dueDate: "2025-11-15", fine: " 100 per day", status: "Completed" },
-        sem6: { amount: "9950", dueDate: "2026-04-15", fine: " 100 per day", status: "Pending" },
+        sem6: { amount: "1", dueDate: "2026-04-15", fine: " 100 per day", status: "Pending" },
         sem7: { amount: "10,450", dueDate: "2026-11-15", fine: " 100 per day", status: "Not Released" },
         sem8: { amount: "11,950", dueDate: "2027-01-15", fine: " 100 per day", status: "Not Released" },
     }
@@ -79,6 +80,60 @@ function StudentFees() {
             semester: sem,
             ...details
         }));
+
+const handlePayment = async (amount) => {
+
+    const cleanAmount = Number(amount.toString().replace(/,/g, ""));
+
+    if (!cleanAmount || cleanAmount <= 0) {
+        alert("Invalid amount");
+        return;
+    }
+
+    if (!window.Razorpay) {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.onload = () => openRazorpay(cleanAmount);
+        document.body.appendChild(script);
+    } else {
+        openRazorpay(cleanAmount);
+    }
+};
+
+const openRazorpay = (amount) => {
+
+    const options = {
+        key: "rzp_test_SHf9twQFbaQrbs",  
+        amount: amount * 100,     
+        currency: "INR",
+        name: "Best Engineering College",
+        description: "Exam Fee Payment",
+        image: "/University Logo.png",
+
+        handler: function (response) {
+            console.log("Payment Success:", response);
+            alert("Payment Successful\nPayment ID: " + response.razorpay_payment_id);
+        },
+
+        modal: {
+            ondismiss: function () {
+                alert("Payment Cancelled");
+            }
+        },
+        theme: {
+            color: "#16005d"
+        }
+    };
+
+    const rzp = new window.Razorpay(options);
+
+    rzp.on("payment.failed", function (response) {
+        console.log(response.error);
+        alert("Payment Failed: " + response.error.description);
+    });
+
+    rzp.open();
+};
 
     return (
         <div className='flex p-[40px] gap-[40px] min-h-[calc(100vh-80px)]'>
@@ -90,7 +145,6 @@ function StudentFees() {
                 style={{
                     padding: "12px 18px",
                     borderRadius: "18px",
-                    border: "2px solid #16005d",
                     fontSize: "18px",
                     fontWeight: "600",
                     cursor: "pointer",
@@ -119,7 +173,6 @@ function StudentFees() {
                 style={{
                     padding: "12px 18px",
                     borderRadius: "18px",
-                    border: "2px solid #16005d",
                     fontSize: "18px",
                     fontWeight: "600",
                     cursor: "pointer",
@@ -148,7 +201,6 @@ function StudentFees() {
                 style={{
                     padding: "12px 18px",
                     borderRadius: "18px",
-                    border: "2px solid #16005d",
                     fontSize: "18px",
                     fontWeight: "600",
                     cursor: "pointer",
@@ -217,15 +269,9 @@ function StudentFees() {
                                 transition: "0.3s",
                                 boxShadow: "0 6px 14px rgba(22,0,93,0.25)",
 
-                                backgroundColor:
-                                feeTab === "examfee" || hover4
-                                    ? "#16005d"
-                                    : "#ffffff",
-
-                                color:
-                                feeTab === "examfee" || hover4
-                                    ? "#ffffff"
-                                    : "#16005d",
+                                backgroundColor: hover4 ? "#2d1a7a" : "#16005d",
+                                color:"#ffffff",
+               
                             }}
                             >
                             Exam Fees
@@ -269,9 +315,12 @@ function StudentFees() {
                                                         fontWeight: "600",
                                                         transition: "0.3s",
 
-                                                        backgroundColor: hover5 ? "#16005d" : "#ffffff",
-                                                        color: hover5 ? "#ffffff" : "#16005d",
+                                                        backgroundColor: hover5 ? "#2d1a7a" : "#16005d",
+                                                        color:"#ffffff",
                                                     }}
+                                                    value={items.amount}
+                                                    onClick={() => handlePayment(items.amount)}
+
                                                     >
                                                     Pay Now
                                                     </button>
@@ -315,9 +364,10 @@ function StudentFees() {
                                         <td className="p-[14px_16px] text-left text-[15px]">
                                             <a href={'/uploads/dummy.pdf'} download>
                                                 <button className="inline-flex items-center gap-[6px] p-[6px_12px] rounded-[20px] text-[13px] std-btn"
+                                                
                                                 style={{
-                                                    backgroundColor: "#16005d",
-                                                    color: "#ffffff"
+                                                    backgroundColor:  "#16005d",
+                                                    color:"#ffffff",
                                                 }}
                                                 >
                                                     <DownloadIcon fontSize="small" />
