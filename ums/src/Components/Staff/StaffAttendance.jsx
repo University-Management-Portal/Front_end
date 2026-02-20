@@ -18,7 +18,8 @@ export default function StaffAttendance() {
   const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
 
-  const key = `${filters.dept}-${filters.sem}-${filters.sec}`;
+  const key = `${filters.academic}-${filters.dept}-${filters.sem}-${filters.sec}`;
+
   const students = studentsData[key] || [];
 
   const updateFilter = (field, value) => {

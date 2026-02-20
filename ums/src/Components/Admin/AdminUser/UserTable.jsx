@@ -10,7 +10,7 @@ function UserTable({ users, selected, setSelected }) {
   };
 
   return (
-    <div className="bg-white rounded-[10px] overflow-x-auto mb-[30px] mt-[10px]">
+    <div className="bg-white  overflow-x-auto mb-[30px] mt-[10px]">
       <table className="w-full border-collapse">
         <thead>
           <tr>
@@ -46,9 +46,9 @@ function UserTable({ users, selected, setSelected }) {
                 <td className="p-[10px] border border-[#ddd]">{i + 1}</td>
                 <td className="p-[10px] border border-[#ddd]">{u.name}</td>
                 <td className="p-[10px] border border-[#ddd]">{u.rollno}</td>
-                <td className="p-[10px] border border-[#ddd]">{u.year}</td>
-                <td className="p-[10px] border border-[#ddd]">{u.dept}</td>
-                <td className="p-[10px] border border-[#ddd]">{u.sec}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.year || "null"}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.dept || "null"}</td>
+                <td className="p-[10px] border border-[#ddd]">{u.sec || "null"}</td>
                 <td className="p-[10px] border border-[#ddd]">{u.phone}</td>
                 <td className="p-[10px] border border-[#ddd]">{u.email}</td>
                 <td className="p-[10px] border border-[#ddd]">{u.DOB}</td>

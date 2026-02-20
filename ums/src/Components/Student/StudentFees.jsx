@@ -70,7 +70,7 @@ function StudentFees() {
         sem3: { amount: "5450", dueDate: "2024-11-15", fine: " 100 per day", status: "Completed" },
         sem4: { amount: "6950", dueDate: "2025-05-15", fine: " 100 per day", status: "Completed" },
         sem5: { amount: "8450", dueDate: "2025-11-15", fine: " 100 per day", status: "Completed" },
-        sem6: { amount: "9950", dueDate: "2026-04-15", fine: " 100 per day", status: "Pending" },
+        sem6: { amount: "1", dueDate: "2026-04-15", fine: " 100 per day", status: "Pending" },
         sem7: { amount: "10,450", dueDate: "2026-11-15", fine: " 100 per day", status: "Not Released" },
         sem8: { amount: "11,950", dueDate: "2027-01-15", fine: " 100 per day", status: "Not Released" },
     }
@@ -81,41 +81,59 @@ function StudentFees() {
             ...details
         }));
 
+const handlePayment = async (amount) => {
 
-    const handlePayment = (amount) => {
-    if (!amount) {
-        alert("Please enter the amount to be paid.");
+    const cleanAmount = Number(amount.toString().replace(/,/g, ""));
+
+    if (!cleanAmount || cleanAmount <= 0) {
+        alert("Invalid amount");
         return;
     }
 
+    if (!window.Razorpay) {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.onload = () => openRazorpay(cleanAmount);
+        document.body.appendChild(script);
+    } else {
+        openRazorpay(cleanAmount);
+    }
+};
+
+const openRazorpay = (amount) => {
+
     const options = {
-        key: "", 
-        key_secret:"",
-        amount: Number(amount) * 100,  
+        key: "rzp_test_SHf9twQFbaQrbs",  
+        amount: amount * 100,     
         currency: "INR",
-        name: "University Management System",
+        name: "Best Engineering College",
         description: "Exam Fee Payment",
+        image: "/University Logo.png",
+
         handler: function (response) {
-            alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+            console.log("Payment Success:", response);
+            alert("Payment Successful\nPayment ID: " + response.razorpay_payment_id);
         },
-        prefill: {
-            name: "Praveenkumar R",
-            email: "praveenraja4493@gmail.com",
-            contact: "7548897689"
-        },
-        notes: {
-            address: "University Management System, Coimbatore"
+
+        modal: {
+            ondismiss: function () {
+                alert("Payment Cancelled");
+            }
         },
         theme: {
             color: "#16005d"
         }
     };
 
-    const pay = new window.Razorpay(options);
-    pay.open();  // ⚠️ YOU FORGOT THIS
-};
+    const rzp = new window.Razorpay(options);
 
-    
+    rzp.on("payment.failed", function (response) {
+        console.log(response.error);
+        alert("Payment Failed: " + response.error.description);
+    });
+
+    rzp.open();
+};
 
     return (
         <div className='flex p-[40px] gap-[40px] min-h-[calc(100vh-80px)]'>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ExamRules from "./ExamRules";
 import examfeeDetails from "./ExamFeesDetails";
+import CircleIcon from "@mui/icons-material/Circle";
 function StudentExam() {
   
 
@@ -22,6 +23,60 @@ function StudentExam() {
     if (status === "Pending") return "text-[#b36b00]";
     return "text-[#777]";
   };
+
+  const handlePayment = async (amount) => {
+
+    const cleanAmount = Number(amount.toString().replace(/,/g, ""));
+
+    if (!cleanAmount || cleanAmount <= 0) {
+        alert("Invalid amount");
+        return;
+    }
+
+    if (!window.Razorpay) {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.onload = () => openRazorpay(cleanAmount);
+        document.body.appendChild(script);
+    } else {
+        openRazorpay(cleanAmount);
+    }
+};
+
+const openRazorpay = (amount) => {
+
+    const options = {
+        key: "rzp_test_SHf9twQFbaQrbs",  
+        amount: amount * 100,     
+        currency: "INR",
+        name: "Best Engineering College",
+        description: "Exam Fee Payment",
+        image: "/University Logo.png",
+
+        handler: function (response) {
+            console.log("Payment Success:", response);
+            alert("Payment Successful\nPayment ID: " + response.razorpay_payment_id);
+        },
+
+        modal: {
+            ondismiss: function () {
+                alert("Payment Cancelled");
+            }
+        },
+        theme: {
+            color: "#16005d"
+        }
+    };
+
+    const rzp = new window.Razorpay(options);
+
+    rzp.on("payment.failed", function (response) {
+        console.log(response.error);
+        alert("Payment Failed: " + response.error.description);
+    });
+
+    rzp.open();
+};
 
   
 
@@ -151,10 +206,11 @@ function StudentExam() {
         {activeTab === "rules" && (
           <>
             <h3 className="mb-[12px] text-[26px] text-[#16005d] font-bold">Examination Rules & Regulations</h3>
-            <ul className="pl-0 mt-[20px] list-none">
+            <ul className="pl-[20px] mt-[20px] list-none">
               {ExamRules.map((rule, index) => (
-                <li key={index} className="mb-[10px] text-[#333]">
-                  {index + 1}. {rule}
+                <li key={index} className="mb-[12px] text-[#333] flex items-start gap-[10px]">
+                  <CircleIcon style={{ color: "#16005d", fontSize: "12px" }} />
+                  <span className="mb-[10px]">{rule}</span> 
                 </li>
               ))}
             </ul>
@@ -266,7 +322,7 @@ function StudentExam() {
                            backgroundColor: hover6 ? "#2d1a7a" : "#16005d",
                           color:"#ffffff",
                         }}
-                        
+                        onClick={() => handlePayment(feeDetails.amount)}
                         >
                           Pay Now
                         </button>

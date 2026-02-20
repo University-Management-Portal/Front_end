@@ -10,8 +10,8 @@ export default function StudentListPage() {
   });
 
   const [search, setSearch] = useState("");
+const key = `${filters.academic}-${filters.dept}-${filters.sem}-${filters.sec}`;
 
-  const key = `${filters.dept}-${filters.sem}-${filters.sec}`;
   const students = studentsData[key] || [];
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);

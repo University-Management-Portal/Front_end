@@ -25,6 +25,10 @@ export default function AdminSideBar({ isOpen, onClose }) {
           {({ isActive }) => <li className={linkClasses({ isActive })}>Attendance</li>}
         </NavLink>
 
+        <NavLink to="/admin-schedule" onClick={onClose}>
+          {({ isActive }) => <li className={linkClasses({ isActive })}>Schedule</li>}
+        </NavLink>
+
         <NavLink to="/admin-courses" onClick={onClose}>
           {({ isActive }) => <li className={linkClasses({ isActive })}>Courses</li>}
         </NavLink>

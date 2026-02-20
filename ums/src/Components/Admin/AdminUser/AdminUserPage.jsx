@@ -6,6 +6,7 @@ import * as XLSX from "xlsx";
 import UserForm from "./UserForm";
 
 function AdminUserPage() {
+
   const [users, setUsers] = useState(() => {
     return JSON.parse(localStorage.getItem("users")) || [];
   });
@@ -20,13 +21,25 @@ function AdminUserPage() {
 
   const [select, setSelect] = useState(true);
   const [showForm, setShowForm] = useState(false);
-  const [mode, setMode] = useState("add"); // add | edit
+  const [mode, setMode] = useState("add");
   const [editingUser, setEditingUser] = useState(null);
 
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState([]);
 
-  // ✅ BULK UPLOAD (FIXED)
+  // 🔥 DATE FORMAT SAFE
+  const formatDate = (value) => {
+    if (!value) return "";
+
+    if (typeof value === "number") {
+      const date = XLSX.SSF.parse_date_code(value);
+      return `${date.y}-${String(date.m).padStart(2, "0")}-${String(date.d).padStart(2, "0")}`;
+    }
+
+    return value;
+  };
+
+  // ✅ BULK UPLOAD
   const handleBulkUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -38,31 +51,43 @@ function AdminUserPage() {
       const workbook = XLSX.read(data, { type: "array" });
       const sheet = workbook.Sheets[workbook.SheetNames[0]];
 
-      const excelData = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+      const excelData = XLSX.utils.sheet_to_json(sheet, {
+        defval: "",
+        raw: false   // 🔥 IMPORTANT FOR DOB
+      });
 
-      const formatted = excelData.map((row) => ({
-        id: String(row.rollno).trim(),
-        rollno: String(row.rollno).trim(),
-        name: row.name || "",
-        year: row.year || "",
-        dept: row.dept || "",
-        sec: row.sec || "",
-        phone: row.phone ? String(row.phone) : "",
-        email: row.email || "",
-        role: row.role ? row.role.toLowerCase() : ""
-      }));
+      const formatted = excelData.map((row) => {
+
+        // normalize keys (handles case + space issues)
+        const normalized = {};
+        Object.keys(row).forEach((key) => {
+          normalized[key.trim().toLowerCase()] = row[key];
+        });
+
+        return {
+          id: String(normalized.rollno || Date.now() + Math.random()),
+          rollno: String(normalized.rollno || ""),
+          name: normalized.name || "",
+          year: normalized.year || "",
+          dept: normalized.dept || "",
+          sec: normalized.sec || normalized.section || "",
+          phone: normalized.phone ? String(normalized.phone) : "",
+          email: normalized.email || "",
+          DOB: formatDate(normalized.dob),   // 🔥 DOB FIXED
+          role: normalized.role ? normalized.role.toLowerCase() : "",
+          designation: normalized.designation || ""
+        };
+      });
 
       setUsers(formatted);
       setSelected([]);
       localStorage.setItem("users", JSON.stringify(formatted));
 
-      //  IMPORTANT FIX: reset file input
       e.target.value = "";
     };
 
     reader.readAsArrayBuffer(file);
   };
-
 
   // DELETE
   const handleDelete = () => {
@@ -73,74 +98,82 @@ function AdminUserPage() {
     localStorage.setItem("users", JSON.stringify(remaining));
   };
 
-  // FILTER + SEARCH (SAFE)
+  // FILTER
   const filteredUsers = users.filter((u) => {
-    const name = u.name || "";
-    const email = u.email || "";
-
     return (
-      (!filter.dept || u.dept === filter.dept) &&
-      (!filter.user || u.role === filter.user) &&
+      (!filter.academic_year || u.academic_year === filter.academic_year) &&
       (!filter.year || String(u.year) === filter.year) &&
+      (!filter.dept || u.dept === filter.dept) &&
       (!filter.sec || u.sec === filter.sec) &&
+      (!filter.user || u.role === filter.user) &&
       (
-        name.toLowerCase().includes(search.toLowerCase()) ||
-        email.toLowerCase().includes(search.toLowerCase())
+        (u.name || "").toLowerCase().includes(search.toLowerCase()) ||
+        (u.email || "").toLowerCase().includes(search.toLowerCase())
       )
     );
   });
 
-  //Select-Deselect
+  // SELECT ALL
   const handleOnSelectAll = () => {
     if (selected.length === filteredUsers.length) {
-      setSelected([]); // deselect all
+      setSelected([]);
       setSelect(true);
     } else {
-      setSelected(filteredUsers.map((u) => u.id)); // select all
+      setSelected(filteredUsers.map((u) => u.id));
       setSelect(false);
     }
-  }
+  };
 
-  //AddOne
+  // ADD ONE
   const handleAddOne = () => {
     setMode("add");
     setEditingUser(null);
     setShowForm(true);
   };
 
-
-  //Edit
+  // EDIT
   const handleEdit = () => {
     if (selected.length !== 1) {
       alert("Please select exactly one row to edit");
       return;
     }
 
-    const userToEdit = users.find(u => u.id === selected[0]);
+    const userToEdit = users.find((u) => u.id === selected[0]);
     setMode("edit");
     setEditingUser(userToEdit);
     setShowForm(true);
   };
 
-
-  //SAVE
+  // SAVE
   const handleSave = (userData) => {
+
     let updatedUsers;
 
-    if (mode === "add") {
-      updatedUsers = [...users, userData];
-    } else {
-      updatedUsers = users.map(u =>
+    if (mode === "edit") {
+      updatedUsers = users.map((u) =>
         u.id === userData.id ? userData : u
       );
+    } else {
+      updatedUsers = [
+        ...users,
+        { ...userData, id: Date.now().toString() }
+      ];
     }
 
     setUsers(updatedUsers);
     localStorage.setItem("users", JSON.stringify(updatedUsers));
-    setSelected([]);
-    setShowForm(false);
-  };
 
+    setFilter({
+      academic_year: "",
+      year: "",
+      dept: "",
+      sec: "",
+      user: ""
+    });
+
+    setShowForm(false);
+    setSelected([]);
+  };
 
   return (
     <div className="min-h-screen">

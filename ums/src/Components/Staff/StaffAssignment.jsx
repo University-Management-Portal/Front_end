@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { BsPlusLg, BsThreeDotsVertical } from "react-icons/bs";
 import { useLocation , useNavigate } from "react-router-dom";
 
@@ -10,6 +10,11 @@ export default function StaffAssignment() {
   const [hover2, setHover2] = useState(false);
   const [hover3, setHover3] = useState(false);
 
+  const menuRef = useRef(null);
+
+ 
+ 
+
   const navigate = useNavigate();
 
   const [assignments, setAssignments] = useState([]);
@@ -19,6 +24,21 @@ export default function StaffAssignment() {
   const [dueDate, setDueDate] = useState('');
   const [file, setFile] = useState(null);
   const [activeMenu, setActiveMenu] = useState(null);
+
+   useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setActiveMenu(null);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
+
 
 
   const getStatus = (due) => {
@@ -53,6 +73,8 @@ export default function StaffAssignment() {
   const handleDelete = (id) => {
     setAssignments(assignments.filter(a => a.id !== id));
   };
+
+  const today = new Date().toISOString().split("T")[0];
 
   const toggleEnable = (id) => {
     setAssignments(assignments.map(a =>
@@ -134,6 +156,7 @@ export default function StaffAssignment() {
                 <input
                   type="date"
                   value={dueDate}
+                  min={today}
                   onChange={e => setDueDate(e.target.value)}
                   className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[180px] ml-[20px]"
                 />
@@ -223,7 +246,7 @@ export default function StaffAssignment() {
                     />
 
                     {activeMenu === index && (
-                      <div className="absolute right-0 top-[20px] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)] rounded-[6px] z-10 w-[100px]">
+                      <div  ref={menuRef} className="absolute right-0 top-[20px] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)] rounded-[6px] z-10 w-[100px]">
                         <p className="p-[8px_14px] cursor-pointer hover:bg-[#f1f5f9]" onClick={() => window.open(a.fileUrl, "_blank")}>
                           View
                         </p>

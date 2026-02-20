@@ -13,7 +13,7 @@ const createAssignmentsWithMarks = (students, assignments) => {
     students: students.map((stu) => ({
       regNo: stu.roll,
       name: stu.name,
-      mark: Math.floor(Math.random() * 10) + 10, // 10–20
+      mark: Math.floor(Math.random() * 10) + 10, 
     })),
   }));
 };
@@ -23,44 +23,44 @@ const AssignmentData = {
     5: {
       CSE: {
         A: createAssignmentsWithMarks(
-          studentsData["CSE-5-A"],
+          studentsData["2025-2026-CSE-5-A"],
           assignmentsByDept.CSE
         ),
         B: createAssignmentsWithMarks(
-          studentsData["CSE-5-B"],
+          studentsData["2025-2026-CSE-5-B"],
           assignmentsByDept.CSE
         ),
         C: createAssignmentsWithMarks(
-          studentsData["CSE-5-C"],
+          studentsData["2025-2026-CSE-5-C"],
           assignmentsByDept.CSE
         ),
       },
 
       IT: {
         A: createAssignmentsWithMarks(
-          studentsData["IT-5-A"],
+          studentsData["2025-2026-IT-5-A"],
           assignmentsByDept.IT
         ),
         B: createAssignmentsWithMarks(
-          studentsData["IT-5-B"],
+          studentsData["2025-2026-IT-5-B"],
           assignmentsByDept.IT
         ),
       },
 
       EEE: {
         A: createAssignmentsWithMarks(
-          studentsData["EEE-5-A"],
+          studentsData["2025-2026-EEE-5-A"],
           assignmentsByDept.EEE
         ),
         B: createAssignmentsWithMarks(
-          studentsData["EEE-5-B"],
+          studentsData["2025-2026-EEE-5-B"],
           assignmentsByDept.EEE
         ),
       },
 
       Mech: {
         A: createAssignmentsWithMarks(
-          studentsData["Mech-5-A"],
+          studentsData["2025-2026-Mech-5-A"],
           assignmentsByDept.Mech
         ),
       },
