@@ -29,10 +29,20 @@ const PageTitles = {
     "/admin-settings" : "Settings",
     "/admin-profile" : "Profile",
     "/announcement" : "Announcement",
+<<<<<<< HEAD
     "/admin-report/internal" : "Internal Reports",
     "/admin-report/assignment" :"Assignment Reports",   
     "/admin-report/internal/table" : "Internal Reports",
     "/admin-report/assignment/table" : "Assignment Reports"
+=======
+
+    "/admin-report/attendance" : "Attendance",
+    "/admin-report/internal" : "Internal Marks",
+    "/admin-report/internal/table" : "Internal Marks",
+    "/admin-report/assignment" : "Assignment",
+    "/admin-report/assignment/table" : "Assignment",
+    "/admin-schedule" : "Schedule"
+>>>>>>> branch2
 }
 
 export default PageTitles;

@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
-import './StaffAssignments.css'
+import React, { useState, useRef, useEffect } from 'react'
 import { BsPlusLg, BsThreeDotsVertical } from "react-icons/bs";
-import { useLocation } from "react-router-dom";
-
+import { useLocation , useNavigate } from "react-router-dom";
 
 export default function StaffAssignment() {
 
   const location = useLocation();
   const { subject, dept } = location.state || {};
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
+
+  const menuRef = useRef(null);
+
+ 
+ 
+
+  const navigate = useNavigate();
 
   const [assignments, setAssignments] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -16,7 +24,22 @@ export default function StaffAssignment() {
   const [dueDate, setDueDate] = useState('');
   const [file, setFile] = useState(null);
   const [activeMenu, setActiveMenu] = useState(null);
- 
+
+   useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setActiveMenu(null);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
+
+
 
   const getStatus = (due) => {
     const today = new Date();
@@ -36,7 +59,7 @@ export default function StaffAssignment() {
         title,
         dueDate,
         file,
-        fileUrl,   
+        fileUrl,
         enabled: true
       }
     ]);
@@ -51,79 +74,171 @@ export default function StaffAssignment() {
     setAssignments(assignments.filter(a => a.id !== id));
   };
 
+  const today = new Date().toISOString().split("T")[0];
+
   const toggleEnable = (id) => {
     setAssignments(assignments.map(a =>
       a.id === id ? { ...a, enabled: !a.enabled } : a
     ));
   };
 
+  const handleCancel = () => {
+  setShowForm(false); 
+};
+
   return (
-    <div className="assignment-container">
-      <div className="assignment-wrapper">
+    <div className="min-h-screen p-[40px] flex justify-center bg-[#f4f6fb]">
+      <div className="w-full max-w-[1000px]">
 
-        <div className="ass-head">
-          <p className="url">
-          {dept} / {subject} / Assignment
-          </p>
+        <div className="flex items-center justify-between py-[10px]">
+         <div className="flex items-center text-[16px] font-medium text-[#16005D]">
 
-          <button className="add-btn" onClick={() => setShowForm(!showForm)}>
-          <BsPlusLg /> Add Assignment
+          <span
+            onClick={() => navigate(-1)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            {dept}
+          </span>
+
+          <span className="mx-2">/</span>
+
+          <span
+            onClick={() => navigate(-1)}
+            style={{ cursor: "pointer" }}
+            className="hover:underline"
+          >
+            {subject}
+          </span>
+
+          <span className="mx-2">/</span>
+
+          <span>Assignment</span>
+
+        </div>
+
+          <button
+            onClick={() => setShowForm(!showForm)}
+            onMouseEnter={() => setHover1(true)}
+            onMouseLeave={() => setHover1(false)}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "8px 14px",
+              borderRadius: "6px",
+              border: "2px solid #16005D",
+              cursor: "pointer",
+              fontWeight: "500",
+              transition: "0.3s",
+
+              backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+              color:"#ffffff",
+            }}
+          >
+            <BsPlusLg />
+            Add Assignment
           </button>
+
         </div>
 
 
         {showForm && (
-          <div className="form-card">
-            <input
-              type="text"
-              placeholder="Assignment Title"
-              value={title}
-              onChange={e => setTitle(e.target.value)}
-            />
+          <div className="bg-white rounded-[10px] flex gap-[8px] items-center flex-wrap mb-[30px] w-[1030px] p-[20px] mt-[20px] ml-[-20px]">
+                <input
+                  type="text"
+                  placeholder="Assignment Title"
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                  className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[200px] "
+                />
 
-            <input
-              type="date"
-              value={dueDate}
-              onChange={e => setDueDate(e.target.value)}
-            />
+                <input
+                  type="date"
+                  value={dueDate}
+                  min={today}
+                  onChange={e => setDueDate(e.target.value)}
+                  className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[180px] ml-[20px]"
+                />
 
-            <input
-              type="file"
-              accept=".pdf,.doc,.docx"
-              onChange={e => setFile(e.target.files[0])}
-            />
+                <input
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={e => setFile(e.target.files[0])}
+                  className="p-[8px] rounded-[6px] border border-[#ccc] text-[14px] w-[280px] ml-[20px]"
+                />
+          
 
-            <button className="save-btn" onClick={handleAdd}>
-              Add
-            </button>
+
+                  <button
+                    onClick={handleAdd}
+                    onMouseEnter={() => setHover2(true)}
+                    onMouseLeave={() => setHover2(false)}
+                    style={{
+                      width: "100px",
+                      marginLeft: "40px",
+                      padding: "8px 16px",
+                      borderRadius: "6px",
+                      border: "2px solid #16005D",
+                      cursor: "pointer",
+                      fontWeight: "500",
+                      transition: "0.3s",
+
+                      backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+                    color:"#ffffff",
+                    }}
+                  >
+                    Add
+                  </button>
+
+                  <button
+                  onClick={handleCancel}
+                  onMouseEnter={() => setHover3(true)}
+                    onMouseLeave={() => setHover3(false)}
+                    style={{
+                      width: "100px",
+                      padding: "8px 16px",
+                      borderRadius: "6px",
+                      border: "2px solid #c80c0c",
+                      cursor: "pointer",
+                      fontWeight: "500",
+                      transition: "0.3s",
+
+                      backgroundColor: hover3 ? "#e8323b" : "#c80c0c",
+                    color:"#ffffff",
+                    }}
+                  >
+                    Cancel
+                  </button>
           </div>
+          
         )}
 
 
         {assignments.length === 0 ? (
-          <div className="empty">No Assignments Here 📄</div>
+          <div className="text-center mt-[80px] text-gray-500 text-[16px]">No Assignments Here 📄</div>
         ) : (
-          <table className="tables">
+          <table className="w-full bg-white rounded-[10px] overflow-visible border-collapse">
             <thead>
-              <tr>
-                <th>Title</th>
-                <th>Due Date</th>
-                <th>Status</th>
-                <th>Actions</th>
+              <tr className="bg-[#e5e7eb]">
+                <th className="p-[14px] text-left text-[#16005D]">Title</th>
+                <th className="p-[14px] text-left text-[#16005D]">Due Date</th>
+                <th className="p-[14px] text-left text-[#16005D]">Status</th>
+                <th className="p-[14px] text-left text-[#16005D]">Actions</th>
               </tr>
             </thead>
 
             <tbody>
               {assignments.map((a, index) => (
-                <tr key={a.id} className={!a.enabled ? "disabled" : ""}>
-                  <td>{a.title}</td>
-                  <td>{a.dueDate}</td>
+                <tr key={a.id} className={`${!a.enabled ? "opacity-50" : ""} even:bg-[#f9fafb]`}>
+                  <td className="p-[14px] text-left text-[#16005D]">{a.title}</td>
+                  <td className="p-[14px] text-left text-[#16005D]">{a.dueDate}</td>
 
-                  <td className={getStatus(a.dueDate) === "OPEN" ? "Open" : "closed"}>
+                  <td className={`p-[14px] text-left ${getStatus(a.dueDate) === "OPEN" ? "text-green-600 font-semibold" : "text-red-600 font-semibold"}`}>
                     {getStatus(a.dueDate)}
                   </td>
 
-                  <td className="menu">
+                  <td className="relative cursor-pointer p-[14px] text-left text-[#16005D]">
                     <BsThreeDotsVertical
                       onClick={() =>
                         setActiveMenu(activeMenu === index ? null : index)
@@ -131,15 +246,15 @@ export default function StaffAssignment() {
                     />
 
                     {activeMenu === index && (
-                      <div className="dropdown">
-                        <p onClick={() => window.open(a.fileUrl, "_blank")}>
-                        View
+                      <div  ref={menuRef} className="absolute right-0 top-[20px] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)] rounded-[6px] z-10 w-[100px]">
+                        <p className="p-[8px_14px] cursor-pointer hover:bg-[#f1f5f9]" onClick={() => window.open(a.fileUrl, "_blank")}>
+                          View
                         </p>
 
-                        <p onClick={() => toggleEnable(a.id)}>
+                        <p className="p-[8px_14px] cursor-pointer hover:bg-[#f1f5f9]" onClick={() => toggleEnable(a.id)}>
                           {a.enabled ? "Disable" : "Enable"}
                         </p>
-                        <p onClick={() => handleDelete(a.id)}>Delete</p>
+                        <p className="p-[8px_14px] cursor-pointer hover:bg-[#f1f5f9] text-red-600" onClick={() => handleDelete(a.id)}>Delete</p>
                       </div>
                     )}
                   </td>

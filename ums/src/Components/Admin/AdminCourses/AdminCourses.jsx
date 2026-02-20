@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "./AdminCourses.css";
+import React, { useState ,useEffect , useRef } from "react";
 import courseData from "../../Student/Courses.js";
 
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -11,38 +10,45 @@ import CourseForm from "./CourseForm";
 import AssignStaffModal from "./AssignStaffModal";
 
 function AdminCourses() {
+   const COMMON_BG =
+  "Advancednet.jpg";
   const [search, setSearch] = useState("");
+
   const [courses, setCourses] = useState(
     courseData.map(c => ({
       ...c,
       id: c.sub,
+      staffList: [],
+      dept: "",
+      sec: "",
       disabled: false,
-      staffs: []         
+      img: COMMON_BG  
     }))
   );
 
-  const [openMenuId, setOpenMenuId] = useState(null);
-  const [showAddForm, setShowAddForm] = useState(false);
-  const [assignCourse, setAssignCourse] = useState(null);
+  const menuRef = useRef(null);
 
+  
+
+ 
+
+  const [openMenuId, setOpenMenuId] = useState(null);
+  const [openForm, setOpenForm] = useState(false);
+  const [hover1, setHover1] = useState(false);
+
+  // SEARCH FILTER
   const filteredCourses = courses.filter(c =>
     c.sub.toLowerCase().includes(search.toLowerCase())
   );
 
-  const addCourse = (course) => {
-    setCourses(prev => [
-      { ...course, staffs: [], disabled: false },
-      ...prev
-    ]);
-    setShowAddForm(false);
-  };
-
-  const deleteCourse = (id) => {
+  // DELETE COURSE
+  const handleDelete = (id) => {
     setCourses(prev => prev.filter(c => c.id !== id));
     setOpenMenuId(null);
   };
 
-  const toggleCourse = (id) => {
+  // ENABLE / DISABLE
+  const handleToggle = (id) => {
     setCourses(prev =>
       prev.map(c =>
         c.id === id ? { ...c, disabled: !c.disabled } : c
@@ -51,81 +57,175 @@ function AdminCourses() {
     setOpenMenuId(null);
   };
 
-  const assignStaff = (staff) => {
+  // ADD NEW COURSE (CODE + NAME ONLY)
+  const handleAddCourse = (data) => {
+    const newCourse = {
+      id: data.code,
+      sub: `${data.code} / ${data.name}`,
+      staffList: [],
+      img: COMMON_BG, 
+      disabled: false,
+      faculty: "",
+      dept: "",
+      sec: ""
+    };
+
+    setCourses(prev => [...prev, newCourse]);
+  };
+
+  // ASSIGN FACULTY + DEPT + SEC
+  const handleAssign = (id, data) => {
     setCourses(prev =>
       prev.map(c =>
-        c.id === assignCourse.id
-          ? { ...c, staffs: [...c.staffs, staff] }
+        c.id === id
+          ? {
+            ...c,
+            staffList: [
+              ...c.staffList,
+              {
+                name: data.faculty,
+                dept: data.dept,
+                sec: data.sec
+              }
+            ]
+          }
           : c
       )
     );
-    setAssignCourse(null);
+
     setOpenMenuId(null);
   };
 
-  return (
-    <div className="admin-course-page">
+  useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setOpenMenuId(null);
+    }
+  };
 
-      {/* TOP BAR */}
-      <div className="admin-course-topbar">
-        <div className="course-search">
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
+
+
+  return (
+    <div className="p-[40px] min-h-[calc(100vh-80px)] bg-[#f6f7fb]">
+
+      <div className="flex justify-between items-center mb-[30px]">
+
+        <div className="flex items-center gap-[10px] bg-white p-[10px_14px] rounded-[30px] w-[320px] shadow-[0_6px_14px_rgba(0,0,0,0.12)]">
           <SearchIcon />
           <input
             placeholder="Search course..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            className="border-none outline-none w-full text-[15px]"
           />
         </div>
 
-        <button className="add-course-btn" onClick={() => setShowAddForm(true)}>
-          <AddIcon /> Add Course
-        </button>
+        <button
+        onClick={() => {
+          setOpenMenuId(null);
+          setOpenForm(true);
+        }}
+        onMouseEnter={() => setHover1(true)}
+        onMouseLeave={() => setHover1(false)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          padding: "14px 20px",
+          borderRadius: "10px",
+          border: "2px solid #16005d",
+          cursor: "pointer",
+          fontSize: "15px",
+          fontWeight: "600",
+          transition: "0.3s",
+
+          backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                        color:"#ffffff"
+        }}
+      >
+        <AddIcon style={{ color: "inherit" }} />
+        Add Course
+      </button>
+
       </div>
 
-      <div className="admin-course-container">
-        {filteredCourses.map(course => (
-          <div
-            key={course.id}
-            className={`admin-course-card ${course.disabled ? "disabled" : ""}`}
-          >
-            <img src={course.img || "/course-default.jpg"} alt={course.sub} />
+      <div className="grid grid-cols-3 gap-[36px] pt-[20px] pb-[40px]">
 
-            <MoreVertIcon
-              className="more-icon"
+        {filteredCourses.map((course) => (
+
+          <div
+            className={`relative h-[250px] rounded-[22px] overflow-hidden bg-black cursor-pointer shadow-[0_10px_26px_rgba(0,0,0,0.18)] transition-all transform hover:-translate-y-[8px] hover:shadow-[0_18px_36px_rgba(0,0,0,0.3)] group ${course.disabled ? "grayscale opacity-70" : ""
+              }`}
+            key={course.id}
+          >
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#16005d]/90 to-[#16005d]/20 pointer-events-none z-[4]" />
+
+            <img
+              src={course.img}
+              alt={course.sub}
+              className="w-full h-full object-cover"
+            />
+
+            {/* MORE ICON */}
+            <div
+              className="absolute top-[16px] right-[16px] z-[6] text-white cursor-pointer hover:opacity-85"
               onClick={(e) => {
                 e.stopPropagation();
                 setOpenMenuId(openMenuId === course.id ? null : course.id);
               }}
-            />
+            >
+              <MoreVertIcon />
+            </div>
 
-            {openMenuId === course.id && (
-              <CourseMenu
-                enabled={!course.disabled}
-                onAssign={() => setAssignCourse(course)}
-                onToggle={() => toggleCourse(course.id)}
-                onDelete={() => deleteCourse(course.id)}
-              />
+           {openMenuId === course.id && (
+              <div ref={menuRef}>
+                <CourseMenu
+                  enabled={!course.disabled}
+                  onAssign={(data) => handleAssign(course.id, data)}
+                  onToggle={() => handleToggle(course.id)}
+                  onDelete={() => handleDelete(course.id)}
+                />
+              </div>
             )}
 
-            <div className="admin-course-header">
-              <p>{course.sub}</p>
+            {/* TEXT */}
+            <div className="absolute bottom-[64px] w-full px-[22px] z-[5] text-white">
+              <p className="text-[24px] font-bold m-0">
+                {course.sub}
+              </p>
             </div>
+
+            <div className="absolute bottom-[26px] px-[22px] z-[5] text-white">
+              <p className="text-[16px] opacity-90 m-0">
+                {course.staffList.length === 0
+                  ? "Not Assigned"
+                  : course.staffList.map(s => s.name).join(", ")
+                }
+              </p>
+            </div>
+
           </div>
         ))}
+
       </div>
 
-      
+      {/* ADD COURSE MODAL */}
       <CourseForm
-        open={showAddForm}
-        onClose={() => setShowAddForm(false)}
-        onSave={addCourse}
+        open={openForm}
+        onClose={() => setOpenForm(false)}
+        onSave={(data) => {
+          handleAddCourse(data);
+          setOpenForm(false);
+        }}
       />
 
-      <AssignStaffModal
-        open={!!assignCourse}
-        onClose={() => setAssignCourse(null)}
-        onAssign={assignStaff}
-      />
     </div>
   );
 }

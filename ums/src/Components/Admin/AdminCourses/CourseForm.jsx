@@ -1,35 +1,67 @@
 import React, { useState } from "react";
-import "./AdminCourses.css";
 
 function CourseForm({ open, onClose, onSave }) {
-  const [name, setName] = useState("");
+  const [form, setForm] = useState({
+    code: "",
+    name: ""
+  });
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
 
   if (!open) return null;
 
-  const submit = () => {
-    if (!name) return alert("Enter course name");
-
-    onSave({
-      id: name,
-      sub: name,
-      img: "/course-default.jpg"
-    });
-
-    setName("");
-  };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-box" onClick={e => e.stopPropagation()}>
-        <h3>Add Course</h3>
+    <div className="fixed inset-0 bg-black/45 flex items-center justify-center z-[2000]" onClick={onClose}>
+      <div className="w-[380px] bg-white rounded-[14px] p-[22px]" onClick={(e) => e.stopPropagation()}>
+        <h3 className="mb-[14px] text-lg font-bold">Add Course</h3>
+
+        <input
+          placeholder="Course Code (CS101)"
+          className="w-full p-[10px] mb-[12px] rounded-[6px] border border-[#ccc] outline-none"
+          value={form.code}
+          onChange={(e) => setForm({ ...form, code: e.target.value })}
+        />
+
         <input
           placeholder="Course Name"
-          value={name}
-          onChange={e => setName(e.target.value)}
+          className="w-full p-[10px] mb-[12px] rounded-[6px] border border-[#ccc] outline-none"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
         />
-        <div className="modal-actions">
-          <button className="cancel" onClick={onClose}>Cancel</button>
-          <button className="save" onClick={submit}>Save</button>
+
+        <div className="flex justify-end gap-[10px]">
+          <button className="bg-[#ccc] text-black px-4 py-2 rounded cursor-pointer border-none" onClick={onClose}
+          style={{
+            backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
+          }}
+          onMouseEnter={() => setHover1(true)}
+          onMouseLeave={() => setHover1(false)}
+          >
+            Cancel
+          </button>
+
+          <button
+            className="std-btn px-4 py-2 rounded"
+            onClick={() => {
+              if (!form.code || !form.name) {
+                alert("Enter course code & name");
+                return;
+              }
+
+              onSave(form);
+              setForm({ code: "", name: "" });
+            }}
+            style={{
+              backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+                  color:"#ffffff"
+            }}
+            onMouseEnter={() => setHover2(true)}
+            onMouseLeave={() => setHover2(false)}
+          >
+            Save
+          </button>
         </div>
       </div>
     </div>

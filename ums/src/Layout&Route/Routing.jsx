@@ -45,8 +45,14 @@ import AdminAssignmentReport from '../Components/Admin/AdminAssignmentReport.jsx
 import AdminInternalReport from '../Components/Admin/AdminInternalReport.jsx'
 import InternalMarkTable from '../Components/Admin/InternalMarkTable.jsx'
 import AssignmentReportTable from '../Components/Admin/AssignmentReportTable.jsx'
+
 import AdminAttendance from '../Components/Admin/AdminAttendance/AdminAttendance.jsx'
 import AdminDepartment from '../Components/Admin/AdminDepartment/AdminDepartment.jsx'
+import AdminLayout from '../Layout&Route/AdminLayout.jsx'
+import AdminSettings from '../Components/Admin/AdminSettings.jsx'
+import AdminAttendanceReport from '../Components/Admin/AdminAttendanceReport.jsx'
+import AdminSchedule from '../Components/Admin/AdminSchedule.jsx'
+
 
 
 
@@ -104,12 +110,18 @@ function Routing() {
           <Route path="/admin-report/assignment/table" element={<AssignmentReportTable />}/>
           <Route path='/admin-userpage' element={<AdminUserPage/>}/>
           <Route path='/admin-courses' element={<AdminCourses/>}/>
+
           <Route path='/admin-attendance' element={<AdminAttendance/>}/>
           <Route path='/admin-departments' element={<AdminDepartment/>}/>
+          <Route path="/admin-dashboard" element={ <AdminLayout> <AdminDashboard /> </AdminLayout>}/>
+          <Route path='/admin-settings' element={<AdminSettings/>}/>
+          <Route path="/admin-report/attendance" element={<AdminAttendanceReport />} />
+          <Route path='/admin-schedule' element={<AdminSchedule/>}/>
+
+
 
         </Route>
 
-        {/* Common */}
         <Route element={<Layout/>}>
           <Route path='/announcement' element={<AnnouncementPage/>} />
         </Route>

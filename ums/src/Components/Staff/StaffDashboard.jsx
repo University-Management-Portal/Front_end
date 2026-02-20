@@ -1,100 +1,37 @@
-import React, { useState } from 'react'
-import CalendarData from './CalendarData'
-import './StaffDashBoards.css'
-import { FaArrowRight } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa";
-import ProfileData from './ProfileData.js';
+import React from "react";
+import ProfileData from "./ProfileData";
+import ProfCalender from "../Common/ProfCalender";
 
 export default function StaffDashboard() {
 
-  const name = ProfileData.find(item => item.label === "Name")?.value;
-  const regNo = ProfileData.find(item => item.label === "Reg No")?.value;
-  const dept = ProfileData.find(item => item.label === "Department")?.value;
+  const name = ProfileData.find(i => i.label === "Name")?.value;
+  const regNo = ProfileData.find(i => i.label === "Reg No")?.value;
+  const dept = ProfileData.find(i => i.label === "Department")?.value;
 
-  const currentHour = new Date().getHours(); 
-
-  let greetings='';
-
-  if (currentHour < 12) {
-      greetings = 'Good Morning';
-    } 
-  else if (currentHour < 16) {
-      greetings = 'Good Afternoon';
-    } 
-  else {
-      greetings = 'Good Evening';
-    }
-
-
-   const [currentIndex, setCurrentIndex] = useState(0);
-
-   const prevMonth = () => {
-    setCurrentIndex(
-      currentIndex === 0 ? CalendarData.length - 1 : currentIndex - 1
-    );
-  };
-
-  const nextMonth = () => {
-    setCurrentIndex(
-      currentIndex === CalendarData.length - 1 ? 0 : currentIndex + 1
-    );
-  };
-
-  const scheduleData = [
-  {
-    subject: "DBMS",
-    time: "10:00 AM to 11:00 AM"
-  }
-];
-
-
+  // const data = axios.get("http://localhost:5000/api/student/get").then(res => {
+  //   // Process the response data as needed
+  //   console.log(res.data);
+  // }).catch(err => {
+  //   console.error("Error fetching dashboard data:", err);
+  // } );  
 
   return (
-    <div className='main'>
+    <div className="w-full max-w-none p-4">
 
-      <div className="name-cart">
-          <div className="profile-item">
-            <p className='greeting'><pre>{greetings} !  {name}</pre></p>
-            <p className='role'>{regNo}</p>
-            <p className='dept'>{dept} Department</p>
-          </div>
-      </div>
-      <br />
-
-      <div className="content">
-
-      <div className="calendar-card">
-          <button className='prev' onClick={prevMonth}><FaArrowLeft size={25} color="#ffffff" /></button>
-
-          <div className="calendar-content">
-            <p className='month'>{CalendarData[currentIndex].month}</p>
-            <img src={CalendarData[currentIndex].img} alt="calendar"/>
-          </div>
-
-          <button className='next' onClick={nextMonth}><FaArrowRight size={25} color="#ffffff" /></button>
+      <div className="bg-[#16005D] rounded-[10px] w-full min-h-[180px] p-[10px] mb-4 flex flex-col justify-center">
+        <p className="text-white text-[34px] font-semibold ml-[40px]">
+           {name} ({regNo})
+        </p>
+        <h3 className="text-white text-[26px] font-medium ml-[40px]">{dept} Department</h3>
       </div>
 
-      <div className="schedule-card">
-      {scheduleData.map((item, index) => (
-        <div key={index}>
-        <div className="head">Teaching Schedule</div>
-
-        <div className="inner-cart">
-        <div className="today-class">Today Class</div>
-        <br />
-        <div className="event">{item.subject}</div>
-        <br />
-        <div className="timing">{item.time}</div>
+      <div className="w-full mb-4">
+        <div className="rounded-[14px] overflow-hidden shadow-sm">
+          <ProfCalender />
+        </div>
       </div>
+
+      
     </div>
-  ))}
-      </div>
-
-
-
-      </div>
-      <br />
-
-    </div>
-  )
+  );
 }

@@ -1,7 +1,9 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;   /* HARD STOP for horizontal scroll */
+  overflow-x: hidden;
+  /* HARD STOP for horizontal scroll */
 }
 
 .footer {
@@ -12,10 +14,11 @@ html, body {
   background-color: #16005d;
   color: white;
   padding: 25px 40px;
-  width: 100vw;              /* FORCE full viewport width */
+  width: 100%;
+  /* FORCE full viewport width */
   margin: 0;
   box-sizing: border-box;
- 
+
 }
 
 /* LEFT */
@@ -23,7 +26,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 12px;
-    
+
 }
 
 .footer-left img {
@@ -41,13 +44,15 @@ html, body {
 
 .copy {
   position: absolute;
-  bottom: 12px;               /* distance from bottom */
+  bottom: 12px;
+  /* distance from bottom */
   left: 50%;
   transform: translateX(-50%);
   font-size: 13px;
   font-weight: 300;
   color: #f3f3f3;
-  white-space: nowrap;        /*  single line */
+  white-space: nowrap;
+  /*  single line */
   text-align: center;
 }
 
@@ -74,7 +79,7 @@ html, body {
   gap: 8px;
   font-size: 14px;
 }
-    
+
 .footer-item svg {
   font-size: 20px;
   flex-shrink: 0;

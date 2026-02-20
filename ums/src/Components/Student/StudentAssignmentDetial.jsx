@@ -1,69 +1,245 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import './StudentAssignmentDetial.css'
-import Assignments from './AssignmentByCourse';
+import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import Assignments from "./AssignmentByCourse";
 
 function StudentAssignmentDetial() {
-    const { courseName, assignmentId } = useParams();
+  const { courseName, assignmentId } = useParams();
+  const navigate = useNavigate();
+
+  const [isSaved, setIsSaved] = React.useState(false);
+  const [hoverSave, setHoverSave] = React.useState(false);
+  const [hoverDownload, setHoverDownload] = React.useState(false);
 
   const assignments = Assignments[courseName] || [];
+  const assignment = assignments.find(
+    (a) => a.id === parseInt(assignmentId)
+  );
 
-  const assignment = assignments.find((a) => a.id === parseInt(assignmentId));
-
-  if(!assignment) {
-    return <div className='assign-empty'>Assignment not found</div>
+  if (!assignment) {
+    return (
+      <div
+        style={{
+          marginTop: "40px",
+          padding: "40px",
+          textAlign: "center",
+          backgroundColor: "#ffffff",
+          borderRadius: "16px",
+          color: "#0e0e0e",
+          fontSize: "16px",
+        }}
+      >
+        Assignment not found
+      </div>
+    );
   }
 
-  return (
-    <div className='assign-detial'>
-        <p className='path'>Courses &gt; {courseName.replaceAll("-", " ")} &gt; Assignment &gt; {assignment.title}</p>
+  const handleSaveUpload = () => {
+    setIsSaved(true);
+  };
 
-        <div className="assign-detail-card">
-        <div className="assign-detail-header">
-          <h2>{assignment.title}</h2>
+  return (
+    <div
+      style={{
+        minHeight: "calc(100vh - 120px)",
+        padding: "32px 48px",
+        backgroundColor: "#f6f7fb",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          fontSize: "16px",
+          fontWeight: "500",
+          color: "#16005D",
+          marginBottom: "20px",
+          flexWrap: "wrap",
+        }}
+      >
+        <span onClick={() => navigate(-3)} style={{ cursor: "pointer" }}>
+          courses
+        </span>
+
+        <span style={{ margin: "0 8px" }}>{">"}</span>
+
+        <span onClick={() => navigate(-3)} style={{ cursor: "pointer" }}>
+          {courseName.replaceAll("-", " ")}
+        </span>
+
+        <span style={{ margin: "0 8px" }}>{">"}</span>
+
+        <span onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
+          assignment
+        </span>
+
+        <span style={{ margin: "0 8px" }}>{">"}</span>
+
+        <span>{assignment.title}</span>
+      </div>
+
+      <div
+        style={{
+          backgroundColor: "#ffffff",
+          borderRadius: "16px",
+          padding: "28px 32px",
+          width: "100%",
+          boxShadow: "0 8px 22px rgba(0,0,0,0.12)",
+          marginTop: "12px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "28px",
+              fontWeight: "700",
+              color: "#16005d",
+              margin: 0,
+            }}
+          >
+            {assignment.title}
+          </h2>
+
           <span
-            className={`status ${
-              assignment.status === "Submitted" ? "submitted" : "pending"
-            }`}
+            style={{
+              padding: "6px 18px",
+              borderRadius: "20px",
+              fontSize: "13px",
+              fontWeight: "600",
+              backgroundColor:
+                assignment.status === "Submitted"
+                  ? "#d4edda"
+                  : "#fff3cd",
+              color:
+                assignment.status === "Submitted"
+                  ? "#155724"
+                  : "#856404",
+            }}
           >
             {assignment.status}
           </span>
         </div>
 
-        <p className="assign-meta">
+        <p style={{ marginTop: "12px", fontSize: "15px" }}>
           Posted by <strong>{assignment.postBy}</strong>
         </p>
-        <p className="assign-meta">
+
+        <p style={{ marginTop: "12px", fontSize: "15px" }}>
           Due date: <strong>{assignment.dueDate}</strong>
         </p>
 
-        <div className="assign-desc">
+        <div
+          style={{
+            marginTop: "22px",
+            fontSize: "16px",
+            lineHeight: "1.6",
+          }}
+        >
           <p>{assignment.description}</p>
         </div>
 
-
-        <div className='files'>
-
-        {assignment.staffFile && (
-        <div className="staff-file">
-            <p className="staff-file-label">Assignment File :</p>
-            <a href={"/uploads/dummy.pdf"} download className="download-btn"
+        <div
+          style={{
+            marginTop: "32px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {assignment.staffFile && (
+            <div
+              style={{
+                marginTop: "24px",
+                display: "flex",
+                alignItems: "center",
+                gap: "16px",
+              }}
             >
-            Download PDF
-            </a>
-        </div>
-        )}
+              <p
+                style={{
+                  fontSize: "15px",
+                  fontWeight: "600",
+                  margin: 0,
+                }}
+              >
+                Assignment File :
+              </p>
 
-        <div className="upload-box">
-          <input type="file" />
-          <button className="upload-btn">
-            Save & Upload
-          </button>
-        </div>
+              <a
+                href={"/uploads/dummy.pdf"}
+                download
+                onMouseEnter={() => setHoverDownload(true)}
+                onMouseLeave={() => setHoverDownload(false)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "20px",
+                  fontWeight: "600",
+                  fontSize: "14px",
+                  textDecoration: "none",
+                  border: "2px solid #16005d",
+                  transition: "0.3s",
+                  cursor: "pointer",
+                  backgroundColor: hoverDownload
+                    ? "#16005d"
+                    : "#ffffff",
+                  color: hoverDownload
+                    ? "#ffffff"
+                    : "#16005d",
+                }}
+              >
+                Download PDF
+              </a>
+            </div>
+          )}
+
+          <div
+            style={{
+              marginTop: "28px",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+            }}
+          >
+            <input type="file" />
+
+            <button
+              onClick={handleSaveUpload}
+              onMouseEnter={() => setHoverSave(true)}
+              onMouseLeave={() => setHoverSave(false)}
+              style={{
+                padding: "12px 28px",
+                borderRadius: "18px",
+                border: "2px solid #16005d",
+                fontSize: "16px",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "0.3s",
+                backgroundColor:
+                  isSaved || hoverSave
+                    ? "#16005d"
+                    : "#ffffff",
+                color:
+                  isSaved || hoverSave
+                    ? "#ffffff"
+                    : "#16005d",
+              }}
+            >
+              Save & Upload
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default StudentAssignmentDetial
+export default StudentAssignmentDetial;

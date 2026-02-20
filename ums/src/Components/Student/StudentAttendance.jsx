@@ -1,63 +1,151 @@
-import React from 'react'
-import './StudentAttendance.css'
-import courses from './Courses'
-import { useState } from 'react'
-import CircleIcon from '@mui/icons-material/Circle';
-
+import React, { useState } from "react";
+import courses from "./Courses";
+import CircleIcon from "@mui/icons-material/Circle";
+import AttendanceRules from "./AttendanceRules";
+import StudentDashboarddata from "./StudentDashboarddata";
 function StudentAttendance() {
+  const [activeTab, setActiveTab] = useState("attendance");
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
 
-    const OverallAttendance = 91.5;
-    const [activeTab,setActiveTAb] = useState("attendance");
+  
 
-    const getAttendanceClass=(value)=>{
-        if(value < 75)
-            return "low";
-        return "high";
-    }
+  const getAttendanceColor = (value) =>
+    value < 75 ? "#d32f2f" : "#1e7e34";
 
   return (
-    <div className='attendance-page'>
-        <div className='attendance-left'>
-            <button onClick={()=>{setActiveTAb("attendance")}} className={activeTab === "attendance" ? "ActiveTab" : " "}>Attendance</button>
-            <button onClick={()=>{setActiveTAb("courseAttendance")}} className={activeTab === "courseAttendance" ? "ActiveTab" : " "}>Course Attendance</button>
-        </div>
+    <div className="flex p-[40px] gap-[40px] min-h-[calc(100vh-80px)]">
 
-        <div className='attendance-right'>
-            {activeTab === "attendance" && (
-                <div className='attendance-Overall'>
-                    
-                    <div className="overall-attendance-card">
-                        <p className="overall-label">Overall Attendance</p>
-                        <p className={`overall-value-${OverallAttendance < 75 ? "low" :"high"}`}>{OverallAttendance}%</p>
-                    </div>
+      <div className="w-[220px] flex flex-col gap-[16px]">
 
-                    <div className='attendance-rules'>
-                        <h2>Attendance Rules & Regulations:</h2>
-                        <ul>
-                            <li><CircleIcon/>Minimum attendance required to appear for exams is 75%.</li>
-                            <li><CircleIcon/>Attendance is calculated based on the total number of classes held and attended.</li>
-                            <li><CircleIcon/>Students with attendance below 75% may be restricted from taking exams.</li>
-                            <li><CircleIcon/>Medical certificates must be submitted for absences due to illness.</li>
-                            <li><CircleIcon/>Attendance records are updated weekly; students should regularly check their status.</li>
-                            <li><CircleIcon/>Excessive absenteeism may lead to disciplinary action as per college policies.</li>
-                            <li><CircleIcon/>Students are encouraged to attend all classes to ensure academic success.</li>
-                        </ul>
-                    </div>
-                </div>
-            )}
-            {activeTab === "courseAttendance" && (
-                <div className='attendance-Course'>
-                    {courses.map((course)=>(
-                        <div className='course-attendance-card'>
-                            <p className='course-name'>{course.name}</p>
-                            <p className="course-attendance">Attendance : <span className={`course-attendance-${getAttendanceClass(course.attendance)}`} >{course.attendance}%</span></p>
-                        </div>
-                    ))}
-                </div>
-            )}
-        </div>
+        <button
+          onClick={() => setActiveTab("attendance")}
+          onMouseEnter={() => setHover1(true)}
+          onMouseLeave={() => setHover1(false)}
+          style={{
+            padding: "12px 18px",
+            borderRadius: "18px",
+            fontSize: "18px",
+            fontWeight: "600",
+            cursor: "pointer",
+            textAlign: "left",
+            transition: "0.3s",
+            width: "100%",
+
+            backgroundColor:
+              activeTab === "attendance" || hover1
+                ? "#16005d"
+                : "#ffffff",
+
+            color:
+              activeTab === "attendance" || hover1
+                ? "#ffffff"
+                : "#16005d",
+          }}
+        >
+          Attendance
+        </button>
+
+
+        <button
+          onClick={() => setActiveTab("courseAttendance")}
+          onMouseEnter={() => setHover2(true)}
+          onMouseLeave={() => setHover2(false)}
+          style={{
+            padding: "12px 18px",
+            borderRadius: "18px",
+            fontSize: "18px",
+            fontWeight: "600",
+            cursor: "pointer",
+            textAlign: "left",
+            transition: "0.3s",
+
+            backgroundColor:
+              activeTab === "courseAttendance" || hover2
+                ? "#16005d"
+                : "#ffffff",
+
+            color:
+              activeTab === "courseAttendance" || hover2
+                ? "#ffffff"
+                : "#16005d",
+          }}
+        >
+          Course Attendance
+        </button>
+
+      </div>
+
+      <div className="flex-1 border-l-2 border-[#ddd] pl-[40px] text-[16px]">
+
+        {activeTab === "attendance" && (
+          <>
+            <div
+              className="w-[460px] bg-[#fffff]/70 rounded-[26px] p-[28px_34px] mb-[40px] shadow-[0_5px_3px_rgba(22,0,93,0.18)] flex flex-col gap-[10px]"
+            >
+              <p className="text-[16px] font-semibold text-black">
+                Overall Attendance
+              </p>
+              <p
+                className="font-extrabold text-[44px]"
+                style={{
+                  color: getAttendanceColor(StudentDashboarddata.find(i => i.label === "Overall Attendance")?.value.replace("%", "") || 0),
+                }}
+              >
+                {StudentDashboarddata.find(i => i.label === "Overall Attendance")?.value || "0%"}
+              </p>
+            </div>
+
+            <div>
+              <h2 className="mb-[12px] text-[26px] text-[#16005d] font-bold">
+                Attendance Rules & Regulations:
+              </h2>
+
+                <ul className="pl-[20px] mt-[20px] list-none">
+                {AttendanceRules.map((rule, index) => (
+                  <li
+                    key={index}
+                    className="mb-[12px] flex items-start gap-[10px]"
+                  >
+                    <CircleIcon style={{ color: "#16005d", fontSize: "12px" }}
+                    />
+                    <span>{rule}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
+
+        {activeTab === "courseAttendance" && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[28px] w-full max-w-[1200px] items-stretch">
+            {courses.map((course, index) => (
+              <div
+                className="bg-white rounded-[18px] p-[22px_26px] w-full h-[120px] shadow-[0_3px_4px_rgba(0,0,0,0.08)] transition-all duration-200 flex flex-col gap-[10px] hover:-translate-y-[2px] hover:shadow-[0_5px_14px_rgba(0,0,0,0.16)] cursor-pointer"
+                key={index}
+              >
+                <p className="text-[18px] font-bold text-[#16005d]">
+                  {course.name}
+                </p>
+                <p className="text-[16px] font-medium text-[#333]">
+                  Attendance :
+                  <span
+                    className="font-bold ml-1"
+                    style={{
+                      color: getAttendanceColor(course.attendance),
+                    }}
+                  >
+                    {course.attendance}%
+                  </span>
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+      </div>
     </div>
-  )
+  );
 }
 
-export default StudentAttendance
+export default StudentAttendance;

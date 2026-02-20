@@ -18,13 +18,13 @@ body {
 
 .assignment-wrapper {
   width: 100%;
-  max-width: 1000px;
+  max-width: 100%;
 }
 
 .ass-head {
   display: flex;
-  align-items: center;        
-  justify-content: space-between; 
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 0;
 }
 
@@ -61,17 +61,17 @@ body {
   border-radius: 6px;
   cursor: pointer;
   width: 100px;
-  margin-left: 80px; 
+  margin-left: 80px;
 }
 
-.form-card :placeholder-shown{
+.form-card :placeholder-shown {
   align-items: center;
 }
 
 .save-btn:hover {
   background: #D9D9D9;
   color: #16005D;
-  border:2px solid #16005D  ;
+  border: 2px solid #16005D;
 }
 
 .form-card {
@@ -82,7 +82,8 @@ body {
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 30px;
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   padding: 20px;
   margin-top: 20px;
 }
@@ -129,7 +130,8 @@ body {
   padding: 14px;
   text-align: left;
   overflow: visible;
-  color: #16005D;}
+  color: #16005D;
+}
 
 .tables thead {
   background: #e5e7eb;
@@ -159,7 +161,7 @@ body {
   right: 0;
   top: 20px;
   background: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   z-index: 10;
 }
