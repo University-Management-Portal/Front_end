@@ -27,9 +27,6 @@ function AdminUserPage() {
   const [mode, setMode] = useState("add");
   const [editingUser, setEditingUser] = useState(null);
 
-  const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState([]);
-
   // 🔥 DATE FORMAT SAFE
   const formatDate = (value) => {
     if (!value) return "";
