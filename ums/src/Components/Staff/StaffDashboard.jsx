@@ -1,7 +1,5 @@
 import React from "react";
-import CalendarData from "./CalendarData";
 import ProfileData from "./ProfileData";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ProfCalender from "../Common/ProfCalender";
 
 export default function StaffDashboard() {
