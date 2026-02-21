@@ -20,7 +20,7 @@ export default function ResultDashboard() {
 
   const handleLogout = () => {
     setOpen(false);
-    navigate("/");
+    navigate("/result");
   };
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function ResultDashboard() {
         second: "numeric",
       });
       setDateTime(formatted);
-    }, 1000);
+    }, 500);
 
     return () => clearInterval(interval);
   }, []);

@@ -20,7 +20,7 @@ export default function ResultView() {
           second: "numeric",
         });
         setDateTime(formatted);
-      }, 1000);
+      }, 500);
   
       return () => clearInterval(interval);
     }, []);
