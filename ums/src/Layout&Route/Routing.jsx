@@ -50,6 +50,8 @@ import AdminLayout from '../Layout&Route/AdminLayout.jsx'
 import AdminSettings from '../Components/Admin/AdminSettings.jsx'
 import AdminAttendanceReport from '../Components/Admin/AdminAttendanceReport.jsx'
 import AdminSchedule from '../Components/Admin/AdminSchedule.jsx'
+import ResultDashboard from '../Components/Common/ResultDashboard.jsx'
+import ResultView from '../Components/Common/ResultView.jsx'
 
 
 
@@ -62,6 +64,9 @@ function Routing() {
         <Route path='/forget-password' element={<ForgetPassword/>} /> 
         <Route path='/reset-password' element={<ResetPassword/>} /> 
         <Route path='/result' element={<ResultPage/>} /> 
+        <Route path='/result-dashboard' element={<ResultDashboard/>} />
+        <Route path='/result-view' element={<ResultView/>} />
+
 
         <Route element={<Layout/>}>
           <Route path='/staff-dashboard' element={<StaffDashboard/>}/>
