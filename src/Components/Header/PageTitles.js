@@ -1,0 +1,42 @@
+const PageTitles = {
+    "/staff-dashboard" : "Dashboard",
+    "/staff-profile" : "Profile",
+    "/staff-schedule" : "Teaching Schedule",
+    "/staff-attendance" : "Attendance",
+    "/staff-internalmark" : "Internal Marks",
+    "/staff-studentlist" : "Student List",
+    "/staff-courses" : "Courses",
+    "/staff-course" : "Courses",
+    "/staff-announcement" : "Announcement",
+    
+    "/student-dashboard" : "Dashboard",
+    "/student-profile" : "Profile",
+    "/student-attendance" : "Attendance",
+    "/student-examination" : "Examination",
+    "/student-courses" : "Courses",
+    "/student-navcourse" : "Courses",
+    "/student-internalMarks" : "Internal Marks",
+    "/student-schedule" : "Schedule",
+    "/student-fees" : "Fees",
+    "/student-announcement" : "Announcement",
+
+    "/admin-dashboard" : "Dashboard",
+    "/admin-userpage" : "Users",
+    "/admin-attendance" : "Attendance",
+    "/admin-courses" : "Courses",
+    "/admin-departments" : "Departments",
+    "/admin-reports" : "Reports",
+    "/admin-settings" : "Settings",
+    "/admin-profile" : "Profile",
+    "/announcement" : "Announcement",
+
+    "/admin-report/attendance" : "Attendance",
+    "/admin-report/internal" : "Internal Marks",
+    "/admin-report/internal/table" : "Internal Marks",
+    "/admin-report/assignment" : "Assignment",
+    "/admin-report/assignment/table" : "Assignment",
+    "/admin-schedule" : "Schedule",
+    "/admin-result" : "Results"
+}
+
+export default PageTitles;

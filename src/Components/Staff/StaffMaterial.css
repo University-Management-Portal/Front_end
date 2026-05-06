@@ -1,0 +1,78 @@
+.staff-material-header {
+  background: url("/commen.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+  color: hsl(0, 100%, 100%);
+  padding: 22px 28px;
+  border-radius: 18px;
+  margin-bottom: 28px;
+  
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+
+  height: 180px;
+  display: flex;
+  align-items: center;
+}
+
+.create-folder-btn {
+  background-color: #16005D;
+  margin: 10px;
+  color: white;
+}
+
+.create-folder-btn:hover{
+    background-color: white;
+    color: #16005D;
+    border: #16005D 2px solid;
+}
+
+.add-folder-row {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.add-folder-row input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 8px;
+  border: 2px solid #16005D;
+}
+
+.add-folder-row button {
+  background: #16005D;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.folder-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  gap: 20px;
+}
+
+.folder-card {
+  background: #eee;
+  padding: 40px 10px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #16005D;
+  font-size: 20px;
+  font-weight: 600;
+  border: #16005D 2px solid;
+  width: 300px;
+  height: 150px;
+}
+.folder-card:hover{
+    color: #16005D;
+}
+

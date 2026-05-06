@@ -1,0 +1,217 @@
+.fee-page {
+    display:flex;
+  padding: 40px;
+  gap: 40px;
+  min-height: calc(100vh - 80px);
+}
+
+.fee-left {
+    width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fee-left button {
+    padding: 12px 18px;
+  border-radius: 18px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.fee-left button:hover,
+.fee-up button:hover {
+  background: #d9d9d9;
+  color: rgb(0, 0, 0);
+}
+
+.activeTab {
+  background: #16005d !important;
+  color: white !important;
+}
+
+.fee-right {
+    flex: 1;
+  border-left: 2px solid #ddd;
+  padding-left: 60px;
+  font-size: 16px;
+}
+
+.examfee-card{
+    width: 400px;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 28px 32px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  margin-top: 24px;
+  margin-left: 40px;
+}
+
+.examfee-card p {
+  font-size: 15px;
+  color: #333;
+}
+
+.fee-payment {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 70vh;  
+}
+
+.fee-up {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 20px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.fee-up button {
+  padding: 12px 26px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  background:transparent;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+
+  box-shadow: 0 6px 14px rgba(22, 0, 93, 0.25);
+
+  margin-right:20px;
+}
+
+/* Fee structure*/
+
+.fee-structure {
+  padding: 20px;
+}
+
+.fee-structure h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.fee-structure-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.fee-structure-table th,
+.fee-structure-table td {
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.fee-structure-table th {
+  background-color: #16005d;
+  color: white;
+  font-size: 16px;
+}
+
+.fee-structure-table tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.fee-structure-table td:last-child {
+  font-weight: 600;
+}
+
+.fee-structure-table tr:hover {
+    background-color: #e8e8e8;
+}
+
+.fee-structure-notes {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #b00020;
+}
+
+/* transaction */
+
+.transaction-container {
+  margin-top: 30px;
+}
+
+.transaction-container h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.transaction-table th {
+  background-color: #16005d;
+  color: #ffffff;
+}
+
+.transaction-table tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.transaction-table tr:hover {
+  background-color: #ececec;
+}
+
+/* STATUS BADGE */
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.paid {
+  background-color: #e6f4ea;
+  color: #1b7f3c;
+}
+
+/* RECEIPT BUTTON */
+.receipt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+  background-color: #16005d;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.receipt-btn:hover {
+  background-color: #d6ddff;
+  color: #16005d;
+}

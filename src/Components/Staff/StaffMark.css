@@ -1,0 +1,328 @@
+* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f5f6fa;
+}
+
+.staff-mark-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 15px 15px;
+}
+
+.top-bar {
+  width: 1100;
+  background-color: #16005D;
+  padding: 20px 25px;
+  border-radius: 12px;
+  color: white;
+  margin-right: 20px;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  flex-wrap: flex;
+
+}
+
+.edit-btn {
+  background-color: #1d0b5f;
+  color: white;
+  margin-left: 800px;
+}
+
+.edit-btn:hover {
+  background-color: #ffffff;
+  color: #16005D;
+  border: 2px solid #16005D;
+}
+
+.save-butn {
+  background-color: #1d0b5f;
+  color: white;
+}
+
+.save-butn:hover {
+  background-color: #ffffff;
+  color: #16005D;
+  border: 2px solid #16005D;
+}
+
+.download-btn {
+  background-color: #1d0b5f;
+  color: white;
+}
+
+.academic label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  margin-left: 44px;
+}
+
+.academic select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  margin-left: 24px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+  padding-left: 22px;
+}
+
+
+.sem label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  margin-left: 44px;
+}
+
+.sem select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  margin-left: 24px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+  padding-left: 29px;
+
+}
+
+
+.dept label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  margin-left: 44px;
+}
+
+.dept select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  margin-left: 24px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+  padding-left: 52px;
+}
+
+
+.sec label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  margin-left: 44px;
+}
+
+.sec select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  margin-left: 24px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+  padding-left: 29px;
+}
+
+
+.sub label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  margin-left: 44px;
+
+}
+
+.sub select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  margin-left: 24px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+  padding-left: 49px;
+}
+
+
+.action-bars {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.upload-butn {
+  padding: 0;
+  width: 210px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #16005D;
+  height: 38px;
+  text-align: center;
+  font-weight: 500;
+  padding-top: 5px;
+}
+
+.upload-butn:hover {
+  color: #16005D;
+  border: #16005D 2px solid;
+  background-color: white;
+}
+
+.edit-butn {
+  padding: 0;
+  width: 100px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #16005D;
+  height: 38px;
+  margin-left: 750px;
+}
+
+.edit-butn:hover {
+  color: #16005D;
+  border: #16005D 2px solid;
+  background-color: white;
+}
+
+
+.save-butn {
+  padding: 0;
+  width: 100px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #16005D;
+  height: 38px;
+}
+
+.save-butn:hover {
+  color: #16005D;
+  border: #16005D 2px solid;
+  background-color: white;
+}
+
+.download-butn {
+  padding: 0;
+  width: 150px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #16005D;
+  height: 38px;
+  margin-right: 20px;
+}
+
+.download-butn:hover {
+  color: #16005D;
+  border: #16005D 2px solid;
+  background-color: white;
+}
+
+
+
+.table-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #16005D;
+  color: white;
+}
+
+th {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #c9c9c9;
+}
+
+td {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #c9c9c9;
+}
+
+tbody tr td[colspan] {
+  padding: 30px;
+  font-size: 15px;
+  color: #1320b4;
+}

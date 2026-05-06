@@ -1,0 +1,92 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import axiosInstance from '../../api/axiosInstance';
+
+function StudentAssignment() {
+  const { courseName } = useParams();
+  const navigate = useNavigate();
+
+  const [assignments, setAssignments] = useState([]);
+  const [courseObj, setCourseObj] = useState(null);
+
+  useEffect(() => {
+    fetchAssignments();
+  }, [courseName]);
+
+  const fetchAssignments = async () => {
+    try {
+      const dept = localStorage.getItem("userDepartment");
+      if (!dept) return;
+
+      const courseRes = await axiosInstance.get(`/academic/courses/department/${encodeURIComponent(dept)}`);
+      const properName = courseName.replaceAll("-", " ");
+      const foundCourse = courseRes.data.find(c => c.courseCode.toLowerCase() === courseName.toLowerCase() || c.courseName.toLowerCase() === properName.toLowerCase());
+
+      if (foundCourse) {
+        setCourseObj(foundCourse);
+        const assignRes = await axiosInstance.get(`/academic/assignments/course/${foundCourse.id}`);
+        setAssignments(assignRes.data.filter(a => a.enabled));
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return (
+    <div className="min-h-[calc(100vh-120px)] p-[32px_48px] bg-[#f6f7fb]">
+      <div className="flex items-center text-[16px] font-medium text-[#16005D] mb-[20px]">
+
+        <span
+          onClick={() => navigate(-2)}
+          style={{ cursor: "pointer" }}
+          className="hover:underline"
+        >
+          courses
+        </span>
+
+        <span className="mx-2">&gt;</span>
+
+        <span
+          onClick={() => navigate(-2)}
+          style={{ cursor: "pointer" }}
+          className="hover:underline"
+        >
+          {courseObj ? `${courseObj.courseCode.toUpperCase()} / ${courseObj.courseName}` : courseName.replaceAll("-", " ")}
+        </span>
+
+        <span className="mx-2">&gt;</span>
+
+        <span
+          onClick={() => navigate(-1)}
+          style={{ cursor: "pointer" }}
+          className="hover:underline">
+          Assignments
+        </span>
+
+      </div>
+
+
+      <h2 className="text-[28px] font-bold text-[#16005d] mb-[28px]">Assignments</h2>
+
+      {assignments.length === 0 ? (
+        <div className="mt-[40px] p-[40px] text-center bg-white rounded-[16px] text-[#0e0e0e] text-[16px]">
+          <p>No assignments assigned</p>
+        </div>
+      ) : (
+        assignments.map((a) => (
+          <div key={a.id} className='bg-[#e6e6e6] rounded-[14px] p-[18px_22px] mb-[18px] cursor-pointer transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_18px_rgba(0,0,0,0.12)]'>
+            <div className='flex items-start gap-[14px]'>
+              <AssignmentIcon className='text-[32px] text-[#16005d] mt-[2px]' style={{ fontSize: '32px', color: '#16005d' }} />
+              <Link to={`/student-courses/${courseName}/assignments/${a.id}`} className='text-[16px] font-semibold text-[#16005d] no-underline leading-[1.4] hover:underline'>
+                {a.postedBy} posted a new assignment : {a.title}
+              </Link>
+            </div>
+            <p className='text-[13px] text-[#555] mt-[6px] pl-[46px]'>Due Date : {a.dueDate}</p>
+          </div>))
+      )}
+    </div>
+  );
+}
+
+export default StudentAssignment;

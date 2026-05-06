@@ -1,0 +1,203 @@
+import React, { useState } from 'react';
+import SearchIcon from "@mui/icons-material/Search";
+import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete"
+import EditIcon from '@mui/icons-material/Edit';
+import DownloadIcon from '@mui/icons-material/Download';
+
+function UserActionBar({
+  search,
+  setSearch,
+  onBulkUpload,
+  onSelectAll,
+  onDelete,
+  onAddOne,
+  onEdit,
+  hasSelection,
+  select,
+  onDownloadTemplate
+}) {
+
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
+  const [hover4, setHover4] = useState(false);
+  const [hover5, setHover5] = useState(false);
+  const [hover6, setHover6] = useState(false);
+
+  return (
+    <div className="flex items-center justify-between gap-[14px] my-[16px] mt-[20px] mb-[10px] w-full px-[10px]">
+
+      <div className="flex items-center bg-[#e0e0e0] px-[12px] py-[6px] rounded-[20px] min-w-[350px]">
+        <SearchIcon />
+        <input
+          type="text"
+          placeholder="Search Here"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="border-none outline-none bg-transparent ml-[6px] min-w-[300px]"
+        />
+      </div>
+
+      <div className="flex items-center gap-[10px] flex-wrap justify-end">
+
+        <button
+          onClick={onAddOne}
+          onMouseEnter={() => setHover1(true)}
+          onMouseLeave={() => setHover1(false)}
+          style={{
+            padding: "6px 14px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
+
+            backgroundColor: hover1 ? "#2d1a7a" : "#16005d",
+            color: "#ffffff"
+          }}
+        >
+          <AddIcon style={{ color: "inherit" }} />
+          Add one
+        </button>
+
+
+        <label
+          onMouseEnter={() => setHover2(true)}
+          onMouseLeave={() => setHover2(false)}
+          style={{
+            padding: "6px 14px",
+            borderRadius: "10px",
+            cursor: "pointer",
+            border: "2px solid #16005d",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
+
+            backgroundColor: hover2 ? "#2d1a7a" : "#16005d",
+            color: "#ffffff"
+          }}
+        >
+          <AddIcon style={{ color: "inherit" }} />
+          Add Bulk
+          <input
+            type="file"
+            accept=".xlsx,.xls"
+            hidden
+            onChange={onBulkUpload}
+          />
+        </label>
+
+        <button
+          onClick={onDownloadTemplate}
+          onMouseEnter={() => setHover6(true)}
+          onMouseLeave={() => setHover6(false)}
+          style={{
+            padding: "6px 14px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
+
+            backgroundColor: hover6 ? "#2d1a7a" : "#16005d",
+            color: hover6 ? "#ffffff" : "#ffffff" // Always white text
+          }}
+        >
+          <DownloadIcon style={{ color: "inherit" }} />
+          Get Template
+        </button>
+
+
+        <button
+          onClick={onSelectAll}
+          onMouseEnter={() => setHover3(true)}
+          onMouseLeave={() => setHover3(false)}
+          style={{
+            padding: "6px 14px",
+            minWidth: "130px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
+
+            backgroundColor: hover3 ? "#2d1a7a" : "#16005d",
+            color: "#ffffff"
+          }}
+        >
+          {select ? "Select All" : "Deselect All"}
+        </button>
+
+        <button
+          onClick={onEdit}
+          onMouseEnter={() => setHover4(true)}
+          onMouseLeave={() => setHover4(false)}
+          style={{
+            padding: "6px 14px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: "pointer",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
+
+            backgroundColor: hover4 ? "#2d1a7a" : "#16005d",
+            color: "#ffffff"
+          }}
+        >
+          <EditIcon style={{ color: "inherit" }} />
+          Edit
+        </button>
+
+
+        <button
+          onClick={onDelete}
+          disabled={!hasSelection}
+          onMouseEnter={() => setHover5(true)}
+          onMouseLeave={() => setHover5(false)}
+          style={{
+            padding: "6px 14px",
+            borderRadius: "10px",
+            border: "2px solid #16005d",
+            cursor: hasSelection ? "pointer" : "not-allowed",
+            opacity: hasSelection ? 1 : 0.9,
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            transition: "0.3s",
+
+            backgroundColor: hover5 ? "#2d1a7a" : "#16005d",
+            color: "#ffffff"
+          }}
+        >
+          <DeleteIcon style={{ color: "inherit" }} />
+          Delete
+        </button>
+
+      </div>
+    </div>
+  )
+}
+
+export default UserActionBar
